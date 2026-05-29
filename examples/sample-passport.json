@@ -1,0 +1,29 @@
+{
+  "passport_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "version": "1.0",
+  "issued_at": "2024-12-01T10:00:00.000Z",
+  "expires_at": "2025-01-01T10:00:00.000Z",
+  "principal": {
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "identity_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "agent": {
+    "name": "Claude",
+    "model": "claude-sonnet-4-6",
+    "agent_id": "f9e8d7c6-b5a4-3210-fedc-ba9876543210"
+  },
+  "scopes": [
+    "email.read",
+    "calendar.write",
+    "banking.readonly"
+  ],
+  "constraints": {
+    "max_transaction_usd": 500,
+    "allowed_domains": ["gmail.com", "calendar.google.com"],
+    "active_hours_utc": "08:00-20:00"
+  },
+  "signature": "abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+  "issuer_public_key_url": "https://example.com/.well-known/ai-passport-key",
+  "_note": "This is an example file. The signature above is a placeholder and will NOT verify. Run `ai-passport demo` for a real working example."
+}
