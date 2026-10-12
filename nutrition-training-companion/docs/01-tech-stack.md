@@ -2,7 +2,7 @@
 
 **Choice in one paragraph.** A TypeScript monorepo:
 
-* a **React Native + Expo** app, with custom native modules for HealthKit and on-device OCR;
+* a **React Native + Expo** app, with custom native modules for HealthKit and on-device OCR, styled with the **Apple Design System** (tokens, components and rules from the design system artifact; see [08-ui-design.md](08-ui-design.md));
 * a **Node.js (Fastify)** API and workers sharing one codebase;
 * **PostgreSQL 16** as the only datastore, including the job queue;
 * **AWS** under a Business Associate Agreement (BAA), with **Cognito** for auth, **KMS** for per-user envelope encryption and **Textract** as the OCR fallback;
@@ -15,6 +15,7 @@
 |---|---|---|---|
 | **Mobile framework** | React Native + Expo (development builds via EAS, not Expo Go), TypeScript | One codebase for iOS and Android. The domain logic (health rating, volume calculator, validators) is shared with the server, so feedback appears instantly offline and the server still has the final say. Expo config plugins handle entitlements and Info.plist. | **Native Swift + Kotlin**: best HealthKit and camera control, but two apps. **Flutter**: capable, but Dart cannot share code with a TypeScript backend. |
 | HealthKit | `@kingstinct/react-native-healthkit` (Expo config plugin), plus a small Swift module for background delivery if the library falls short | HealthKit is on-device only and needs a native app. The library covers authorisation and queries. Background delivery (observer queries, anchored queries, the `com.apple.developer.healthkit.background-delivery` entitlement) is the part most likely to need custom Swift. | `react-native-health`; a fully native iOS companion app |
+| UI system | The user's **Apple Design System**: `tokens.json` → generated `theme.ts` (Readable theme), its 18 components ported to React Native, SF Symbols via `expo-symbols` on iOS and a mapped Material Symbols set on Android | One source for every colour, size, radius and weight. The system's rules (one accent, pill CTAs, no shadows, 400/600/700 weights) are enforced by lint. See [08-ui-design.md](08-ui-design.md). | A third-party UI kit (would fight the design system) |
 | Barcode scanning | `react-native-vision-camera` code scanner | Fast EAN/UPC decoding on the device, and frame processors let the same camera pipeline feed OCR. | `expo-camera` barcode scanning (simpler, fewer controls) |
 | On-device OCR | Apple Vision text recognition on iOS; Google ML Kit Text Recognition v2 on Android (bundled model) | Free, works offline, and label photos never leave the phone by default. Bundle the Android model so the first scan does not depend on a download. | Cloud OCR only (cost, latency, privacy) |
 | Server OCR fallback | Amazon Textract (only for captures the user opts to upload) | Handles hard captures, and is on AWS's HIPAA-eligible list, so it is covered by the same BAA. | Google Cloud Vision (would need a second cloud BAA) |

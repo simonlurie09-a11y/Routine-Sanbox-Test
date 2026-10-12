@@ -54,8 +54,9 @@ In round numbers: Phase 0, 3 weeks; Phase 1, 10 weeks; Phase 2, 7 weeks; Phase 3
 | Postgres with migrations from `schema.sql`, RLS roles, KMS envelope encryption library, audit-log writer | The gate and audit invariants exist from day one. |
 | Consent model, versioned disclaimer, privacy policy draft, PHI-free logging | Privacy counsel reviews which laws apply (see risks). |
 | Export and delete pipelines (skeleton) | Privacy features ship with the MVP, not later. |
+| Apple Design System in React Native: `theme.ts` from `design/scripts/build-tokens.mjs`, the 18 system components plus `Switch` and `SourceCard`, root providers for `Alert`, `Sheet` and `Toast`, and lint rules for raw hex, weight 500, shadows and platform dialogs | Every later screen is built from these ([08-ui-design.md](08-ui-design.md)). |
 
-**Exit criteria:** `schema_test.sql` runs in CI; a request without a user context reads zero user rows; log scrubber tests pass.
+**Exit criteria:** `schema_test.sql` runs in CI; a request without a user context reads zero user rows; log scrubber tests pass; each ported component matches its design-system preview, and the design lint rules run in CI.
 
 ## 4.3 Phase 1: MVP, food logging and barcode scanning (about 10 weeks)
 

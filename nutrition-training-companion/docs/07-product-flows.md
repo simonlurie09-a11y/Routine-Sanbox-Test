@@ -2,12 +2,14 @@
 
 This document covers the product requirements behind the five deliverables: onboarding, the dashboard, the history view, how the health rating is explained, how splits are reviewed and changed, follow-up questions, wearable sharing controls, and safety rules.
 
+The visual design of these screens (Apple Design System tokens, components, palettes and mockups) is in [08-ui-design.md](08-ui-design.md).
+
 ## 7.1 Onboarding
 
 ```mermaid
 flowchart TD
   A["Welcome<br/>what the app does and does not do"] --> B["Medical disclaimer<br/>must be acknowledged"]
-  B --> C["Create account<br/>Apple / Google / email"]
+  B --> C["Create account<br/>Sign in with Apple, Google,<br/>or email + 6-digit code"]
   C --> D["Privacy choices<br/>health data processing (required)<br/>AI features (optional)<br/>label image upload (optional)<br/>analytics (off by default)"]
   D --> E{"Age 18 or over?"}
   E -- "No" --> E2["Cannot continue<br/>explain why"]
@@ -37,7 +39,7 @@ Design rules:
 
 | Card | Content | Data source |
 |---|---|---|
-| **Today's food** | Calories eaten vs target (ring); protein, carbs, fat and fibre bars vs targets; "2 entries are estimates" link to review them | `daily_nutrition`, `nutrition_targets` |
+| **Today's food** | Gauges (the design system's `StatGauge`) for calories, protein, carbs, fat and fibre vs target; "2 of today's 7 entries are estimates" with a link to review them | `daily_nutrition`, `nutrition_targets` |
 | **Training load (this week)** | Weighted hard sets per muscle vs plan (bar per muscle group, so under- and over-shooting are visible); sessions done vs planned; cardio minutes; the vendor's own load score (e.g. "WHOOP strain") labelled by vendor if connected | `set_logs`, `split_versions.weekly_volume`, `wearable_workouts` |
 | **Recovery** | Readiness level (normal, reduced, low or unknown) with its drivers in plain words, e.g. "HRV 41 ms vs your Oura 28-day baseline 52 ± 6 ms" and "Slept 5 h 40 min vs your 7 h 15 min average". Each driver names the device and the date. Vendor recovery and readiness scores are shown separately, with the vendor's name. | `readiness_snapshots`, `wearable_daily_metrics` |
 | **Suggestions** | Pending recommendations with a one-line rationale and a "Why?" link to the diff, drivers and citations | `recommendations` |
