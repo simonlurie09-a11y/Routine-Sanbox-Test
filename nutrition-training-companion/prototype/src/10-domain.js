@@ -26,7 +26,10 @@
       return h ? `${h} h ${mm} min` : `${mm} min`;
     },
     dayMonth: (ts) => new Date(ts).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }),
-    weekdayLong: (ts) => new Date(ts).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }),
+    weekdayLong: (ts) => {
+      const d = new Date(ts);
+      return `${d.toLocaleDateString('en-GB', { weekday: 'long' })}, ${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long' })}`;
+    },
     weekday: (n) => ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][n],
     time: (ts) => new Date(ts).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }),
     relativeDay: (ts) => {

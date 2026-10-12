@@ -133,7 +133,13 @@ ${files.map((f) => `<script src="src/${f}"></script>`).join('')}
       }, selectorOrLabel);
       const el = handle.asElement();
       if (!el) throw new Error(`type: no input for "${selectorOrLabel}"`);
-      await el.click({ clickCount: 3 });
+      /* Replace, don't append: focus, select everything, delete, then type. */
+      await el.focus();
+      await page.evaluate((input) => input.select && input.select(), el);
+      await page.keyboard.down('Control');
+      await page.keyboard.press('KeyA');
+      await page.keyboard.up('Control');
+      await page.keyboard.press('Backspace');
       await el.type(String(value));
       await settle(200);
     },

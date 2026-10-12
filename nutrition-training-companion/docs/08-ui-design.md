@@ -291,7 +291,7 @@ Review every screen against the system's own checklist ([checklist.md](https://c
 - Estimated values say so and show a range. Logged estimates carry their confidence to the dashboard.
 - Every suggestion shows the diff, the drivers with device and date, the claim, each study with its findings and limitations, and the disclaimer.
 - Insufficient evidence, verification unavailable and safety holds are answers (`EmptyState` / badges), never error toasts.
-- No health values appear in toasts, push notifications or the app-switcher snapshot.
+- No health values appear in push notifications or the app-switcher snapshot. In-app toasts may confirm what was just logged ("Logged 1 bar, 165 kcal") because the app is already open.
 
 ## 8.12 Open questions for the design-system owner
 

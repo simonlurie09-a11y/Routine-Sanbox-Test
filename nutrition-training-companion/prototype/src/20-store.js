@@ -63,7 +63,8 @@
       profile: {
         name: '', email: '', goal: 'muscle_gain', heightCm: 180, weightKg: 82, birthYear: 1994,
         sexForEquations: 'unspecified', experience: 'intermediate', daysPerWeek: 4, sessionMinutes: 60,
-        equipment: D.EQUIPMENT.slice(), safetyFlags: [], injuryRegions: [], healthNotes: ''
+        equipment: D.EQUIPMENT.slice(), safetyFlags: [], injuryRegions: [], healthNotes: '',
+        signInMethod: null, splitSource: 'sample', notificationsAllowed: false
       },
       consents: {
         health_data_processing: true, ai_processing: true, scan_image_upload: false,

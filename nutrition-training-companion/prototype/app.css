@@ -408,6 +408,23 @@ ul {
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-md);
 }
+/* Let grid cells shrink below their content's natural width (inputs). */
+.grid2 > * {
+  min-width: 0;
+}
+/* When one gauge's value wraps, keep every track in the row on one line. */
+.grid2 .ads-gauge__track {
+  margin-top: auto;
+}
+
+/* Today's fixed (non-collapsing) hero, as in the design-system dashboard. */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-base);
+  padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-base);
+}
 .tabular {
   font-variant-numeric: tabular-nums;
 }
@@ -603,6 +620,7 @@ button.ads-group__row {
 .stepper__value {
   min-width: 40px;
   text-align: center;
+  line-height: 32px;
 }
 
 /* Selectable option card with a leading icon */
