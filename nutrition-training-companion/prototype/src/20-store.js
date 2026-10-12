@@ -229,7 +229,10 @@
     },
     /* Close every modal, switch tab and open a screen there. */
     openIn(tab, key, params) {
-      setNav((n) => ({ ...n, modals: [], tab, stacks: { ...n.stacks, [tab]: key === tab ? [n.stacks[tab][0]] : [n.stacks[tab][0], entry(key, params)] }, direction: 'forward' }));
+      setNav((n) => {
+        const root = key === tab && params ? { ...n.stacks[tab][0], params, id: uid('nav') } : n.stacks[tab][0];
+        return { ...n, modals: [], tab, stacks: { ...n.stacks, [tab]: key === tab ? [root] : [root, entry(key, params)] }, direction: 'forward' };
+      });
     },
     current() {
       const n = state.nav;
@@ -375,8 +378,18 @@
     toggleDataType(provider, type, on) {
       setState((s) => ({ devices: { ...s.devices, [provider]: { ...s.devices[provider], dataTypes: { ...s.devices[provider].dataTypes, [type]: !!on } } } }));
     },
+    /* Pausing remembers the status it paused from, so resuming a device that
+       needed a reconnect still needs one. */
     pauseDevice(provider, paused) {
-      setState((s) => ({ devices: { ...s.devices, [provider]: { ...s.devices[provider], status: paused ? 'paused' : 'active' } } }));
+      setState((s) => {
+        const dev = s.devices[provider];
+        if (paused) {
+          if (dev.status === 'paused') return {};
+          return { devices: { ...s.devices, [provider]: { ...dev, status: 'paused', statusBeforePause: dev.status } } };
+        }
+        if (dev.status !== 'paused') return {};
+        return { devices: { ...s.devices, [provider]: { ...dev, status: dev.statusBeforePause || 'active', statusBeforePause: undefined } } };
+      });
     },
     /* Simulated OAuth (or HealthKit permission) round trip. */
     connectDevice(provider, dataTypes) {

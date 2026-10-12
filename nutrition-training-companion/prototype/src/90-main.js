@@ -132,7 +132,7 @@
       C.actions.closeOverlay();
       const presentation = (opts && opts.presentation) || meta.presentation || 'push';
       if (presentation === 'tab') {
-        C.actions.go(meta.tab || key);
+        C.actions.openIn(meta.tab || key, key, params || meta.demoParams || null);
       } else if (presentation === 'sheet' || presentation === 'cover') {
         if (meta.tab) C.actions.go(meta.tab);
         C.actions.present(key, p, presentation);
