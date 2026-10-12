@@ -8,7 +8,7 @@ This is the design for a mobile app that:
 * refuses to propose any change to a split or nutrition target unless it is backed by **at least 3 verified, peer-reviewed sources**;
 * uses WHOOP, Oura, Fitbit (through the Google Health API) and Apple Watch (through HealthKit) data to inform its suggestions.
 
-This folder contains design documents, a tested reference database schema, and UI mockups built with the Apple Design System. It is not an implementation, and it is unrelated to the AI Passport code at the repository root.
+This folder contains design documents, a tested reference database schema, UI mockups built with the Apple Design System, and a clickable browser prototype that runs on sample data. It is not a production implementation, and it is unrelated to the AI Passport code at the repository root.
 
 ## Deliverables
 
@@ -22,6 +22,7 @@ This folder contains design documents, a tested reference database schema, and U
 | + | Evidence gate specification, with a worked example | [docs/06-evidence-gate.md](docs/06-evidence-gate.md) |
 | + | Onboarding, dashboard, history view, health-rating rules, split-review rules, safety rules | [docs/07-product-flows.md](docs/07-product-flows.md) |
 | + | UI design using the Apple Design System: theme, status palettes, 13 screen mockups, icons, copy, React Native notes | [docs/08-ui-design.md](docs/08-ui-design.md), [design/](design/) |
+| + | Clickable prototype of every flow, with the real evidence gate, on sample data | [prototype/](prototype/) (open `prototype/dist/index.html`) |
 
 ## The decisions that shape everything else
 
@@ -65,5 +66,6 @@ This folder contains design documents, a tested reference database schema, and U
 * `schema/schema.sql` loads cleanly on PostgreSQL 16, and `schema/schema_test.sql` passes. The tests cover the evidence gate (including the rule that every named claim needs 3 verified sources), immutability, the audit hash chain, row-level security, crypto-shredding and deletion cascades.
 * Every Mermaid diagram in `docs/` renders with mermaid-cli.
 * The 13 screens in `design/screens/` are rendered from the Apple Design System's own component bundle and tokens, without page errors. `design/generated/theme.ts` is generated from the system's `tokens.json` and typechecks under `tsc --strict`.
+* The prototype's smoke test (`prototype/scripts/smoke.mjs --dist`) opens every registered screen and variant in Chromium without page errors.
 * Platform facts (API limits, approval processes, shutdown dates) were checked on 2026-10-12 against the sources listed in [docs/05-risks.md §5.7](docs/05-risks.md#57-sources-for-the-platform-facts-above-checked-2026-10-12). Where only third-party sources were available, the text says so.
 * The three citations in the worked example ([docs/06-evidence-gate.md §6.8](docs/06-evidence-gate.md#68-worked-example)) were checked by hand via web search, not by the automated pipeline. The build environment could not reach PubMed or Crossref directly. The pipeline must re-verify them before production use.
