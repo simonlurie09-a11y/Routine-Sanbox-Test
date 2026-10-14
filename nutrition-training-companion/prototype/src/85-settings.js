@@ -335,6 +335,15 @@
       .map((f, i) => (i === 0 ? f.format(values[f.key]) : `${f.format(values[f.key])} ${f.name.toLowerCase()}`)).join(', ');
   }
 
+  /* Runs the evidence gate on one target and opens the answer. */
+  function checkTarget(key, label) {
+    const text = label;
+    const intent = { type: 'nutrition_target', nutrient: key, summary: `Check your daily ${M.TARGET_RULES[key].label} target against the evidence.` };
+    const draft = M.evaluateChange(intent, C.getState(), { requestText: text });
+    const id = A.createRecommendation(draft, { trigger: 'user_request', requestText: text });
+    A.push('recommendation', { id });
+  }
+
   function Targets() {
     const s = C.useApp();
     const t = s.targets;
@@ -360,11 +369,19 @@
         <div className="stack">
           ${field(TARGET_FIELDS[0])}
           <div className="grid2">${TARGET_FIELDS.slice(1).map(field)}</div>
-          <${Caption}>${`These are your targets. We only suggest targets once our nutrition evidence has ${M.REQUIRED_SOURCES} verified studies per claim.${edHistory ? " We won't suggest calorie targets." : ''}`}<//>
+          <${Caption}>${`These are your targets. We suggest a change only when its claim has ${M.REQUIRED_SOURCES} verified studies.${edHistory ? " We won't suggest calorie targets." : ''}`}<//>
           <${Actions}>
             <${Button} fullWidth=${true} label="Save targets" disabled=${!changed || !ok} onPress=${save} />
           <//>
         </div>
+
+        <${Section} title="Check against the evidence" caption="We look at your target, your goal and your weight, and suggest a change only if verified studies back it.">
+          <${Rows} rows=${[['proteinG', 'Check my protein target'], ['fiberG', 'Check my fibre target']].map(([key, label]) => ({
+            key, label, icon: 'checkmark.seal.fill', iconColor: 'ink',
+            detail: M.claimByKey(M.TARGET_RULES[key].claim) && M.claimByKey(M.TARGET_RULES[key].claim).status === 'active' ? 'Backed by verified studies.' : 'Not enough evidence yet. We\'ll tell you why.',
+            onPress: () => checkTarget(key, label)
+          }))} />
+        <//>
 
         <${Section} title="Changes" caption="Newest first. Every change is also in History, under Nutrition.">
           <${Rows} rows=${history.map((h, i) => ({

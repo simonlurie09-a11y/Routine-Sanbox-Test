@@ -35,7 +35,7 @@ const CDN = {
   'https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js': 'react-dom/umd/react-dom.production.min.js',
   'https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js': 'htm/dist/htm.umd.js'
 };
-const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.png': 'image/png' };
+const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.png': 'image/png' };
 
 export async function launch(opts = {}) {
   const puppeteer = require('puppeteer-core');

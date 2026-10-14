@@ -242,7 +242,7 @@
       <${CardTitle}>${rec.title}<//>
       <${Callout}>${fromReview ? `From your split review, backed by ${studies}.` : `From your request, backed by ${studies}.`}<//>
       <${CardFooter}>
-        <${Caption}>${`Split version ${rec.fromVersion != null ? rec.fromVersion : s.split.current} to ${next}`}<//>
+        <${Caption}>${rec.kind === 'target_change' ? 'Your daily targets' : `Split version ${rec.fromVersion != null ? rec.fromVersion : s.split.current} to ${next}`}<//>
         <${Glyph} name="chevron.right" size=${18} color="inkMuted48" />
       <//>
     <//>`;

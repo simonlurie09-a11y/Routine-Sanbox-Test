@@ -99,7 +99,7 @@ These are tested in `schema_test.sql`.
 
 | Method & path | Purpose |
 |---|---|
-| `GET /v1/foods/barcode/{gtin}` | Lookup chain: mirror/cache → Open Food Facts → FDC. Returns `found`, `pending` (202) or `not_found` (404, with `fallback: "ingredient_scan"`). |
+| `GET /v1/foods/barcode/{gtin}` | Lookup chain: mirror/cache → Open Food Facts → FDC. Returns `found`, `pending` (202) or `not_found` (404, with `fallback: "ingredient_scan"`). The app sends the GTIN-14 it read from a linear barcode, a GS1 Digital Link QR code or a GS1 element string; it never sends a QR code's full contents. |
 | `GET /v1/foods/search?q=` | Text search across the shared catalogue and the user's private foods. |
 | `GET /v1/foods/{id}` · `GET /v1/foods/{id}/health-rating` | Food detail and the explained rating. |
 | `POST /v1/foods/custom` | User-defined food. |

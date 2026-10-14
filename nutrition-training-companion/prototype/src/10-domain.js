@@ -540,6 +540,8 @@
       const primary = Object.entries(exercise.credit).find(([, c]) => c === 1)[0];
       return { type: 'add_exercise', exercise: exercise.id, muscle: primary, summary: `Add ${exerciseWords(exercise.name)} to grow your ${muscleById(primary).name.toLowerCase()}.` };
     }
+    if (/\bprotein\b/.test(t)) return { type: 'nutrition_target', nutrient: 'proteinG', summary: 'Check your daily protein target against the evidence.' };
+    if (/\bfib(re|er)\b/.test(t)) return { type: 'nutrition_target', nutrient: 'fiberG', summary: 'Check your daily fibre target against the evidence.' };
     if (/\b(stronger|strength|powerlifting|1rm|max)\b/.test(t)) return { type: 'switch_style', style: 'strength', summary: 'Switch your plan toward strength.' };
     if (/\b(run|running|marathon|5k|10k|cardio|endurance)\b/.test(t)) return { type: 'switch_style', style: 'hybrid', summary: 'Add running and move toward a hybrid plan.' };
     if (/\b(hybrid)\b/.test(t)) return { type: 'switch_style', style: 'hybrid', summary: 'Move toward a hybrid plan.' };
@@ -649,6 +651,80 @@
     return { definition: next, ops: diffDefinitions(def, next), deltas: [], minutes: [], repRange: target };
   }
 
+  /* Daily nutrition targets the gate can suggest, and the claim each rests on.
+     The numbers come from the claim's appliesTo (set by the evidence editor);
+     the fallbacks are used only if the claim is active but names no number. */
+  const TARGET_RULES = {
+    proteinG: { claim: 'nutrition.protein_intake_for_muscle_gain', label: 'protein', title: 'A higher protein target' },
+    fiberG: { claim: 'nutrition.fibre_intake_target', label: 'fibre', title: 'A higher fibre target' }
+  };
+  const firstNumber = (obj, keys, fallback) => {
+    for (const k of keys) if (obj && Number(obj[k]) > 0) return Number(obj[k]);
+    return fallback;
+  };
+  function evaluateTarget(intent, state, base, requestText) {
+    const rule = TARGET_RULES[intent.nutrient];
+    const profile = state.profile || {};
+    const flags = profile.safetyFlags || [];
+    const claim = claimByKey(rule.claim);
+    const verified = verifiedSourcesFor(claim);
+    const ask = { ...base, kind: 'target_change', claimKey: rule.claim, verifiedCount: verified.length };
+    if (flags.includes('pregnancy')) {
+      return { ...ask, status: 'blocked_safety', reason: "You told us you're pregnant, so we don't suggest nutrition targets. A professional can tailor them to you." };
+    }
+    if (intent.nutrient === 'proteinG' && flags.includes('condition_reported') && !flags.includes('clinician_supervised')) {
+      return { ...ask, status: 'blocked_safety', reason: 'You told us about a medical condition, so we hold protein suggestions until a professional supervises your plan. Some conditions, such as kidney disease, need individual advice.' };
+    }
+    if (verified.length < REQUIRED_SOURCES) {
+      return { ...ask, status: 'blocked_insufficient_evidence',
+        reason: `Our evidence library doesn't yet have 3 verified studies behind a daily ${rule.label} target, so we haven't changed your targets.` };
+    }
+    const ap = claim.appliesTo || {};
+    const current = state.targets ? state.targets[intent.nutrient] : null;
+    let target;
+    let basis;
+    if (intent.nutrient === 'proteinG') {
+      const goals = Array.isArray(ap.goals) && ap.goals.length ? ap.goals : ['muscle_gain'];
+      if (!goals.includes(profile.goal)) {
+        return { ...ask, status: 'blocked_insufficient_evidence',
+          reason: `Our verified evidence on protein is about building muscle, and your goal is set to ${goalLabel(profile.goal).toLowerCase()}. So we haven't changed your targets.` };
+      }
+      if (!profile.weightKg) {
+        return { ...ask, status: 'blocked_constraints', reason: 'Add your weight in Profile so we can work out a protein target in grams.' };
+      }
+      const perKg = firstNumber(ap, ['targetGPerKg', 'proteinGPerKgPerDay', 'gPerKgPerDay', 'gPerKg'], 1.6);
+      target = Math.round(perKg * profile.weightKg);
+      basis = `${fmt.num(perKg, 1)} g per kg of body weight a day, which is ${target} g for ${fmt.num(profile.weightKg, 1)} kg`;
+    } else {
+      target = Math.round(firstNumber(ap, ['minGPerDay', 'targetMinGPerDay', 'targetGPerDay', 'minimumGPerDay'], 25));
+      basis = `at least ${target} g a day`;
+    }
+    if (current != null && current >= target) {
+      return { ...ask, status: 'not_needed',
+        reason: `Your ${rule.label} target of ${Math.round(current)} g already meets ${basis}, so there's nothing to change.` };
+    }
+    const before = current == null ? null : Math.round(current);
+    const name = capitalise(rule.label);
+    return {
+      ...ask,
+      status: 'proposed',
+      sourceIds: verified.map((x) => x.id),
+      title: rule.title,
+      proposal: {
+        targets: [{ key: intent.nutrient, label: name, before, after: target, unit: 'g' }],
+        ops: [{ op: 'change', dayKey: 'targets', exercise: intent.nutrient, name: `Daily ${rule.label}`,
+          text: `${before == null ? 'No target' : `${before} g`} to ${target} g a day: ${basis}.` }],
+        deltas: [], minutes: []
+      },
+      drivers: [
+        { label: 'You asked', detail: requestText ? `"${requestText}"` : intent.summary },
+        { label: `Your ${rule.label} target`, detail: before == null ? 'Not set.' : `${before} g a day.` },
+        intent.nutrient === 'proteinG' ? { label: 'Your weight', detail: `${fmt.num(profile.weightKg, 1)} kg, from your profile.` } : null,
+        { label: 'Your goal', detail: goalLabel(profile.goal) }
+      ].filter(Boolean)
+    };
+  }
+
   /* Decide what the app may do with an intent. Returns a recommendation draft.
      opts.requestText is the user's own words, shown as a driver. */
   function evaluateChange(intent, state, opts) {
@@ -658,6 +734,7 @@
     const base = { intent, required: REQUIRED_SOURCES, disclaimerVersion: D.DISCLAIMER.version };
     if (intent.type === 'unknown') return { ...base, status: 'not_understood' };
     if (intent.type === 'remove_exercise') return { ...base, status: 'user_edit' };
+    if (intent.type === 'nutrition_target') return evaluateTarget(intent, state, base, requestText);
 
     const notEnough = 'Our evidence library doesn\'t yet have 3 verified studies behind this kind of change, so we haven\'t changed your plan.';
     if (intent.type === 'switch_style' && intent.style === 'strength') {
@@ -865,7 +942,7 @@
     exerciseById, muscleById, weeklyVolume, groupVolume, dayMinutes, dayLabelWithWeekday, reviewSplit,
     diffDefinitions, volumeDeltas, summarizeOps,
     exerciseWords,
-    parseIntent, MAIN_LIFTS, REQUIRED_SOURCES, sourceById, isVerified, claimByKey, verifiedSourcesFor,
+    parseIntent, TARGET_RULES, MAIN_LIFTS, REQUIRED_SOURCES, sourceById, isVerified, claimByKey, verifiedSourcesFor,
     safetyCheck, buildVolumeProposal, evaluateChange, currentDefinition,
     readiness, evaluateRecoveryAdjustment, notifications,
     GOALS, goalLabel

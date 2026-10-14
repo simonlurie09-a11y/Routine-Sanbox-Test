@@ -70,7 +70,10 @@
   }
 
   /* ---------------------------------------------------- recommendations */
-  const EXTRA_LABELS = { blocked_constraints: 'Didn’t fit', not_understood: 'Not understood', user_edit: 'Your edit' };
+  const EXTRA_LABELS = { blocked_constraints: 'Didn’t fit', not_understood: 'Not understood', user_edit: 'Your edit', not_needed: 'No change needed' };
+  /* Suggestions about daily nutrition targets rather than the split. */
+  const isTarget = (rec) => rec.kind === 'target_change' || !!(rec.intent && rec.intent.type === 'nutrition_target');
+  const targetChange = (rec) => (rec.proposal && rec.proposal.targets && rec.proposal.targets[0]) || null;
   function RecBadge({ status }) {
     const known = C.palettes.recommendation[status];
     return html`<${Badge} palette="recommendation" status=${status} label=${known ? undefined : (EXTRA_LABELS[status] || status)} />`;
@@ -206,15 +209,28 @@
   function ProposedView({ s, rec, ctx }) {
     const next = nextVersionNumber(s);
     const stale = rec.fromVersion != null && rec.fromVersion !== s.split.current;
+    const tc = isTarget(rec) ? targetChange(rec) : null;
     const apply = () => {
       const res = A.acceptRecommendation(rec.id);
+      if (res.ok && tc) {
+        A.toast(`Your daily ${tc.label.toLowerCase()} target is now ${tc.after} g`, 'success');
+        A.dismissAll();
+        A.openIn('today', 'targets');
+        return;
+      }
       if (res.ok) {
         A.toast(`Your split is now version ${res.version}`, 'success');
         A.dismissAll();
         A.openIn('training', 'training');
         return;
       }
-      if (res.reason === 'superseded') {
+      if (res.reason === 'superseded' && tc) {
+        A.alert({
+          title: 'Your target has changed',
+          message: 'You changed this target after we made the suggestion, so it no longer fits and nothing changed. Ask again and we’ll check your current target.',
+          buttons: [{ label: 'Not now', style: 'cancel' }, { label: 'Ask again', onPress: () => askAgain(rec, ctx) }]
+        });
+      } else if (res.reason === 'superseded') {
         A.alert({
           title: 'Your split has changed',
           message: `You saved version ${C.getState().split.current} after we made this suggestion, so it no longer fits and nothing changed. Ask again and we’ll check your current split.`,
@@ -232,7 +248,9 @@
     };
     const confirm = () => A.alert({
       title: 'Apply this change?',
-      message: `Your split moves to version ${next}. You can go back to version ${s.split.current} from History.`,
+      message: tc
+        ? `Your daily ${tc.label.toLowerCase()} target changes to ${tc.after} g. You can change it back in Targets.`
+        : `Your split moves to version ${next}. You can go back to version ${s.split.current} from History.`,
       buttons: [{ label: 'Cancel', style: 'cancel' }, { label: 'Apply', onPress: apply }]
     });
     const decline = () => {
@@ -240,13 +258,13 @@
       A.toast('Suggestion declined');
       A.pop();
     };
-    const subtitle = stale ? `${s.split.name}, made for version ${rec.fromVersion}` : `${s.split.name}, version ${s.split.current} to ${next}`;
+    const subtitle = tc ? 'Your daily targets' : stale ? `${s.split.name}, made for version ${rec.fromVersion}` : `${s.split.name}, version ${s.split.current} to ${next}`;
     return html`<${Screen} title="Suggested change" subtitle=${subtitle}>
       <${Sections}>
         <div className="stack-sm">
           <div className="row"><${RecBadge} status="proposed" /></div>
           <${Callout}>${originLine(rec)}<//>
-          ${stale ? html`<${Caption}>${`You saved version ${s.split.current} after we made this, so it may no longer fit. Applying it checks again.`}<//>` : null}
+          ${stale && !tc ? html`<${Caption}>${`You saved version ${s.split.current} after we made this, so it may no longer fit. Applying it checks again.`}<//>` : null}
         </div>
         <${ChangesSection} title="What changes" proposal=${rec.proposal} />
         <${Section} title="Why we suggest it"><${DriversList} drivers=${rec.drivers || []} /><//>
@@ -265,6 +283,23 @@
   function AcceptedView({ s, rec }) {
     const to = rec.toVersion;
     const when = rec.decidedAt ? longDate(rec.decidedAt) : 'an earlier date';
+    const tc = isTarget(rec) ? targetChange(rec) : null;
+    if (tc) {
+      return html`<${Screen} title="Applied change" subtitle="Your daily targets">
+        <${Sections}>
+          <div className="stack-sm">
+            <div className="row"><${RecBadge} status="accepted" /></div>
+            <${Callout}>${`Applied on ${when}. Your daily ${tc.label.toLowerCase()} target became ${tc.after} g.`}<//>
+            <${Caption}>${originLine(rec)}<//>
+            <${LinkButton} align="flex-start" label="See your targets" onPress=${() => A.push('targets')} />
+          </div>
+          <${ChangesSection} title="What changed" proposal=${rec.proposal} />
+          <${Section} title="Why we suggested it"><${DriversList} drivers=${rec.drivers || []} /><//>
+          <${EvidenceSection} rec=${rec} caption="The claim and studies as we showed them when you applied this." />
+          <${DisclaimerBand} />
+        <//>
+      <//>`;
+    }
     const line = to === s.split.current ? `Applied on ${when}. Your split is now version ${to}.` : `Applied on ${when}. It became version ${to}; your split is now version ${s.split.current}.`;
     return html`<${Screen} title="Applied change" subtitle=${`${s.split.name}, version ${rec.fromVersion} to ${to}`}>
       <${Sections}>
@@ -284,8 +319,11 @@
 
   /* Blocked answers: the EmptyState layout, never an error (docs/08 §8.11). */
   function BlockedView({ s, rec, ctx }) {
-    const keep = html`<${Button} fullWidth=${true} variant="outline" label="Keep my current split" onPress=${() => A.pop()} />`;
-    const own = 'Your own edits are always yours to make. We’ll label them “Your edit” in History.';
+    const target = isTarget(rec);
+    const keep = html`<${Button} fullWidth=${true} variant="outline" label=${target ? 'Keep my targets' : 'Keep my current split'} onPress=${() => A.pop()} />`;
+    const own = target ? 'Your targets are always yours to set, in Targets.' : 'Your own edits are always yours to make. We’ll label them “Your edit” in History.';
+    const editOwn = () => (target ? A.push('targets') : editMyself(ctx));
+    const editLabel = target ? 'Set my targets myself' : 'Edit my split myself';
     let answer;
     let actions;
     let caption = own;
@@ -295,17 +333,21 @@
       actions = html`<${Button} fullWidth=${true} label="Update your health details" onPress=${() => A.push('profile')} />${keep}`;
       caption = 'If something hurts, or you have a medical condition, a qualified professional such as a doctor or physiotherapist can tell you what’s safe to train.';
     } else if (rec.status === 'blocked_constraints') {
-      answer = html`<${EmptyAnswer} icon="info.circle" title="No room in your sessions" body=${rec.reason} />`;
-      actions = html`
+      answer = target
+        ? html`<${EmptyAnswer} icon="info.circle" title="We need a detail first" body=${rec.reason} />`
+        : html`<${EmptyAnswer} icon="info.circle" title="No room in your sessions" body=${rec.reason} />`;
+      actions = target
+        ? html`<${Button} fullWidth=${true} label="Update your profile" onPress=${() => A.push('profile')} />${keep}`
+        : html`
         <${Button} fullWidth=${true} label="Edit my split myself" onPress=${() => editMyself(ctx)} />
         <${Button} fullWidth=${true} variant="outline" label="Change your session length" onPress=${() => A.push('profile')} />`;
-      caption = `Your sessions are set to ${sessionLimit(s)} minutes. ${own}`;
+      caption = target ? own : `Your sessions are set to ${sessionLimit(s)} minutes. ${own}`;
     } else {
       answer = html`<${EmptyAnswer} icon="magnifyingglass" title="Not enough evidence yet" body=${rec.reason || 'We couldn’t verify enough studies for this change, so we haven’t changed your plan.'} />`;
-      actions = html`<${Button} fullWidth=${true} label="Edit my split myself" onPress=${() => editMyself(ctx)} />${keep}`;
+      actions = html`<${Button} fullWidth=${true} label=${editLabel} onPress=${editOwn} />${keep}`;
       evidence = html`<${EvidenceStatus} rec=${rec} />`;
     }
-    return html`<${Screen} title="Your request" subtitle="Your split is unchanged">
+    return html`<${Screen} title="Your request" subtitle=${target ? 'Your targets are unchanged' : 'Your split is unchanged'}>
       <div className="stack">
         <${YouAsked} rec=${rec} />
         ${answer}
@@ -320,24 +362,33 @@
   /* Declined, replaced and withdrawn suggestions: what happened and what next. */
   function ClosedView({ s, rec, ctx }) {
     const when = rec.decidedAt ? longDate(rec.decidedAt) : null;
+    const target = isTarget(rec);
+    const what = target ? 'your targets' : 'your split';
     let line;
     let primary;
     let showEvidence = true;
-    if (rec.status === 'rejected') {
-      line = `You declined this${when ? ` on ${when}` : ''}. Nothing in your split changed.`;
+    if (rec.status === 'not_needed') {
+      line = rec.reason;
+      primary = html`<${Button} fullWidth=${true} label="See your targets" onPress=${() => A.push('targets')} />`;
+    } else if (rec.status === 'rejected') {
+      line = `You declined this${when ? ` on ${when}` : ''}. Nothing in ${what} changed.`;
       primary = html`<${Button} fullWidth=${true} label="Ask again" onPress=${() => askAgain(rec, ctx)} />`;
     } else if (rec.status === 'superseded') {
-      line = 'Your split changed after we made this suggestion, so we didn’t apply it. Nothing changed. Ask again and we’ll check your current split.';
+      line = target
+        ? 'Your target changed after we made this suggestion, so we didn’t apply it. Ask again and we’ll check your current target.'
+        : 'Your split changed after we made this suggestion, so we didn’t apply it. Nothing changed. Ask again and we’ll check your current split.';
       primary = html`<${Button} fullWidth=${true} label="Ask again" onPress=${() => askAgain(rec, ctx)} />`;
     } else if (rec.status === 'withdrawn') {
-      line = `It no longer had ${verifiedStudies(M.REQUIRED_SOURCES)} behind it, so we withdrew it. Nothing in your split changed.`;
-      primary = html`<${Button} fullWidth=${true} label="Edit my split myself" onPress=${() => editMyself(ctx)} />`;
+      line = `It no longer had ${verifiedStudies(M.REQUIRED_SOURCES)} behind it, so we withdrew it. Nothing in ${what} changed.`;
+      primary = target
+        ? html`<${Button} fullWidth=${true} label="Set my targets myself" onPress=${() => A.push('targets')} />`
+        : html`<${Button} fullWidth=${true} label="Edit my split myself" onPress=${() => editMyself(ctx)} />`;
       showEvidence = false;
     } else {
       line = rec.reason || 'Nothing in your split changed.';
       primary = html`<${Button} fullWidth=${true} label="Ask for a change" onPress=${() => askAgain(rec, ctx)} />`;
     }
-    return html`<${Screen} title="Suggested change" subtitle="Your split is unchanged">
+    return html`<${Screen} title=${rec.status === 'not_needed' ? 'Your request' : 'Suggested change'} subtitle=${target ? 'Your targets are unchanged' : 'Your split is unchanged'}>
       <${Sections}>
         <div className="stack-sm">
           <div className="row"><${RecBadge} status=${rec.status} /></div>
@@ -386,7 +437,7 @@
       <${CardTitle}>${rec.title}<//>
       <${Callout}>${`${isFromReview(rec) ? 'From your split review' : 'From your request'}, backed by ${verifiedStudies(n)}.`}<//>
       <${CardFooter}>
-        <${Caption}>${stale ? `Made for version ${rec.fromVersion}` : `Version ${s.split.current} to ${nextVersionNumber(s)}`}<//>
+        <${Caption}>${isTarget(rec) ? 'Your daily targets' : stale ? `Made for version ${rec.fromVersion}` : `Version ${s.split.current} to ${nextVersionNumber(s)}`}<//>
         <${Glyph} name="chevron.right" size=${18} color="inkMuted48" />
       <//>
     <//>`;
@@ -533,7 +584,7 @@
   }
 
   /* ------------------------------------------------------- change request */
-  const EXAMPLES = ['A bigger back', 'Wider shoulders', 'Get stronger', 'Add running', 'Remove cable fly'];
+  const EXAMPLES = ['A bigger back', 'Wider shoulders', 'Get stronger', 'More protein', 'Add running', 'Remove cable fly'];
 
   function ChangeRequest({ params }) {
     const [text, setText] = useState(params.text || '');

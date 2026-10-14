@@ -28,6 +28,7 @@ Read these before writing a screen:
 | `60-food.js` | builder C | Food tab and every food flow |
 | `70-training.js` | builder D | Training tab, split, change requests, recommendation detail, workouts |
 | `80-history.js`, `85-settings.js` | builder E | History, notifications, Settings and everything under it |
+| `87-evidence.js` | core | Evidence library: claims, their studies, the dataset catalogue and downloads |
 | `90-main.js` | core | router, shell, overlays, side-panel tour, debug hook, mount (loads last) |
 
 **Only edit the files you own.** If you need something from core (a new action, selector or UI piece), do not edit core files. Implement a local helper in your own file, and list the request in your final report.
@@ -85,7 +86,8 @@ Read these before writing a screen:
 * **Selectors** (`C.selectors`): `todayEntries`, `todayTotals`, `currentVersion`, `currentDefinition`, `weekSessions`, `weekDoneVolume`, `unreadNotifications`, `recommendation(s, id)`.
 * **The evidence gate is domain logic, not UI.**
   * Call `M.parseIntent(text)`, then `M.evaluateChange(intent, state, {requestText})`, then `A.createRecommendation(draft, {trigger, requestText})`.
-  * Show whatever status comes back: `proposed`, `blocked_insufficient_evidence`, `blocked_safety`, `blocked_constraints`, `not_understood`, or `user_edit`.
+  * Show whatever status comes back: `proposed`, `blocked_insufficient_evidence`, `blocked_safety`, `blocked_constraints`, `not_needed` (a target already meets the evidence), `not_understood`, or `user_edit`.
+  * Split changes have `kind: 'split_change'`; daily nutrition target suggestions (protein, fibre) have `kind: 'target_change'` and carry `proposal.targets: [{ key, label, before, after, unit }]`. Accepting one updates the targets and records a target-history entry with `origin: 'app_recommendation'`.
   * Never fabricate a proposal the gate did not return. Never show a source that `M.isVerified` rejects.
 
 ## Screen keys (fixed, so screens can link to each other)

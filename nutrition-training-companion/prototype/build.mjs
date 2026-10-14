@@ -146,7 +146,8 @@ const inlineScripts = [
   `<script>\n${guard(BUNDLE, read(BUNDLE))}\n</script>`,
   `<script>\n${srcFiles.map((f) => `/* src/${f} */\n${guard(f, readFileSync(join(here, 'src', f), 'utf8'))}`).join('\n')}\n</script>`
 ].join('\n');
-const dist = `<title>${TITLE}</title>
+const dist = `<meta charset="utf-8">
+<title>${TITLE}</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 ${css}

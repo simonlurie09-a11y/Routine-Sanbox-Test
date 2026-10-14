@@ -355,6 +355,23 @@
         setState((s) => ({ recommendations: s.recommendations.map((r) => (r.id === id ? { ...r, status: 'withdrawn', decidedAt: Date.now() } : r)) }));
         return { ok: false, reason: 'gate_failed' };
       }
+      if (rec.kind === 'target_change') {
+        const changes = (rec.proposal && rec.proposal.targets) || [];
+        const moved = changes.some((t) => Math.round(state.targets[t.key] == null ? -1 : state.targets[t.key]) !== (t.before == null ? -1 : t.before));
+        if (moved) {
+          setState((s) => ({ recommendations: s.recommendations.map((r) => (r.id === id ? { ...r, status: 'superseded', decidedAt: Date.now() } : r)) }));
+          return { ok: false, reason: 'superseded' };
+        }
+        setState((s) => {
+          const values = { energyKcal: s.targets.energyKcal, proteinG: s.targets.proteinG, carbohydrateG: s.targets.carbohydrateG, fatG: s.targets.fatG, fiberG: s.targets.fiberG };
+          changes.forEach((t) => { values[t.key] = t.after; });
+          return {
+            targets: { ...s.targets, ...values, history: [...s.targets.history, { at: Date.now(), origin: 'app_recommendation', recommendationId: id, values }] },
+            recommendations: s.recommendations.map((r) => (r.id === id ? { ...r, status: 'accepted', decidedAt: Date.now() } : r))
+          };
+        });
+        return { ok: true, targets: changes };
+      }
       if (rec.fromVersion !== state.split.current) {
         setState((s) => ({ recommendations: s.recommendations.map((r) => (r.id === id ? { ...r, status: 'superseded', decidedAt: Date.now() } : r)) }));
         return { ok: false, reason: 'superseded' };

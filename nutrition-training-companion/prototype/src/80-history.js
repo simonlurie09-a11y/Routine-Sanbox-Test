@@ -23,9 +23,9 @@
   ];
   /* Recommendation states where the split stayed as it was. */
   const NOT_CHANGED = ['blocked_insufficient_evidence', 'blocked_safety', 'blocked_constraints', 'blocked_verification_unavailable',
-    'rejected', 'superseded', 'withdrawn', 'expired'];
+    'rejected', 'superseded', 'withdrawn', 'expired', 'not_needed'];
   /* States the recommendation palette has no word for. */
-  const EXTRA_LABELS = { blocked_constraints: "Didn't fit" };
+  const EXTRA_LABELS = { blocked_constraints: "Didn't fit", not_needed: 'No change needed' };
   const TARGET_FIELDS = [
     { key: 'energyKcal', label: 'Calories', format: (v) => M.fmt.kcal(v) },
     { key: 'proteinG', label: 'Protein', format: (v) => M.fmt.g(v) },
@@ -173,7 +173,10 @@
 
   function NutritionList({ s }) {
     const history = s.targets.history || [];
-    const intro = html`<${Caption}>${`Target suggestions arrive once our nutrition evidence library has ${M.REQUIRED_SOURCES} verified studies per claim, so for now your targets are yours to set.`}<//>`;
+    const ready = Object.values(M.TARGET_RULES).filter((r) => M.verifiedSourcesFor(M.claimByKey(r.claim)).length >= M.REQUIRED_SOURCES).map((r) => r.label);
+    const intro = html`<${Caption}>${ready.length
+      ? `We suggest a target only when its claim has ${M.REQUIRED_SOURCES} verified studies. Today that covers ${M.listJoin(ready)}. Ask from Targets.`
+      : `Target suggestions arrive once our nutrition evidence library has ${M.REQUIRED_SOURCES} verified studies per claim, so for now your targets are yours to set.`}<//>`;
     if (!history.length) {
       return html`<div className="stack">
         ${intro}

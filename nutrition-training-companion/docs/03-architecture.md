@@ -96,8 +96,8 @@ sequenceDiagram
   participant DB as Postgres catalogue + cache
   participant OpenFF as Open Food Facts
   participant FDC as USDA FDC
-  U->>App: Scan barcode
-  App->>App: Validate check digit, normalise to GTIN-14
+  U->>App: Scan barcode or pack QR code
+  App->>App: Read the GTIN, validate check digit, normalise to GTIN-14
   App->>API: GET /v1/foods/barcode/{gtin}
   API->>DB: barcode_lookups + food_items (includes nightly mirrors)
   alt Cached and fresh
@@ -126,6 +126,9 @@ sequenceDiagram
 Rules:
 
 1. **Normalise first.** UPC-A (12 digits), EAN-13 and GTIN-14 for the same product differ only by leading zeros. Validate the check digit on the device, zero-pad to 14 digits, and use that as the key everywhere. Open Food Facts and FDC store codes in different lengths, so match on the normalised value only.
+   * **QR codes and Data Matrix on packs.** Some packs carry a 2D code instead of, or as well as, the linear barcode. The scanner decodes EAN-13, EAN-8, UPC-A, UPC-E, QR and Data Matrix. A 2D code can hold a GS1 Digital Link web address, where the GTIN follows the `/01/` path segment (for example `https://id.gs1.org/01/09506000134352/10/ABC123?17=270131`), or a GS1 element string, where it follows application identifier `(01)`. The app extracts the GTIN on the device and looks it up exactly like a linear barcode. Batch, serial and expiry stay on the device and are never used for lookup.
+   * A QR code that is an ordinary web link is not a product code. The app says so and offers the barcode, a typed number or a label photo instead. It never opens the link.
+   * The prototype implements this in `parseScan` (`prototype/src/10-domain.js`).
 2. **Use a local mirror.** The Open Food Facts documentation (as of October 2026) limits product reads to about 15 requests per minute per IP and search to 10, and FDC allows 1,000 requests per hour per IP. A server that forwards every scan would hit those limits with a few hundred active users. So:
    * Import the Open Food Facts and FDC Branded Foods bulk exports nightly into `food_items`. Most scans are answered locally.
    * Use the live API only for cache misses, with a token-bucket limiter below the published limits.
