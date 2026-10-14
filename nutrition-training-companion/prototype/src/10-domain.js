@@ -625,21 +625,28 @@
     return { definition: next, ops, deltas: volumeDeltas(def, next), minutes, reachedTarget: volume() >= target, after: volume(), before: weeklyVolume(def)[muscle] };
   }
 
-  /* Heavier loads on the main multi-joint lifts; other exercises keep their reps.
+  /* Heavier loads on main multi-joint lifts that are trained with light loads.
+     The verified claim (strength.low_rep_ranges) shows heavy loads (about 8 or
+     fewer reps) beat light loads (about 15 or more reps) for 1RM strength; it
+     does not show heavy beats moderate, so moderate lifts are left alone.
      Sets and rests stay as they are, so session length doesn't change. */
   const MAIN_LIFTS = ['bench-press', 'incline-bb-press', 'overhead-press', 'barbell-row', 'back-squat', 'romanian-deadlift'];
+  function strengthBands(claim) {
+    const ap = (claim && claim.appliesTo) || {};
+    const heavyMax = Number(ap.heavyLoadApproxMaxRepsPerSet) || 8;
+    const lightMin = Number(ap.lightLoadApproxMinRepsPerSet) || 15;
+    return { heavyMax, lightMin, target: [Math.max(3, heavyMax - 2), heavyMax] };
+  }
   function buildStrengthProposal(def, claim) {
-    const ap = claim.appliesTo || {};
-    const [repMin, repMax] = Array.isArray(ap.mainLiftRepRange) ? ap.mainLiftRepRange : [3, 6];
+    const { lightMin, target } = strengthBands(claim);
     const next = D.clone(def);
-    next.style = 'strength';
     next.days.forEach((d) => d.items.forEach((it) => {
-      if (MAIN_LIFTS.includes(it.exercise)) {
-        it.repMin = repMin;
-        it.repMax = repMax;
+      if (MAIN_LIFTS.includes(it.exercise) && it.repMin >= lightMin) {
+        it.repMin = target[0];
+        it.repMax = target[1];
       }
     }));
-    return { definition: next, ops: diffDefinitions(def, next), deltas: [], minutes: [], repRange: [repMin, repMax] };
+    return { definition: next, ops: diffDefinitions(def, next), deltas: [], minutes: [], repRange: target };
   }
 
   /* Decide what the app may do with an intent. Returns a recommendation draft.
@@ -668,14 +675,16 @@
       if (safety.blocked) return { ...base, status: 'blocked_safety', reason: safety.reason };
       const proposal = buildStrengthProposal(def, claim);
       if (!proposal.ops.length) {
-        return { ...base, status: 'blocked_constraints', claimKey: claim.key, verifiedCount: verified.length,
-          reason: `Your main lifts already use ${proposal.repRange[0]} to ${proposal.repRange[1]} reps, so there's nothing for us to change.` };
+        const { lightMin } = strengthBands(claim);
+        const heaviest = Math.max(...lifts.map((l) => l.it.repMax));
+        return { ...base, status: 'blocked_insufficient_evidence', claimKey: claim.key, verifiedCount: verified.length,
+          reason: `Your main lifts already use moderate or heavy loads (${heaviest} reps a set at most). Our verified studies show heavier loads build more strength than light ones (${lightMin} or more reps), but not that going heavier than you already do adds more. So we haven't changed your plan.` };
       }
       const growth = claimByKey('hypertrophy.load_range_similar_growth');
       const names = [...new Set(proposal.ops.map((o) => exerciseWords(o.name)))];
       const drivers = [
         { label: 'You asked', detail: requestText ? `"${requestText}"` : intent.summary },
-        { label: 'Your main lifts', detail: `${capitalise(listJoin(names))} move to ${proposal.repRange[0]} to ${proposal.repRange[1]} reps, which means heavier weights. Sets and rests stay the same.` },
+        { label: 'Your main lifts', detail: `${capitalise(listJoin(names))} ${names.length === 1 ? 'moves' : 'move'} from light loads to ${proposal.repRange[0]} to ${proposal.repRange[1]} reps, which means heavier weights. Sets and rests stay the same.` },
         verifiedSourcesFor(growth).length >= REQUIRED_SOURCES
           ? { label: 'Muscle growth', detail: 'Studies find similar growth across light and heavy loads when sets end close to failure, so you shouldn\'t lose size.' }
           : null,

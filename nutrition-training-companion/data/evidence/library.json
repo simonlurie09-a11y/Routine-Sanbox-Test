@@ -1,6 +1,6 @@
 {
-  "version": "seed",
-  "reviewedAt": "2026-10-12",
+  "version": "2026-10-14",
+  "reviewedAt": "2026-10-14",
   "method": "Every claim the app could act on is listed here with the studies behind it. A claim is **active**, so the app may use it to change a plan, only when at least 3 strong, peer-reviewed studies support it and each of them passed six checks: its identifier (PMID or DOI) resolves to the paper; its title, authors, journal and year match across independent records; its design is strong (systematic review, meta-analysis, umbrella review, randomised controlled trial, or an evidence-based guideline in a peer-reviewed journal; for device accuracy, validation against a reference standard; for long-term health, meta-analyses of cohort studies); it is peer reviewed and indexed; no retraction or expression of concern was found; and its abstract supports the stated finding. Otherwise the claim stays a **draft** and the app changes nothing.\n\nHow this version was checked: one agent searched for evidence for and against each claim. Two further agents, working independently, then re-checked every source: one checked its identity (PubMed, DOI, publisher pages, retraction notices), and the other checked what its abstract actually found. An editor agent then decided each claim's wording and status from the verified sources only. All checks used web search against PubMed, PubMed Central, publisher and DOI pages, because the build environment could not reach the PubMed, Europe PMC or Crossref APIs directly. The production pipeline (docs/06-evidence-gate.md) must re-verify every source through those APIs before the app relies on it, and a human must review each active claim.",
   "disclaimer": "General fitness and nutrition information, not medical advice. If you have an injury, a medical condition, are pregnant, or have a history of disordered eating, talk to a qualified healthcare professional before changing your training or diet.",
   "claims": [
@@ -9,8 +9,8 @@
       "title": "More weekly sets for a low-volume muscle",
       "area": "training",
       "status": "active",
-      "statement": "Within the ranges studied, more weekly sets per muscle are linked to more muscle growth. Moving a muscle from low volume (under about 10 weekly sets) toward a moderate range is supported; extra benefit above about 20 weekly sets is uncertain.",
-      "population": "Mostly young adults; few studies in trained people.",
+      "statement": "In healthy adults (mostly young men, untrained and trained), more weekly sets per muscle lead to more muscle growth on average, but each extra set adds less than the one before. Raising a muscle from low volume (single sets, or fewer than about 10 weekly sets) to about 10 or more weekly sets is likely to give a modest extra gain in muscle size; whether going above about 20 weekly sets adds more is uncertain.",
+      "population": "Healthy adults doing resistance training to build muscle size, mostly young men, both untrained and resistance-trained. Evidence in women, older adults and people with medical conditions was not verified here, so the claim should not be assumed to apply to them in the same way.",
       "appUse": "When a muscle gets fewer than 10 hard sets a week and you want it bigger, we can suggest adding sets toward 10, never above 20, within your session time.",
       "appliesTo": {
         "goals": [
@@ -18,185 +18,1314 @@
           "general_health",
           "hybrid"
         ],
+        "population": "healthy_adults",
+        "outcome": "muscle_size",
+        "unit": "hard_sets_per_muscle_per_week",
+        "triggerBelowWeeklySets": 10,
+        "targetWeeklySets": 10,
+        "maxWeeklySets": 20,
+        "setCounting": "fractional",
+        "indirectSetWeight": 0.5,
+        "respectSessionTimeLimit": true,
+        "expectedBenefit": "modest_muscle_size",
         "maxStartingSets": 10,
         "ceilingSets": 20
       },
-      "verdict": "Seed entry.",
-      "gaps": "",
+      "verdict": "Six counted sources agree that more weekly sets give more muscle growth on average, with smaller gains for each extra set. They come from at least three separate research groups: the Krieger 2010 and Schoenfeld 2017 meta-analyses, the large Pelland 2026 meta-regression (67 studies), the Bernardez-Vazquez 2022 umbrella review, and two RCTs (Schoenfeld 2019 and Radaelli 2015) in which single-set training grew muscle less than 3 or 5 sets. The main contrary result is Heaselgrave 2019, where 9 weekly biceps sets grew the muscle as much as 18 or 27 in trained men over 6 weeks. It is one short trial, and volume was mixed up with how often people trained, so it does not outweigh the pooled data, but it does show the extra gain can be small. The exact 10-set target rests mainly on the umbrella review and on a non-significant category trend in Schoenfeld 2017, so it is treated as approximate. The benefit above 20 sets stays uncertain (Schoenfeld 2019 leans towards more growth; Baz-Valle 2022 and Heaselgrave 2019 lean towards a plateau), so the active claim covers only raising low volume towards about 10 sets.",
+      "gaps": "1. No verified trial compares about 9 with 10-12 weekly sets head to head, so the exact 10-set threshold comes from the umbrella review and from pooled, non-significant categories. A direct comparison would firm up or move the trigger and target. 2. The benefit above 20 weekly sets is unresolved: Schoenfeld 2019 and Pelland 2026 suggest gains continue, while Heaselgrave 2019 and Baz-Valle 2022 suggest a plateau. Well-controlled trials that separate volume from frequency are needed before the app goes above 20. 3. Evidence in women, older adults and clinical groups was not verified. These groups need their own data before the claim covers them. 4. Unverified leads that could strengthen or qualify the claim: the ACSM 2026 resistance-training position stand, the Currier 2023 Br J Sports Med network meta-analysis, Brigatto 2022 (PMID 31868813), Aube 2022 (PMID 32058362), Enes 2024 (PMID 37796222) and the Ralston 2017 meta-analysis. 5. No dedicated retraction database check was run. The Barbalho group trials thought to be retracted must not be used without checking. The critical letter on Radaelli 2015 was not read. 6. The 0.5 weight for indirect sets was taken from the researcher's description of Pelland 2026. The verified text confirms only that fractional counting fitted the data best, so the exact weight should be checked. 7. Bernardez-Vazquez 2022 has no verified PMID. The study and participant totals for Pelland 2026, and the Schoenfeld 2019 elbow extensor effect sizes, were not seen in verified abstract text. 8. The sources overlap heavily (shared authors, pooled meta-analyses), so the number of truly independent lines of evidence is about three or four, not six.",
       "sources": [
         "src-krieger-2010",
         "src-schoenfeld-2017",
+        "src-pelland-2026",
+        "src-bernardez-vazquez-2022",
+        "src-schoenfeld-2019",
+        "src-radaelli-2015"
+      ],
+      "contradicting": [
+        "src-heaselgrave-2019"
+      ],
+      "context": [
         "src-baz-valle-2022"
       ],
-      "contradicting": [],
-      "context": [],
-      "reviewedAt": "2026-10-12"
-    },
-    {
-      "key": "recovery.hrv_guided_lifting_volume",
-      "title": "Lifting less on low-HRV days",
-      "area": "recovery",
-      "status": "draft",
-      "statement": "Lowering lifting volume on days of low HRV improves results.",
-      "population": "",
-      "appUse": "Would let a low readiness reduce today's lifting. Until the evidence is there, readiness never changes your plan.",
-      "appliesTo": {},
-      "verdict": "Not yet checked.",
-      "gaps": "",
-      "sources": [],
-      "contradicting": [],
-      "context": [],
-      "reviewedAt": "2026-10-12"
+      "reviewedAt": "2026-10-14",
+      "judgeAppliesTo": {
+        "goals": [
+          "muscle_gain"
+        ],
+        "population": "healthy_adults",
+        "outcome": "muscle_size",
+        "unit": "hard_sets_per_muscle_per_week",
+        "triggerBelowWeeklySets": 10,
+        "targetWeeklySets": 10,
+        "maxWeeklySets": 20,
+        "setCounting": "fractional",
+        "indirectSetWeight": 0.5,
+        "respectSessionTimeLimit": true,
+        "expectedBenefit": "modest_muscle_size"
+      }
     },
     {
       "key": "strength.low_rep_ranges",
       "title": "Heavier loads for maximal strength",
       "area": "training",
-      "status": "draft",
-      "statement": "Lower rep ranges on main lifts improve maximal strength more than higher rep ranges.",
-      "population": "",
+      "status": "active",
+      "statement": "In healthy adults, training with heavier loads (about 80% of 1RM or more, roughly 8 or fewer reps per set) gives larger gains in 1RM strength on the trained lifts than training with light loads (about 60% of 1RM or less, roughly 15 or more reps per set). An advantage over moderate loads (about 9-15 reps) is not established. When sets are taken to muscular failure, muscle growth is similar with light, moderate and heavy loads.",
+      "population": "Healthy adults aged 18 and over. Most were young, untrained or recreationally trained, and more were men than women. The 1RM advantage of heavier loads was smaller in older adults (Refalo 2021: effect size 0.20 vs 0.34 in younger adults). Very few highly trained or elite athletes were studied, and the results in trained men are mixed: one RCT found load mostly did not change strength gains (Morton 2016), and a small RCT found larger squat gains with heavier loads (Schoenfeld 2015).",
       "appUse": "When you ask to get stronger, we can suggest heavier loads (about 3 to 6 reps) on your main multi-joint lifts, with longer rests, and keep other exercises at moderate reps.",
+      "appliesTo": {
+        "goals": [
+          "strength"
+        ],
+        "exerciseScope": "main_multi_joint_lifts",
+        "outcome": "1RM_of_trained_lift",
+        "heavyLoadMinPct1RM": 80,
+        "heavyLoadApproxMaxRepsPerSet": 8,
+        "lightLoadMaxPct1RM": 60,
+        "lightLoadApproxMinRepsPerSet": 15,
+        "heavyBeatsLightFor1RM": true,
+        "heavyBeatsModerateEstablished": false,
+        "specificRepRange3to6Established": false,
+        "transferToNonSpecificStrengthEstablished": false,
+        "hypertrophyLoadDependent": false,
+        "hypertrophyConditionSetsToFailure": true,
+        "rirEvidenceBased": false,
+        "restIntervalEvidenceBased": false
+      },
+      "verdict": "The narrowed claim is active. Seven counted sources support it, and five syntheses from at least four separate author groups agree that heavier loads give larger 1RM gains than light loads. These are Lopez 2021 and Currier 2023 (network meta-analyses), Refalo 2021 and Schoenfeld 2017 (pairwise meta-analyses) and Mcleod 2024 (umbrella review). The 2026 ACSM position stand and a small RCT (Schoenfeld 2015) back them up. The same syntheses find similar muscle growth across loads when sets go to failure. Morton 2016 runs against the strength half in trained men, and Hammert 2026 found the heavy-load edge on untested (isometric or isokinetic) strength inconclusive. Neither outweighs the pooled evidence, but they limit the claim to 1RM on the trained lifts. Lopez 2021 found moderate loads also beat light loads, so heavy over moderate, the specific 3-6 rep range, reps in reserve and rest lengths are not supported. The pairwise and network meta-analyses share many primary trials, and Currier 2023, Mcleod 2024 and ACSM 2026 come from overlapping McMaster authors, so the sources are less independent than their count suggests.",
+      "gaps": "More evidence is needed in five areas. (1) Direct, volume-equated RCTs of heavy loads (about 3-6 reps) against moderate loads (about 8-12 reps), such as Mangine 2015 and Schoenfeld 2014 (not searched). These would be needed before the app could favour 3-6 reps over moderate loading. (2) Trials testing 2-3 reps in reserve and longer rests for strength. No verified source covers either, and the umbrella review found insufficient evidence on set end point and rest. (3) Evidence that similar growth across loads holds when sets stop short of failure. (4) More trials in trained and elite lifters, where results are mixed (Morton 2016 vs Schoenfeld 2015) and such lifters are about 2.3% of the evidence base. Also more trials in women and older adults, where the 1RM advantage looked smaller. (5) Better evidence on whether heavy-load gains carry over to strength tests that were not trained (Hammert 2026 was inconclusive). Several sources still need checking: Lopez 2021's effect sizes (high vs low SMD 0.60; high vs moderate non-significant) against its abstract or tables; ACSM 2026's PMID, abstract and hypertrophy recommendations; and the Currier 2023 and Mcleod 2024 identifiers on their own PubMed records. These leads were not verified or examined and were not used: Csapo & Alegre on older adults (PMID 26302881); the APNM volume-matched loads meta-analysis (doi 10.1139/apnm-2021-0515); the ACSM 2009 stand; the Schoenfeld 2016 Eur J Sport Sci meta-analysis (PMID 25530577); the 2026 paper on regional muscle and tendon growth (PMID 42319300), which may challenge similar growth in particular muscle regions; and a bioRxiv preprint. No dedicated retraction search was run for each paper.",
+      "sources": [
+        "src-lopez-2021",
+        "src-currier-2023",
+        "src-refalo-2021",
+        "src-schoenfeld-2017-b",
+        "src-mcleod-2024",
+        "src-currier-2026",
+        "src-schoenfeld-2015"
+      ],
+      "contradicting": [
+        "src-morton-2016"
+      ],
+      "context": [
+        "src-hammert-2026"
+      ],
+      "reviewedAt": "2026-10-14",
+      "judgeAppliesTo": {
+        "goals": [
+          "strength"
+        ],
+        "exerciseScope": "main_multi_joint_lifts",
+        "outcome": "1RM_of_trained_lift",
+        "heavyLoadMinPct1RM": 80,
+        "heavyLoadApproxMaxRepsPerSet": 8,
+        "lightLoadMaxPct1RM": 60,
+        "lightLoadApproxMinRepsPerSet": 15,
+        "heavyBeatsLightFor1RM": true,
+        "heavyBeatsModerateEstablished": false,
+        "specificRepRange3to6Established": false,
+        "transferToNonSpecificStrengthEstablished": false,
+        "hypertrophyLoadDependent": false,
+        "hypertrophyConditionSetsToFailure": true,
+        "rirEvidenceBased": false,
+        "restIntervalEvidenceBased": false
+      }
+    },
+    {
+      "key": "hypertrophy.load_range_similar_growth",
+      "title": "Light or heavy loads grow muscle similarly",
+      "area": "training",
+      "status": "draft",
+      "statement": "In healthy young adults, training with loads from about 30% to about 85% of 1RM appears to give similar gains in whole-muscle size when sets are taken to momentary failure, while heavier loads still give larger gains in maximal (1RM) strength. This is not established for loads below about 30% of 1RM, or for light-load sets stopped well short of failure.",
+      "population": "Healthy adults, untrained or resistance-trained. Most data come from young men aged about 18-35 in 6-12 week programmes. The claim is not established for women, older adults or highly trained athletes.",
+      "appUse": "Lets us keep or change rep ranges for comfort or time without expecting less muscle growth, and explains why a strength change shouldn't cost muscle.",
       "appliesTo": {},
-      "verdict": "Not yet checked.",
+      "verdict": "No source counts toward this claim. Verification of all 15 sources stopped when the shared web-search budget ran out, so no abstract or finding was checked against the claim, and every design, direction and finding check is unknown. The candidate evidence looks consistent: meta-analyses from four groups (Schoenfeld 2017, Lopez 2021, Refalo 2021, Carvalho 2022) and trials such as Mitchell 2012, Morton 2016 and Lees all report similar growth across loads. But the app's 3-source rule cannot be met until at least three of them pass verification. Even then the claim has limits: 20% 1RM gave about half the growth of 80% (Lasevicius 2018); light-load sets stopped short of failure appear to give less growth (Lasevicius 2022, identity not yet confirmed); fibre-level data lean non-significantly towards heavy loads (Grgic 2020); and heavier loads consistently give larger strength gains.",
+      "gaps": "The decisive gap is verification, not evidence. Re-run verification in a turn with search budget available. At least three of Schoenfeld 2017, Lopez 2021, Refalo 2021, Carvalho 2022, Morton 2016, Lees and Mitchell 2012 must pass every check (identifier, metadata on a second independent page, peer review, retraction status, strong design, and a finding that supports the claim) before the status can be active. Because the meta-analyses share most of their primary trials, and Mitchell, Morton and Lees come from one laboratory, the counted set should include reviews from different groups, or at least one RCT from another laboratory (e.g. Schoenfeld 2015), so the agreement is not the same data counted twice. Lasevicius 2022 needs its identity confirmed to support the rule that light-load sets must end at or within about 1 rep of failure, and direct trials of light loads at 1-3 reps in reserve would be needed to extend the claim from 'to failure' to 'close to failure'. Lasevicius 2018 should be verified to fix the lower bound at about 30% 1RM. The upper bound above about 85-90% 1RM rests only on a small 2025 trial (Cumming et al.) with an unconfirmed PMID. Applying the claim beyond young men would need trials in women, older adults and highly trained athletes. The type II fibre question (Grgic 2020) remains open.",
+      "sources": [],
+      "contradicting": [],
+      "context": [
+        "src-schoenfeld-2017-b",
+        "src-lopez-2021",
+        "src-refalo-2021",
+        "src-carvalho-2022",
+        "src-mcleod-2024",
+        "src-morton-2016",
+        "src-lees-2026",
+        "src-mitchell-2012",
+        "src-grgic-2020",
+        "src-lasevicius-2018"
+      ],
+      "reviewedAt": "2026-10-14",
+      "judgeAppliesTo": {}
+    },
+    {
+      "key": "training.frequency_volume_equated",
+      "title": "Spreading the same sets over more days",
+      "area": "training",
+      "status": "draft",
+      "statement": "In healthy adults, when weekly sets per muscle are kept the same, training a muscle once a week or spreading those sets over two or three sessions a week appears to give similar muscle growth. This has not yet been confirmed by verified sources, and no claim is made about strength.",
+      "population": "Healthy adults, mostly young (pooled mean age about 25) and mostly male (about 79%), untrained or resistance-trained, doing supervised programmes of about 6 to 12 weeks (some up to about 30) at 1 to 3 sessions per muscle per week. The evidence does not reliably cover women, adults over 60, clinical groups, more than 3 sessions per muscle per week, or programmes much longer than 12 weeks.",
+      "appUse": "Lets us move sets between days, for example to fit your session time, without expecting less growth.",
+      "appliesTo": {},
+      "verdict": "None of the nine candidate sources counts: the shared search budget ran out before any checks ran, so for every source the identity, peer-review status, retraction status, design and reported finding are all unknown. The submitted evidence looks consistent for hypertrophy (Schoenfeld 2019, Pelland 2026, Tao 2026, Ramos-Campo 2024 and Pedersen 2024 all report no meaningful difference at equal volume), but none of it is verified, so the claim must stay a draft. Two sources point the other way: Schoenfeld 2016 found twice a week beat once a week, and the small Zaroni 2019 trial found more growth with 5 sessions a week. Both favour more frequent training, so they do not suggest splitting sets would cause harm. The strength part, including the 'mainly through extra volume' clause, is contested: Grgic 2018 and Cuthbert 2021 found no volume-equated effect, while Tao 2026, Pelland 2026 and Pedersen 2024 report a small independent benefit. So it is left out of the statement.",
+      "gaps": "1) Verification has to be re-run, ideally in a turn with search budget left. At least 3 of Schoenfeld 2019, Pelland 2026, Tao 2026, Ramos-Campo 2024 and Pedersen 2024 must pass every check (identifier, metadata, peer review, no retraction, strong design) with a confirmed volume-equated hypertrophy finding. Specific items to resolve: the Grgic 2018 PMID conflict (29470825 vs 28444646), the journal and peer-review status of Tao 2026, the full citation for Pelland 2026, and whether every trial in Ramos-Campo 2024 equated volume. 2) The volume-equated RCTs the researcher cited (Hamarsland 2022, Gomes 2019, Saric 2019, Gentil 2018, Brigatto 2019) were never put forward for verification. Verifying them would add primary evidence that does not rely on overlapping meta-analyses. 3) Even once verified, the meta-analyses draw on the same pool of small trials and often share authors. At least one source from an independent group, or independent primary trials, would strengthen any activation. 4) Supporting 4 or more sessions per muscle per week would need more volume-equated trials at those frequencies. 5) Trials in women, adults over 60, clinical groups, and programmes longer than 12 weeks are needed before the claim can be extended to them. 6) A strength statement would need agreement between Grgic 2018 and Cuthbert 2021 on one side and Tao 2026, Pelland 2026 and Pedersen 2024 on the other. The question is whether frequency helps strength independently of volume or through extra practice of the tested lift. 7) No source gives a maximum number of sets per session, so the app has no basis for a per-session cap.",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14",
+      "judgeAppliesTo": {}
+    },
+    {
+      "key": "training.proximity_to_failure",
+      "title": "Stopping sets short of failure",
+      "area": "training",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "Our plans use 1 to 3 reps in reserve and never ask you to train to failure on every set.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
       "gaps": "",
       "sources": [],
       "contradicting": [],
       "context": [],
-      "reviewedAt": "2026-10-12"
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "training.inter_set_rest",
+      "title": "Longer rests between sets",
+      "area": "training",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "Session times assume about 2 minutes' rest on main lifts, and we don't cut rests below about a minute to fit a time limit.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "general_health.muscle_strengthening_twice_weekly",
+      "title": "Strength training on 2 or more days a week",
+      "area": "training",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "For the general health goal, if your plan has fewer than 2 strength days, we can suggest adding one.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "training.deload_periods",
+      "title": "Planned lighter weeks",
+      "area": "training",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "Would let us suggest planned lighter (deload) weeks.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "training.concurrent_aerobic_compatible",
+      "title": "Adding cardio to strength training",
+      "area": "training",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "When you ask to add running, we can add runs on separate days without cutting your lifting.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
     },
     {
       "key": "endurance.weekly_distance_progression",
       "title": "Limiting weekly running increases",
       "area": "training",
       "status": "draft",
-      "statement": "A gradual weekly distance progression reduces running injuries.",
+      "statement": "Not yet checked.",
       "population": "",
       "appUse": "Would limit how fast your weekly running distance rises.",
       "appliesTo": {},
-      "verdict": "Not yet checked.",
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
       "gaps": "",
       "sources": [],
       "contradicting": [],
       "context": [],
-      "reviewedAt": "2026-10-12"
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "recovery.hrv_guided_lifting_volume",
+      "title": "Lifting less on low-HRV days",
+      "area": "recovery",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "Would let a low readiness reduce today's lifting. Until the evidence is there, readiness never changes your plan.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "recovery.hrv_guided_endurance_training",
+      "title": "HRV-guided endurance training",
+      "area": "recovery",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "Would let us swap a hard run for an easy one on a low-HRV day.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "recovery.sleep_loss_impairs_performance",
+      "title": "Short sleep and next-day performance",
+      "area": "recovery",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "Explains your readiness: short sleep can make a session feel harder. It never changes your plan by itself.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "wearables.measurement_validity",
+      "title": "How accurate wearables are",
+      "area": "measurement",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "Explains why we compare each device only with its own baseline and keep each maker's score under its own name.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
     },
     {
       "key": "nutrition.protein_intake_for_muscle_gain",
       "title": "Protein for muscle gain",
       "area": "nutrition",
       "status": "draft",
-      "statement": "Protein intake target for muscle gain.",
+      "statement": "Not yet checked.",
       "population": "",
       "appUse": "If your goal is muscle gain and your protein target is under 1.6 g per kg of body weight a day, we can suggest raising it to 1.6 g/kg.",
       "appliesTo": {},
-      "verdict": "Not yet checked.",
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
       "gaps": "",
       "sources": [],
       "contradicting": [],
       "context": [],
-      "reviewedAt": "2026-10-12"
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "nutrition.fibre_intake_target",
+      "title": "Daily fibre",
+      "area": "nutrition",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "If your fibre target is under 25 g a day, we can suggest 25 to 30 g. It also explains the fibre line in food ratings.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "nutrition.high_protein_kidney_function_healthy",
+      "title": "Protein and kidney function",
+      "area": "nutrition",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "Explains why we hold protein suggestions if you tell us about a medical condition, until a professional supervises your plan.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "nutrition.free_sugars_and_health",
+      "title": "Free sugars",
+      "area": "nutrition",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "Explains the sugar line in food ratings.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "nutrition.sodium_reduction_blood_pressure",
+      "title": "Salt and blood pressure",
+      "area": "nutrition",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "Explains the salt line in food ratings.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "nutrition.saturated_fat_replacement_cvd",
+      "title": "Saturated fat and heart disease",
+      "area": "nutrition",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "Explains the saturated fat line in food ratings.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "nutrition.ultra_processed_food_associations",
+      "title": "Ultra-processed food",
+      "area": "nutrition",
+      "status": "draft",
+      "statement": "Not yet checked.",
+      "population": "",
+      "appUse": "Explains the processing line in food ratings. We describe processing; we never judge a food.",
+      "appliesTo": {},
+      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-14"
     }
   ],
   "sources": [
     {
       "id": "src-krieger-2010",
       "short": "Krieger, 2010",
-      "design": "Meta-analysis",
+      "title": "Single vs. multiple sets of resistance exercise for muscle hypertrophy: a meta-analysis",
       "authors": "Krieger JW",
       "year": 2010,
-      "title": "Single vs. multiple sets of resistance exercise for muscle hypertrophy: a meta-analysis",
       "journal": "Journal of Strength and Conditioning Research",
-      "citation": "24(4):1150–1159",
+      "citation": "J Strength Cond Res. 2010 Apr;24(4):1150-9",
       "pmid": "20300012",
+      "pmcid": null,
       "doi": "10.1519/JSC.0b013e3181d4d436",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/20300012/",
-      "found": "Multiple sets were linked to about 40% larger muscle-growth effects than single sets, in both trained and untrained people.",
-      "limitations": "Counts sets per exercise, not weekly sets per muscle, and doesn't show where the benefit levels off.",
+      "design": "Meta-analysis using multilevel meta-regression: 55 effect sizes nested within 19 treatment groups and 8 studies, comparing single vs multiple sets per exercise (J Strength Cond Res 2010, Krieger)",
+      "population": "Adults in resistance-training studies comparing single vs multiple sets per exercise",
+      "sampleSize": "8 studies, 19 treatment groups, 55 effect sizes (participant total not seen)",
+      "found": "Pooling 8 studies, doing multiple sets per exercise gave slightly more muscle growth than doing a single set (effect size difference 0.10, 95% CI 0.02 to 0.19, p = 0.016). Doing 2-3 and 4-6 sets both did better than 1 set but did not differ from each other.",
+      "limitations": "It has only 8 studies, and it counted volume as sets per exercise per session rather than weekly sets per muscle, so it cannot test the 10- or 20-set thresholds directly.",
+      "quote": "The purpose of this study was to use multilevel meta-regression to compare the effects of single and multiple sets per exercise on muscle hypertrophy.",
       "checks": {
         "identifier_resolves": "pass",
         "metadata_matches": "pass",
-        "study_design_strong": "pass",
         "peer_reviewed_indexed": "pass",
         "not_retracted": "pass",
+        "study_design_strong": "pass",
         "finding_supported": "pass"
       },
-      "verifiedAt": "2026-10-12",
-      "pmcid": null,
-      "population": "",
-      "sampleSize": "",
-      "quote": null,
+      "verifiedAt": "2026-10-14",
       "verification": {
-        "method": "manual_web_search",
-        "notes": "Checked by hand via web search (docs/06 §6.8).",
-        "identityEvidence": [],
-        "supportEvidence": []
+        "method": "web_search_cross_check",
+        "notes": "PubMed record for PMID 20300012 matches the title, sole author James W. Krieger, J Strength Cond Res 2010 Apr;24(4):1150-9, and lists the DOI 10.1519/JSC.0b013e3181d4d436, which was missing from the source. The BISp-SURF record confirms the title. The results gave the abstract conclusion as 'multiple sets associated with 40% greater hypertrophy-related ESs than 1 set'. I did not see the specific numbers (0.10 +/- 0.04, CI, p=0.016) in the results. No retraction, erratum or expression of concern was found. There are published critiques (a 2012 critical review in Medicina Sportiva and a 'Beware the Meta-Analysis' commentary), but these are not formal notices. | PubMed record confirmed: title, journal, year and PMID match. The researcher's numbers match the abstract as shown in search results. Caveats: only 8 studies; volume is sets per exercise per session, not weekly sets per muscle, so it does not test the 10 or 20 weekly-set thresholds directly; participant total and training status not seen. No retraction or erratum notice seen. The verifiedQuote is the purpose sentence, because no finding sentence was seen word for word.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/20300012/",
+          "https://www.bisp-surf.de/Record/PU201102001516",
+          "https://core.ac.uk/works/4401333"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/20300012/"
+        ]
       }
     },
     {
       "id": "src-schoenfeld-2017",
-      "short": "Schoenfeld, Ogborn and Krieger, 2017",
-      "design": "Systematic review and meta-analysis",
+      "short": "Schoenfeld et al., 2017",
+      "title": "Dose-response relationship between weekly resistance training volume and increases in muscle mass: A systematic review and meta-analysis",
       "authors": "Schoenfeld BJ, Ogborn D, Krieger JW",
       "year": 2017,
-      "title": "Dose-response relationship between weekly resistance training volume and increases in muscle mass: a systematic review and meta-analysis",
       "journal": "Journal of Sports Sciences",
-      "citation": "35:1073–1082 (online July 2016)",
-      "pmid": null,
+      "citation": "J Sports Sci. 2017;35(11):1073-1082",
+      "pmid": "27433992",
+      "pmcid": null,
       "doi": "10.1080/02640414.2016.1210197",
-      "url": "https://doi.org/10.1080/02640414.2016.1210197",
-      "found": "Across 15 studies (34 treatment groups), each extra weekly set was linked to a small further gain in muscle size, and higher volumes beat lower volumes within studies.",
-      "limitations": "The top volume group was '10 or more' weekly sets, so it can't say how far the benefit continues. Only 2 of the 15 studies involved people with training experience.",
+      "design": "Systematic review and meta-analysis (meta-regression) of 15 studies, 34 treatment groups (J Sports Sci 2017; Schoenfeld, Ogborn, Krieger)",
+      "population": "Adults in RCTs comparing different weekly resistance-training set volumes, with direct measures of muscle size",
+      "sampleSize": "15 studies, 34 treatment groups (participant total not seen)",
+      "found": "Across 15 studies (34 training groups), each extra weekly set per muscle was linked to about 0.37% more muscle growth (P = 0.002). Higher-volume groups grew about 3.9 percentage points more than lower-volume groups in the same studies.",
+      "limitations": "Comparing under 5, 5-9 and 10 or more weekly sets showed only a non-significant trend (P = 0.074), so the 10-set cut-off is not backed by a significant category comparison, and it shares an author with Krieger 2010.",
+      "quote": "Each additional set was associated with an increase in effect size (ES) of 0.023",
       "checks": {
         "identifier_resolves": "pass",
         "metadata_matches": "pass",
-        "study_design_strong": "pass",
         "peer_reviewed_indexed": "pass",
         "not_retracted": "pass",
+        "study_design_strong": "pass",
         "finding_supported": "pass"
       },
-      "verifiedAt": "2026-10-12",
-      "pmcid": null,
-      "population": "",
-      "sampleSize": "",
-      "quote": null,
+      "verifiedAt": "2026-10-14",
       "verification": {
-        "method": "manual_web_search",
-        "notes": "Checked by hand via web search (docs/06 §6.8).",
-        "identityEvidence": [],
-        "supportEvidence": []
+        "method": "web_search_cross_check",
+        "notes": "PubMed PMID 27433992 matches: Schoenfeld, Ogborn, Krieger, J Sports Sci 2017 Jun;35(11):1073-1082, epub 19 Jul 2016, DOI 10.1080/02640414.2016.1210197 (missing from the source; added). Year 2017 is the issue year and 2016 the online year, both legitimate. The results confirm 15 studies and 34 treatment groups, and P = 0.002 for weekly sets as a continuous variable. PubMed also lists a comment, 'Reliability of meta-analyses to evaluate resistance training programmes' (PMID 27809704). It is a commentary, not a correction. No retraction, erratum or expression of concern was found. | PubMed record confirmed, and all of the researcher's numbers match the abstract as shown in search results. Caveat for the app: the categorical comparison that matches the '<10 vs 10+' framing was only a non-significant trend (P = 0.074), so the 10-set threshold rests on the continuous dose-response, not on a significant category contrast. The verifiedQuote is a sentence fragment rendered in the search snippet. No retraction or erratum notice seen.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/27433992/?dopt=Abstract",
+          "https://pubmed.ncbi.nlm.nih.gov/27809704/",
+          "https://researchgate.net/profile/Brad-Schoenfeld/publication/305455324_Dose-response_relationship_between_weekly_resistance_training_volume_and_increases_in_muscle_mass_A_systematic_review_and_meta-analysis/links/59dc0269458515e9ab4527d6/Dose-response-relationship-between-weekly-resistance-training-volume-and-increases-in-muscle-mass-A-systematic-review-and-meta-analysis.pdf"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/27433992/?dopt=Abstract"
+        ]
       }
     },
     {
       "id": "src-baz-valle-2022",
       "short": "Baz-Valle et al., 2022",
-      "design": "Systematic review",
-      "authors": "Baz-Valle E, Balsalobre-Fernández C, Alix-Fages C, Santos-Concejero J",
+      "title": "A Systematic Review of The Effects of Different Resistance Training Volumes on Muscle Hypertrophy",
+      "authors": "Baz-Valle E, et al.",
       "year": 2022,
-      "title": "A systematic review of the effects of different resistance training volumes on muscle hypertrophy",
       "journal": "Journal of Human Kinetics",
-      "citation": "81:199–210",
+      "citation": "J Hum Kinet. 2022;81:199-210",
       "pmid": "35291645",
+      "pmcid": "PMC8884877",
       "doi": "10.2478/hukin-2022-0017",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35291645/",
-      "found": "Moderate (12–20) and high (more than 20) weekly sets produced similar quadriceps and biceps growth; high volume was favoured only for the triceps.",
-      "limitations": "Only 7 studies, all in adults aged 18 to 35. The authors frame their 12–20 set recommendation for young trained men.",
+      "design": "Systematic review with quantitative synthesis: 7 studies in the qualitative synthesis, 6 in the quantitative. Low-volume groups (<12 weekly sets) were excluded from the quantitative analysis, which compared moderate (12-20) with high (>20) weekly sets in trained men (J Hum Kinet 2022;81:199-210; Baz-Valle, Balsalobre-Fernandez, Alix-Fages, Santos-Concejero)",
+      "population": "Young resistance-trained men",
+      "sampleSize": "7 studies in the qualitative synthesis, 6 in the quantitative analysis (participant total not seen)",
+      "found": "In 6 studies of trained men, moderate (12-20) and high (more than 20) weekly volumes gave similar growth in the quadriceps (p = 0.19) and biceps (p = 0.59), but high volume did better for the triceps (p = 0.01). The authors suggested 12-20 weekly sets as a standard recommendation for trained men.",
+      "limitations": "It left low-volume groups out of its pooled analysis, so it cannot speak to raising volume from under 10 sets, and it covers only young trained men.",
+      "quote": "no differences between moderate and high training volume responses for the quadriceps (p = 0.19) and the biceps brachii (p = 0.59)",
       "checks": {
         "identifier_resolves": "pass",
         "metadata_matches": "pass",
-        "study_design_strong": "pass",
         "peer_reviewed_indexed": "pass",
         "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "fail"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PubMed PMID 35291645 lists PMCID PMC8884877 and DOI 10.2478/hukin-2022-0017, with first author Eneko Baz-Valle, J Hum Kinet 2022. Repository and journal pages confirm vol. 81, pp. 199-210, 7 studies in the qualitative analysis and 6 in the quantitative one, and the 12-20 weekly sets conclusion for young trained men. I did not see the full author list. No retraction, erratum or expression of concern was found. | Identifiers, authors and journal confirmed. The researcher's finding 'no clear extra benefit above 20' leaves out the significant triceps result favouring >20 sets (p = 0.01). Also, low-volume groups were excluded from the quantitative analysis, so this review does not test raising volume from low to moderate, which is the main claim. It bears only on the 'above 20 is uncertain' part, where it is mixed. Population is young resistance-trained men only. The verifiedQuote is a fragment from the search snippet.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/35291645/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8884877/",
+          "https://johk.pl/?p=6256",
+          "https://addi.ehu.eus/handle/10810/56535"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/35291645/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8884877/"
+        ]
+      }
+    },
+    {
+      "id": "src-pelland-2026",
+      "short": "Pelland et al., 2026",
+      "title": "The Resistance Training Dose Response: Meta-Regressions Exploring the Effects of Weekly Volume and Frequency on Muscle Hypertrophy and Strength Gains",
+      "authors": "Pelland JC, Remmert JF, Robinson ZP, Hinson SR, Zourdos MC",
+      "year": 2026,
+      "journal": "Sports Medicine",
+      "citation": "Sports Med. 2026 Feb;56(2):481-505 (published online 4 Dec 2025)",
+      "pmid": "41343037",
+      "pmcid": null,
+      "doi": "10.1007/s40279-025-02344-w",
+      "design": "Systematic review with multilevel Bayesian meta-regressions of 67 studies, 2,058 participants, adjusted for intervention duration and training status (Sports Medicine; Pelland, Remmert, Robinson, Hinson, Zourdos; DOI 10.1007/s40279-025-02344-w)",
+      "population": "Adults in resistance-training studies, adjusted for training status and intervention duration",
+      "sampleSize": "67 studies, 2,058 participants (hypertrophy and strength combined)",
+      "found": "Pooling 67 studies and 2,058 participants, the authors found a 100% posterior probability that more weekly sets lead to more muscle growth, with each extra set adding less than the one before. Counting indirect sets from compound exercises as a fraction of a set fitted the data best.",
+      "limitations": "Participants were reported to be mostly untrained or recreationally trained, in studies of about 5-12 weeks, and the study and participant totals were not seen in the verified abstract text.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
         "finding_supported": "pass"
       },
-      "verifiedAt": "2026-10-12",
-      "pmcid": null,
-      "population": "",
-      "sampleSize": "",
-      "quote": null,
+      "verifiedAt": "2026-10-14",
       "verification": {
-        "method": "manual_web_search",
-        "notes": "Checked by hand via web search (docs/06 §6.8).",
-        "identityEvidence": [],
+        "method": "web_search_cross_check",
+        "notes": "PubMed PMID 41343037 matches the title: Sports Med Feb 2026;56:481-505, epub 4 Dec 2025, first author Joshua C. Pelland (Florida Atlantic University). A citation listing (sponet) gives the DOI 10.1007/s40279-025-02344-w with authors Pelland, Remmert, Robinson, Hinson, Zourdos and 56(2):481-505, 2026. A second listing gives the online date 2025-12-04. This is the peer-reviewed journal version. The SportRxiv record is an earlier preprint (first posted Oct 2024). The abstract snippet confirms that strength shows more pronounced diminishing returns than hypertrophy. I did not see the 67 studies / 2,058 participants figures or the quoted sentence. No retraction, correction or expression of concern was found. The Sports Medicine notices that came up belong to other papers. | PubMed record confirmed for PMID 41343037 (Sports Medicine, 2026, same authors). The design, n and main findings match the researcher's summary. The researcher's quote was not seen word for word: the search rendering read 'the posterior probability of the marginal slope exceeding zero was 100% for both hypertrophy and strength', which differs in word order. So quoteVerbatim is false and verifiedQuote is null. Volume and page numbers (56(2):481-505) were not seen. Secondary summaries say participants were mostly untrained or recreationally trained and studies lasted 5-12 weeks (not checked against the abstract). No retraction or erratum seen.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/41343037/",
+          "https://sponet.de/sponet/Record/4097139/Cite",
+          "https://www.ablesci.com/assist/detail?id=vNBv1O",
+          "https://sportrxiv.org/index.php/server/preprint/view/460"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/41343037/",
+          "https://www.fisiologiadelejercicio.com/wp-content/uploads/2025/12/The-Resistance-Training-Dose-Response.pdf"
+        ]
+      }
+    },
+    {
+      "id": "src-bernardez-vazquez-2022",
+      "short": "Bernárdez-Vázquez et al., 2022",
+      "title": "Resistance training variables for optimization of muscle hypertrophy: an umbrella review",
+      "authors": "Bernárdez-Vázquez R, Raya-González J, Castillo D, Beato M",
+      "year": 2022,
+      "journal": "Frontiers in Sports and Active Living",
+      "citation": "Front Sports Act Living. 2022;4:949021",
+      "pmid": null,
+      "pmcid": "PMC9302196",
+      "doi": "10.3389/fspor.2022.949021",
+      "design": "Umbrella review of meta-analyses (PRISMA; PubMed/MEDLINE, SPORTDiscus, Web of Science): 14 of 52 meta-analyses included, covering 178 primary studies and 4,784 participants (Front Sports Act Living 2022; DOI 10.3389/fspor.2022.949021; PMC9302196; published as a Mini Review)",
+      "population": "Healthy adults in resistance-training meta-analyses",
+      "sampleSize": "14 meta-analyses included (of 52 screened); 9 rated high quality (81-88%), the rest moderate (63-75%)",
+      "found": "This review of 14 meta-analyses (178 primary studies, 4,784 participants) concluded that at least 10 sets per muscle group per week is optimal for muscle growth. Light or heavy loads both work when sets are taken to or near failure.",
+      "limitations": "It pools overlapping meta-analyses, including Schoenfeld 2017, so it is not independent evidence and does not itself test a precise 10-set threshold.",
+      "quote": "at least 10 sets per week per muscle group is optimal",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "There is no PMID in the source, and I did not see one in any result after two searches. The PMID is left unknown and should not be guessed. The DOI 10.3389/fspor.2022.949021 is confirmed on the Frontiers page and in DOAJ (Jul 2022). The paper is in PMC as PMC9302196 (added). Authors are Roberto Bernárdez-Vázquez, Javier Raya-González, Daniel Castillo and Marco Beato. The citation is Front Sports Act Living 2022, vol. 4, article 949021, published 4 Jul 2022. PMC and repository pages confirm 14 of 52 meta-analyses (178 primary studies, 4,784 participants), quality ratings of 81-88% high and 63-75% moderate, and the conclusion of at least 10 sets per week per muscle group. It is in a peer-reviewed journal indexed in PMC/Crossref. No retraction, erratum or expression of concern was found. | Authors, journal, date and DOI confirmed. PMCID PMC9302196 seen; PMID not seen. The quality ratings (9 high at 81-88%, the rest moderate) were not checked in the search output. The article is labelled a Mini Review but uses umbrella-review methods, so I rated the design strong. Its volume conclusion relies on overlapping meta-analyses, including Schoenfeld 2017, so it is not independent evidence. The verifiedQuote is a fragment from the search snippet.",
+        "identityEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9302196/",
+          "https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2022.949021/epub",
+          "https://doaj.org/article/abc131a4d221473a91178b1486fc75f0",
+          "https://oars.uos.ac.uk/2612"
+        ],
+        "supportEvidence": [
+          "https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2022.949021/full",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9302196/"
+        ]
+      }
+    },
+    {
+      "id": "src-schoenfeld-2019",
+      "short": "Schoenfeld et al., 2019",
+      "title": "Resistance Training Volume Enhances Muscle Hypertrophy but Not Strength in Trained Men",
+      "authors": "Schoenfeld, Contreras, Krieger, Grgic, Delcastillo, Belliard, Alto",
+      "year": 2019,
+      "journal": "Medicine & Science in Sports & Exercise",
+      "citation": "Med Sci Sports Exerc. 2019 Jan;51(1):94-103",
+      "pmid": "30153194",
+      "pmcid": "PMC6303131",
+      "doi": "10.1249/MSS.0000000000001764",
+      "design": "Randomised controlled trial: 34 healthy resistance-trained men randomised to 1 set (n=11), 3 sets (n=12) or 5 sets (n=11) per exercise per session, 3 sessions a week for 8 weeks (Med Sci Sports Exerc 2019;51(1):94-103; PMC6303131)",
+      "population": "Healthy resistance-trained men",
+      "sampleSize": "34 participants (1 RCT)",
+      "found": "In 34 trained men training 3 times a week for 8 weeks, doing 3 or 5 sets per exercise grew the elbow flexors, mid-thigh and lateral thigh more than doing 1 set. Gains in strength and endurance did not differ between the groups.",
+      "limitations": "It is a small trial in trained men only, shares authors with the Krieger and Schoenfeld meta-analyses, and its top group went well above 20 weekly sets, so it cannot show where gains level off.",
+      "quote": "Muscle size increased in most measured sites in all groups, with significant increases favoring the higher-volume conditions for the elbow flexors, mid-thigh, and lateral thigh",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The first PMID-only search returned nothing relevant. A title plus PMID search found the PubMed record 30153194, which matches the title, Schoenfeld et al., and Med Sci Sports Exerc 2019 Jan;51(1):94-103. PMC6303131 matches, and DOI 10.1249/MSS.0000000000001764 was seen in the results. The results confirm 34 resistance-trained men in 1, 3 or 5 set groups, 3 sessions a week for 8 weeks, no between-group strength differences, and hypertrophy favouring higher volume at the elbow flexors, mid-thigh and lateral thigh. I did not see the elbow extensor effect sizes. A 'Response' letter appeared in Med Sci Sports Exerc 2019;51(9):1972 (PMID 31415024). It is correspondence, not a correction. No retraction, erratum or expression of concern was found. | Title, journal, citation and PMCID confirmed. PMID 30153194 not directly seen in the search output. The main finding matches the researcher's summary. The elbow extensor effect sizes the researcher cites (0.12, 0.30, 0.55) were NOT seen in any abstract text I could retrieve, so treat them as unverified and remove them unless checked. Note that the high-volume group (5 sets x 3 sessions, roughly 30+ weekly sets per muscle) beat moderate at some sites, so this trial leans towards benefit above 20 sets. That is compatible with 'uncertain', but does not show a plateau.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/30153194/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC6303131/",
+          "https://dknet.org/literature/pmid:30153194?rpKey=on",
+          "https://pubmed.ncbi.nlm.nih.gov/31415024/"
+        ],
+        "supportEvidence": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC6303131/"
+        ]
+      }
+    },
+    {
+      "id": "src-radaelli-2015",
+      "short": "Radaelli et al., 2015",
+      "title": "Dose-Response of 1, 3, and 5 Sets of Resistance Exercise on Strength, Local Muscular Endurance, and Hypertrophy",
+      "authors": "Radaelli R, Fleck SJ, Leite T, Leite RD, Pinto RS, Fernandes L, Simão R",
+      "year": 2015,
+      "journal": "Journal of Strength and Conditioning Research",
+      "citation": "J Strength Cond Res. 2015 May;29(5):1349-1358",
+      "pmid": "25546444",
+      "pmcid": null,
+      "doi": "10.1519/JSC.0000000000000758",
+      "design": "Randomised trial: 48 men with no weight-training experience randomised to 1-SET, 3-SET or 5-SET training groups, 3 sessions a week for about 6 months (J Strength Cond Res 2015;29(5):1349-58; Radaelli et al.)",
+      "population": "Men with no weight-training experience",
+      "sampleSize": "48 participants (1 RCT)",
+      "found": "In 48 untrained men training 3 times a week for about 6 months, elbow flexor thickness rose in the 3-set and 5-set groups, most at 5 sets. Only the 5-set group increased elbow extensor thickness.",
+      "limitations": "It is a single trial in untrained men only, and a published critical letter about the paper was not reviewed.",
+      "quote": "The 3-SET and 5-SET groups significantly increased elbow flexor muscle thickness (MT) with the 5-SET increase being significantly greater than the other 2 training groups (p ≤ 0.05).",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PMID was missing from the source. It is 25546444, the PubMed record for this paper (MEDLINE-indexed per the BVS 'mdl-25546444' record). The record matches Radaelli, Fleck, Leite, Leite, Pinto, Fernandes, Simao, J Strength Cond Res 2015 May;29(5):1349-58, DOI 10.1519/JSC.0000000000000758. The results confirm 48 untrained men randomised to 1, 3 or 5 sets or a control group, with training over 6 months, 3 times a week. Only the 3-set and 5-set groups increased elbow flexor thickness, and the 5-set gain was larger. No retraction or expression of concern was found. A 2017 letter, 'Manuscript clarification: Dose-response of 1, 3, and 5 sets...' (Gentil, Fisher, Steele, Arruda; J Strength Cond Res 31(1):e5-e7), is a critical letter to the editor, not an erratum. I did not see its content, so its implications are unverified. | Citation seen on PubMed as a 'similar article' entry (J Strength Cond Res. 2015 May;29(5):1349-58), but no PMID was seen. The abstract came from mirrors (bisp-surf, academia, LWW). The finding matches the researcher's summary. The control group the researcher lists was not confirmed in the text I saw. Untrained men only; the intervention lasted about 6 months. The verifiedQuote is as rendered in the search snippet.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/25546444/",
+          "https://busqueda.bvsalud.org/portal/resource/pt/mdl-25546444",
+          "https://paulogentil.com/pdf/Dose-Response%20of%201%2C%203%2C%20and%205%20Sets%20of%20Resistance%20Exercise%20on%20Strength%2C%20Local%20Muscular%20Endurance%2C%20and%20Hypertrophy.pdf",
+          "https://pure.solent.ac.uk/en/publications/manuscript-clarification-dose-response-of-1-3-and-5-sets-of-resis/"
+        ],
+        "supportEvidence": [
+          "https://journals.lww.com/nsca-jscr/fulltext/2015/05000/dose_response_of_1,_3,_and_5_sets_of_resistance.25.aspx",
+          "https://www.bisp-surf.de/Record/PU201508006665",
+          "https://www.academia.edu/127095283/Dose_Response_of_1_3_and_5_Sets_of_Resistance_Exercise_on_Strength_Local_Muscular_Endurance_and_Hypertrophy"
+        ]
+      }
+    },
+    {
+      "id": "src-heaselgrave-2019",
+      "short": "Heaselgrave et al., 2019",
+      "title": "Dose-Response Relationship of Weekly Resistance-Training Volume and Frequency on Muscular Adaptations in Trained Men",
+      "authors": "Heaselgrave SR, Blacker J, Smeuninx B, McKendry J, Breen L",
+      "year": 2019,
+      "journal": "International Journal of Sports Physiology and Performance",
+      "citation": "Int J Sports Physiol Perform. 2019;14(3):360-368",
+      "pmid": "30160627",
+      "pmcid": null,
+      "doi": "10.1123/ijspp.2018-0427",
+      "design": "Randomised controlled trial (PubMed publication type RCT): 49 resistance-trained men randomised to LOW (n=17; 9 weekly biceps sets, 1 session a week), MOD (n=15; 18 sets, 2 sessions) or HIGH (n=17; 27 sets, 2 sessions) for 6 weeks (Int J Sports Physiol Perform 2019;14(3):360-368)",
+      "population": "Resistance-trained men",
+      "sampleSize": "49 participants (1 RCT; about 17/15/17 per group)",
+      "found": "In 49 trained men over 6 weeks, 9 weekly biceps sets increased muscle thickness about as much as 18 or 27 sets, with no statistically significant difference between groups. The higher-volume groups may have gained more strength.",
+      "limitations": "It is a short trial on one muscle, and the 9-set group also trained less often (once a week against twice), so the effect of volume cannot be separated from frequency.",
+      "quote": "9 weekly sets of biceps-focused RT, performed in 1 weekly session, are sufficient to increase MT",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "fail"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PubMed PMID 30160627 matches the title: Int J Sports Physiol Perform 2019;14(3):360-368, DOI 10.1123/ijspp.2018-0427. Authors are Samuel R. Heaselgrave, Joe Blacker, Benoit Smeuninx, James McKendry and Leigh Breen. The University of Birmingham repository (accepted manuscript, accepted 13 Aug 2018) confirms the DOI. Its title says 'Trained Males' instead of 'Trained Men', which is a manuscript-version wording difference. The results confirm 49 trained males randomised to low, moderate or high weekly volume. The conclusion is that 9 weekly sets in one session increased biceps thickness, and 18-27 sets over 2 sessions may give greater strength gains. No retraction, erratum or expression of concern was found. | PubMed record confirmed (PMID, DOI, n, group sizes, design). The hypertrophy outcome is null between groups. It does not support 'more sets leads to more growth', and it runs against raising volume from under 10 to 10 or more weekly sets for biceps in trained men, so I marked findingSupported fail under the null-result rule. The proposed statement does cite it accurately as a caveat, though. The researcher's 'increased significantly in all groups' was not confirmed in the text I saw. The design confounds volume with frequency (LOW trained once a week, MOD/HIGH twice), and the evidence is for one muscle over 6 weeks.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/30160627/",
+          "https://research.birmingham.ac.uk/en/publications/dose-response-of-weekly-resistance-training-volume-and-frequency-/",
+          "https://research.birmingham.ac.uk/files/54153731/Heaselgrave_et_al_Dose_response_of_weekly_International_Journal_Sports_Physiology_and_Performance_2018.pdf"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/30160627/",
+          "https://pure-oai.bham.ac.uk/ws/portalfiles/portal/54153731/Heaselgrave_et_al_Dose_response_of_weekly_International_Journal_Sports_Physiology_and_Performance_2018.pdf"
+        ]
+      }
+    },
+    {
+      "id": "src-lopez-2021",
+      "short": "Lopez et al., 2021",
+      "title": "Resistance Training Load Effects on Muscle Hypertrophy and Strength Gain: Systematic Review and Network Meta-analysis",
+      "authors": "Lopez P, Radaelli R, Taaffe DR, Newton RU, Galvão DA, Trajano GS, et al.",
+      "year": 2021,
+      "journal": "Medicine & Science in Sports & Exercise",
+      "citation": "Med Sci Sports Exerc. 2021 Jun;53(6):1206-1216. doi:10.1249/MSS.0000000000002585. Corrigendum: Med Sci Sports Exerc. 2022;54(2):370 (PMID 35029596).",
+      "pmid": "33433148",
+      "pmcid": "PMC8126497",
+      "doi": "10.1249/MSS.0000000000002585",
+      "design": "Systematic review and network meta-analysis (random effects) of 28 studies involving 747 healthy adults. Training was to volitional failure, comparing low-, moderate- and high-load RT. A corrigendum (PMID 35029596) corrected effect sizes for three studies in one figure. The authors say the main findings and conclusions did not change.",
+      "population": "Healthy adults; only training with sets taken to volitional failure. Load categories: low (>15RM), moderate (9-15RM), high (≤8RM)",
+      "sampleSize": "28 studies, 747 healthy adults",
+      "found": "A network meta-analysis of 28 studies with 747 healthy adults training to failure. Heavy (8 reps or fewer) and moderate (9-15 reps) loads both improved strength more than light loads, and muscle growth did not differ between loads.",
+      "limitations": "The verifier did not see the exact effect sizes, including the non-significant heavy-versus-moderate difference, and a corrigendum changed three study effect sizes, though not the conclusions.",
+      "quote": "muscle strength improvement was superior for both high-load and moderate-load compared with low-load RT",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "A PubMed search for PMID 33433148 identified this MSSE 2021 network meta-analysis, 53(6):1206-1216. The PubMed hit was the linked corrigendum record (PMID 35029596), which cites the original. The PMC8126497 page and the Jyvaskyla repository record carry the same title, first author Lopez P and journal. The corrigendum (MSSE 2022;54(2):370) corrected the effect sizes of three studies in Figure 4 (Morton 2016, Jenkins 2017, Ozaki 2018). The overall and best-quality effects changed slightly, but the main findings and conclusions did not change. No retraction or expression of concern was found. The repository abstract shows the quoted conclusion, that hypertrophy is load-independent and strength gains are superior with high loads. | The 28 studies and 747 adults were confirmed verbatim ('Twenty-eight studies involving 747 healthy adults were included'). I confirmed the qualitative strength and hypertrophy findings. I did NOT see the researcher's numbers: high vs low SMD 0.60 (0.38-0.82), moderate vs low 0.34 (0.05-0.62), and high vs moderate about 0.26-0.28, non-significant. They need checking against the abstract or tables. The verifiedQuote is a clause, not a full sentence. I could not confirm the researcher's conclusion quote word for word. One search summary claimed the published wording differs slightly ('seem to be' vs 'appear to be'), so quoteVerbatim is false. The finding that moderate loads also beat low loads supports the researcher's caveat that the edge of heavy over moderate loads is not established.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/35029596/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8126497/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/pmid/35029596",
+          "https://jyx.jyu.fi/handle/123456789/75929",
+          "https://www.researchgate.net/publication/348419968_Resistance_Training_Load_Effects_on_Muscle_Hypertrophy_and_Strength_Gain_Systematic_Review_and_Network_Meta-analysis"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/35029596/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8126497/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC12479057/",
+          "https://www.researchgate.net/publication/348419968_Resistance_Training_Load_Effects_on_Muscle_Hypertrophy_and_Strength_Gain_Systematic_Review_and_Network_Meta-analysis",
+          "https://research-repository.uwa.edu.au/en/publications/resistance-training-load-effects-on-muscle-hypertrophy-and-streng/"
+        ]
+      }
+    },
+    {
+      "id": "src-currier-2023",
+      "short": "Currier et al., 2023",
+      "title": "Resistance training prescription for muscle strength and hypertrophy in healthy adults: a systematic review and Bayesian network meta-analysis",
+      "authors": "Currier BS, Mcleod JC, Banfield L, Beyene J, Welton NJ, D'Souza AC, et al.",
+      "year": 2023,
+      "journal": "British Journal of Sports Medicine",
+      "citation": "Br J Sports Med. 2023 Sep;57(18):1211-1220. Epub 2023 Jul 6.",
+      "pmid": "37414459",
+      "pmcid": "PMC10579494",
+      "doi": "10.1136/bjsports-2023-106807",
+      "design": "Systematic review with Bayesian network meta-analysis comparing RT prescriptions with non-exercise control. The strength network had 178 studies (n=5097; 45% women). The hypertrophy network had 119 studies (n=3364; 47% women). Br J Sports Med 2023;57(18):1211-1220, PMID 37414459.",
+      "population": "Healthy adults in randomised trials",
+      "sampleSize": "Strength network: 178 studies, 5,097 participants. Hypertrophy network: 119 studies, 3,364 participants",
+      "found": "A Bayesian network meta-analysis of 178 studies (5,097 participants, 45% women) for strength and 119 studies (3,364 participants) for muscle size. Programmes using loads above 80% of 1RM gave the largest strength gains, and all programmes built muscle about equally.",
+      "limitations": "Loads were compared indirectly through non-exercise control groups, and the analysis was not limited to sets taken to failure.",
+      "quote": "Higher-load (>80% of single repetition maximum) prescriptions maximised strength gains",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed search did not return this paper's own PubMed page. Two other sources tie PMID 37414459 to Currier et al., BJSM 2023;57(18):1211-1220, doi:10.1136/bjsports-2023-106807, Epub 6 Jul 2023: a Google Scholar lookup that carries pmid=37414459, and a PubMed reference listing on PMID 41851754 that cites it. That listing also gave PMCID PMC10579494, and a PMC10579494 page came up in a later search about this paper. I am fairly but not fully confident in the PMCID, because I saw it only through the reference listing and a search hit, not on its own PubMed record. The abstract details match: 178 studies with n=5097 in the strength network, 119 with n=3364 in the hypertrophy network, higher-load (>80% 1RM) prescriptions maximised strength, and hypertrophy was comparable across prescriptions. A search for retraction or correction found no notice. | I did NOT verify the top-ranked prescription SMD of 1.60 (1.38-1.82) or the 'highly robust' threshold analysis. My last search for them was refused because the shared web search budget was used up. I also did not confirm from the abstract that the network was restricted to randomised trials. Comparisons between loads are indirect, run through a common control. Unlike the proposed statement, the analysis is not conditioned on sets taken to failure. The researcher's population (healthy adults) and design are consistent with what I saw.",
+        "identityEvidence": [
+          "https://scholar.google.com/scholar_lookup?title=Resistance+Training+Prescription+for+Muscle+Strength+and+Hypertrophy+in+Healthy+Adults:+A+Systematic+Review+and+Bayesian+Network+Meta-Analysis&author=Currier,+B.S.&publication_year=2023&journal=Br.+J.+Sports+Med.&volume=57&pages=1211%E2%80%931220&doi=10.1136/bjsports-2023-106807&pmid=37414459",
+          "https://pubmed.ncbi.nlm.nih.gov/41851754/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC10579494/",
+          "https://bjsm.bmj.com/content/bjsports/57/18/1211.full.pdf",
+          "https://research-information.bris.ac.uk/en/publications/resistance-training-prescription-for-muscle-strength-and-hypertro/",
+          "https://www.researchgate.net/publication/372182497_Resistance_training_prescription_for_muscle_strength_and_hypertrophy_in_healthy_adults_a_systematic_review_and_Bayesian_network_meta-analysis"
+        ],
+        "supportEvidence": [
+          "https://www.researchgate.net/publication/372182497_Resistance_training_prescription_for_muscle_strength_and_hypertrophy_in_healthy_adults_a_systematic_review_and_Bayesian_network_meta-analysis",
+          "https://research-information.bris.ac.uk/en/publications/resistance-training-prescription-for-muscle-strength-and-hypertro/",
+          "https://www.semanticscholar.org/paper/Resistance-training-prescription-for-muscle-and-in-Currier-Mcleod/a0b93fc7fb7bfe615dbadc02c40116c09c908405"
+        ]
+      }
+    },
+    {
+      "id": "src-refalo-2021",
+      "short": "Refalo et al., 2021",
+      "title": "Influence of resistance training load on measures of skeletal muscle hypertrophy and improvements in maximal strength and neuromuscular task performance: A systematic review and meta-analysis",
+      "authors": "Refalo MC, Hamilton DL, Paval DR, Gallagher IJ, Feros SA, Fyfe JJ",
+      "year": 2021,
+      "journal": "Journal of Sports Sciences",
+      "citation": "J Sports Sci. 2021 Aug;39(15):1723-1745.",
+      "pmid": "33874848",
+      "pmcid": null,
+      "doi": "10.1080/02640414.2021.1898094",
+      "design": "Systematic review with meta-analysis of 45 studies (4,713 records identified). It compared higher-load (>60% 1RM or <15RM) with lower-load (<=60% 1RM or >=15RM) RT.",
+      "population": "Adults; higher load (>60% 1RM or <15RM) vs lower load (≤60% 1RM or ≥15RM)",
+      "sampleSize": "45 studies (from 4,713 screened records); participant total not seen",
+      "found": "A meta-analysis of 45 studies. Higher loads gave larger 1RM gains (effect size 0.34, 95% CI 0.15 to 0.52) and isometric gains (0.41, 0.07 to 0.76). Muscle growth was similar (whole-muscle effect size 0.06, -0.11 to 0.24), and the 1RM advantage was smaller in older adults (0.20 vs 0.34).",
+      "limitations": "It defined higher load broadly (above 60% of 1RM or fewer than 15 reps), so it cannot confirm the 80% threshold specifically.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 33874848 matches: Refalo MC et al., J Sports Sci 2021 Aug;39(15):1723-1745, epub 19 Apr 2021, DOI 10.1080/02640414.2021.1898094. The Taylor & Francis page agrees (Vol 39, No 15). The abstract confirms 45 studies (from 4,713), similar hypertrophy (whole-body lean mass P=0.70), and a 1RM advantage for higher load (ES 0.34) that was larger in younger participants. No erratum, correction or retraction was found. The one correction notice in the results was for a different paper (on hypoxia training). | I confirmed the ES values and CIs. I did not see the P values (0.70, 0.47, 0.0003, 0.02) or an explicit statement that the 1RM effect was non-significant in older adults. I only saw that it was smaller (0.20 vs 0.34). I searched for the researcher's quote, but the results paraphrased it and never showed it word for word, so quoteVerbatim is false. Caveat: 'higher load' here means >60% 1RM or <15RM. That is much broader than the proposed statement's >=80% 1RM, so this source supports heavier > lighter in general, not specifically >=80%.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/33874848/?dopt=Abstract",
+          "https://www.tandfonline.com/doi/abs/10.1080/02640414.2021.1898094",
+          "https://storre.stir.ac.uk/handle/1893/32600",
+          "https://www.researchgate.net/publication/351000041_Influence_of_resistance_training_load_on_measures_of_skeletal_muscle_hypertrophy_and_improvements_in_maximal_strength_and_neuromuscular_task_performance_A_systematic_review_and_meta-analysis"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/33874848/?dopt=Abstract",
+          "https://www.tandfonline.com/doi/abs/10.1080/02640414.2021.1898094",
+          "https://www.researchgate.net/publication/351000041_Influence_of_resistance_training_load_on_measures_of_skeletal_muscle_hypertrophy_and_improvements_in_maximal_strength_and_neuromuscular_task_performance_A_systematic_review_and_meta-analysis"
+        ]
+      }
+    },
+    {
+      "id": "src-schoenfeld-2017-b",
+      "short": "Schoenfeld et al., 2017",
+      "title": "Strength and Hypertrophy Adaptations Between Low- vs. High-Load Resistance Training: A Systematic Review and Meta-analysis",
+      "authors": "Schoenfeld BJ, Grgic J, Ogborn D, Krieger JW",
+      "year": 2017,
+      "journal": "Journal of Strength and Conditioning Research",
+      "citation": "J Strength Cond Res. 2017 Dec;31(12):3508-3523. doi:10.1519/JSC.0000000000002200.",
+      "pmid": "28834797",
+      "pmcid": null,
+      "doi": "10.1519/JSC.0000000000002200",
+      "design": "Systematic review and meta-analysis of 21 studies (PubMed/MEDLINE, Cochrane Library, Scopus). It compared low-load (<=60% 1RM) with high-load (>60% 1RM) training, all sets to momentary muscular failure, for at least 6 weeks.",
+      "population": "Experimental trials comparing low-load (≤60% 1RM) with high-load (>60% 1RM) training, all sets to momentary muscular failure, at least 6 weeks",
+      "sampleSize": "21 studies; participant total not seen",
+      "found": "A meta-analysis of 21 studies in which all sets went to failure for at least 6 weeks. 1RM gains were greater with loads above 60% of 1RM than with lighter loads, isometric strength did not differ, and muscle growth was similar.",
+      "limitations": "It defined high load as above 60% of 1RM, and its growth conclusion rests only on whole-muscle measures.",
+      "quote": "Gains in 1RM strength were significantly greater in favor of high- vs. low-load training, whereas no significant differences were found for isometric strength between conditions.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 28834797 matches the title, authors (Schoenfeld BJ, Grgic J, Ogborn D, Krieger JW), journal, year and pages (2017 Dec;31(12):3508-3523), and the DOI 10.1519/JSC.0000000000002200. Search results did not include the abstract text, so I did not check the finding details directly. A search for erratum, retraction, expression of concern or correction found none. | I did not see the researcher's quote ('Changes in measures of muscle hypertrophy were similar between conditions.') word for word. One search summary claimed it was in the abstract but did not reproduce it, so quoteVerbatim is false. I saw no participant total. The hypertrophy conclusion rests on whole-muscle measures, because a biopsy (fibre) meta-analysis could not be performed. Caveat: 'high load' means >60% 1RM, broader than the >=80% in the proposed statement.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/28834797/?dopt=Abstract",
+          "https://journals.lww.com/nsca-jscr/fulltext/2017/12000/strength_and_hypertrophy_adaptations_between_low_.31.aspx"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/28834797/?dopt=Abstract",
+          "https://www.semanticscholar.org/paper/Strength-and-Hypertrophy-Adaptations-Between-Low-A-Schoenfeld-Grgic/bf737d9c1090be1a883e2be6873060c6c1c5273e",
+          "https://journals.lww.com/nsca-jscr/fulltext/2017/12000/strength_and_hypertrophy_adaptations_between_low_.31.aspx",
+          "https://www.unboundmedicine.com/medline/citation/28834797/Strength_and_hypertrophy_adaptations_between_low__versus_high_load_resistance_training:_A_systematic_review_and_meta_analysis_"
+        ]
+      }
+    },
+    {
+      "id": "src-mcleod-2024",
+      "short": "Mcleod et al., 2024",
+      "title": "The influence of resistance exercise training prescription variables on skeletal muscle mass, strength, and physical function in healthy adults: An umbrella review",
+      "authors": "Mcleod JC, Currier BS, Lowisz, Phillips SM",
+      "year": 2024,
+      "journal": "Journal of Sport and Health Science",
+      "citation": "J Sport Health Sci. 2024 Jan;13(1):47-60. doi:10.1016/j.jshs.2023.06.005. Epub 2023 Jun 28.",
+      "pmid": "37385345",
+      "pmcid": "PMC10818109",
+      "doi": "10.1016/j.jshs.2023.06.005",
+      "design": "Umbrella review of 44 systematic reviews in healthy adults (Mcleod, Currier, Lowisz, Phillips; J Sport Health Sci 2024;13(1):47-60).",
+      "population": "Healthy adults",
+      "sampleSize": "44 systematic reviews",
+      "found": "An umbrella review of 44 systematic reviews in healthy adults. Training load and weekly frequency affected strength gains but not muscle growth, and set volume affected both.",
+      "limitations": "It names no specific load threshold, and much of its evidence overlaps with the meta-analyses above.",
+      "quote": "RT intensity (load) and weekly frequency impacted RT-induced increases in muscular strength but not muscle hypertrophy.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "A direct search for 'PMID 37385345' returned nothing. Later searches did return the PubMed URL pubmed.ncbi.nlm.nih.gov/37385345 for this exact title, and a search summary tied PMID 37385345 to the Mcleod, Currier, Lowisz and Phillips umbrella review. The PMC10818109 page and citing references agree: J Sport Health Sci 2024 Jan;13(1):47-60, doi:10.1016/j.jshs.2023.06.005, Epub 2023 Jun 28. I did not see Lowisz's initials, so that author field is still incomplete. The abstract confirms 44 systematic reviews, and that load and weekly frequency affected strength but not hypertrophy. No erratum, retraction or expression of concern was found. | I confirmed the quote and the main load finding. The PMID 37385345 / DOI pairing was seen in a reference table, not on the PubMed record itself. I did not individually verify the researcher's list of variables with insufficient evidence (time of day, periodization, rest, set configuration, set end point, velocity, time under tension). The umbrella review does not specify a load threshold such as >=80% 1RM in what I saw.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/37385345/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC10818109/",
+          "https://doaj.org/article/6ba0b8191479403d9a774af94d1cc54f",
+          "https://scite.ai/reports/the-influence-of-resistance-exercise-XxLmRQdx"
+        ],
+        "supportEvidence": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC10818109/",
+          "https://bibbase.org/network/publication/mcleod-currier-lowisz-phillips-theinfluenceofresistanceexercisetrainingprescriptionvariablesonskeletalmusclemassstrengthandphysicalfunctioninhealthyadultsanumbrellareview-2024",
+          "https://www.researchgate.net/publication/371965020_The_influence_of_resistance_exercise_training_prescription_variables_on_skeletal_muscle_mass_strength_and_physical_function_in_healthy_adults_An_umbrella_review"
+        ]
+      }
+    },
+    {
+      "id": "src-currier-2026",
+      "short": "Currier et al., 2026",
+      "title": "American College of Sports Medicine Position Stand. Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults: An Overview of Reviews",
+      "authors": "Currier BS, D'Souza AC, Fiatarone Singh MA, Lowisz CV, Rawson ES, Schoenfeld BJ, Smith-Ryan AE, Steen JP, Thomas GA, Triplett NT, Washington TA, Werner TJ, Phillips SM",
+      "year": 2026,
+      "journal": "Medicine & Science in Sports & Exercise",
+      "citation": "Med Sci Sports Exerc. 2026 Apr 1;58(4):851-872. Epub 2026 Mar 5.",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.1249/MSS.0000000000003897",
+      "design": "ACSM position stand: an evidence-based overview of reviews in Med Sci Sports Exerc 2026;58(4):851-872 (doi:10.1249/MSS.0000000000003897), updating the 2009 ACSM position stand. Search results describe it as synthesising 137 systematic reviews (over 30,000 participants per ACSM).",
+      "population": "Healthy adults",
+      "sampleSize": "Press release: evidence from 137 studies (exact unit, reviews or trials, not confirmed from the abstract)",
+      "found": "The 2026 ACSM position stand, an overview of reviews. It summarises that maximal strength is improved by heavier loads (80% of 1RM or more), along with full range of motion, 2-3 sets, doing the lift early in the session and training at least twice a week.",
+      "limitations": "No PubMed record or full abstract was seen, the details came through secondary records, and it supports only the strength half of the claim.",
+      "quote": "voluntary strength was enhanced by lifting heavier loads (≥80% one-repetition maximum), through a complete range of motion, for 2–3 sets, at the beginning of training sessions, and ≥2 sessions/wk",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "No PMID was given, and searches did not turn up a PubMed record for this paper. A doi.org link for 10.1249/MSS.0000000000003897 came back titled with this exact paper, and the LWW page has the same title in MSSE 2026 Apr. A citation in a ClinicalTrials.gov record gives Med Sci Sports Exerc. 2026 Apr 1;58(4):851-872, Epub 2026 Mar 5, with the full author list above. A PMC ID (PMC12965823) appeared in one search as a 2026 Phillips-group MSSE article, but I could not confirm that it is this paper, so I left it out. The paper is an ACSM position stand: an umbrella review, or overview of reviews, published in a peer-reviewed journal with a Crossref-registered DOI. Treat it as a guideline or overview, not primary research. I saw only the abstract-level purpose, which is to update the ACSM 2009 stand using RCTs in adults aged 18 and over lasting at least 6 weeks. The specific prescription findings (>=80% 1RM, 2-3 sets, >=10 sets/week) were not confirmed from what I saw. No correction or retraction was found. | I saw no PMID. The strength statement came through the Ovid/PDF search results. It appears to be the position stand's own summary text, probably the abstract, but I could not confirm that it is the abstract specifically, hence it is a clause. The researcher's hypertrophy points (>=10 sets/week, eccentric overload) came only from a secondhand commentary. I did not see the 'consistency over complex programming' message. The unit of '137' appears to be systematic reviews, not trials. I saw no statement from this position stand that hypertrophy is similar across loads, so it supports the strength half of the proposed statement only.",
+        "identityEvidence": [
+          "https://journals.lww.com/acsm-msse/fulltext/2026/04000/american_college_of_sports_medicine_position.21.aspx",
+          "https://doi.org/10.1249/MSS.0000000000003897",
+          "https://clinicaltrials.gov/study/NCT07860424",
+          "https://www.fisiologiadelejercicio.com/wp-content/uploads/2026/03/Resistance-Training-Prescription-for-Muscl.pdf"
+        ],
+        "supportEvidence": [
+          "https://www.ovid.com/jnls/acsm-msse/fulltext/10.1249/mss.0000000000003897~american-college-of-sports-medicine-position-stand",
+          "https://www.fisiologiadelejercicio.com/wp-content/uploads/2026/03/Resistance-Training-Prescription-for-Muscl.pdf",
+          "https://acsm.org/science-spotlight-acsm-releases-new-position-stand-on-resistance-training/",
+          "https://acsm.org/resistance-training-guidelines-update-2026/",
+          "https://x.com/mackinprof/status/2032979481896288756"
+        ]
+      }
+    },
+    {
+      "id": "src-hammert-2026",
+      "short": "Hammert et al., 2026",
+      "title": "Non-Specific Strength Changes Between High- and Low-Load Isotonic Resistance Training: A Systematic Review and Meta-Analysis",
+      "authors": "Hammert WB, Kataoka, Yamada, Sallberg, Kang, Buckner, Loenneke JP",
+      "year": 2026,
+      "journal": "Sports Medicine",
+      "citation": "Sports Med. 2026;56:763-773 (published online 12 Dec 2025).",
+      "pmid": "41381816",
+      "pmcid": "PMC13018011",
+      "doi": "10.1007/s40279-025-02370-8",
+      "design": "Systematic review and meta-analysis (PubMed, Scopus, Embase searched to 14 June 2025): 10 studies from 7,885 unique articles, 44 effect sizes, 245 participants (high load n=114, low load n=131). Full-text snippet: high load >60% 1RM, low load <=40% 1RM.",
+      "population": "Adults doing high- vs low-load isotonic training, with strength tested on non-practised tasks (isometric or isokinetic)",
+      "sampleSize": "10 studies, 44 effect sizes, 245 participants (high load n=114, low load n=131)",
+      "found": "A meta-analysis of 10 studies with 245 participants. On strength tests not used in training (isometric or isokinetic), the advantage of heavy loads was inconclusive: d=0.32, 95% CI -0.08 to 0.72, p=0.10.",
+      "limitations": "It is small, and it addresses carry-over to untested strength rather than 1RM, so it narrows the claim rather than contradicting it.",
+      "quote": "The overall effect size appeared to be biased towards favoring high-load isotonic training; however, the confidence intervals were wide and crossed zero.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 41381816 matches: Hammert WB (William B. Hammert) et al., Sports Medicine, issue date March 2026, PMCID PMC13018011, DOI 10.1007/s40279-025-02370-8. The Springer and PMC pages have the same title. The Springer abstract confirms that PubMed, Scopus and Embase were searched to 14 June 2025, that 10 studies were included, and the result d=0.322 (SE 0.17), 95% CI -0.08 to 0.72, p=0.104, which was inconclusive. It went online in 2025, so the year depends on whether you use the online or issue date. I did not see the volume and pages (56:763-773) myself, or the other authors' initials. No correction or retraction was found. | The result is null/inconclusive. It does not support a heavy-load advantage beyond the trained lift. It does support the proposed statement's explicit caveat that transfer to non-specific strength tests is inconclusive, hence pass for that clause with direction mixed. The researcher's numbers match what I saw. I saw the researcher's quote only as a fragment ('the results of the current analysis were inconclusive'), not the full sentence, so quoteVerbatim is false. I did not see the researcher's inference ('much of the heavy-load 1RM advantage may reflect practice of the tested lift') stated in the abstract. Treat it as the researcher's interpretation.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/41381816/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC13018011/",
+          "https://link.springer.com/article/10.1007/s40279-025-02370-8"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/41381816/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC13018011/",
+          "https://link.springer.com/article/10.1007/s40279-025-02370-8"
+        ]
+      }
+    },
+    {
+      "id": "src-morton-2016",
+      "short": "Morton et al., 2016",
+      "title": "Neither load nor systemic hormones determine resistance training-mediated hypertrophy or strength gains in resistance-trained young men",
+      "authors": "Morton et al.",
+      "year": 2016,
+      "journal": "Journal of Applied Physiology",
+      "citation": "J Appl Physiol (1985). 2016 Jul 1;121(1):129-38. doi:10.1152/japplphysiol.00154.2016.",
+      "pmid": "27174923",
+      "pmcid": "PMC4967245",
+      "doi": "10.1152/japplphysiol.00154.2016",
+      "design": "Randomised trial, n=49 resistance-trained young men (23±1 yr), 12 weeks of whole-body RT. Higher-repetition group: ~30-50% 1RM, 20-25 reps/set. Lower-repetition group: ~75-90% 1RM, 8-12 reps/set. All sets to volitional failure. PMID 27174923, PMCID PMC4967245. Group sizes conflict between sources (24/25 vs 29/27).",
+      "population": "Resistance-trained young men",
+      "sampleSize": "49 participants",
+      "found": "A randomised trial in 49 resistance-trained young men over 12 weeks, with all sets to failure. Lifting 20-25 reps (about 30-50% of 1RM) or 8-12 reps (about 75-90% of 1RM) gave similar muscle growth and, for the most part, similar strength gains. Bench press was the one measure that favoured heavier loads.",
+      "limitations": "It is a single trial in trained men only, its heavy condition was mostly below 80% of 1RM, and sources disagree on the group sizes.",
+      "quote": "the relative load lifted per repetition does not determine skeletal muscle hypertrophy or, for the most part, strength development",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "fail"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PMID and PMCID were missing from the proposal. A PubMed title search found PMID 27174923, and PMC has the paper as PMC4967245. PubMed gives J Appl Physiol (1985). 2016 Jul 1;121(1):129-38, DOI 10.1152/japplphysiol.00154.2016. The first author is Morton (McMaster), but I did not see the full author list or initials. The abstract confirms 49 resistance-trained men, 12 weeks of whole-body training to volitional failure, and that load did not dictate hypertrophy or, for the most part, strength. 1RM rose in both groups, and only the bench press change differed between groups, favouring heavier loads. Labelling this source as 'contradicts' should take that bench press exception into account. No erratum, correction or retraction was found. | The researcher's description of the finding is accurate, but the researcher listed PMID and PMCID as not seen. They are 27174923 and PMC4967245. This trial supports the hypertrophy half of the statement but runs against the strength half in trained men, so I classify it as mixed rather than purely contradicting. findingSupported is fail because it does not support the heavy-load 1RM advantage. It should be shown as counter-evidence, and the population note should say that in trained men one RCT found mostly no load effect on strength. I could not confirm which strength measure(s) differed ('for the most part'). The verifiedQuote is a clause from the abstract text as relayed in search results.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/27174923/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4967245/",
+          "https://journals.physiology.org/doi/full/10.1152/japplphysiol.00154.2016",
+          "https://experts.mcmaster.ca/scholarly-works/61716"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/27174923/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4967245/",
+          "https://journals.physiology.org/doi/full/10.1152/japplphysiol.00154.2016",
+          "https://www.researchgate.net/publication/303029912_Neither_load_nor_systemic_hormones_determine_resistance_training-mediated_hypertrophy_or_strength_gains_in_resistance-trained_young_men"
+        ]
+      }
+    },
+    {
+      "id": "src-schoenfeld-2015",
+      "short": "Schoenfeld et al., 2015",
+      "title": "Effects of Low- vs. High-Load Resistance Training on Muscle Strength and Hypertrophy in Well-Trained Men",
+      "authors": "Schoenfeld BJ, Peterson MD, Ogborn D, Contreras B, Sonmez GT",
+      "year": 2015,
+      "journal": "Journal of Strength and Conditioning Research",
+      "citation": "J Strength Cond Res. 2015 Oct;29(10):2954-2963. doi:10.1519/JSC.0000000000000958.",
+      "pmid": "25853914",
+      "pmcid": null,
+      "doi": "10.1519/JSC.0000000000000958",
+      "design": "Randomised trial: 18 young men experienced in RT, matched on baseline strength and randomly assigned to low load (25-35 reps/set) or high load (8-12 reps/set), 9 per group, 3 sessions/week for 8 weeks. J Strength Cond Res 2015;29(10):2954-63.",
+      "population": "Well-trained young men",
+      "sampleSize": "Not seen in search results",
+      "found": "A randomised trial in 18 trained young men over 8 weeks, with all sets to failure. Back squat 1RM rose more with 8-12 reps than with 25-35 reps (19.6% vs 8.8%), bench press showed only a trend (6.5% vs 2.0%), and muscle thickness gains did not differ.",
+      "limitations": "It is very small, and its heavy condition (8-12 reps, about 70-80% of 1RM) falls below the 80% threshold.",
+      "quote": "Improvements in back squat strength were significantly greater for HL compared to LL (19.6 vs. 8.8%, respectively)",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 25853914 matches the title, J Strength Cond Res 2015, and the DOI 10.1519/JSC.0000000000000958, which was missing from the proposal. The BISp-SURF and LIDA catalog records agree: Schoenfeld, Peterson, Ogborn, Contreras, Sonmez, volume 29, issue 10, pages 2954-2963. The abstract gives n=18 trained young men (9 per group): low load at 25-35 reps per set vs high load at 8-12 reps, 3 times a week for 8 weeks. Back squat gains were greater with high load (19.6% vs 8.8%), bench press only trended that way, and muscle thickness gains did not differ. The proposal's 'about 10RM vs about 30RM' is a rough paraphrase of those rep ranges. No erratum, retraction or expression of concern was found. | The researcher listed n as not seen. It is 18 (9 per group). The 'high load' here is 8-12 reps/set (roughly 70-80% 1RM), not >=80% 1RM. Because it is very small, it is weak support for the specific >=80% threshold. I did not verify the endurance result (+16.6% vs -1.2%) or the exact muscle thickness percentages. The researcher's quote reads 'compared with LL', but the copy I saw (ResearchGate, which search noted mixes in some unrelated text) reads 'compared to LL'. I also did not see the quote's continuation, so quoteVerbatim is false.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/25853914/",
+          "https://www.bisp-surf.de/Record/PU201510008067",
+          "https://lida.sport-iat.de/ta/Record/4037869",
+          "https://journals.lww.com/nsca-jscr/fulltext/2015/10000/effects_of_low__vs__high_load_resistance_training.36.aspx"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/25853914/",
+          "https://www.researchgate.net/publication/274726675_Effects_of_Low-_Versus_High-Load_Resistance_Training_on_Muscle_Strength_and_Hypertrophy_in_Well-Trained_Men"
+        ]
+      }
+    },
+    {
+      "id": "src-carvalho-2022",
+      "short": "Carvalho et al., 2022",
+      "title": "Muscle hypertrophy and strength gains after resistance training with different volume-matched loads: a systematic review and meta-analysis",
+      "authors": "Carvalho L, Junior RM, Barreira J, Schoenfeld BJ, Orazem J, Barroso R",
+      "year": 2022,
+      "journal": "Applied Physiology, Nutrition, and Metabolism",
+      "citation": "Appl Physiol Nutr Metab. 2022 Apr;47(4):357-368. doi:10.1139/apnm-2021-0515",
+      "pmid": "35015560",
+      "pmcid": null,
+      "doi": "10.1139/apnm-2021-0515",
+      "design": "Not verified: web search budget exhausted.",
+      "population": "Adults in trials comparing very low, low, moderate and high loads with volume load (sets x reps x weight) equated",
+      "sampleSize": "Number of studies and participants not seen in search results",
+      "found": "Compared different loads with total training volume matched and reported no difference in muscle growth between them.",
+      "limitations": "Not yet verified, and the number of studies was not seen. Because volume was matched, sets may not have gone to failure, so it tests the 'to failure' condition only indirectly.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "unknown",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "unknown",
+        "study_design_strong": "unknown",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 35015560 is this paper: Carvalho L et al., Appl Physiol Nutr Metab 2022 Apr;47(4):357-368, DOI 10.1139/apnm-2021-0515, published online 11 Jan 2022. These fields match the proposed citation. The abstract and findings were not seen. No second independent page was checked (search budget exhausted), so metadataMatches is unknown. No dedicated retraction search was possible. | No search was attempted after the budget-exhausted refusals, so nothing was verified. Unverified observation from the researcher's own entry: the review equates volume load across loads, so its sets may not have been taken to failure. That makes it a less direct test of the 'close to failure' condition in the statement. The researcher also did not see the number of studies. Re-run in a later turn.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/35015560/?dopt=Abstract"
+        ],
+        "supportEvidence": []
+      }
+    },
+    {
+      "id": "src-lees-2026",
+      "short": "Lees et al., 2026",
+      "title": "Resistance training load does not determine resistance training-induced hypertrophy across upper and lower limbs in healthy young males",
+      "authors": "Lees MJ, McLeod, Morton, et al.",
+      "year": 2026,
+      "journal": "The Journal of Physiology",
+      "citation": "J Physiol. 2026 (Epub 2025 Dec 31). doi:10.1113/JP289684. Volume/pages not seen.",
+      "pmid": "41474371",
+      "pmcid": null,
+      "doi": "10.1113/JP289684",
+      "design": "Not verified: web search budget exhausted.",
+      "population": "Healthy young males; 10 weeks, 3 sessions/wk, unilateral biceps curl and knee extension",
+      "sampleSize": "20 participants",
+      "found": "In 20 healthy young men training three times a week for 10 weeks, this trial compared lighter (about 30-40% 1RM) and heavier (about 70-80% 1RM) loads within the same people. It reportedly found that load did not determine muscle growth in either the arms or the legs.",
+      "limitations": "It is small, men-only and from the same laboratory as Mitchell 2012 and Morton 2016. Its results were not yet verified, and it was published online in December 2025 with the 2026 issue unconfirmed.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "unknown",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "unknown",
+        "study_design_strong": "unknown",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 41474371 is this paper: first author Matthew J Lees, J Physiol, published online 31 Dec 2025, DOI 10.1113/JP289684. The abstract describes 20 healthy young males training three times a week for 10 weeks. The search summary gave the year as 2025, the e-publication year. The proposer's year of 2026 could not be confirmed, since no issue, volume or pages were seen. Treat the year as unconfirmed: 2025 (epub) unless a 2026 issue assignment is verified. No second page was checked and no retraction search was possible (search budget exhausted). | Not searched because the search budget was exhausted. The PMID 41474371, the 2026 J Physiol citation, the author list ('Lees MJ, McLeod, Morton') and n=20 all need checking. This is a very recent paper and the researcher's citation is incomplete. Re-run in a later turn.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/41474371/"
+        ],
+        "supportEvidence": []
+      }
+    },
+    {
+      "id": "src-mitchell-2012",
+      "short": "Mitchell et al., 2012",
+      "title": "Resistance exercise load does not determine training-mediated hypertrophic gains in young men",
+      "authors": "Mitchell CJ, Churchward-Venne TA, West DW, et al.",
+      "year": 2012,
+      "journal": "Journal of Applied Physiology",
+      "citation": "J Appl Physiol (1985). 2012 Jul;113(1):71-77. doi:10.1152/japplphysiol.00307.2012",
+      "pmid": "22518835",
+      "pmcid": "PMC3404827",
+      "doi": "10.1152/japplphysiol.00307.2012",
+      "design": "Not verified: web search budget exhausted.",
+      "population": "Young men, 10 weeks of unilateral knee-extension training (30%-3 sets, 80%-1 set, 80%-3 sets, to failure)",
+      "sampleSize": "Participant number not confirmed in search snippets",
+      "found": "A randomised trial in untrained young men that reported similar muscle growth from light and heavy loads when sets were taken to failure.",
+      "limitations": "Not yet verified: the participant number and results were not checked. It covered untrained young men only.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "unknown",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "unknown",
+        "study_design_strong": "unknown",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record at pubmed.ncbi.nlm.nih.gov/22518835 has this paper's title. It shows Mitchell CJ et al., J Appl Physiol (1985) 2012 Jul;113(1):71-77 (published online 19 Apr 2012), DOI 10.1152/japplphysiol.00307.2012, publication type randomized controlled trial. The search summary also mentioned 'Effect of strength training on enzyme activities...', but that title belongs to a different PMID (179278) and is not a conflict for 22518835. Only one page was seen (search budget exhausted), and the PMCID was not seen. No dedicated retraction search was possible. | Not searched because the search budget was exhausted. The researcher did not confirm the participant number. The volume percentages and P values were not checked. Re-run in a later turn.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/22518835/"
+        ],
+        "supportEvidence": []
+      }
+    },
+    {
+      "id": "src-grgic-2020",
+      "short": "Grgic, 2020",
+      "title": "The Effects of Low-Load Vs. High-Load Resistance Training on Muscle Fiber Hypertrophy: A Meta-Analysis",
+      "authors": "Grgic J",
+      "year": 2020,
+      "journal": "Journal of Human Kinetics",
+      "citation": "J Hum Kinet. 2020;74:51-58. doi:10.2478/hukin-2020-0013",
+      "pmid": "33312275",
+      "pmcid": "PMC7706639",
+      "doi": "10.2478/hukin-2020-0013",
+      "design": "Not verified: web search budget exhausted.",
+      "population": "Trials comparing low- vs high-load training to momentary muscular failure with biopsy-measured fiber CSA",
+      "sampleSize": "10 study groups (participant total not seen)",
+      "found": "Pooled studies of single muscle fibres and found a non-significant trend towards greater growth of fast-twitch (type II) fibres with heavy loads (SMD 0.30, p = 0.089), with very wide uncertainty.",
+      "limitations": "It measures fibre size, not whole-muscle size, the trend is not statistically significant, and the findings are not yet verified.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "unknown",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "unknown",
+        "study_design_strong": "unknown",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 33312275 is this paper: Grgic J (Victoria University), J Hum Kinet 2020, DOI 10.2478/hukin-2020-0013, PMCID PMC7706639. The abstract notes very wide confidence and prediction intervals, which fits the proposer's 'mixed' direction. Volume and pages (74:51-58) were not seen. No second page was checked (search budget exhausted). No dedicated retraction search was possible. | Not searched because the search budget was exhausted. Unverified observation from the researcher's own entry: the outcome is fiber CSA, not whole-muscle size, and the point estimates favour high load. So even if accurate, it addresses the statement's whole-muscle outcome only indirectly. Re-run in a later turn.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/33312275/"
+        ],
+        "supportEvidence": []
+      }
+    },
+    {
+      "id": "src-lasevicius-2018",
+      "short": "Lasevicius et al., 2018",
+      "title": "Effects of different intensities of resistance training with equated volume load on muscle strength and hypertrophy",
+      "authors": "Lasevicius T, Ugrinowitsch C, Schoenfeld BJ, Roschel H, Tavares LD, De Souza EO, Laurentino G, Tricoli V",
+      "year": 2018,
+      "journal": "European Journal of Sport Science",
+      "citation": "Eur J Sport Sci. 2018;18(6):772-780. doi:10.1080/17461391.2018.1450898",
+      "pmid": "29564973",
+      "pmcid": null,
+      "doi": "10.1080/17461391.2018.1450898",
+      "design": "Not verified: web search budget exhausted.",
+      "population": "Men (described as untrained in secondary coverage); 12 weeks, twice weekly, elbow flexion and unilateral leg press. One limb at 20% 1RM; the contralateral limb randomised to 40%, 60% or 80% 1RM with volume load matched to the 20% condition",
+      "sampleSize": "30 participants",
+      "found": "30 men trained twice a week for 12 weeks, with each limb assigned to 20%, 40%, 60% or 80% of 1RM and volume load matched. The 20% load reportedly gave about half the muscle growth of 80%, while 40-80% were broadly similar.",
+      "limitations": "The result values were not yet verified. Volume-matched sets were not necessarily taken to failure, and the trial included men only.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "unknown",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "unknown",
+        "study_design_strong": "unknown",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 29564973 is this paper: first author Thiago Lasevicius, Eur J Sport Sci 2018 Jul;18(6):772-780, DOI 10.1080/17461391.2018.1450898. The abstract describes 30 men training twice a week for 12 weeks, with limbs assigned to 20%, 40%, 60% or 80% 1RM. The result values were not seen in the snippet. Only one page was seen (search budget exhausted). No dedicated retraction search was possible. | Not searched because the search budget was exhausted. Unverified observation from the researcher's own entry: the proposed statement already says ~20% 1RM gives less growth. If the reported finding (20% < 80%; 40-80% broadly similar) is accurate, the paper backs that caveat rather than contradicting the statement, so 'contradicts' may be the wrong label. Re-run in a later turn.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/29564973/"
+        ],
         "supportEvidence": []
       }
     }

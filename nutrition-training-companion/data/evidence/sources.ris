@@ -6,36 +6,35 @@ JO  - Journal of Strength and Conditioning Research
 VL  - 24
 IS  - 4
 SP  - 1150
-EP  - 1159
+EP  - 9
 DO  - 10.1519/JSC.0b013e3181d4d436
 AN  - PMID:20300012
 UR  - https://pubmed.ncbi.nlm.nih.gov/20300012/
-N2  - Multiple sets were linked to about 40% larger muscle-growth effects than single sets, in both trained and untrained people.
-N1  - Meta-analysis. Verified 2026-10-12. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
+N2  - Pooling 8 studies, doing multiple sets per exercise gave slightly more muscle growth than doing a single set (effect size difference 0.10, 95% CI 0.02 to 0.19, p = 0.016). Doing 2-3 and 4-6 sets both did better than 1 set but did not differ from each other.
+N1  - Meta-analysis using multilevel meta-regression: 55 effect sizes nested within 19 treatment groups and 8 studies, comparing single vs multiple sets per exercise (J Strength Cond Res 2010, Krieger). Verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
 ER  - 
 
 TY  - JOUR
-TI  - Dose-response relationship between weekly resistance training volume and increases in muscle mass: a systematic review and meta-analysis
+TI  - Dose-response relationship between weekly resistance training volume and increases in muscle mass: A systematic review and meta-analysis
 AU  - Schoenfeld, BJ
 AU  - Ogborn, D
 AU  - Krieger, JW
 PY  - 2017
 JO  - Journal of Sports Sciences
 VL  - 35
+IS  - 11
 SP  - 1073
 EP  - 1082
 DO  - 10.1080/02640414.2016.1210197
-UR  - https://doi.org/10.1080/02640414.2016.1210197
-N2  - Across 15 studies (34 treatment groups), each extra weekly set was linked to a small further gain in muscle size, and higher volumes beat lower volumes within studies.
-N1  - Systematic review and meta-analysis. Verified 2026-10-12. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
+AN  - PMID:27433992
+UR  - https://pubmed.ncbi.nlm.nih.gov/27433992/
+N2  - Across 15 studies (34 training groups), each extra weekly set per muscle was linked to about 0.37% more muscle growth (P = 0.002). Higher-volume groups grew about 3.9 percentage points more than lower-volume groups in the same studies.
+N1  - Systematic review and meta-analysis (meta-regression) of 15 studies, 34 treatment groups (J Sports Sci 2017; Schoenfeld, Ogborn, Krieger). Verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
 ER  - 
 
 TY  - JOUR
-TI  - A systematic review of the effects of different resistance training volumes on muscle hypertrophy
+TI  - A Systematic Review of The Effects of Different Resistance Training Volumes on Muscle Hypertrophy
 AU  - Baz-Valle, E
-AU  - Balsalobre-Fernández, C
-AU  - Alix-Fages, C
-AU  - Santos-Concejero, J
 PY  - 2022
 JO  - Journal of Human Kinetics
 VL  - 81
@@ -44,6 +43,382 @@ EP  - 210
 DO  - 10.2478/hukin-2022-0017
 AN  - PMID:35291645
 UR  - https://pubmed.ncbi.nlm.nih.gov/35291645/
-N2  - Moderate (12–20) and high (more than 20) weekly sets produced similar quadriceps and biceps growth; high volume was favoured only for the triceps.
-N1  - Systematic review. Verified 2026-10-12. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
+N2  - In 6 studies of trained men, moderate (12-20) and high (more than 20) weekly volumes gave similar growth in the quadriceps (p = 0.19) and biceps (p = 0.59), but high volume did better for the triceps (p = 0.01). The authors suggested 12-20 weekly sets as a standard recommendation for trained men.
+N1  - Systematic review with quantitative synthesis: 7 studies in the qualitative synthesis, 6 in the quantitative. Low-volume groups (<12 weekly sets) were excluded from the quantitative analysis, which compared moderate (12-20) with high (>20) weekly sets in trained men (J Hum Kinet 2022;81:199-210; Baz-Valle, Balsalobre-Fernandez, Alix-Fages, Santos-Concejero). Not verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: context
+ER  - 
+
+TY  - JOUR
+TI  - The Resistance Training Dose Response: Meta-Regressions Exploring the Effects of Weekly Volume and Frequency on Muscle Hypertrophy and Strength Gains
+AU  - Pelland, JC
+AU  - Remmert, JF
+AU  - Robinson, ZP
+AU  - Hinson, SR
+AU  - Zourdos, MC
+PY  - 2026
+JO  - Sports Medicine
+VL  - 56
+IS  - 2
+SP  - 481
+EP  - 505
+DO  - 10.1007/s40279-025-02344-w
+AN  - PMID:41343037
+UR  - https://pubmed.ncbi.nlm.nih.gov/41343037/
+N2  - Pooling 67 studies and 2,058 participants, the authors found a 100% posterior probability that more weekly sets lead to more muscle growth, with each extra set adding less than the one before. Counting indirect sets from compound exercises as a fraction of a set fitted the data best.
+N1  - Systematic review with multilevel Bayesian meta-regressions of 67 studies, 2,058 participants, adjusted for intervention duration and training status (Sports Medicine; Pelland, Remmert, Robinson, Hinson, Zourdos; DOI 10.1007/s40279-025-02344-w). Verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
+ER  - 
+
+TY  - JOUR
+TI  - Resistance training variables for optimization of muscle hypertrophy: an umbrella review
+AU  - Bernárdez-Vázquez, R
+AU  - Raya-González, J
+AU  - Castillo, D
+AU  - Beato, M
+PY  - 2022
+JO  - Frontiers in Sports and Active Living
+VL  - 4
+SP  - 949021
+DO  - 10.3389/fspor.2022.949021
+UR  - https://doi.org/10.3389/fspor.2022.949021
+N2  - This review of 14 meta-analyses (178 primary studies, 4,784 participants) concluded that at least 10 sets per muscle group per week is optimal for muscle growth. Light or heavy loads both work when sets are taken to or near failure.
+N1  - Umbrella review of meta-analyses (PRISMA; PubMed/MEDLINE, SPORTDiscus, Web of Science): 14 of 52 meta-analyses included, covering 178 primary studies and 4,784 participants (Front Sports Act Living 2022; DOI 10.3389/fspor.2022.949021; PMC9302196; published as a Mini Review). Verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
+ER  - 
+
+TY  - JOUR
+TI  - Resistance Training Volume Enhances Muscle Hypertrophy but Not Strength in Trained Men
+AU  - Schoenfeld
+AU  - Contreras
+AU  - Krieger
+AU  - Grgic
+AU  - Delcastillo
+AU  - Belliard
+AU  - Alto
+PY  - 2019
+JO  - Medicine & Science in Sports & Exercise
+VL  - 51
+IS  - 1
+SP  - 94
+EP  - 103
+DO  - 10.1249/MSS.0000000000001764
+AN  - PMID:30153194
+UR  - https://pubmed.ncbi.nlm.nih.gov/30153194/
+N2  - In 34 trained men training 3 times a week for 8 weeks, doing 3 or 5 sets per exercise grew the elbow flexors, mid-thigh and lateral thigh more than doing 1 set. Gains in strength and endurance did not differ between the groups.
+N1  - Randomised controlled trial: 34 healthy resistance-trained men randomised to 1 set (n=11), 3 sets (n=12) or 5 sets (n=11) per exercise per session, 3 sessions a week for 8 weeks (Med Sci Sports Exerc 2019;51(1):94-103; PMC6303131). Verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
+ER  - 
+
+TY  - JOUR
+TI  - Dose-Response of 1, 3, and 5 Sets of Resistance Exercise on Strength, Local Muscular Endurance, and Hypertrophy
+AU  - Radaelli, R
+AU  - Fleck, SJ
+AU  - Leite, T
+AU  - Leite, RD
+AU  - Pinto, RS
+AU  - Fernandes, L
+AU  - Simão, R
+PY  - 2015
+JO  - Journal of Strength and Conditioning Research
+VL  - 29
+IS  - 5
+SP  - 1349
+EP  - 1358
+DO  - 10.1519/JSC.0000000000000758
+AN  - PMID:25546444
+UR  - https://pubmed.ncbi.nlm.nih.gov/25546444/
+N2  - In 48 untrained men training 3 times a week for about 6 months, elbow flexor thickness rose in the 3-set and 5-set groups, most at 5 sets. Only the 5-set group increased elbow extensor thickness.
+N1  - Randomised trial: 48 men with no weight-training experience randomised to 1-SET, 3-SET or 5-SET training groups, 3 sessions a week for about 6 months (J Strength Cond Res 2015;29(5):1349-58; Radaelli et al.). Verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
+ER  - 
+
+TY  - JOUR
+TI  - Dose-Response Relationship of Weekly Resistance-Training Volume and Frequency on Muscular Adaptations in Trained Men
+AU  - Heaselgrave, SR
+AU  - Blacker, J
+AU  - Smeuninx, B
+AU  - McKendry, J
+AU  - Breen, L
+PY  - 2019
+JO  - International Journal of Sports Physiology and Performance
+VL  - 14
+IS  - 3
+SP  - 360
+EP  - 368
+DO  - 10.1123/ijspp.2018-0427
+AN  - PMID:30160627
+UR  - https://pubmed.ncbi.nlm.nih.gov/30160627/
+N2  - In 49 trained men over 6 weeks, 9 weekly biceps sets increased muscle thickness about as much as 18 or 27 sets, with no statistically significant difference between groups. The higher-volume groups may have gained more strength.
+N1  - Randomised controlled trial (PubMed publication type RCT): 49 resistance-trained men randomised to LOW (n=17; 9 weekly biceps sets, 1 session a week), MOD (n=15; 18 sets, 2 sessions) or HIGH (n=17; 27 sets, 2 sessions) for 6 weeks (Int J Sports Physiol Perform 2019;14(3):360-368). Not verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: contradicts
+ER  - 
+
+TY  - JOUR
+TI  - Resistance Training Load Effects on Muscle Hypertrophy and Strength Gain: Systematic Review and Network Meta-analysis
+AU  - Lopez, P
+AU  - Radaelli, R
+AU  - Taaffe, DR
+AU  - Newton, RU
+AU  - Galvão, DA
+AU  - Trajano, GS
+PY  - 2021
+JO  - Medicine & Science in Sports & Exercise
+VL  - 53
+IS  - 6
+SP  - 1206
+EP  - 1216
+DO  - 10.1249/MSS.0000000000002585
+AN  - PMID:33433148
+UR  - https://pubmed.ncbi.nlm.nih.gov/33433148/
+N2  - A network meta-analysis of 28 studies with 747 healthy adults training to failure. Heavy (8 reps or fewer) and moderate (9-15 reps) loads both improved strength more than light loads, and muscle growth did not differ between loads.
+N1  - Systematic review and network meta-analysis (random effects) of 28 studies involving 747 healthy adults. Training was to volitional failure, comparing low-, moderate- and high-load RT. A corrigendum (PMID 35029596) corrected effect sizes for three studies in one figure. The authors say the main findings and conclusions did not change.. Verified 2026-10-14. Used for: strength.low_rep_ranges: supports; hypertrophy.load_range_similar_growth: context
+ER  - 
+
+TY  - JOUR
+TI  - Resistance training prescription for muscle strength and hypertrophy in healthy adults: a systematic review and Bayesian network meta-analysis
+AU  - Currier, BS
+AU  - Mcleod, JC
+AU  - Banfield, L
+AU  - Beyene, J
+AU  - Welton, NJ
+AU  - D'Souza, AC
+PY  - 2023
+JO  - British Journal of Sports Medicine
+VL  - 57
+IS  - 18
+SP  - 1211
+EP  - 1220
+DO  - 10.1136/bjsports-2023-106807
+AN  - PMID:37414459
+UR  - https://pubmed.ncbi.nlm.nih.gov/37414459/
+N2  - A Bayesian network meta-analysis of 178 studies (5,097 participants, 45% women) for strength and 119 studies (3,364 participants) for muscle size. Programmes using loads above 80% of 1RM gave the largest strength gains, and all programmes built muscle about equally.
+N1  - Systematic review with Bayesian network meta-analysis comparing RT prescriptions with non-exercise control. The strength network had 178 studies (n=5097; 45% women). The hypertrophy network had 119 studies (n=3364; 47% women). Br J Sports Med 2023;57(18):1211-1220, PMID 37414459.. Verified 2026-10-14. Used for: strength.low_rep_ranges: supports
+ER  - 
+
+TY  - JOUR
+TI  - Influence of resistance training load on measures of skeletal muscle hypertrophy and improvements in maximal strength and neuromuscular task performance: A systematic review and meta-analysis
+AU  - Refalo, MC
+AU  - Hamilton, DL
+AU  - Paval, DR
+AU  - Gallagher, IJ
+AU  - Feros, SA
+AU  - Fyfe, JJ
+PY  - 2021
+JO  - Journal of Sports Sciences
+VL  - 39
+IS  - 15
+SP  - 1723
+EP  - 1745
+DO  - 10.1080/02640414.2021.1898094
+AN  - PMID:33874848
+UR  - https://pubmed.ncbi.nlm.nih.gov/33874848/
+N2  - A meta-analysis of 45 studies. Higher loads gave larger 1RM gains (effect size 0.34, 95% CI 0.15 to 0.52) and isometric gains (0.41, 0.07 to 0.76). Muscle growth was similar (whole-muscle effect size 0.06, -0.11 to 0.24), and the 1RM advantage was smaller in older adults (0.20 vs 0.34).
+N1  - Systematic review with meta-analysis of 45 studies (4,713 records identified). It compared higher-load (>60% 1RM or <15RM) with lower-load (<=60% 1RM or >=15RM) RT.. Verified 2026-10-14. Used for: strength.low_rep_ranges: supports; hypertrophy.load_range_similar_growth: context
+ER  - 
+
+TY  - JOUR
+TI  - Strength and Hypertrophy Adaptations Between Low- vs. High-Load Resistance Training: A Systematic Review and Meta-analysis
+AU  - Schoenfeld, BJ
+AU  - Grgic, J
+AU  - Ogborn, D
+AU  - Krieger, JW
+PY  - 2017
+JO  - Journal of Strength and Conditioning Research
+VL  - 31
+IS  - 12
+SP  - 3508
+EP  - 3523
+DO  - 10.1519/JSC.0000000000002200
+AN  - PMID:28834797
+UR  - https://pubmed.ncbi.nlm.nih.gov/28834797/
+N2  - A meta-analysis of 21 studies in which all sets went to failure for at least 6 weeks. 1RM gains were greater with loads above 60% of 1RM than with lighter loads, isometric strength did not differ, and muscle growth was similar.
+N1  - Systematic review and meta-analysis of 21 studies (PubMed/MEDLINE, Cochrane Library, Scopus). It compared low-load (<=60% 1RM) with high-load (>60% 1RM) training, all sets to momentary muscular failure, for at least 6 weeks.. Verified 2026-10-14. Used for: strength.low_rep_ranges: supports; hypertrophy.load_range_similar_growth: context
+ER  - 
+
+TY  - JOUR
+TI  - The influence of resistance exercise training prescription variables on skeletal muscle mass, strength, and physical function in healthy adults: An umbrella review
+AU  - Mcleod, JC
+AU  - Currier, BS
+AU  - Lowisz
+AU  - Phillips, SM
+PY  - 2024
+JO  - Journal of Sport and Health Science
+VL  - 13
+IS  - 1
+SP  - 47
+EP  - 60
+DO  - 10.1016/j.jshs.2023.06.005
+AN  - PMID:37385345
+UR  - https://pubmed.ncbi.nlm.nih.gov/37385345/
+N2  - An umbrella review of 44 systematic reviews in healthy adults. Training load and weekly frequency affected strength gains but not muscle growth, and set volume affected both.
+N1  - Umbrella review of 44 systematic reviews in healthy adults (Mcleod, Currier, Lowisz, Phillips; J Sport Health Sci 2024;13(1):47-60).. Verified 2026-10-14. Used for: strength.low_rep_ranges: supports; hypertrophy.load_range_similar_growth: context
+ER  - 
+
+TY  - JOUR
+TI  - American College of Sports Medicine Position Stand. Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults: An Overview of Reviews
+AU  - Currier, BS
+AU  - D'Souza, AC
+AU  - Fiatarone Singh, MA
+AU  - Lowisz, CV
+AU  - Rawson, ES
+AU  - Schoenfeld, BJ
+AU  - Smith-Ryan, AE
+AU  - Steen, JP
+AU  - Thomas, GA
+AU  - Triplett, NT
+AU  - Washington, TA
+AU  - Werner, TJ
+AU  - Phillips, SM
+PY  - 2026
+JO  - Medicine & Science in Sports & Exercise
+VL  - 58
+IS  - 4
+SP  - 851
+EP  - 872
+DO  - 10.1249/MSS.0000000000003897
+UR  - https://doi.org/10.1249/MSS.0000000000003897
+N2  - The 2026 ACSM position stand, an overview of reviews. It summarises that maximal strength is improved by heavier loads (80% of 1RM or more), along with full range of motion, 2-3 sets, doing the lift early in the session and training at least twice a week.
+N1  - ACSM position stand: an evidence-based overview of reviews in Med Sci Sports Exerc 2026;58(4):851-872 (doi:10.1249/MSS.0000000000003897), updating the 2009 ACSM position stand. Search results describe it as synthesising 137 systematic reviews (over 30,000 participants per ACSM).. Verified 2026-10-14. Used for: strength.low_rep_ranges: supports
+ER  - 
+
+TY  - JOUR
+TI  - Non-Specific Strength Changes Between High- and Low-Load Isotonic Resistance Training: A Systematic Review and Meta-Analysis
+AU  - Hammert, WB
+AU  - Kataoka
+AU  - Yamada
+AU  - Sallberg
+AU  - Kang
+AU  - Buckner
+AU  - Loenneke, JP
+PY  - 2026
+JO  - Sports Medicine
+VL  - 56
+SP  - 763
+EP  - 773
+DO  - 10.1007/s40279-025-02370-8
+AN  - PMID:41381816
+UR  - https://pubmed.ncbi.nlm.nih.gov/41381816/
+N2  - A meta-analysis of 10 studies with 245 participants. On strength tests not used in training (isometric or isokinetic), the advantage of heavy loads was inconclusive: d=0.32, 95% CI -0.08 to 0.72, p=0.10.
+N1  - Systematic review and meta-analysis (PubMed, Scopus, Embase searched to 14 June 2025): 10 studies from 7,885 unique articles, 44 effect sizes, 245 participants (high load n=114, low load n=131). Full-text snippet: high load >60% 1RM, low load <=40% 1RM.. Not verified 2026-10-14. Used for: strength.low_rep_ranges: context
+ER  - 
+
+TY  - JOUR
+TI  - Neither load nor systemic hormones determine resistance training-mediated hypertrophy or strength gains in resistance-trained young men
+AU  - Morton
+PY  - 2016
+JO  - Journal of Applied Physiology
+VL  - 121
+IS  - 1
+SP  - 129
+EP  - 38
+DO  - 10.1152/japplphysiol.00154.2016
+AN  - PMID:27174923
+UR  - https://pubmed.ncbi.nlm.nih.gov/27174923/
+N2  - A randomised trial in 49 resistance-trained young men over 12 weeks, with all sets to failure. Lifting 20-25 reps (about 30-50% of 1RM) or 8-12 reps (about 75-90% of 1RM) gave similar muscle growth and, for the most part, similar strength gains. Bench press was the one measure that favoured heavier loads.
+N1  - Randomised trial, n=49 resistance-trained young men (23±1 yr), 12 weeks of whole-body RT. Higher-repetition group: ~30-50% 1RM, 20-25 reps/set. Lower-repetition group: ~75-90% 1RM, 8-12 reps/set. All sets to volitional failure. PMID 27174923, PMCID PMC4967245. Group sizes conflict between sources (24/25 vs 29/27).. Not verified 2026-10-14. Used for: strength.low_rep_ranges: contradicts; hypertrophy.load_range_similar_growth: context
+ER  - 
+
+TY  - JOUR
+TI  - Effects of Low- vs. High-Load Resistance Training on Muscle Strength and Hypertrophy in Well-Trained Men
+AU  - Schoenfeld, BJ
+AU  - Peterson, MD
+AU  - Ogborn, D
+AU  - Contreras, B
+AU  - Sonmez, GT
+PY  - 2015
+JO  - Journal of Strength and Conditioning Research
+VL  - 29
+IS  - 10
+SP  - 2954
+EP  - 2963
+DO  - 10.1519/JSC.0000000000000958
+AN  - PMID:25853914
+UR  - https://pubmed.ncbi.nlm.nih.gov/25853914/
+N2  - A randomised trial in 18 trained young men over 8 weeks, with all sets to failure. Back squat 1RM rose more with 8-12 reps than with 25-35 reps (19.6% vs 8.8%), bench press showed only a trend (6.5% vs 2.0%), and muscle thickness gains did not differ.
+N1  - Randomised trial: 18 young men experienced in RT, matched on baseline strength and randomly assigned to low load (25-35 reps/set) or high load (8-12 reps/set), 9 per group, 3 sessions/week for 8 weeks. J Strength Cond Res 2015;29(10):2954-63.. Verified 2026-10-14. Used for: strength.low_rep_ranges: supports
+ER  - 
+
+TY  - JOUR
+TI  - Muscle hypertrophy and strength gains after resistance training with different volume-matched loads: a systematic review and meta-analysis
+AU  - Carvalho, L
+AU  - Junior, RM
+AU  - Barreira, J
+AU  - Schoenfeld, BJ
+AU  - Orazem, J
+AU  - Barroso, R
+PY  - 2022
+JO  - Applied Physiology, Nutrition, and Metabolism
+VL  - 47
+IS  - 4
+SP  - 357
+EP  - 368
+DO  - 10.1139/apnm-2021-0515
+AN  - PMID:35015560
+UR  - https://pubmed.ncbi.nlm.nih.gov/35015560/
+N2  - Compared different loads with total training volume matched and reported no difference in muscle growth between them.
+N1  - Not verified: web search budget exhausted.. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
+ER  - 
+
+TY  - JOUR
+TI  - Resistance training load does not determine resistance training-induced hypertrophy across upper and lower limbs in healthy young males
+AU  - Lees, MJ
+AU  - McLeod
+AU  - Morton
+PY  - 2026
+JO  - The Journal of Physiology
+DO  - 10.1113/JP289684
+AN  - PMID:41474371
+UR  - https://pubmed.ncbi.nlm.nih.gov/41474371/
+N2  - In 20 healthy young men training three times a week for 10 weeks, this trial compared lighter (about 30-40% 1RM) and heavier (about 70-80% 1RM) loads within the same people. It reportedly found that load did not determine muscle growth in either the arms or the legs.
+N1  - Not verified: web search budget exhausted.. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
+ER  - 
+
+TY  - JOUR
+TI  - Resistance exercise load does not determine training-mediated hypertrophic gains in young men
+AU  - Mitchell, CJ
+AU  - Churchward-Venne, TA
+AU  - West, DW
+PY  - 2012
+JO  - Journal of Applied Physiology
+VL  - 113
+IS  - 1
+SP  - 71
+EP  - 77
+DO  - 10.1152/japplphysiol.00307.2012
+AN  - PMID:22518835
+UR  - https://pubmed.ncbi.nlm.nih.gov/22518835/
+N2  - A randomised trial in untrained young men that reported similar muscle growth from light and heavy loads when sets were taken to failure.
+N1  - Not verified: web search budget exhausted.. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
+ER  - 
+
+TY  - JOUR
+TI  - The Effects of Low-Load Vs. High-Load Resistance Training on Muscle Fiber Hypertrophy: A Meta-Analysis
+AU  - Grgic, J
+PY  - 2020
+JO  - Journal of Human Kinetics
+VL  - 74
+SP  - 51
+EP  - 58
+DO  - 10.2478/hukin-2020-0013
+AN  - PMID:33312275
+UR  - https://pubmed.ncbi.nlm.nih.gov/33312275/
+N2  - Pooled studies of single muscle fibres and found a non-significant trend towards greater growth of fast-twitch (type II) fibres with heavy loads (SMD 0.30, p = 0.089), with very wide uncertainty.
+N1  - Not verified: web search budget exhausted.. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
+ER  - 
+
+TY  - JOUR
+TI  - Effects of different intensities of resistance training with equated volume load on muscle strength and hypertrophy
+AU  - Lasevicius, T
+AU  - Ugrinowitsch, C
+AU  - Schoenfeld, BJ
+AU  - Roschel, H
+AU  - Tavares, LD
+AU  - De Souza, EO
+AU  - Laurentino, G
+AU  - Tricoli, V
+PY  - 2018
+JO  - European Journal of Sport Science
+VL  - 18
+IS  - 6
+SP  - 772
+EP  - 780
+DO  - 10.1080/17461391.2018.1450898
+AN  - PMID:29564973
+UR  - https://pubmed.ncbi.nlm.nih.gov/29564973/
+N2  - 30 men trained twice a week for 12 weeks, with each limb assigned to 20%, 40%, 60% or 80% of 1RM and volume load matched. The 20% load reportedly gave about half the muscle growth of 80%, while 40-80% were broadly similar.
+N1  - Not verified: web search budget exhausted.. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
 ER  - 
