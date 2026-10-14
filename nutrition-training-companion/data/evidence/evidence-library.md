@@ -10,10 +10,10 @@ How this version was checked: one agent searched for evidence for and against ea
 |---|---|---|
 | [More weekly sets for a low-volume muscle](#hypertrophy-volume-raise-low-weekly-sets) | Enough verified evidence | 6 |
 | [Heavier loads for maximal strength](#strength-low-rep-ranges) | Enough verified evidence | 7 |
+| [Stopping sets short of failure](#training-proximity-to-failure) | Enough verified evidence | 4 |
 | [Light or heavy loads grow muscle similarly](#hypertrophy-load-range-similar-growth) | Not enough evidence yet | 0 |
 | [Spreading the same sets over more days](#training-frequency-volume-equated) | Not enough evidence yet | 0 |
-| [Stopping sets short of failure](#training-proximity-to-failure) | Not enough evidence yet | 0 |
-| [Longer rests between sets](#training-inter-set-rest) | Not enough evidence yet | 0 |
+| [Longer rests between sets](#training-inter-set-rest) | Not enough evidence yet | 3 |
 | [Strength training on 2 or more days a week](#general-health-muscle-strengthening-twice-weekly) | Not enough evidence yet | 0 |
 | [Planned lighter weeks](#training-deload-periods) | Not enough evidence yet | 0 |
 | [Adding cardio to strength training](#training-concurrent-aerobic-compatible) | Not enough evidence yet | 0 |
@@ -39,7 +39,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** Healthy adults doing resistance training to build muscle size, mostly young men, both untrained and resistance-trained. Evidence in women, older adults and people with medical conditions was not verified here, so the claim should not be assumed to apply to them in the same way.
 
-**What the app does with it.** When a muscle gets fewer than 10 hard sets a week and you want it bigger, we can suggest adding sets toward 10, never above 20, within your session time.
+**What the app does with it.** When a muscle gets fewer than 10 hard sets a week and you ask for it to grow, we can suggest adding sets toward 10, never above 20, within your session time.
 
 **Why this status.** Six counted sources agree that more weekly sets give more muscle growth on average, with smaller gains for each extra set. They come from at least three separate research groups: the Krieger 2010 and Schoenfeld 2017 meta-analyses, the large Pelland 2026 meta-regression (67 studies), the Bernardez-Vazquez 2022 umbrella review, and two RCTs (Schoenfeld 2019 and Radaelli 2015) in which single-set training grew muscle less than 3 or 5 sets. The main contrary result is Heaselgrave 2019, where 9 weekly biceps sets grew the muscle as much as 18 or 27 in trained men over 6 weeks. It is one short trial, and volume was mixed up with how often people trained, so it does not outweigh the pooled data, but it does show the extra gain can be small. The exact 10-set target rests mainly on the umbrella review and on a non-significant category trend in Schoenfeld 2017, so it is treated as approximate. The benefit above 20 sets stays uncertain (Schoenfeld 2019 leans towards more growth; Baz-Valle 2022 and Heaselgrave 2019 lean towards a plateau), so the active claim covers only raising low volume towards about 10 sets.
 
@@ -103,7 +103,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** Healthy adults aged 18 and over. Most were young, untrained or recreationally trained, and more were men than women. The 1RM advantage of heavier loads was smaller in older adults (Refalo 2021: effect size 0.20 vs 0.34 in younger adults). Very few highly trained or elite athletes were studied, and the results in trained men are mixed: one RCT found load mostly did not change strength gains (Morton 2016), and a small RCT found larger squat gains with heavier loads (Schoenfeld 2015).
 
-**What the app does with it.** When you ask to get stronger, we can suggest heavier loads (about 3 to 6 reps) on your main multi-joint lifts, with longer rests, and keep other exercises at moderate reps.
+**What the app does with it.** When you ask to get stronger, we can suggest heavier loads (about 8 reps or fewer) for main lifts you train with light loads (15 reps or more). We don't push lifts that are already moderate or heavy, because the evidence doesn't show that helps more.
 
 **Why this status.** The narrowed claim is active. Seven counted sources support it, and five syntheses from at least four separate author groups agree that heavier loads give larger 1RM gains than light loads. These are Lopez 2021 and Currier 2023 (network meta-analyses), Refalo 2021 and Schoenfeld 2017 (pairwise meta-analyses) and Mcleod 2024 (umbrella review). The 2026 ACSM position stand and a small RCT (Schoenfeld 2015) back them up. The same syntheses find similar muscle growth across loads when sets go to failure. Morton 2016 runs against the strength half in trained men, and Hammert 2026 found the heavy-load edge on untested (isometric or isokinetic) strength inconclusive. Neither outweighs the pooled evidence, but they limit the claim to 1RM on the trained lifts. Lopez 2021 found moderate loads also beat light loads, so heavy over moderate, the specific 3-6 rep range, reps in reserve and rest lengths are not supported. The pairwise and network meta-analyses share many primary trials, and Currier 2023, Mcleod 2024 and ACSM 2026 come from overlapping McMaster authors, so the sources are less independent than their count suggests.
 
@@ -163,6 +163,74 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **What would change the status.** More evidence is needed in five areas. (1) Direct, volume-equated RCTs of heavy loads (about 3-6 reps) against moderate loads (about 8-12 reps), such as Mangine 2015 and Schoenfeld 2014 (not searched). These would be needed before the app could favour 3-6 reps over moderate loading. (2) Trials testing 2-3 reps in reserve and longer rests for strength. No verified source covers either, and the umbrella review found insufficient evidence on set end point and rest. (3) Evidence that similar growth across loads holds when sets stop short of failure. (4) More trials in trained and elite lifters, where results are mixed (Morton 2016 vs Schoenfeld 2015) and such lifters are about 2.3% of the evidence base. Also more trials in women and older adults, where the 1RM advantage looked smaller. (5) Better evidence on whether heavy-load gains carry over to strength tests that were not trained (Hammert 2026 was inconclusive). Several sources still need checking: Lopez 2021's effect sizes (high vs low SMD 0.60; high vs moderate non-significant) against its abstract or tables; ACSM 2026's PMID, abstract and hypertrophy recommendations; and the Currier 2023 and Mcleod 2024 identifiers on their own PubMed records. These leads were not verified or examined and were not used: Csapo & Alegre on older adults (PMID 26302881); the APNM volume-matched loads meta-analysis (doi 10.1139/apnm-2021-0515); the ACSM 2009 stand; the Schoenfeld 2016 Eur J Sport Sci meta-analysis (PMID 25530577); the 2026 paper on regional muscle and tendon growth (PMID 42319300), which may challenge similar growth in particular muscle regions; and a bioRxiv preprint. No dedicated retraction search was run for each paper.
 
+## Stopping sets short of failure
+<a id="training-proximity-to-failure"></a>
+
+`training.proximity_to_failure` · **Enough verified evidence**
+
+**Claim.** In healthy adults, sets do not need to be taken to failure. Stopping short of failure gives similar strength gains, sometimes slightly larger, and similar or only slightly smaller muscle growth. Muscle growth tends to be a little greater the closer sets end to failure, while for strength closeness to failure matters little.
+
+**Who it applies to.** Healthy adults, mostly young (about 18 to 35), both untrained and resistance-trained, in short supervised programmes (typically about 6 to 14 weeks). Evidence is limited for older adults, highly trained or elite lifters and people with health conditions.
+
+**What the app does with it.** Explains why our plans never ask you to train to failure: stopping a little short works about as well.
+
+**Why this status.** Four counted meta-analyses agree that training to failure is not needed. For strength, Davies 2016 found a small advantage for stopping short (ES 0.34), Grgic 2022 found no overall difference, and Robinson 2024 found reps in reserve had a negligible effect. For muscle growth, Grgic 2022 found no significant difference, Refalo 2023 found a trivial and fragile advantage for failure (ES 0.19), and Robinson 2024 found growth rises as sets end closer to failure. Together these support 'similar or slightly smaller'. The draft's '1 to 3 reps in reserve' is removed. No counted source verifies a specific RIR target: the 1 to 2 RIR evidence comes from the uncounted Refalo 2024 trial, and the 3 RIR limit is an inference from a regression slope. Two findings partly contradict 'similar growth'. Vieira 2021 (not counted) found more growth with failure (SMD 0.75), though not when volume was matched. Grgic 2022 found a small failure advantage in trained lifters (ES 0.15). The meta-analyses also share many of the same small, short trials, so they are less independent than their number suggests.
+
+### Supporting studies
+
+- **Grgic et al., 2022.** Effects of resistance training performed to repetition failure or non-failure on muscular strength and hypertrophy: A systematic review and meta-analysis. *Journal of Sport and Health Science* J Sport Health Sci. 2022;11(2):202-211. doi:10.1016/j.jshs.2021.01.007. PMID [33497853](https://pubmed.ncbi.nlm.nih.gov/33497853/) · PMCID PMC9068575 · DOI [10.1016/j.jshs.2021.01.007](https://doi.org/10.1016/j.jshs.2021.01.007)
+  - Design: Systematic review and meta-analysis of 15 studies, all in young adults (J Sport Health Sci 2022, Grgic, Schoenfeld, Orazem, Sabol) (15 studies (total participants not seen)).
+  - What it found: This pooled analysis of 15 studies in young adults found no significant difference between training to failure and stopping short, for either strength (ES -0.09) or muscle growth (ES 0.22, 95% CI -0.11 to 0.55). Stopping short was better for strength when training volume was not matched. Failure gave a small growth advantage in people already used to resistance training (ES 0.15, 95% CI 0.03 to 0.26).
+  - Limitations: It covers only young adults in short studies, so it cannot tell us about older adults or highly trained lifters.
+  - Checks: all six passed, 2026-10-14.
+- **Refalo et al., 2023.** Influence of Resistance Training Proximity-to-Failure on Skeletal Muscle Hypertrophy: A Systematic Review with Meta-analysis. *Sports Medicine* Sports Med. 2023;53(3):649-665. doi:10.1007/s40279-022-01784-y (Epub 2022 Nov 5). PMID [36334240](https://pubmed.ncbi.nlm.nih.gov/36334240/) · PMCID PMC9935748 · DOI [10.1007/s40279-022-01784-y](https://doi.org/10.1007/s40279-022-01784-y)
+  - Design: Systematic review with meta-analysis of 15 studies in healthy adults (Sports Med 2023;53:649-665, Epub Nov 2022; Refalo et al.) (15 studies (total participants not seen)).
+  - What it found: Across 15 studies, training to failure gave a trivial and statistically fragile advantage for muscle growth over stopping short (ES 0.19, 95% CI 0.00 to 0.37, p = 0.045). Neither training volume nor load explained this, and subgroups split by how failure was defined showed no clear advantage. The authors suggest the link between closeness to failure and growth may not be a straight line.
+  - Limitations: It compares failure and non-failure as two groups, so it cannot say how many reps short of failure is still close enough.
+  - Checks: all six passed, 2026-10-14.
+- **Robinson et al., 2024.** Exploring the Dose-Response Relationship Between Estimated Resistance Training Proximity to Failure, Strength Gain, and Muscle Hypertrophy: A Series of Meta-Regressions. *Sports Medicine* Sports Med. 2024;54(9):2209-2231. doi:10.1007/s40279-024-02069-2 (published online 6 July 2024). PMID [38970765](https://pubmed.ncbi.nlm.nih.gov/38970765/) · DOI [10.1007/s40279-024-02069-2](https://doi.org/10.1007/s40279-024-02069-2)
+  - Design: Systematic review with a series of meta-regressions, modelling proximity to failure as continuous estimated RIR and adjusting for load, volume-equating method, intervention duration and training status (Sports Med 2024;54:2209-2231) (Not verified (a secondary blog claimed 55 hypertrophy and 67 strength studies; not confirmed in primary sources)).
+  - What it found: This analysis treated closeness to failure as estimated reps in reserve. In every best-fitting model, muscle growth rose as sets ended closer to failure, while closeness to failure made a negligible difference to strength gains.
+  - Limitations: Reps in reserve were estimated after the fact from published studies and the models fitted only modestly, so it cannot pin down a precise reps-in-reserve target.
+  - Checks: all six passed, 2026-10-14.
+- **Davies et al., 2016.** Effect of Training Leading to Repetition Failure on Muscular Strength: A Systematic Review and Meta-Analysis. *Sports Medicine* Sports Med. 2016;46(4):487-502. doi:10.1007/s40279-015-0451-3. Erratum in: Sports Med. 2016;46(4):605-610, doi:10.1007/s40279-016-0509-x. PMID [26666744](https://pubmed.ncbi.nlm.nih.gov/26666744/) · DOI [10.1007/s40279-015-0451-3](https://doi.org/10.1007/s40279-015-0451-3)
+  - Design: Systematic review and meta-analysis of 8 studies on strength only, 4 volume-controlled and 4 volume-uncontrolled (Sports Med 2016;46(4):487-502; erratum 46(4):605-610) (8 studies (4 volume-controlled, 4 volume-uncontrolled); participants not seen).
+  - What it found: Pooling 8 studies, stopping short of failure gave slightly larger strength gains than training to failure (ES 0.34, p = 0.02), roughly 0.6 to 1.3% more. The same small advantage appeared for compound exercises and in trained participants.
+  - Limitations: It looks at strength only, pools few studies, and has a published correction whose content was not checked.
+  - Checks: all six passed, 2026-10-14.
+
+### Context
+
+- **Vieira et al., 2021.** Effects of Resistance Training Performed to Failure or Not to Failure on Muscle Strength, Hypertrophy, and Power Output: A Systematic Review With Meta-Analysis. *Journal of Strength and Conditioning Research* J Strength Cond Res. 2021;35(4):1165-1175. doi:10.1519/JSC.0000000000003936. DOI [10.1519/JSC.0000000000003936](https://doi.org/10.1519/JSC.0000000000003936)
+  - Design: Systematic review with meta-analysis of 13 studies (J Strength Cond Res 2021;35(4):1165-1175; Vieira, Umpierre, Teodoro, Lisboa, Baroni, Izquierdo, Cadore) (Not seen).
+  - What it found: Across 13 studies, strength gains did not differ overall, and stopping short of failure did better when training volume was not matched (SMD -0.34). Training to failure gave more muscle growth overall (SMD 0.75), but there was no difference when training volume was matched.
+  - Limitations: Its larger growth effect for failure may reflect differences in total training volume rather than failure itself, and its mixed direction meant it could not be counted.
+  - Checks: the abstract supports the stated finding: unknown.
+- **Refalo et al., 2024.** Similar muscle hypertrophy following eight weeks of resistance training to momentary muscular failure or with repetitions-in-reserve in resistance-trained individuals. *Journal of Sports Sciences* J Sports Sci. 2024;42(1):85-101. doi:10.1080/02640414.2024.2321021 (Epub 2024 Feb 23). PMID [38393985](https://pubmed.ncbi.nlm.nih.gov/38393985/) · DOI [10.1080/02640414.2024.2321021](https://doi.org/10.1080/02640414.2024.2321021)
+  - Design: 8-week within-participant (one leg per condition) training trial in resistance-trained adults, n = 18 (12 men, 6 women): failure vs 2 RIR (leg press) / 1 RIR (leg extension); J Sports Sci 2024;42(1):85-101, doi 10.1080/02640414.2024.2321021. Randomisation of limbs not verified. (Not seen).
+  - What it found: In 18 resistance-trained adults, each trained one leg to failure and the other stopping 1 to 2 reps short for 8 weeks. Thigh muscle thickness rose by almost exactly the same amount in both legs (about 0.18 cm each). Training to failure caused more short-term fatigue.
+  - Limitations: It is a single small study of one muscle group in trained lifters, and it was not confirmed whether legs were randomly assigned to each condition.
+  - Checks: strong study design: unknown; the abstract supports the stated finding: unknown.
+- **Pelland et al., 2022.** Methods for Controlling and Reporting Resistance Training Proximity to Failure: Current Issues and Future Directions. *Sports Medicine* Sports Med. 2022;52(7):1461-1472. doi:10.1007/s40279-022-01667-2 (Epub 2022 Mar 5). PMID [35247203](https://pubmed.ncbi.nlm.nih.gov/35247203/) · DOI [10.1007/s40279-022-01667-2](https://doi.org/10.1007/s40279-022-01667-2)
+  - Design: Narrative/methodological review (Sports Med 2022;52(7):1461-1472; Pelland, Robinson, Helms, Zourdos and colleagues) (Not applicable).
+  - What it found: This methods review found no consistent way of measuring how close to failure a set ends, and definitions of failure vary between studies. This makes precise per-set recommendations for muscle growth and strength hard to give.
+  - Limitations: It is a narrative review with no new data, so it cannot say which reps-in-reserve target works best.
+  - Checks: strong study design: fail; the abstract supports the stated finding: unknown.
+
+**What would change the status.** The following evidence would allow the statement to name a specific reps-in-reserve target (for example 1 to 2 or 1 to 3 RIR, or a 3 RIR upper limit for muscle growth):
+(1) Verified randomised trials that compare named RIR levels head to head (for example 1 to 2 RIR vs 3 to 4 RIR vs failure) for muscle growth.
+(2) Confirmation that Refalo 2024 randomly assigned legs to each condition, so it can count, plus further trials like it in other muscles and populations.
+(3) A full-text check of Robinson 2024 for predicted growth at specific RIR values, and for its study and participant counts.
+(4) Verification of Wu 2026's authors and publication details, so it can count.
+Other open items:
+- What the Davies 2016 erratum changed.
+- What the Comment on Refalo 2023 says.
+- A dedicated retraction-database check.
+- More independent evidence. The counted meta-analyses share many primary trials, and Robinson 2024 shares authors and data with Refalo 2023.
+- Longer trials, and data in older adults and highly trained or elite lifters.
+- Consistent reporting of reps in reserve.
+The hypertrophy clause would need to be revisited, and the status possibly returned to draft, if well-controlled, volume-matched trials in trained lifters showed clearly more growth from failure than from stopping a few reps short.
+
 ## Light or heavy loads grow muscle similarly
 <a id="hypertrophy-load-range-similar-growth"></a>
 
@@ -172,7 +240,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** Healthy adults, untrained or resistance-trained. Most data come from young men aged about 18-35 in 6-12 week programmes. The claim is not established for women, older adults or highly trained athletes.
 
-**What the app does with it.** Lets us keep or change rep ranges for comfort or time without expecting less muscle growth, and explains why a strength change shouldn't cost muscle.
+**What the app does with it.** Would let us say that a change of load shouldn't cost you muscle. Until then, we don't say it.
 
 **Why this status.** No source counts toward this claim. Verification of all 15 sources stopped when the shared web-search budget ran out, so no abstract or finding was checked against the claim, and every design, direction and finding check is unknown. The candidate evidence looks consistent: meta-analyses from four groups (Schoenfeld 2017, Lopez 2021, Refalo 2021, Carvalho 2022) and trials such as Mitchell 2012, Morton 2016 and Lees all report similar growth across loads. But the app's 3-source rule cannot be met until at least three of them pass verification. Even then the claim has limits: 20% 1RM gave about half the growth of 80% (Lasevicius 2018); light-load sets stopped short of failure appear to give less growth (Lasevicius 2022, identity not yet confirmed); fibre-level data lean non-significantly towards heavy loads (Grgic 2020); and heavier loads consistently give larger strength gains.
 
@@ -240,71 +308,153 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** Healthy adults, mostly young (pooled mean age about 25) and mostly male (about 79%), untrained or resistance-trained, doing supervised programmes of about 6 to 12 weeks (some up to about 30) at 1 to 3 sessions per muscle per week. The evidence does not reliably cover women, adults over 60, clinical groups, more than 3 sessions per muscle per week, or programmes much longer than 12 weeks.
 
-**What the app does with it.** Lets us move sets between days, for example to fit your session time, without expecting less growth.
+**What the app does with it.** Would let us move sets between days to fit your session time. Until then, we only move them when you edit your plan.
 
 **Why this status.** None of the nine candidate sources counts: the shared search budget ran out before any checks ran, so for every source the identity, peer-review status, retraction status, design and reported finding are all unknown. The submitted evidence looks consistent for hypertrophy (Schoenfeld 2019, Pelland 2026, Tao 2026, Ramos-Campo 2024 and Pedersen 2024 all report no meaningful difference at equal volume), but none of it is verified, so the claim must stay a draft. Two sources point the other way: Schoenfeld 2016 found twice a week beat once a week, and the small Zaroni 2019 trial found more growth with 5 sessions a week. Both favour more frequent training, so they do not suggest splitting sets would cause harm. The strength part, including the 'mainly through extra volume' clause, is contested: Grgic 2018 and Cuthbert 2021 found no volume-equated effect, while Tao 2026, Pelland 2026 and Pedersen 2024 report a small independent benefit. So it is left out of the statement.
 
 **What would change the status.** 1) Verification has to be re-run, ideally in a turn with search budget left. At least 3 of Schoenfeld 2019, Pelland 2026, Tao 2026, Ramos-Campo 2024 and Pedersen 2024 must pass every check (identifier, metadata, peer review, no retraction, strong design) with a confirmed volume-equated hypertrophy finding. Specific items to resolve: the Grgic 2018 PMID conflict (29470825 vs 28444646), the journal and peer-review status of Tao 2026, the full citation for Pelland 2026, and whether every trial in Ramos-Campo 2024 equated volume. 2) The volume-equated RCTs the researcher cited (Hamarsland 2022, Gomes 2019, Saric 2019, Gentil 2018, Brigatto 2019) were never put forward for verification. Verifying them would add primary evidence that does not rely on overlapping meta-analyses. 3) Even once verified, the meta-analyses draw on the same pool of small trials and often share authors. At least one source from an independent group, or independent primary trials, would strengthen any activation. 4) Supporting 4 or more sessions per muscle per week would need more volume-equated trials at those frequencies. 5) Trials in women, adults over 60, clinical groups, and programmes longer than 12 weeks are needed before the claim can be extended to them. 6) A strength statement would need agreement between Grgic 2018 and Cuthbert 2021 on one side and Tao 2026, Pelland 2026 and Pedersen 2024 on the other. The question is whether frequency helps strength independently of volume or through extra practice of the tested lift. 7) No source gives a maximum number of sets per session, so the app has no basis for a per-session cap.
-
-## Stopping sets short of failure
-<a id="training-proximity-to-failure"></a>
-
-`training.proximity_to_failure` · **Not enough evidence yet**
-
-**Claim.** Not yet checked.
-
-**Who it applies to.** 
-
-**What the app does with it.** Our plans use 1 to 3 reps in reserve and never ask you to train to failure on every set.
-
-**Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
-
-
 
 ## Longer rests between sets
 <a id="training-inter-set-rest"></a>
 
 `training.inter_set_rest` · **Not enough evidence yet**
 
-**Claim.** Not yet checked.
+**Claim.** When the number of sets stays the same, resting more than about 60 seconds between sets may give slightly more muscle growth than resting 60 seconds or less. There seems to be no clear extra benefit beyond about 90 seconds, and the difference is small and uncertain. For strength, resistance-trained lifters gain more with rests longer than about 2 minutes, while untrained people do about as well with 60-120 seconds.
 
-**Who it applies to.** 
+**Who it applies to.** Healthy adults doing resistance training, mostly young men. The finding that rests over 2 minutes help strength applies only to resistance-trained lifters. For untrained people, 60-120 seconds appears to be enough for strength. The evidence covers exercises in general and has nothing specific to multi-joint lifts. Women, older adults and programmes longer than about 10-12 weeks are barely represented.
 
-**What the app does with it.** Session times assume about 2 minutes' rest on main lifts, and we don't cut rests below about a minute to fit a time limit.
+**What the app does with it.** Would let us suggest rest times between sets. Until then, your rests are whatever your plan says, and we use them only to estimate session length.
 
-**Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
+**Why this status.** Draft. Only three sources pass every check (Singer 2024, Grgic 2018 and Schoenfeld 2016), and each backs a different part of the claim. Muscle growth is supported only by Singer 2024 (small effect, credible intervals crossing zero) and Schoenfeld 2016. Strength in trained lifters is supported only by Grgic 2018 and Schoenfeld 2016. So no single statement has three counted sources, and the Schoenfeld trial probably also sits inside both reviews, which share an author. The original draft's claim that 2 minutes or more gives more growth is not supported beyond about 90 seconds, and nothing isolates multi-joint lifts. Volume-matched trials (Longo 2022, Attarieh 2026) suggest any advantage comes from the extra volume that longer rests allow. Fink 2018 found the opposite, but rest was confounded with load. The ACSM 2026 stand reportedly found no strength effect of rest, but that is unverified.
 
+### Supporting studies
 
+- **Singer et al., 2024.** Give it a rest: a systematic review with Bayesian meta-analysis on the effect of inter-set rest interval duration on muscle hypertrophy. *Frontiers in Sports and Active Living* Front Sports Act Living. 2024;6:1429789 (published 14 Aug 2024). doi:10.3389/fspor.2024.1429789. PMID [39205815](https://pubmed.ncbi.nlm.nih.gov/39205815/) · PMCID PMC11349676 · DOI [10.3389/fspor.2024.1429789](https://doi.org/10.3389/fspor.2024.1429789)
+  - Design: Systematic review with Bayesian meta-analysis of randomised studies comparing inter-set rest durations in healthy adults, with other training variables controlled; 19 measurements (thigh, arm, whole body) from 9 studies. Singer, Wolf, Schoenfeld et al., Front Sports Act Living 2024 (published 14 Aug 2024), doi:10.3389/fspor.2024.1429789. (9 studies; 19 measurements (10 thigh, 6 arm, 3 whole body); total participants not seen).
+  - What it found: A Bayesian meta-analysis of 19 measurements from 9 randomised studies found a small muscle-growth benefit from resting more than 60 s rather than 60 s or less. This was possibly because longer rests let people lift more total volume. There was no appreciable extra benefit beyond about 90 s, and the whole-body estimate was -0.08 (95% credible interval -0.45 to 0.29).
+  - Limitations: The studies were few, small and varied, and the credible intervals cross zero, so the benefit is uncertain; it also does not look at strength.
+  - Checks: all six passed, 2026-10-14.
+- **Grgic et al., 2018.** Effects of Rest Interval Duration in Resistance Training on Measures of Muscular Strength: A Systematic Review. *Sports Medicine* Sports Med. 2018;48(1):137-151. doi:10.1007/s40279-017-0788-x. PMID [28933024](https://pubmed.ncbi.nlm.nih.gov/28933024/) · DOI [10.1007/s40279-017-0788-x](https://doi.org/10.1007/s40279-017-0788-x)
+  - Design: Systematic review (PRISMA, 5 databases, no pooled meta-analysis seen) of chronic training studies comparing rest interval durations; 23 studies, 491 participants (413 males, 78 females); studies rated good-to-moderate methodological quality. Grgic, Schoenfeld, Skrepnik, Davies, Mikulic. Sports Med 2018;48(1):137-151. (23 studies; 491 participants).
+  - What it found: A systematic review of 23 training studies (491 participants, mostly men) concluded that resistance-trained people need rests longer than 2 minutes to maximise strength gains. For untrained people, 60-120 s is enough, and rests under 60 s still produce solid gains.
+  - Limitations: It covers strength only and gives no pooled effect size, so it cannot say how large the advantage is or whether it applies to muscle growth.
+  - Checks: all six passed, 2026-10-14.
+- **Schoenfeld et al., 2016.** Longer Interset Rest Periods Enhance Muscle Strength and Hypertrophy in Resistance-Trained Men. *Journal of Strength and Conditioning Research* J Strength Cond Res. 2016;30(7):1805-1812. doi:10.1519/JSC.0000000000001272. PMID [26605807](https://pubmed.ncbi.nlm.nih.gov/26605807/) · DOI [10.1519/JSC.0000000000001272](https://doi.org/10.1519/JSC.0000000000001272)
+  - Design: Randomised controlled trial (parallel groups): 21 resistance-trained young men randomly assigned to 1-min (SHORT) vs 3-min (LONG) inter-set rest for 8 weeks. Schoenfeld et al., J Strength Cond Res 2016. (21 participants (1-min SHORT vs 3-min LONG groups)).
+  - What it found: In 21 resistance-trained young men over 8 weeks, resting 3 minutes rather than 1 minute led to larger gains in squat and bench press 1RM and in front-thigh muscle thickness. Muscular endurance improved similarly in both groups.
+  - Limitations: It is one small, short trial in trained young men that is probably also included in the reviews above, so it adds little independent evidence.
+  - Checks: all six passed, 2026-10-14.
+
+### Contradicting or mixed evidence
+
+- **Fink et al., 2018.** Effects of rest intervals and training loads on metabolic stress and muscle hypertrophy. *Clinical Physiology and Functional Imaging* Clin Physiol Funct Imaging. 2018;38(2):261-268 (online 28 Dec 2016). doi:10.1111/cpf.12409. PMID [28032435](https://pubmed.ncbi.nlm.nih.gov/28032435/) · DOI [10.1111/cpf.12409](https://doi.org/10.1111/cpf.12409)
+  - Design: Two-group, volume-matched training study, 20 subjects. SL: 30-s rest with 20RM, n=10. LH: 3-min rest with 8RM, n=10. 8 weeks, MRI upper-arm CSA. One summary described it as randomised, but I did not see random allocation in the abstract text. Rest and load were confounded. Fink, Kikuchi, Nakazato, Clin Physiol Funct Imaging 2018 (online Dec 2016). (20 participants (10 per group)).
+  - What it found: In 20 people over 8 weeks with total volume matched, 30-second rests with light loads (20RM) increased upper-arm muscle area more (about 9.9%) than 3-minute rests with heavier loads (8RM, about 4.7%).
+  - Limitations: Rest length was changed together with load, so the effect of rest on its own cannot be separated, and the groups were small.
+  - Checks: strong study design: unknown; the abstract supports the stated finding: fail.
+
+### Context
+
+- **Grgic et al., 2017.** The effects of short versus long inter-set rest intervals in resistance training on measures of muscle hypertrophy: A systematic review. *European Journal of Sport Science* Eur J Sport Sci. 2017 Sep;17(8):983-993. doi:10.1080/17461391.2017.1340524. PMID [28641044](https://pubmed.ncbi.nlm.nih.gov/28641044/) · DOI [10.1080/17461391.2017.1340524](https://doi.org/10.1080/17461391.2017.1340524)
+  - Design: Systematic review (no meta-analysis) of 6 studies comparing inter-set rest of <=60 s vs >60 s, with a muscle-mass outcome over at least 4 weeks. Searched PubMed/MEDLINE, Scopus, Web of Science, Cochrane Library and PEDro. Grgic, Lazinica, Mikulic, Krieger, Schoenfeld; Eur J Sport Sci 2017;17(8):983-993; DOI 10.1080/17461391.2017.1340524 (seen in a search summary). (6 trials; total participants not seen).
+  - What it found: A systematic review of 6 trials concluded that both short (60 s or less) and long (more than 60 s) rests can build muscle, with a possible advantage for longer rests in trained people.
+  - Limitations: It covers only six small trials with no meta-analysis, and the possible advantage in trained people was seen only in a secondary summary.
+  - Checks: the abstract supports the stated finding: unknown.
+- **Buresh et al., 2009.** The effect of resistive exercise rest interval on hormonal response, strength, and hypertrophy with training. *Journal of Strength and Conditioning Research* J Strength Cond Res. 2009;23(1):62-71 (issue number as indexed; DOI not seen). PMID [19077743](https://pubmed.ncbi.nlm.nih.gov/19077743/)
+  - Design: Two-group parallel training study, 12 untrained men (about 6 per group), 1-min vs 2.5-min rest for 10 weeks. Random allocation is not stated in the abstract text I saw. Buresh, Berg, French, J Strength Cond Res 2009. (12 participants (about 6 per group)).
+  - What it found: In 12 untrained men over 10 weeks, upper-arm muscle area grew more with 2.5-minute rests (about 12%) than with 1-minute rests (about 5%). Strength gains did not differ.
+  - Limitations: With about 6 people per group and random allocation not confirmed, it cannot give a reliable estimate.
+  - Checks: strong study design: unknown; the abstract supports the stated finding: unknown.
+- **Attarieh et al., 2026.** Comparison between 20-s and 2-min inter-set rest intervals on changes in muscle cross-sectional area and maximum strength under volume-load-equated resistance training. *Sport Sciences for Health* Sport Sci Health. 2026;22(1): article 32 (online October 2025). doi:10.1007/s11332-025-01605-5. DOI [10.1007/s11332-025-01605-5](https://doi.org/10.1007/s11332-025-01605-5)
+  - Design: Within-subject training study: 17 untrained young men (mean age 25.3), each leg doing a different condition. LONG: 10RM, 3-4 sets to failure, 2-min rest. SHORT: 10RM, sets to failure until reps matched LONG, 20-s rest. Unilateral knee extension, 2x/week for 10 weeks. Randomisation of legs not confirmed. Attarieh et al., Sport Sci Health 2026;22: article 32. A Correction notice exists (doi:10.1007/s11332-026-01758-x). (17 participants).
+  - What it found: In 17 untrained men doing knee extensions for 10 weeks, one leg rested 20 s and did extra sets to match the volume of the other leg, which rested 2 minutes. Thigh muscle growth did not differ (rectus femoris +14.3% vs +16.7%), and neither did strength gain (1RM +42.4% vs +41.5%).
+  - Limitations: It used one single-joint exercise in untrained men, leg allocation was not confirmed as random, and a published correction exists whose content was not seen.
+  - Checks: strong study design: unknown; the abstract supports the stated finding: unknown.
+- **Longo et al., 2022.** Volume Load Rather Than Resting Interval Influences Muscle Hypertrophy During High-Intensity Resistance Training. *Journal of Strength and Conditioning Research* J Strength Cond Res. 2022 Jun;36(6):1554-1559. doi:10.1519/JSC.0000000000003668 (online first 5 June 2020). PMID [35622106](https://pubmed.ncbi.nlm.nih.gov/35622106/) · DOI [10.1519/JSC.0000000000003668](https://doi.org/10.1519/JSC.0000000000003668)
+  - Design: Within-subject training study: 28 subjects, each leg allocated to 1 of 4 unilateral knee-extension protocols at 80% 1RM, 2x/week for 10 weeks. LI: 3-min rest. SI: 1-min rest. VLI-SI: 1-min rest with volume load matched to LI. VSI-LI: 3-min rest with volume load matched to SI. Random allocation not confirmed in the text I saw. Longo et al., J Strength Cond Res 2022;36(6):1554-1559 (epub 2020). (28 participants).
+  - What it found: In 28 young people training knee extensions at 80% 1RM for 10 weeks, 3-minute rests gave more quadriceps growth than 1-minute rests with the same sets (13.1% vs 6.8%). However, 1-minute rests with extra volume matched it (12.9%), and 3-minute rests held to the lower volume grew less (6.6%). Strength rose similarly in all groups.
+  - Limitations: It used a single single-joint exercise in untrained people, and randomisation of legs was not confirmed, so it may not apply to multi-joint lifts or trained lifters.
+  - Checks: strong study design: unknown; the abstract supports the stated finding: unknown.
+
+**What would change the status.** The status could change to active if each part of the statement had at least 3 counted, reasonably independent sources. For muscle growth, a further strong source is needed. The status could change if randomisation is confirmed in Buresh 2009, if the Grgic 2017 abstract wording on trained participants is checked, or if a new well-powered randomised trial or independent meta-analysis with sets held equal is found. For strength in trained lifters, the lead PMID 19811949 (1, 3 and 5-minute rests in trained men) should be verified, along with any other independent randomised trial. The study lists of Singer 2024 and Grgic 2017/2018 need to be compared to see how far they reuse the same trials, including Schoenfeld 2016. The primary text of the ACSM 2026 stand must be checked: if it reports no effect of rest on strength, that would weigh against the claim. The following checks are still to do: the Attarieh 2026 correction, randomisation in Longo 2022, and dedicated retraction searches. No study compares multi-joint with single-joint exercises, so the draft's multi-joint wording cannot be tested. Data on women, older adults and training longer than about 12 weeks are needed before the claim is applied to those users.
 
 ## Strength training on 2 or more days a week
 <a id="general-health-muscle-strengthening-twice-weekly"></a>
 
 `general_health.muscle_strengthening_twice_weekly` · **Not enough evidence yet**
 
-**Claim.** Not yet checked.
+**Claim.** Not yet verified: WHO (2020) and US (2018) guidelines are reported to recommend that adults do muscle-strengthening activity on 2 or more days a week, alongside aerobic activity, and observational studies are reported to link any such activity with lower all-cause mortality. None of the sources has been verified, so this stays a draft and the app changes nothing.
 
-**Who it applies to.** 
+**Who it applies to.** Adults aged 18 and over in the general, non-clinical population. This is the proposed scope and has not been verified. The guideline part would cover adults aged 18 to 64 and those aged 65 and over. The mortality evidence would come mostly from middle-aged and older adults in prospective cohorts.
 
-**What the app does with it.** For the general health goal, if your plan has fewer than 2 strength days, we can suggest adding one.
+**What the app does with it.** Would let us suggest a second strength day for the general health goal.
 
-**Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
+**Why this status.** No source counts towards this claim. The shared web-search budget ran out before any check could run, so all 9 sources, including the two guidelines (Bull 2020, Piercy 2018) and the main meta-analyses (Momma 2022, Shailendra 2022, Saeidifard 2019), have every check marked unknown. With zero of the 3 required sources verified, the claim stays a draft, however plausible it is. Even the researcher's own description of the evidence would narrow the claim. It shows null or borderline results for cancer and cardiovascular mortality (Saeidifard 2019; Nascimento 2021 high vs low HR 0.87, 0.73-1.02), J- or U-shaped dose curves, no hard-outcome trials and heavy overlap between the meta-analyses.
 
-
+**What would change the status.** 1) Verification has to run before anything else. At least 3 sources must pass every check (identifier, metadata, peer review, not retracted, strong design, finding supported) with the direction 'supports'. Re-check the most likely ones first: Bull 2020 (WHO) and Piercy 2018 (US PAG) for the 2-days-a-week recommendation, then Momma 2022, Shailendra 2022 and Saeidifard 2019 for the mortality link. Confirm the Shailendra PMID (35599175 vs 36528354) and look for retraction or correction notices on all of them. 2) Even if these pass, the statement probably needs narrowing. On the reported findings, the evidence is strongest for the guideline recommendation and for lower all-cause mortality. It is weak or null for total cancer mortality (Nascimento high vs low; Saeidifard) and borderline for cardiovascular mortality, so 'chronic disease' should not be stated without qualification. 3) The meta-analyses probably pool many of the same cohorts, and the guidelines draw on the same evidence base. A check of study-by-study overlap is needed before treating them as independent. 4) The pooled dose-response data is in minutes per week, not days per week. Direct evidence that 2 or more days beats 1 day exists only for total cancer mortality (Nascimento, HR 0.81), so the 2-day threshold rests on guideline consensus. 5) All hard-outcome evidence is observational and self-reported. Randomised trials, or well-controlled cohorts with device-measured activity, would be needed to support any causal framing. 6) The dose ceiling is uncertain: the reported peak is 30-60 min/week in Momma and about 60 min/week in Shailendra, against a plateau above 120 min/week in Zhang 2026. This needs resolving before the app sets any volume figure.
 
 ## Planned lighter weeks
 <a id="training-deload-periods"></a>
 
 `training.deload_periods` · **Not enough evidence yet**
 
-**Claim.** Not yet checked.
+**Claim.** Not established: there is no verified evidence that planned deload weeks improve strength or muscle gains compared with continuous resistance training.
 
-**Who it applies to.** 
+**Who it applies to.** Healthy adults doing resistance training. The trials, none of them verified yet, mostly studied untrained or detrained young adults. Only one studied resistance-trained adults (39 people). There are no data for older adults or competitive athletes, and none beyond 6 months.
 
-**What the app does with it.** Would let us suggest planned lighter (deload) weeks.
+**What the app does with it.** Would let us suggest planned lighter (deload) weeks. Until then, we never add them.
 
-**Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
+**Why this status.** Draft: no source passed verification. The web search budget ran out before any identifier, metadata, retraction or design check could run, so 0 sources count against the 3 required. Even taken at face value, none of the reported trials shows a benefit, so the draft claim that deloads "improve" gains would fail anyway. The direct trials are Coleman 2024 and Pancar 2026. The break-versus-continuous trials are Ogasawara 2011 and 2013, Gentil 2015 and Halonen 2024. All report similar overall gains, and Coleman 2024 reports somewhat smaller lower-body strength gains after a full week off. The researcher's narrower "little or no cost, no benefit" statement cannot be activated until at least three of these trials pass verification. Coleman 2024's direction label is also inconsistent: it is labelled as contradicting, but its finding supports the narrower statement, so it needs rechecking.
 
+### Context
 
+- **Coleman et al., 2024.** Gaining more from doing less? The effects of a one-week deload period during supervised resistance training on muscular adaptations. *PeerJ* PeerJ. 2024;12:e16777. Published 22 January 2024.. PMID [38274324](https://pubmed.ncbi.nlm.nih.gov/38274324/) · PMCID PMC10809978 · DOI [10.7717/peerj.16777](https://doi.org/10.7717/peerj.16777)
+  - Design: Not verified: web search budget exhausted before any abstract could be seen (1 RCT; 39 participants (29 men, 10 women)).
+  - What it found: In 39 resistance-trained adults, stopping all training for one week midway through a 9-week programme gave similar gains in thigh muscle size, muscular endurance and power to training straight through. Lower-body strength gains were somewhat larger with continuous training.
+  - Limitations: It tested a full week off rather than the reduced-volume week most lifters use, in a small sample over 9 weeks, and its identifiers, design and findings have not yet been verified.
+  - Checks: identifier resolves to this paper: unknown; title, authors, journal and year match: unknown; strong study design: unknown; peer-reviewed and indexed: unknown; no retraction or expression of concern found: unknown; the abstract supports the stated finding: unknown.
+- **Pancar et al., 2026.** Effects of deload periods in resistance training on muscle hypertrophy and strength endurance in untrained young men using a randomized within subject design. *Scientific Reports* Sci Rep. 2026;16:10299.. PMCID PMC13031491 · DOI [10.1038/s41598-026-40612-5](https://doi.org/10.1038/s41598-026-40612-5)
+  - Design: Not verified: web search budget exhausted before any abstract could be seen (1 trial; 19 participants).
+  - What it found: In 19 untrained young men who trained one limb each way, cutting to 2 sets per exercise once a week in weeks 4 and 8 of an 8-week programme gave the same gains in muscle thickness and 10-rep max as continuous training (leg 10-rep max +17.6 kg vs +16.8 kg).
+  - Limitations: It is a small study in untrained men, and its limb-versus-limb design can blur differences between conditions. The published paper could not be located (only the trial registration was found), so none of its details are verified.
+  - Checks: identifier resolves to this paper: unknown; title, authors, journal and year match: unknown; strong study design: unknown; peer-reviewed and indexed: unknown; no retraction or expression of concern found: unknown; the abstract supports the stated finding: unknown.
+- **Halonen et al., 2024.** Does Taking a Break Matter—Adaptations in Muscle Strength and Size Between Continuous and Periodic Resistance Training. *Scandinavian Journal of Medicine & Science in Sports* Scand J Med Sci Sports. 2024;34(10):e14739.. PMID [39364857](https://pubmed.ncbi.nlm.nih.gov/39364857/) · DOI [10.1111/sms.14739](https://doi.org/10.1111/sms.14739)
+  - Design: Not verified: web search budget exhausted before any abstract could be seen (1 RCT; 55 randomized (20 periodic and 22 continuous completed)).
+  - What it found: In 55 untrained adults, a 10-week break between two 10-week training blocks caused losses in strength and muscle size that were quickly regained, and overall gains ended up similar to continuous training.
+  - Limitations: It tested a long break in untrained people rather than a short deload week, and it has not been verified.
+  - Checks: identifier resolves to this paper: unknown; title, authors, journal and year match: unknown; strong study design: unknown; peer-reviewed and indexed: unknown; no retraction or expression of concern found: unknown; the abstract supports the stated finding: unknown.
+- **Ogasawara et al., 2013.** Comparison of muscle hypertrophy following 6-month of continuous and periodic strength training. *European Journal of Applied Physiology* Eur J Appl Physiol. 2013;113(4):975-985. Epub 6 October 2012.. PMID [23053130](https://pubmed.ncbi.nlm.nih.gov/23053130/) · DOI [10.1007/s00421-012-2511-9](https://doi.org/10.1007/s00421-012-2511-9)
+  - Design: Not verified: web search budget exhausted before any abstract could be seen (1 RCT; 14 participants).
+  - What it found: In 14 untrained men over 24 weeks, three 3-week breaks gave similar overall gains in muscle size and strength to continuous training. Gains slowed in the continuous group over time, while the break group picked up again after each break.
+  - Limitations: It is a very small study of untrained men that used 3-week breaks rather than deload weeks, and it has not been verified.
+  - Checks: identifier resolves to this paper: unknown; title, authors, journal and year match: unknown; strong study design: unknown; peer-reviewed and indexed: unknown; no retraction or expression of concern found: unknown; the abstract supports the stated finding: unknown.
+- **Ogasawara et al., 2011.** Effects of periodic and continued resistance training on muscle CSA and strength in previously untrained men. *Clinical Physiology and Functional Imaging* Clin Physiol Funct Imaging. 2011;31(5):399-404.. PMID [21771261](https://pubmed.ncbi.nlm.nih.gov/21771261/) · DOI [10.1111/j.1475-097X.2011.01031.x](https://doi.org/10.1111/j.1475-097X.2011.01031.x)
+  - Design: Not verified: web search budget exhausted before any abstract could be seen (1 trial; 15 participants).
+  - What it found: In 15 untrained men, a 3-week break after 6 weeks of training caused no significant loss of muscle size or one-rep max strength, and gains at 15 weeks were similar to continuous training.
+  - Limitations: It is very small, may not have been randomised, used a 3-week break rather than a deload week, and has not been verified.
+  - Checks: identifier resolves to this paper: unknown; title, authors, journal and year match: unknown; strong study design: unknown; peer-reviewed and indexed: unknown; no retraction or expression of concern found: unknown; the abstract supports the stated finding: unknown.
+- **Gentil et al., 2015.** Effects of Periodic and Continuous Resistance Training on Muscle Strength in Detrained Women. *Perceptual and Motor Skills* Percept Mot Skills. 2015; pp. 810-821.. PMID [26595206](https://pubmed.ncbi.nlm.nih.gov/26595206/) · DOI [10.2466/29.30.PMS.121c23x3](https://doi.org/10.2466/29.30.PMS.121c23x3)
+  - Design: Not verified: web search budget exhausted before any abstract could be seen (1 RCT; 60 participants).
+  - What it found: In 60 detrained women, each given 20 sessions, a 2-week break midway through 10 weeks of training gave similar knee and elbow strength gains to training without a break.
+  - Limitations: It measured only strength, in women returning to training, used a 2-week break rather than a deload week, and its citation details have not been verified.
+  - Checks: identifier resolves to this paper: unknown; title, authors, journal and year match: unknown; strong study design: unknown; peer-reviewed and indexed: unknown; no retraction or expression of concern found: unknown; the abstract supports the stated finding: unknown.
+- **Bosquet et al., 2013.** Effect of training cessation on muscular performance: a meta-analysis. *Scandinavian Journal of Medicine & Science in Sports* Scand J Med Sci Sports. 2013;23(3):e140-e149.. PMID [23347054](https://pubmed.ncbi.nlm.nih.gov/23347054/) · DOI [10.1111/sms.12047](https://doi.org/10.1111/sms.12047)
+  - Design: Not verified: web search budget exhausted before any abstract could be seen (103 studies included (of 284 screened); participant total not seen).
+  - What it found: A meta-analysis of 103 studies found that stopping resistance training reduces strength and power (maximal force SMD -0.46), with larger losses the longer the stop.
+  - Limitations: It looked at stopping training, not planned deloads, so it only hints at the cost of a full week off, and it has not been verified.
+  - Checks: identifier resolves to this paper: unknown; title, authors, journal and year match: unknown; strong study design: unknown; peer-reviewed and indexed: unknown; no retraction or expression of concern found: unknown; the abstract supports the stated finding: unknown.
+- **Bell et al., 2023.** Integrating Deloading into Strength and Physique Sports Training Programmes: An International Delphi Consensus Approach. *Sports Medicine - Open* Sports Med Open. 2023;9:87.. PMID [37730925](https://pubmed.ncbi.nlm.nih.gov/37730925/) · PMCID PMC10511399 · DOI [10.1186/s40798-023-00633-0](https://doi.org/10.1186/s40798-023-00633-0)
+  - Design: Not verified: web search budget exhausted before any abstract could be seen (34 coaches in round 1, 29 in round 2, 21 in round 3; 138 statements in 4 domains).
+  - What it found: An international expert panel agreed that deloading is widely used but under-researched. It defined a deload as a period of reduced training stress to manage fatigue and aid recovery.
+  - Limitations: It is expert opinion with no data on whether deloads change strength or muscle gains, and it has not been verified.
+  - Checks: identifier resolves to this paper: unknown; title, authors, journal and year match: unknown; strong study design: unknown; peer-reviewed and indexed: unknown; no retraction or expression of concern found: unknown; the abstract supports the stated finding: unknown.
+- **Rogerson et al., 2024.** Deloading Practices in Strength and Physique Sports: A Cross-sectional Survey. *Sports Medicine - Open* Sports Med Open. 2024;10:26.. PMID [38499934](https://pubmed.ncbi.nlm.nih.gov/38499934/) · PMCID PMC10948666 · DOI [10.1186/s40798-024-00691-y](https://doi.org/10.1186/s40798-024-00691-y)
+  - Design: Not verified: web search budget exhausted before any abstract could be seen (246 athletes).
+  - What it found: In a survey of 246 strength and physique athletes, all reported deloading, typically for about 6 days every 5 to 6 weeks, mainly by cutting training volume and load.
+  - Limitations: It describes what athletes do, not whether deloads work, and it has not been verified.
+  - Checks: identifier resolves to this paper: unknown; title, authors, journal and year match: unknown; strong study design: unknown; peer-reviewed and indexed: unknown; no retraction or expression of concern found: unknown; the abstract supports the stated finding: unknown.
+
+**What would change the status.** Before any deload statement can become active, at least three trials must pass every check: PMID or DOI, metadata, peer review, retraction status, randomised design, and that the reported findings match the paper. The best candidates are Coleman 2024 (PMID 38274324 / PMC10809978), Pancar 2026 (a published record must first be found), Halonen 2024, Ogasawara 2013 and Gentil 2015. Ogasawara 2011 also needs its randomisation confirmed. Supporting the original claim that deloads improve gains would take something much stronger: randomised trials in resistance-trained lifters showing that roughly one-week reduced-volume deloads produce larger strength or muscle gains than continuous training, ideally pooled in a systematic review. Those trials would also need follow-up beyond 6 months and outcomes such as injury, overreaching and adherence. Registered trials NCT06825052 and NCT06573086 (TraDeRe2024) may help fill this gap.
 
 ## Adding cardio to strength training
 <a id="training-concurrent-aerobic-compatible"></a>
@@ -315,7 +465,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** When you ask to add running, we can add runs on separate days without cutting your lifting.
+**What the app does with it.** Would let us add runs without cutting your lifting.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 
@@ -330,7 +480,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** Would limit how fast your weekly running distance rises.
+**What the app does with it.** Would let us limit how fast your weekly running distance rises. Until then, we don't plan your running.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 
@@ -345,7 +495,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** Would let a low readiness reduce today's lifting. Until the evidence is there, readiness never changes your plan.
+**What the app does with it.** Would let a low readiness reduce today's lifting. Until then, readiness never changes your plan; we show it so you can decide.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 
@@ -360,7 +510,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** Would let us swap a hard run for an easy one on a low-HRV day.
+**What the app does with it.** Would let us swap a hard run for an easy one on a low-HRV day. Until then, readiness never changes your plan.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 
@@ -375,7 +525,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** Explains your readiness: short sleep can make a session feel harder. It never changes your plan by itself.
+**What the app does with it.** Would explain how short sleep affects a session.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 
@@ -390,7 +540,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** Explains why we compare each device only with its own baseline and keep each maker's score under its own name.
+**What the app does with it.** Would explain how far to trust each device's numbers.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 
@@ -405,7 +555,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** If your goal is muscle gain and your protein target is under 1.6 g per kg of body weight a day, we can suggest raising it to 1.6 g/kg.
+**What the app does with it.** Would let us suggest a protein target for muscle gain. Until then, your targets are yours to set.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 
@@ -420,7 +570,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** If your fibre target is under 25 g a day, we can suggest 25 to 30 g. It also explains the fibre line in food ratings.
+**What the app does with it.** Would let us suggest a daily fibre target. Until then, your targets are yours to set.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 
@@ -435,7 +585,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** Explains why we hold protein suggestions if you tell us about a medical condition, until a professional supervises your plan.
+**What the app does with it.** Would explain whether higher protein is safe for healthy kidneys. Until then, we don't suggest raising protein.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 
@@ -450,7 +600,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** Explains the sugar line in food ratings.
+**What the app does with it.** Would explain why sugar is on the food rating.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 
@@ -465,7 +615,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** Explains the salt line in food ratings.
+**What the app does with it.** Would explain why salt is on the food rating.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 
@@ -480,7 +630,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** Explains the saturated fat line in food ratings.
+**What the app does with it.** Would explain why saturated fat is on the food rating.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 
@@ -495,7 +645,7 @@ How this version was checked: one agent searched for evidence for and against ea
 
 **Who it applies to.** 
 
-**What the app does with it.** Explains the processing line in food ratings. We describe processing; we never judge a food.
+**What the app does with it.** Would explain why processing is on the food rating. We describe processing; we never judge a food.
 
 **Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
 

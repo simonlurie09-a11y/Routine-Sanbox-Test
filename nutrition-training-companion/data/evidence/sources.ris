@@ -422,3 +422,485 @@ UR  - https://pubmed.ncbi.nlm.nih.gov/29564973/
 N2  - 30 men trained twice a week for 12 weeks, with each limb assigned to 20%, 40%, 60% or 80% of 1RM and volume load matched. The 20% load reportedly gave about half the muscle growth of 80%, while 40-80% were broadly similar.
 N1  - Not verified: web search budget exhausted.. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
 ER  - 
+
+TY  - JOUR
+TI  - Effects of resistance training performed to repetition failure or non-failure on muscular strength and hypertrophy: A systematic review and meta-analysis
+AU  - Grgic
+AU  - Schoenfeld
+AU  - Orazem
+AU  - Sabol
+PY  - 2022
+JO  - Journal of Sport and Health Science
+VL  - 11
+IS  - 2
+SP  - 202
+EP  - 211
+DO  - 10.1016/j.jshs.2021.01.007
+AN  - PMID:33497853
+UR  - https://pubmed.ncbi.nlm.nih.gov/33497853/
+N2  - This pooled analysis of 15 studies in young adults found no significant difference between training to failure and stopping short, for either strength (ES -0.09) or muscle growth (ES 0.22, 95% CI -0.11 to 0.55). Stopping short was better for strength when training volume was not matched. Failure gave a small growth advantage in people already used to resistance training (ES 0.15, 95% CI 0.03 to 0.26).
+N1  - Systematic review and meta-analysis of 15 studies, all in young adults (J Sport Health Sci 2022, Grgic, Schoenfeld, Orazem, Sabol). Verified 2026-10-14. Used for: training.proximity_to_failure: supports
+ER  - 
+
+TY  - JOUR
+TI  - Influence of Resistance Training Proximity-to-Failure on Skeletal Muscle Hypertrophy: A Systematic Review with Meta-analysis
+AU  - Refalo
+AU  - Helms
+AU  - Trexler
+AU  - Hamilton
+AU  - Fyfe
+PY  - 2023
+JO  - Sports Medicine
+VL  - 53
+IS  - 3
+SP  - 649
+EP  - 665
+DO  - 10.1007/s40279-022-01784-y
+AN  - PMID:36334240
+UR  - https://pubmed.ncbi.nlm.nih.gov/36334240/
+N2  - Across 15 studies, training to failure gave a trivial and statistically fragile advantage for muscle growth over stopping short (ES 0.19, 95% CI 0.00 to 0.37, p = 0.045). Neither training volume nor load explained this, and subgroups split by how failure was defined showed no clear advantage. The authors suggest the link between closeness to failure and growth may not be a straight line.
+N1  - Systematic review with meta-analysis of 15 studies in healthy adults (Sports Med 2023;53:649-665, Epub Nov 2022; Refalo et al.). Verified 2026-10-14. Used for: training.proximity_to_failure: supports
+ER  - 
+
+TY  - JOUR
+TI  - Exploring the Dose-Response Relationship Between Estimated Resistance Training Proximity to Failure, Strength Gain, and Muscle Hypertrophy: A Series of Meta-Regressions
+AU  - Robinson, ZP
+AU  - Pelland, JC
+AU  - Remmert, JF
+AU  - Refalo, MC
+AU  - Jukic, I
+AU  - Steele, J
+AU  - Zourdos, MC
+PY  - 2024
+JO  - Sports Medicine
+VL  - 54
+IS  - 9
+SP  - 2209
+EP  - 2231
+DO  - 10.1007/s40279-024-02069-2
+AN  - PMID:38970765
+UR  - https://pubmed.ncbi.nlm.nih.gov/38970765/
+N2  - This analysis treated closeness to failure as estimated reps in reserve. In every best-fitting model, muscle growth rose as sets ended closer to failure, while closeness to failure made a negligible difference to strength gains.
+N1  - Systematic review with a series of meta-regressions, modelling proximity to failure as continuous estimated RIR and adjusting for load, volume-equating method, intervention duration and training status (Sports Med 2024;54:2209-2231). Verified 2026-10-14. Used for: training.proximity_to_failure: supports
+ER  - 
+
+TY  - JOUR
+TI  - Effects of Resistance Training Performed to Failure or Not to Failure on Muscle Strength, Hypertrophy, and Power Output: A Systematic Review With Meta-Analysis
+AU  - Vieira
+AU  - Umpierre
+AU  - Teodoro
+AU  - Lisboa
+AU  - Baroni
+AU  - Izquierdo
+AU  - Cadore
+PY  - 2021
+JO  - Journal of Strength and Conditioning Research
+VL  - 35
+IS  - 4
+SP  - 1165
+EP  - 1175
+DO  - 10.1519/JSC.0000000000003936
+UR  - https://doi.org/10.1519/JSC.0000000000003936
+N2  - Across 13 studies, strength gains did not differ overall, and stopping short of failure did better when training volume was not matched (SMD -0.34). Training to failure gave more muscle growth overall (SMD 0.75), but there was no difference when training volume was matched.
+N1  - Systematic review with meta-analysis of 13 studies (J Strength Cond Res 2021;35(4):1165-1175; Vieira, Umpierre, Teodoro, Lisboa, Baroni, Izquierdo, Cadore). Not verified 2026-10-14. Used for: training.proximity_to_failure: context
+ER  - 
+
+TY  - JOUR
+TI  - Effect of Training Leading to Repetition Failure on Muscular Strength: A Systematic Review and Meta-Analysis
+AU  - Davies, T
+AU  - Orr, R
+AU  - Halaki, M
+AU  - Hackett, D
+PY  - 2016
+JO  - Sports Medicine
+VL  - 46
+IS  - 4
+SP  - 487
+EP  - 502
+DO  - 10.1007/s40279-015-0451-3
+AN  - PMID:26666744
+UR  - https://pubmed.ncbi.nlm.nih.gov/26666744/
+N2  - Pooling 8 studies, stopping short of failure gave slightly larger strength gains than training to failure (ES 0.34, p = 0.02), roughly 0.6 to 1.3% more. The same small advantage appeared for compound exercises and in trained participants.
+N1  - Systematic review and meta-analysis of 8 studies on strength only, 4 volume-controlled and 4 volume-uncontrolled (Sports Med 2016;46(4):487-502; erratum 46(4):605-610). Verified 2026-10-14. Used for: training.proximity_to_failure: supports
+ER  - 
+
+TY  - JOUR
+TI  - Similar muscle hypertrophy following eight weeks of resistance training to momentary muscular failure or with repetitions-in-reserve in resistance-trained individuals
+AU  - Refalo, MC
+AU  - Helms, ER
+AU  - Robinson, ZP
+AU  - Hamilton, DL
+AU  - Fyfe, JJ
+PY  - 2024
+JO  - Journal of Sports Sciences
+VL  - 42
+IS  - 1
+SP  - 85
+EP  - 101
+DO  - 10.1080/02640414.2024.2321021
+AN  - PMID:38393985
+UR  - https://pubmed.ncbi.nlm.nih.gov/38393985/
+N2  - In 18 resistance-trained adults, each trained one leg to failure and the other stopping 1 to 2 reps short for 8 weeks. Thigh muscle thickness rose by almost exactly the same amount in both legs (about 0.18 cm each). Training to failure caused more short-term fatigue.
+N1  - 8-week within-participant (one leg per condition) training trial in resistance-trained adults, n = 18 (12 men, 6 women): failure vs 2 RIR (leg press) / 1 RIR (leg extension); J Sports Sci 2024;42(1):85-101, doi 10.1080/02640414.2024.2321021. Randomisation of limbs not verified.. Not verified 2026-10-14. Used for: training.proximity_to_failure: context
+ER  - 
+
+TY  - JOUR
+TI  - Methods for Controlling and Reporting Resistance Training Proximity to Failure: Current Issues and Future Directions
+AU  - Pelland, JC
+AU  - Robinson, ZP
+AU  - Remmert, JF
+AU  - Cerminaro, RM
+AU  - Benitez, B
+AU  - John, TA
+AU  - Helms, ER
+AU  - Zourdos, MC
+PY  - 2022
+JO  - Sports Medicine
+VL  - 52
+IS  - 7
+SP  - 1461
+EP  - 1472
+DO  - 10.1007/s40279-022-01667-2
+AN  - PMID:35247203
+UR  - https://pubmed.ncbi.nlm.nih.gov/35247203/
+N2  - This methods review found no consistent way of measuring how close to failure a set ends, and definitions of failure vary between studies. This makes precise per-set recommendations for muscle growth and strength hard to give.
+N1  - Narrative/methodological review (Sports Med 2022;52(7):1461-1472; Pelland, Robinson, Helms, Zourdos and colleagues). Not verified 2026-10-14. Used for: training.proximity_to_failure: context
+ER  - 
+
+TY  - JOUR
+TI  - Give it a rest: a systematic review with Bayesian meta-analysis on the effect of inter-set rest interval duration on muscle hypertrophy
+AU  - Singer, A
+AU  - Wolf, M
+AU  - Generoso
+AU  - Arias
+AU  - Delcastillo
+AU  - Echevarria
+AU  - Martinez
+AU  - Korakakis
+AU  - Refalo
+AU  - Swinton
+AU  - Schoenfeld, BJ
+PY  - 2024
+JO  - Frontiers in Sports and Active Living
+VL  - 6
+SP  - 1429789
+DO  - 10.3389/fspor.2024.1429789
+AN  - PMID:39205815
+UR  - https://pubmed.ncbi.nlm.nih.gov/39205815/
+N2  - A Bayesian meta-analysis of 19 measurements from 9 randomised studies found a small muscle-growth benefit from resting more than 60 s rather than 60 s or less. This was possibly because longer rests let people lift more total volume. There was no appreciable extra benefit beyond about 90 s, and the whole-body estimate was -0.08 (95% credible interval -0.45 to 0.29).
+N1  - Systematic review with Bayesian meta-analysis of randomised studies comparing inter-set rest durations in healthy adults, with other training variables controlled; 19 measurements (thigh, arm, whole body) from 9 studies. Singer, Wolf, Schoenfeld et al., Front Sports Act Living 2024 (published 14 Aug 2024), doi:10.3389/fspor.2024.1429789.. Verified 2026-10-14. Used for: training.inter_set_rest: supports
+ER  - 
+
+TY  - JOUR
+TI  - Effects of Rest Interval Duration in Resistance Training on Measures of Muscular Strength: A Systematic Review
+AU  - Grgic, J
+AU  - Schoenfeld, BJ
+AU  - Skrepnik, M
+AU  - Davies, TB
+AU  - Mikulic, P
+PY  - 2018
+JO  - Sports Medicine
+VL  - 48
+IS  - 1
+SP  - 137
+EP  - 151
+DO  - 10.1007/s40279-017-0788-x
+AN  - PMID:28933024
+UR  - https://pubmed.ncbi.nlm.nih.gov/28933024/
+N2  - A systematic review of 23 training studies (491 participants, mostly men) concluded that resistance-trained people need rests longer than 2 minutes to maximise strength gains. For untrained people, 60-120 s is enough, and rests under 60 s still produce solid gains.
+N1  - Systematic review (PRISMA, 5 databases, no pooled meta-analysis seen) of chronic training studies comparing rest interval durations; 23 studies, 491 participants (413 males, 78 females); studies rated good-to-moderate methodological quality. Grgic, Schoenfeld, Skrepnik, Davies, Mikulic. Sports Med 2018;48(1):137-151.. Verified 2026-10-14. Used for: training.inter_set_rest: supports
+ER  - 
+
+TY  - JOUR
+TI  - The effects of short versus long inter-set rest intervals in resistance training on measures of muscle hypertrophy: A systematic review
+AU  - Grgic
+AU  - Lazinica
+AU  - Mikulic
+AU  - Krieger
+AU  - Schoenfeld
+PY  - 2017
+JO  - European Journal of Sport Science
+VL  - 17
+IS  - 8
+SP  - 983
+EP  - 993
+DO  - 10.1080/17461391.2017.1340524
+AN  - PMID:28641044
+UR  - https://pubmed.ncbi.nlm.nih.gov/28641044/
+N2  - A systematic review of 6 trials concluded that both short (60 s or less) and long (more than 60 s) rests can build muscle, with a possible advantage for longer rests in trained people.
+N1  - Systematic review (no meta-analysis) of 6 studies comparing inter-set rest of <=60 s vs >60 s, with a muscle-mass outcome over at least 4 weeks. Searched PubMed/MEDLINE, Scopus, Web of Science, Cochrane Library and PEDro. Grgic, Lazinica, Mikulic, Krieger, Schoenfeld; Eur J Sport Sci 2017;17(8):983-993; DOI 10.1080/17461391.2017.1340524 (seen in a search summary).. Not verified 2026-10-14. Used for: training.inter_set_rest: context
+ER  - 
+
+TY  - JOUR
+TI  - Longer Interset Rest Periods Enhance Muscle Strength and Hypertrophy in Resistance-Trained Men
+AU  - Schoenfeld, BJ
+AU  - Pope
+AU  - Benik
+AU  - Hester
+AU  - Sellers
+AU  - Nooner
+AU  - Schnaiter
+AU  - Bond-Williams
+AU  - Carter
+AU  - Ross
+AU  - Just
+AU  - Henselmans
+AU  - Krieger
+PY  - 2016
+JO  - Journal of Strength and Conditioning Research
+VL  - 30
+IS  - 7
+SP  - 1805
+EP  - 1812
+DO  - 10.1519/JSC.0000000000001272
+AN  - PMID:26605807
+UR  - https://pubmed.ncbi.nlm.nih.gov/26605807/
+N2  - In 21 resistance-trained young men over 8 weeks, resting 3 minutes rather than 1 minute led to larger gains in squat and bench press 1RM and in front-thigh muscle thickness. Muscular endurance improved similarly in both groups.
+N1  - Randomised controlled trial (parallel groups): 21 resistance-trained young men randomly assigned to 1-min (SHORT) vs 3-min (LONG) inter-set rest for 8 weeks. Schoenfeld et al., J Strength Cond Res 2016.. Verified 2026-10-14. Used for: training.inter_set_rest: supports
+ER  - 
+
+TY  - JOUR
+TI  - The effect of resistive exercise rest interval on hormonal response, strength, and hypertrophy with training
+AU  - Buresh, R
+AU  - Berg, K
+AU  - French, J
+PY  - 2009
+JO  - Journal of Strength and Conditioning Research
+VL  - 23
+IS  - 1
+SP  - 62
+EP  - 71
+AN  - PMID:19077743
+UR  - https://pubmed.ncbi.nlm.nih.gov/19077743/
+N2  - In 12 untrained men over 10 weeks, upper-arm muscle area grew more with 2.5-minute rests (about 12%) than with 1-minute rests (about 5%). Strength gains did not differ.
+N1  - Two-group parallel training study, 12 untrained men (about 6 per group), 1-min vs 2.5-min rest for 10 weeks. Random allocation is not stated in the abstract text I saw. Buresh, Berg, French, J Strength Cond Res 2009.. Not verified 2026-10-14. Used for: training.inter_set_rest: context
+ER  - 
+
+TY  - JOUR
+TI  - Comparison between 20-s and 2-min inter-set rest intervals on changes in muscle cross-sectional area and maximum strength under volume-load-equated resistance training
+AU  - Attarieh
+PY  - 2026
+JO  - Sport Sciences for Health
+DO  - 10.1007/s11332-025-01605-5
+UR  - https://doi.org/10.1007/s11332-025-01605-5
+N2  - In 17 untrained men doing knee extensions for 10 weeks, one leg rested 20 s and did extra sets to match the volume of the other leg, which rested 2 minutes. Thigh muscle growth did not differ (rectus femoris +14.3% vs +16.7%), and neither did strength gain (1RM +42.4% vs +41.5%).
+N1  - Within-subject training study: 17 untrained young men (mean age 25.3), each leg doing a different condition. LONG: 10RM, 3-4 sets to failure, 2-min rest. SHORT: 10RM, sets to failure until reps matched LONG, 20-s rest. Unilateral knee extension, 2x/week for 10 weeks. Randomisation of legs not confirmed. Attarieh et al., Sport Sci Health 2026;22: article 32. A Correction notice exists (doi:10.1007/s11332-026-01758-x).. Not verified 2026-10-14. Used for: training.inter_set_rest: context
+ER  - 
+
+TY  - JOUR
+TI  - Volume Load Rather Than Resting Interval Influences Muscle Hypertrophy During High-Intensity Resistance Training
+AU  - Longo
+AU  - Silva-Batista
+AU  - Pedroso
+AU  - de Salles Painelli
+AU  - Lasevicius
+AU  - Schoenfeld
+AU  - Aihara
+AU  - de Almeida Peres
+AU  - Tricoli
+AU  - Teixeira
+PY  - 2022
+JO  - Journal of Strength and Conditioning Research
+VL  - 36
+IS  - 6
+SP  - 1554
+EP  - 1559
+DO  - 10.1519/JSC.0000000000003668
+AN  - PMID:35622106
+UR  - https://pubmed.ncbi.nlm.nih.gov/35622106/
+N2  - In 28 young people training knee extensions at 80% 1RM for 10 weeks, 3-minute rests gave more quadriceps growth than 1-minute rests with the same sets (13.1% vs 6.8%). However, 1-minute rests with extra volume matched it (12.9%), and 3-minute rests held to the lower volume grew less (6.6%). Strength rose similarly in all groups.
+N1  - Within-subject training study: 28 subjects, each leg allocated to 1 of 4 unilateral knee-extension protocols at 80% 1RM, 2x/week for 10 weeks. LI: 3-min rest. SI: 1-min rest. VLI-SI: 1-min rest with volume load matched to LI. VSI-LI: 3-min rest with volume load matched to SI. Random allocation not confirmed in the text I saw. Longo et al., J Strength Cond Res 2022;36(6):1554-1559 (epub 2020).. Not verified 2026-10-14. Used for: training.inter_set_rest: context
+ER  - 
+
+TY  - JOUR
+TI  - Effects of rest intervals and training loads on metabolic stress and muscle hypertrophy
+AU  - Fink, J
+AU  - Kikuchi, N
+AU  - Nakazato, K
+PY  - 2018
+JO  - Clinical Physiology and Functional Imaging
+VL  - 38
+IS  - 2
+SP  - 261
+EP  - 268
+DO  - 10.1111/cpf.12409
+AN  - PMID:28032435
+UR  - https://pubmed.ncbi.nlm.nih.gov/28032435/
+N2  - In 20 people over 8 weeks with total volume matched, 30-second rests with light loads (20RM) increased upper-arm muscle area more (about 9.9%) than 3-minute rests with heavier loads (8RM, about 4.7%).
+N1  - Two-group, volume-matched training study, 20 subjects. SL: 30-s rest with 20RM, n=10. LH: 3-min rest with 8RM, n=10. 8 weeks, MRI upper-arm CSA. One summary described it as randomised, but I did not see random allocation in the abstract text. Rest and load were confounded. Fink, Kikuchi, Nakazato, Clin Physiol Funct Imaging 2018 (online Dec 2016).. Not verified 2026-10-14. Used for: training.inter_set_rest: contradicts
+ER  - 
+
+TY  - JOUR
+TI  - Gaining more from doing less? The effects of a one-week deload period during supervised resistance training on muscular adaptations
+AU  - Coleman, M
+AU  - Burke, R
+AU  - Augustin, F
+AU  - Piñero, A
+AU  - Maldonado, J
+AU  - Fisher, JP
+AU  - Israetel, M
+AU  - Androulakis Korakakis, P
+AU  - Swinton, P
+AU  - Oberlin, D
+AU  - Schoenfeld, BJ
+PY  - 2024
+JO  - PeerJ
+VL  - 12
+SP  - e16777
+DO  - 10.7717/peerj.16777
+AN  - PMID:38274324
+UR  - https://pubmed.ncbi.nlm.nih.gov/38274324/
+N2  - In 39 resistance-trained adults, stopping all training for one week midway through a 9-week programme gave similar gains in thigh muscle size, muscular endurance and power to training straight through. Lower-body strength gains were somewhat larger with continuous training.
+N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+ER  - 
+
+TY  - JOUR
+TI  - Effects of deload periods in resistance training on muscle hypertrophy and strength endurance in untrained young men using a randomized within subject design
+AU  - Pancar, Z
+AU  - Ilhan, MT
+AU  - Darendeli, MK
+AU  - Karaca, B
+PY  - 2026
+JO  - Scientific Reports
+VL  - 16
+SP  - 10299
+DO  - 10.1038/s41598-026-40612-5
+UR  - https://doi.org/10.1038/s41598-026-40612-5
+N2  - In 19 untrained young men who trained one limb each way, cutting to 2 sets per exercise once a week in weeks 4 and 8 of an 8-week programme gave the same gains in muscle thickness and 10-rep max as continuous training (leg 10-rep max +17.6 kg vs +16.8 kg).
+N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+ER  - 
+
+TY  - JOUR
+TI  - Does Taking a Break Matter—Adaptations in Muscle Strength and Size Between Continuous and Periodic Resistance Training
+AU  - Halonen, EJ
+AU  - Gabriel, I
+AU  - Kelahaara, MM
+AU  - Ahtiainen, JP
+AU  - Hulmi, JJ
+PY  - 2024
+JO  - Scandinavian Journal of Medicine & Science in Sports
+VL  - 34
+IS  - 10
+SP  - e14739
+DO  - 10.1111/sms.14739
+AN  - PMID:39364857
+UR  - https://pubmed.ncbi.nlm.nih.gov/39364857/
+N2  - In 55 untrained adults, a 10-week break between two 10-week training blocks caused losses in strength and muscle size that were quickly regained, and overall gains ended up similar to continuous training.
+N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+ER  - 
+
+TY  - JOUR
+TI  - Comparison of muscle hypertrophy following 6-month of continuous and periodic strength training
+AU  - Ogasawara, R
+AU  - Yasuda, T
+AU  - Ishii, N
+AU  - Abe, T
+PY  - 2013
+JO  - European Journal of Applied Physiology
+VL  - 113
+IS  - 4
+SP  - 975
+EP  - 985
+DO  - 10.1007/s00421-012-2511-9
+AN  - PMID:23053130
+UR  - https://pubmed.ncbi.nlm.nih.gov/23053130/
+N2  - In 14 untrained men over 24 weeks, three 3-week breaks gave similar overall gains in muscle size and strength to continuous training. Gains slowed in the continuous group over time, while the break group picked up again after each break.
+N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+ER  - 
+
+TY  - JOUR
+TI  - Effects of periodic and continued resistance training on muscle CSA and strength in previously untrained men
+AU  - Ogasawara, R
+AU  - Yasuda, T
+AU  - Sakamaki, M
+AU  - Ozaki, H
+AU  - Abe, T
+PY  - 2011
+JO  - Clinical Physiology and Functional Imaging
+VL  - 31
+IS  - 5
+SP  - 399
+EP  - 404
+DO  - 10.1111/j.1475-097X.2011.01031.x
+AN  - PMID:21771261
+UR  - https://pubmed.ncbi.nlm.nih.gov/21771261/
+N2  - In 15 untrained men, a 3-week break after 6 weeks of training caused no significant loss of muscle size or one-rep max strength, and gains at 15 weeks were similar to continuous training.
+N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+ER  - 
+
+TY  - JOUR
+TI  - Effects of Periodic and Continuous Resistance Training on Muscle Strength in Detrained Women
+AU  - Gentil, P
+AU  - Ferreira-Junior, JB
+AU  - Soares, SRS
+AU  - Martorelli, AS
+AU  - Bottaro, M
+AU  - Cadore, EL
+AU  - Loenneke, JP
+PY  - 2015
+JO  - Perceptual and Motor Skills
+DO  - 10.2466/29.30.PMS.121c23x3
+AN  - PMID:26595206
+UR  - https://pubmed.ncbi.nlm.nih.gov/26595206/
+N2  - In 60 detrained women, each given 20 sessions, a 2-week break midway through 10 weeks of training gave similar knee and elbow strength gains to training without a break.
+N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+ER  - 
+
+TY  - JOUR
+TI  - Effect of training cessation on muscular performance: a meta-analysis
+AU  - Bosquet, L
+AU  - Berryman, N
+AU  - Dupuy, O
+AU  - Mekary, S
+AU  - Arvisais, D
+AU  - Bherer, L
+AU  - Mujika, I
+PY  - 2013
+JO  - Scandinavian Journal of Medicine & Science in Sports
+VL  - 23
+IS  - 3
+SP  - e140
+EP  - e149
+DO  - 10.1111/sms.12047
+AN  - PMID:23347054
+UR  - https://pubmed.ncbi.nlm.nih.gov/23347054/
+N2  - A meta-analysis of 103 studies found that stopping resistance training reduces strength and power (maximal force SMD -0.46), with larger losses the longer the stop.
+N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+ER  - 
+
+TY  - JOUR
+TI  - Integrating Deloading into Strength and Physique Sports Training Programmes: An International Delphi Consensus Approach
+AU  - Bell, L
+AU  - Strafford, BW
+AU  - Coleman, M
+AU  - Androulakis Korakakis, P
+AU  - Nolan, D
+PY  - 2023
+JO  - Sports Medicine - Open
+VL  - 9
+SP  - 87
+DO  - 10.1186/s40798-023-00633-0
+AN  - PMID:37730925
+UR  - https://pubmed.ncbi.nlm.nih.gov/37730925/
+N2  - An international expert panel agreed that deloading is widely used but under-researched. It defined a deload as a period of reduced training stress to manage fatigue and aid recovery.
+N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+ER  - 
+
+TY  - JOUR
+TI  - Deloading Practices in Strength and Physique Sports: A Cross-sectional Survey
+AU  - Rogerson, D
+AU  - Nolan, D
+AU  - Androulakis Korakakis, P
+AU  - Immonen, V
+AU  - Wolf, M
+AU  - Bell, L
+PY  - 2024
+JO  - Sports Medicine - Open
+VL  - 10
+SP  - 26
+DO  - 10.1186/s40798-024-00691-y
+AN  - PMID:38499934
+UR  - https://pubmed.ncbi.nlm.nih.gov/38499934/
+N2  - In a survey of 246 strength and physique athletes, all reported deloading, typically for about 6 days every 5 to 6 weeks, mainly by cutting training volume and load.
+N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+ER  - 

@@ -117,7 +117,6 @@
         </div>
         <${Section} title=${claim.status === 'active' ? 'What we do with it' : 'What we would do with it'}>
           <${Callout}>${claim.appUse}<//>
-          ${claim.status === 'active' ? null : html`<${Caption}>Until it has enough verified evidence, this never changes your plan.<//>`}
         <//>
         ${claim.verdict ? html`<${Section} title="Why this status"><${Callout}>${claim.verdict}<//><//>` : null}
         ${counted.length ? html`<${Section} title="Studies that count" caption="Each one passed all six checks.">
