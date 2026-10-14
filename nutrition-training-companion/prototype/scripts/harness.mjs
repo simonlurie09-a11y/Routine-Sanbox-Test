@@ -46,7 +46,7 @@ export async function launch(opts = {}) {
 
   /* Isolated mode: only core files plus the listed screen files (so one
      builder's half-written file can't break another's tests). */
-  const CORE = ['00-data.js', '05-palettes.generated.js', '10-domain.js', '20-store.js', '30-ui.js'];
+  const CORE = ['00-data.js', '01-evidence.generated.js', '02-downloads.generated.js', '05-palettes.generated.js', '10-domain.js', '20-store.js', '30-ui.js'];
   const isolatedFiles = opts.files || (process.env.PROTOTYPE_FILES ? process.env.PROTOTYPE_FILES.split(',').filter(Boolean) : null);
   const isolatedHtml = () => {
     const files = [...CORE, ...isolatedFiles.filter((f) => !CORE.includes(f) && f !== '90-main.js').sort(), '90-main.js'];

@@ -16,7 +16,9 @@ Read these before writing a screen:
 
 | File | Owner | What |
 |---|---|---|
-| `00-data.js` | core | sample data, catalogue, products, label samples, real citations, claims, wearable series |
+| `00-data.js` | core | sample data, exercise catalogue, products, label samples, wearable series |
+| `01-evidence.generated.js` | build | `Companion.data.SOURCES`, `CLAIMS`, `EVIDENCE` and `CATALOGUE` from `data/evidence/library.json` and `data/catalogue/catalogue.json` (never edit) |
+| `02-downloads.generated.js` | build | `Companion.downloads`: the files in `data/` the page offers for download (never edit) |
 | `05-palettes.generated.js` | build | `Companion.palettes` from `design/app-palettes.json` (never edit) |
 | `10-domain.js` | core | pure logic: health rating, barcode check digit and lookup, label parsing and estimates, weekly volume, split review, diffs, intent parsing, **evidence gate**, readiness |
 | `20-store.js` | core | state, `Companion.actions`, navigation, overlays, persistence, `Companion.selectors` |

@@ -517,7 +517,13 @@
   }
   function summarizeOps(ops) {
     if (!ops.length) return 'No changes.';
-    return ops.map((o) => (o.op === 'add' ? `Added ${o.name.toLowerCase()}` : o.op === 'remove' ? `Removed ${o.name.toLowerCase()}` : `${o.name} ${o.before.sets} to ${o.after.sets} sets`)).join('. ') + '.';
+    const change = (o) => {
+      const parts = [];
+      if (o.before.sets !== o.after.sets) parts.push(`${o.before.sets} to ${o.after.sets} sets`);
+      if (o.before.repMin !== o.after.repMin || o.before.repMax !== o.after.repMax) parts.push(`${o.before.repMin}–${o.before.repMax} to ${o.after.repMin}–${o.after.repMax} reps`);
+      return `${o.name} ${parts.join(', ')}`;
+    };
+    return ops.map((o) => (o.op === 'add' ? `Added ${exerciseWords(o.name)}` : o.op === 'remove' ? `Removed ${exerciseWords(o.name)}` : change(o))).join('. ') + '.';
   }
 
   /* --------------------------------------------------------- intents */
@@ -528,11 +534,11 @@
     const has = (w) => t.includes(` ${w} `) || t.includes(` ${w}s `);
     const exercise = D.EXERCISES.find((x) => t.includes(x.name.toLowerCase()) || t.includes(x.id.replace(/-/g, ' ')));
     if (exercise && /\b(remove|drop|stop|delete|get rid)\b/.test(t)) {
-      return { type: 'remove_exercise', exercise: exercise.id, summary: `Remove ${exercise.name.toLowerCase()} from your split.` };
+      return { type: 'remove_exercise', exercise: exercise.id, summary: `Remove ${exerciseWords(exercise.name)} from your split.` };
     }
     if (exercise && /\b(add|include|fit in|start)\b/.test(t)) {
       const primary = Object.entries(exercise.credit).find(([, c]) => c === 1)[0];
-      return { type: 'add_exercise', exercise: exercise.id, muscle: primary, summary: `Add ${exercise.name.toLowerCase()} to grow your ${muscleById(primary).name.toLowerCase()}.` };
+      return { type: 'add_exercise', exercise: exercise.id, muscle: primary, summary: `Add ${exerciseWords(exercise.name)} to grow your ${muscleById(primary).name.toLowerCase()}.` };
     }
     if (/\b(stronger|strength|powerlifting|1rm|max)\b/.test(t)) return { type: 'switch_style', style: 'strength', summary: 'Switch your plan toward strength.' };
     if (/\b(run|running|marathon|5k|10k|cardio|endurance)\b/.test(t)) return { type: 'switch_style', style: 'hybrid', summary: 'Add running and move toward a hybrid plan.' };
@@ -619,6 +625,23 @@
     return { definition: next, ops, deltas: volumeDeltas(def, next), minutes, reachedTarget: volume() >= target, after: volume(), before: weeklyVolume(def)[muscle] };
   }
 
+  /* Heavier loads on the main multi-joint lifts; other exercises keep their reps.
+     Sets and rests stay as they are, so session length doesn't change. */
+  const MAIN_LIFTS = ['bench-press', 'incline-bb-press', 'overhead-press', 'barbell-row', 'back-squat', 'romanian-deadlift'];
+  function buildStrengthProposal(def, claim) {
+    const ap = claim.appliesTo || {};
+    const [repMin, repMax] = Array.isArray(ap.mainLiftRepRange) ? ap.mainLiftRepRange : [3, 6];
+    const next = D.clone(def);
+    next.style = 'strength';
+    next.days.forEach((d) => d.items.forEach((it) => {
+      if (MAIN_LIFTS.includes(it.exercise)) {
+        it.repMin = repMin;
+        it.repMax = repMax;
+      }
+    }));
+    return { definition: next, ops: diffDefinitions(def, next), deltas: [], minutes: [], repRange: [repMin, repMax] };
+  }
+
   /* Decide what the app may do with an intent. Returns a recommendation draft.
      opts.requestText is the user's own words, shown as a driver. */
   function evaluateChange(intent, state, opts) {
@@ -629,12 +652,48 @@
     if (intent.type === 'unknown') return { ...base, status: 'not_understood' };
     if (intent.type === 'remove_exercise') return { ...base, status: 'user_edit' };
 
-    if (intent.type === 'switch_style') {
-      const key = intent.style === 'strength' ? 'strength.low_rep_ranges' : 'endurance.weekly_distance_progression';
-      const claim = claimByKey(key);
+    const notEnough = 'Our evidence library doesn\'t yet have 3 verified studies behind this kind of change, so we haven\'t changed your plan.';
+    if (intent.type === 'switch_style' && intent.style === 'strength') {
+      const claim = claimByKey('strength.low_rep_ranges');
       const verified = verifiedSourcesFor(claim);
-      return { ...base, status: 'blocked_insufficient_evidence', claimKey: key, verifiedCount: verified.length,
-        reason: 'Our evidence library doesn\'t yet have 3 verified studies behind this kind of change, so we haven\'t changed your plan.' };
+      if (verified.length < REQUIRED_SOURCES) {
+        return { ...base, status: 'blocked_insufficient_evidence', claimKey: 'strength.low_rep_ranges', verifiedCount: verified.length, reason: notEnough };
+      }
+      const lifts = def.days.flatMap((d) => d.items.filter((it) => MAIN_LIFTS.includes(it.exercise)).map((it) => ({ d, it })));
+      if (!lifts.length) {
+        return { ...base, status: 'blocked_constraints', claimKey: claim.key, verifiedCount: verified.length,
+          reason: 'Your split has none of the main multi-joint lifts (squat, bench press, overhead press, barbell row or Romanian deadlift), so there\'s nothing for us to make heavier. Edit the split yourself to add one.' };
+      }
+      const safety = safetyCheck(profile, [...new Set(lifts.map((l) => exerciseById(l.it.exercise).region))]);
+      if (safety.blocked) return { ...base, status: 'blocked_safety', reason: safety.reason };
+      const proposal = buildStrengthProposal(def, claim);
+      if (!proposal.ops.length) {
+        return { ...base, status: 'blocked_constraints', claimKey: claim.key, verifiedCount: verified.length,
+          reason: `Your main lifts already use ${proposal.repRange[0]} to ${proposal.repRange[1]} reps, so there's nothing for us to change.` };
+      }
+      const growth = claimByKey('hypertrophy.load_range_similar_growth');
+      const names = [...new Set(proposal.ops.map((o) => exerciseWords(o.name)))];
+      const drivers = [
+        { label: 'You asked', detail: requestText ? `"${requestText}"` : intent.summary },
+        { label: 'Your main lifts', detail: `${capitalise(listJoin(names))} move to ${proposal.repRange[0]} to ${proposal.repRange[1]} reps, which means heavier weights. Sets and rests stay the same.` },
+        verifiedSourcesFor(growth).length >= REQUIRED_SOURCES
+          ? { label: 'Muscle growth', detail: 'Studies find similar growth across light and heavy loads when sets end close to failure, so you shouldn\'t lose size.' }
+          : null,
+        { label: 'Your goal', detail: goalLabel(profile && profile.goal) }
+      ].filter(Boolean);
+      return {
+        ...base, status: 'proposed', kind: 'split_change', claimKey: claim.key,
+        sourceIds: verified.map((x) => x.id), verifiedCount: verified.length,
+        title: 'Heavier loads on your main lifts', proposal, drivers
+      };
+    }
+    if (intent.type === 'switch_style') {
+      const claim = claimByKey('endurance.weekly_distance_progression');
+      const compatible = verifiedSourcesFor(claimByKey('training.concurrent_aerobic_compatible')).length >= REQUIRED_SOURCES;
+      return { ...base, status: 'blocked_insufficient_evidence', claimKey: 'endurance.weekly_distance_progression', verifiedCount: verifiedSourcesFor(claim).length,
+        reason: compatible
+          ? 'Studies show that running alongside lifting doesn\'t cut your muscle or strength gains, but we don\'t yet have 3 verified studies on how fast to build up your running. So we haven\'t changed your plan.'
+          : notEnough };
     }
 
     /* develop_muscle and add_exercise both rest on the volume claim. */
@@ -779,6 +838,10 @@
   function capitalise(s) {
     return s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
   }
+  /* An exercise name mid-sentence: lower case, but "Romanian" stays a proper noun. */
+  function exerciseWords(name) {
+    return String(name).toLowerCase().replace(/\bromanian\b/g, 'Romanian');
+  }
   function listJoin(items) {
     if (items.length <= 1) return items.join('');
     return `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`;
@@ -792,7 +855,8 @@
     parseIngredients, parsePanel, validateNutrients, estimateFromIngredients, assessLabel,
     exerciseById, muscleById, weeklyVolume, groupVolume, dayMinutes, dayLabelWithWeekday, reviewSplit,
     diffDefinitions, volumeDeltas, summarizeOps,
-    parseIntent, REQUIRED_SOURCES, sourceById, isVerified, claimByKey, verifiedSourcesFor,
+    exerciseWords,
+    parseIntent, MAIN_LIFTS, REQUIRED_SOURCES, sourceById, isVerified, claimByKey, verifiedSourcesFor,
     safetyCheck, buildVolumeProposal, evaluateChange, currentDefinition,
     readiness, evaluateRecoveryAdjustment, notifications,
     GOALS, goalLabel

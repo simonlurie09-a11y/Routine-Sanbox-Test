@@ -1,0 +1,204 @@
+{
+  "version": "seed",
+  "reviewedAt": "2026-10-12",
+  "method": "Every claim the app could act on is listed here with the studies behind it. A claim is **active**, so the app may use it to change a plan, only when at least 3 strong, peer-reviewed studies support it and each of them passed six checks: its identifier (PMID or DOI) resolves to the paper; its title, authors, journal and year match across independent records; its design is strong (systematic review, meta-analysis, umbrella review, randomised controlled trial, or an evidence-based guideline in a peer-reviewed journal; for device accuracy, validation against a reference standard; for long-term health, meta-analyses of cohort studies); it is peer reviewed and indexed; no retraction or expression of concern was found; and its abstract supports the stated finding. Otherwise the claim stays a **draft** and the app changes nothing.\n\nHow this version was checked: one agent searched for evidence for and against each claim. Two further agents, working independently, then re-checked every source: one checked its identity (PubMed, DOI, publisher pages, retraction notices), and the other checked what its abstract actually found. An editor agent then decided each claim's wording and status from the verified sources only. All checks used web search against PubMed, PubMed Central, publisher and DOI pages, because the build environment could not reach the PubMed, Europe PMC or Crossref APIs directly. The production pipeline (docs/06-evidence-gate.md) must re-verify every source through those APIs before the app relies on it, and a human must review each active claim.",
+  "disclaimer": "General fitness and nutrition information, not medical advice. If you have an injury, a medical condition, are pregnant, or have a history of disordered eating, talk to a qualified healthcare professional before changing your training or diet.",
+  "claims": [
+    {
+      "key": "hypertrophy.volume.raise_low_weekly_sets",
+      "title": "More weekly sets for a low-volume muscle",
+      "area": "training",
+      "status": "active",
+      "statement": "Within the ranges studied, more weekly sets per muscle are linked to more muscle growth. Moving a muscle from low volume (under about 10 weekly sets) toward a moderate range is supported; extra benefit above about 20 weekly sets is uncertain.",
+      "population": "Mostly young adults; few studies in trained people.",
+      "appUse": "When a muscle gets fewer than 10 hard sets a week and you want it bigger, we can suggest adding sets toward 10, never above 20, within your session time.",
+      "appliesTo": {
+        "goals": [
+          "muscle_gain",
+          "general_health",
+          "hybrid"
+        ],
+        "maxStartingSets": 10,
+        "ceilingSets": 20
+      },
+      "verdict": "Seed entry.",
+      "gaps": "",
+      "sources": [
+        "src-krieger-2010",
+        "src-schoenfeld-2017",
+        "src-baz-valle-2022"
+      ],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-12"
+    },
+    {
+      "key": "recovery.hrv_guided_lifting_volume",
+      "title": "Lifting less on low-HRV days",
+      "area": "recovery",
+      "status": "draft",
+      "statement": "Lowering lifting volume on days of low HRV improves results.",
+      "population": "",
+      "appUse": "Would let a low readiness reduce today's lifting. Until the evidence is there, readiness never changes your plan.",
+      "appliesTo": {},
+      "verdict": "Not yet checked.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-12"
+    },
+    {
+      "key": "strength.low_rep_ranges",
+      "title": "Heavier loads for maximal strength",
+      "area": "training",
+      "status": "draft",
+      "statement": "Lower rep ranges on main lifts improve maximal strength more than higher rep ranges.",
+      "population": "",
+      "appUse": "When you ask to get stronger, we can suggest heavier loads (about 3 to 6 reps) on your main multi-joint lifts, with longer rests, and keep other exercises at moderate reps.",
+      "appliesTo": {},
+      "verdict": "Not yet checked.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-12"
+    },
+    {
+      "key": "endurance.weekly_distance_progression",
+      "title": "Limiting weekly running increases",
+      "area": "training",
+      "status": "draft",
+      "statement": "A gradual weekly distance progression reduces running injuries.",
+      "population": "",
+      "appUse": "Would limit how fast your weekly running distance rises.",
+      "appliesTo": {},
+      "verdict": "Not yet checked.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-12"
+    },
+    {
+      "key": "nutrition.protein_intake_for_muscle_gain",
+      "title": "Protein for muscle gain",
+      "area": "nutrition",
+      "status": "draft",
+      "statement": "Protein intake target for muscle gain.",
+      "population": "",
+      "appUse": "If your goal is muscle gain and your protein target is under 1.6 g per kg of body weight a day, we can suggest raising it to 1.6 g/kg.",
+      "appliesTo": {},
+      "verdict": "Not yet checked.",
+      "gaps": "",
+      "sources": [],
+      "contradicting": [],
+      "context": [],
+      "reviewedAt": "2026-10-12"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-krieger-2010",
+      "short": "Krieger, 2010",
+      "design": "Meta-analysis",
+      "authors": "Krieger JW",
+      "year": 2010,
+      "title": "Single vs. multiple sets of resistance exercise for muscle hypertrophy: a meta-analysis",
+      "journal": "Journal of Strength and Conditioning Research",
+      "citation": "24(4):1150–1159",
+      "pmid": "20300012",
+      "doi": "10.1519/JSC.0b013e3181d4d436",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20300012/",
+      "found": "Multiple sets were linked to about 40% larger muscle-growth effects than single sets, in both trained and untrained people.",
+      "limitations": "Counts sets per exercise, not weekly sets per muscle, and doesn't show where the benefit levels off.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "study_design_strong": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-12",
+      "pmcid": null,
+      "population": "",
+      "sampleSize": "",
+      "quote": null,
+      "verification": {
+        "method": "manual_web_search",
+        "notes": "Checked by hand via web search (docs/06 §6.8).",
+        "identityEvidence": [],
+        "supportEvidence": []
+      }
+    },
+    {
+      "id": "src-schoenfeld-2017",
+      "short": "Schoenfeld, Ogborn and Krieger, 2017",
+      "design": "Systematic review and meta-analysis",
+      "authors": "Schoenfeld BJ, Ogborn D, Krieger JW",
+      "year": 2017,
+      "title": "Dose-response relationship between weekly resistance training volume and increases in muscle mass: a systematic review and meta-analysis",
+      "journal": "Journal of Sports Sciences",
+      "citation": "35:1073–1082 (online July 2016)",
+      "pmid": null,
+      "doi": "10.1080/02640414.2016.1210197",
+      "url": "https://doi.org/10.1080/02640414.2016.1210197",
+      "found": "Across 15 studies (34 treatment groups), each extra weekly set was linked to a small further gain in muscle size, and higher volumes beat lower volumes within studies.",
+      "limitations": "The top volume group was '10 or more' weekly sets, so it can't say how far the benefit continues. Only 2 of the 15 studies involved people with training experience.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "study_design_strong": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-12",
+      "pmcid": null,
+      "population": "",
+      "sampleSize": "",
+      "quote": null,
+      "verification": {
+        "method": "manual_web_search",
+        "notes": "Checked by hand via web search (docs/06 §6.8).",
+        "identityEvidence": [],
+        "supportEvidence": []
+      }
+    },
+    {
+      "id": "src-baz-valle-2022",
+      "short": "Baz-Valle et al., 2022",
+      "design": "Systematic review",
+      "authors": "Baz-Valle E, Balsalobre-Fernández C, Alix-Fages C, Santos-Concejero J",
+      "year": 2022,
+      "title": "A systematic review of the effects of different resistance training volumes on muscle hypertrophy",
+      "journal": "Journal of Human Kinetics",
+      "citation": "81:199–210",
+      "pmid": "35291645",
+      "doi": "10.2478/hukin-2022-0017",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35291645/",
+      "found": "Moderate (12–20) and high (more than 20) weekly sets produced similar quadriceps and biceps growth; high volume was favoured only for the triceps.",
+      "limitations": "Only 7 studies, all in adults aged 18 to 35. The authors frame their 12–20 set recommendation for young trained men.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "study_design_strong": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-12",
+      "pmcid": null,
+      "population": "",
+      "sampleSize": "",
+      "quote": null,
+      "verification": {
+        "method": "manual_web_search",
+        "notes": "Checked by hand via web search (docs/06 §6.8).",
+        "identityEvidence": [],
+        "supportEvidence": []
+      }
+    }
+  ]
+}

@@ -113,6 +113,19 @@
     </div>`;
   }
 
+  /* Downloads of data/ in the side panel (the same files as Settings → Evidence library). */
+  function DownloadsPanel() {
+    const dl = C.ui.useDownloads();
+    if (dl.checking) return null;
+    if (!dl.available || !dl.items.length) {
+      return html`<p className="intro__note">This view can't save files. The same files are in the project's data folder on GitHub.</p>`;
+    }
+    return html`<div className="tour" role="list">
+      ${dl.items.map((item) => html`<button key=${item.key} type="button" role="listitem" className="tour__btn" title=${item.detail}
+        onClick=${() => C.ui.saveDownload(item)}>${item.label} (${item.format})</button>`)}
+    </div>`;
+  }
+
   /* --------------------------------------------------------- debug hook */
   /* Used by scripts/harness.mjs to open any screen directly. */
   window.CompanionDebug = {
@@ -146,5 +159,7 @@
   ReactDOM.createRoot(document.getElementById('app-root')).render(html`<${App} />`);
   const tourRoot = document.getElementById('tour-root');
   if (tourRoot) ReactDOM.createRoot(tourRoot).render(html`<${Tour} />`);
+  const downloadsRoot = document.getElementById('downloads-root');
+  if (downloadsRoot) ReactDOM.createRoot(downloadsRoot).render(html`<${DownloadsPanel} />`);
   window.COMPANION_READY = true;
 })();

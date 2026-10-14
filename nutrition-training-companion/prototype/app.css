@@ -131,6 +131,32 @@ ul {
   line-height: 1.45;
   color: var(--page-muted);
 }
+.phone-qr {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+/* The code keeps a white tile in dark mode so phone cameras read it. */
+.phone-qr__code {
+  flex: none;
+  width: 104px;
+  height: 104px;
+  padding: 8px;
+  border: 1px solid var(--page-edge);
+  border-radius: 12px;
+  background: #ffffff;
+}
+.phone-qr__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.phone-qr__url {
+  color: var(--page-fg);
+  overflow-wrap: anywhere;
+}
 
 .device {
   position: relative;

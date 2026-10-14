@@ -232,6 +232,20 @@
     <//>`;
   }
 
+  /* Claims in the evidence library that explain this screen. */
+  const RELATED = ['recovery.hrv_guided_lifting_volume', 'recovery.sleep_loss_impairs_performance', 'wearables.measurement_validity', 'recovery.hrv_guided_endurance_training'];
+  function RelatedEvidence() {
+    const claims = RELATED.map((k) => (D.CLAIMS || []).find((c) => c.key === k)).filter(Boolean);
+    if (!claims.length) return null;
+    return html`<${Section} title="Related evidence">
+      <${Rows} rows=${claims.map((c) => ({
+        key: c.key, label: c.title,
+        detail: c.status === 'active' ? 'Enough verified evidence' : 'Not enough evidence yet',
+        onPress: () => A.push('claim', { key: c.key })
+      }))} />
+    <//>`;
+  }
+
   function Readiness() {
     const s = C.useApp();
     const r = M.readiness(s);
@@ -263,6 +277,7 @@
         <//>
 
         <${EvidenceStatus} />
+        <${RelatedEvidence} />
         <${DisclaimerBand} />
       <//>
     <//>`;

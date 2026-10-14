@@ -709,7 +709,7 @@
         <${Caption}>This is your own edit, so it doesn’t need evidence. We’ll label it “Your edit” in History.<//>
         <${Button} fullWidth=${true} label=${`Save as version ${next}`} disabled=${!ops.length} onPress=${save} />`}>
       ${removedName ? html`<${Callout}>${removedFrom.length
-        ? `We removed ${removedName.toLowerCase()} from ${M.listJoin(removedFrom.map((d) => d.label))}. Check the change below, then save.`
+        ? `We removed ${M.exerciseWords(removedName)} from ${M.listJoin(removedFrom.map((d) => d.label))}. Check the change below, then save.`
         : `${removedName} isn’t in your split, so there’s nothing to remove.`}<//>` : null}
       <div className="stack-sm">
         <${ChoiceChips} label="Day" value=${dayKey} onChange=${pickDay}
@@ -799,7 +799,7 @@
           <${Rows} rows=${sortedDays(v.definition).map((d) => ({
             key: d.key,
             label: M.dayLabelWithWeekday(d),
-            detail: `${M.capitalise(M.listJoin(d.items.map((it) => M.exerciseById(it.exercise).name.toLowerCase())))}. About ${M.dayMinutes(d)} min.`
+            detail: `${M.capitalise(M.listJoin(d.items.map((it) => M.exerciseWords(M.exerciseById(it.exercise).name))))}. About ${M.dayMinutes(d)} min.`
           }))} />
         <//>
 

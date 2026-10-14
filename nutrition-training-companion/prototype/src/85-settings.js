@@ -191,6 +191,9 @@
         <//>
         <${Section} title="About">
           <${Rows} rows=${[
+            { key: 'evidence', icon: 'checkmark.seal.fill', iconColor: 'ink', label: 'Evidence library',
+              detail: `${plural(D.CLAIMS.filter((c) => c.status === 'active').length, 'claim')} we can act on, ${plural(D.SOURCES.length, 'study', 'studies')}, and the data to download.`,
+              onPress: () => A.push('evidence') },
             { key: 'about', icon: 'doc.text', iconColor: 'ink', label: 'About and disclaimer',
               detail: 'Not medical advice. What this prototype is.', onPress: () => A.push('about') }
           ]} />
@@ -621,8 +624,8 @@
         <${Section} title="About this prototype">
           <${Callout}>Products, foods, numbers, devices and people here are sample data.<//>
           ${studies.length ? html`<div className="stack-sm">
-            <${Callout}>${`The ${plural(studies.length, 'cited study', 'cited studies')} ${studies.length === 1 ? 'is a real publication' : 'are real publications'}${checked ? `, checked by hand on ${checked}` : ''}.`}<//>
-            <${Rows} rows=${studies.map((src) => ({ key: src.id, label: src.short, detail: `${src.design}. ${src.journal}.` }))} />
+            <${Callout}>${`The ${plural(D.SOURCES.length, 'cited study', 'cited studies')} ${D.SOURCES.length === 1 ? 'is a real publication' : 'are real publications'}. ${plural(studies.length, 'study', 'studies')} currently back the claims we act on${checked ? `, last checked ${checked}` : ''}.`}<//>
+            <${LinkButton} align="flex-start" label="See the evidence library" onPress=${() => A.push('evidence')} />
           </div>` : null}
           <${Callout}>Built with the Apple Design System, synced from rukkiecodes/claude-apple-design-system (MIT). Icons are stand-ins for SF Symbols.<//>
           <${Callout}>Nothing leaves your browser. Sign-in, email codes, cameras, device connections and downloads are simulated, and your changes stay in this browser.<//>

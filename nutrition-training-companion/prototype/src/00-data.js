@@ -258,64 +258,8 @@
   };
 
   /* ------------------------------------------------- evidence library */
-  /* Real publications. Identifiers were checked by hand on 2026-10-12
-     (docs/06 §6.8); the production pipeline re-verifies before display. */
-  const VERIFIED_AT = '2026-10-12';
-  const ALL_CHECKS_PASS = {
-    identifier_resolves: 'pass', metadata_matches: 'pass', study_design_strong: 'pass',
-    peer_reviewed_indexed: 'pass', not_retracted: 'pass', finding_supported: 'pass'
-  };
-  const SOURCES = [
-    {
-      id: 'src-krieger-2010', short: 'Krieger, 2010', design: 'Meta-analysis',
-      authors: 'Krieger JW', year: 2010,
-      title: 'Single vs. multiple sets of resistance exercise for muscle hypertrophy: a meta-analysis',
-      journal: 'Journal of Strength and Conditioning Research', citation: '24(4):1150–1159',
-      pmid: '20300012', doi: '10.1519/JSC.0b013e3181d4d436',
-      url: 'https://pubmed.ncbi.nlm.nih.gov/20300012/',
-      found: 'Multiple sets were linked to about 40% larger muscle-growth effects than single sets, in both trained and untrained people.',
-      limitations: "Counts sets per exercise, not weekly sets per muscle, and doesn't show where the benefit levels off.",
-      checks: ALL_CHECKS_PASS, verifiedAt: VERIFIED_AT
-    },
-    {
-      id: 'src-schoenfeld-2017', short: 'Schoenfeld, Ogborn and Krieger, 2017', design: 'Systematic review and meta-analysis',
-      authors: 'Schoenfeld BJ, Ogborn D, Krieger JW', year: 2017,
-      title: 'Dose-response relationship between weekly resistance training volume and increases in muscle mass: a systematic review and meta-analysis',
-      journal: 'Journal of Sports Sciences', citation: '35:1073–1082 (online July 2016)',
-      pmid: null, doi: '10.1080/02640414.2016.1210197',
-      url: 'https://doi.org/10.1080/02640414.2016.1210197',
-      found: 'Across 15 studies (34 treatment groups), each extra weekly set was linked to a small further gain in muscle size, and higher volumes beat lower volumes within studies.',
-      limitations: "The top volume group was '10 or more' weekly sets, so it can't say how far the benefit continues. Only 2 of the 15 studies involved people with training experience.",
-      checks: ALL_CHECKS_PASS, verifiedAt: VERIFIED_AT
-    },
-    {
-      id: 'src-baz-valle-2022', short: 'Baz-Valle et al., 2022', design: 'Systematic review',
-      authors: 'Baz-Valle E, Balsalobre-Fernández C, Alix-Fages C, Santos-Concejero J', year: 2022,
-      title: 'A systematic review of the effects of different resistance training volumes on muscle hypertrophy',
-      journal: 'Journal of Human Kinetics', citation: '81:199–210',
-      pmid: '35291645', doi: '10.2478/hukin-2022-0017',
-      url: 'https://pubmed.ncbi.nlm.nih.gov/35291645/',
-      found: 'Moderate (12–20) and high (more than 20) weekly sets produced similar quadriceps and biceps growth; high volume was favoured only for the triceps.',
-      limitations: 'Only 7 studies, all in adults aged 18 to 35. The authors frame their 12–20 set recommendation for young trained men.',
-      checks: ALL_CHECKS_PASS, verifiedAt: VERIFIED_AT
-    }
-  ];
-
-  const CLAIMS = [
-    {
-      key: 'hypertrophy.volume.raise_low_weekly_sets', version: 1, status: 'active',
-      statement: 'Within the ranges studied, more weekly sets per muscle are linked to more muscle growth. Moving a muscle from low volume (under about 10 weekly sets) toward a moderate range is supported; extra benefit above about 20 weekly sets is uncertain.',
-      appliesTo: { goals: ['muscle_gain', 'general_health', 'hybrid'], maxStartingSets: 10, ceilingSets: 20 },
-      population: 'Mostly young adults; few studies in trained people.',
-      sources: ['src-krieger-2010', 'src-schoenfeld-2017', 'src-baz-valle-2022'],
-      reviewedBy: 'Evidence editor (sample)', reviewedAt: VERIFIED_AT
-    },
-    /* Drafts have no verified sources yet, so any rule that needs them is blocked. */
-    { key: 'recovery.hrv_guided_lifting_volume', version: 1, status: 'draft', statement: 'Lowering lifting volume on days of low HRV improves results.', sources: [] },
-    { key: 'strength.low_rep_ranges', version: 1, status: 'draft', statement: 'Lower rep ranges on main lifts improve maximal strength more than higher rep ranges.', sources: [] },
-    { key: 'endurance.weekly_distance_progression', version: 1, status: 'draft', statement: 'A gradual weekly distance progression reduces running injuries.', sources: [] },
-    { key: 'nutrition.protein_intake_for_muscle_gain', version: 1, status: 'draft', statement: 'Protein intake target for muscle gain.', sources: [] }
-  ];
+  /* Claims, studies and the dataset catalogue come from data/ through
+     src/01-evidence.generated.js, which prototype/build.mjs writes. */
 
   /* ------------------------------------------------------- wearables */
   /* Deterministic pseudo-random series so the sample data is stable. */
@@ -390,7 +334,7 @@
     MUSCLES, MUSCLE_WORDS, EXERCISES, EQUIPMENT,
     SPLIT_V1, SPLIT_V2, SPLIT_V3,
     PRODUCTS, UNKNOWN_GTIN, GENERIC_FOODS, LABEL_SAMPLES, INGREDIENTS,
-    SOURCES, CLAIMS, WEARABLE_SERIES, PROVIDERS, DATA_TYPE_LABELS, DATA_TYPE_METRICS,
+    WEARABLE_SERIES, PROVIDERS, DATA_TYPE_LABELS, DATA_TYPE_METRICS,
     DISCLAIMER
   };
 })();

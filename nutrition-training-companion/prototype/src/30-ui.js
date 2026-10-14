@@ -220,15 +220,32 @@
     <//>`;
   }
 
+  /* The evidence-library claim that explains why a rating line is shown. */
+  const RATING_CLAIMS = {
+    sugarsG: 'nutrition.free_sugars_and_health',
+    saltG: 'nutrition.sodium_reduction_blood_pressure',
+    saturatedFatG: 'nutrition.saturated_fat_replacement_cvd',
+    fiberG: 'nutrition.fibre_intake_target',
+    processing: 'nutrition.ultra_processed_food_associations'
+  };
+  const studiedClaim = (key) => {
+    const c = key && (D.CLAIMS || []).find((x) => x.key === key);
+    return c && ((c.sources || []).length + (c.contradicting || []).length + (c.context || []).length) ? c : null;
+  };
   function HealthRatingList({ food, confidence }) {
     const rating = M.healthRating(food);
     return html`<div className="stack">
       <div className="ads-group" role="list">
-        ${rating.dimensions.filter((d) => d.key !== 'fatG' || d.status !== 'low').map((d) => html`
+        ${rating.dimensions.filter((d) => d.key !== 'fatG' || d.status !== 'low').map((d) => {
+          const claim = studiedClaim(RATING_CLAIMS[d.key]);
+          return html`
           <div key=${d.key} className="ads-group__row row--stacked" role="listitem">
             <div className="row row--between"><${T} size="body">${d.label}<//><${Badge} palette=${d.palette} status=${d.status} /></div>
             <${Caption} color="inkMuted80">${d.explanation}<//>
-          </div>`)}
+            ${claim ? html`<${LinkButton} size="caption" align="flex-start" label=${`Why ${d.label.toLowerCase()} is on this list`}
+              onPress=${() => C.actions.push('claim', { key: claim.key })} />` : null}
+          </div>`;
+        })}
       </div>
       ${confidence && confidence !== 'high' ? html`<${Caption}>These levels use estimated values, so treat them as a guide.<//>` : null}
       <${Micro}>${food.attribution ? `${food.attribution}. ` : ''}Levels use the UK front-of-pack guidance and EU Regulation 1924/2006.<//>
@@ -244,7 +261,10 @@
   function linkFor(src) {
     return src.pmid ? { href: `https://pubmed.ncbi.nlm.nih.gov/${src.pmid}/`, text: `PubMed ${src.pmid}` } : { href: `https://doi.org/${src.doi}`, text: `doi.org/${src.doi}` };
   }
-  function CitationCard({ source }) {
+  /* role: "supports" (default) shows the verification badge; "contradicts" and
+     "context" are listed for honesty and never count toward a claim. */
+  const ROLE_WORDS = { contradicts: 'Contradicting or mixed evidence', context: 'Background, not counted' };
+  function CitationCard({ source, role = 'supports' }) {
     const link = linkFor(source);
     return html`<${Card}>
       <div className="stack-xs">
@@ -263,7 +283,9 @@
       </div>
       <div className="stack-sm hairline-top">
         <${CardFooter}>
-          <${Badge} palette="sourceVerification" status=${M.isVerified(source) ? 'verified' : 'needs_human'} />
+          ${role === 'supports'
+            ? html`<${Badge} palette="sourceVerification" status=${M.isVerified(source) ? 'verified' : 'needs_human'} />`
+            : html`<${Caption} color="inkMuted80">${ROLE_WORDS[role] || ROLE_WORDS.context}<//>`}
           <${Caption}>Checked ${isoDate(source.verifiedAt)}<//>
         <//>
         <a className="link row" href=${link.href} target="_blank" rel="noopener noreferrer">
@@ -279,7 +301,9 @@
       ${claim.population ? html`<${Caption} color="inkMuted80">Who the studies covered: ${claim.population}<//>` : null}
       <div className="row hairline-top">
         <${Glyph} name="checkmark.seal.fill" size=${18} color=${verifiedCount >= required ? 'primary' : 'inkMuted48'} />
-        <${T} size="caption" color="inkMuted80">${verifiedCount} of ${required} studies needed are verified<//>
+        <${T} size="caption" color="inkMuted80">${verifiedCount >= required
+          ? `${verifiedCount} verified ${verifiedCount === 1 ? 'study' : 'studies'}. We need at least ${required}.`
+          : `${verifiedCount} of the ${required} verified studies we need`}<//>
       </div>
     <//>`;
   }
@@ -338,6 +362,61 @@
     </div>`;
   }
 
+  /* ------------------------------------------------------------ downloads */
+  /* Files from data/ (Companion.downloads). In the claude.ai viewer the page
+     asks the viewer through the "downloads" capability; opened as a plain file
+     it uses an ordinary download link. When the viewer can't save files, the
+     download buttons are hidden. */
+  let downloadsPromise = null;
+  function downloadsApi() {
+    if (!downloadsPromise) {
+      const host = window.claude;
+      downloadsPromise = host && typeof host.use === 'function'
+        ? Promise.resolve(host.use('downloads')).then((api) => (api ? { mode: 'viewer', api } : { mode: 'none' }), () => ({ mode: 'none' }))
+        : Promise.resolve({ mode: 'link' });
+    }
+    return downloadsPromise;
+  }
+  function useDownloads() {
+    const [mode, setMode] = React.useState('checking');
+    React.useEffect(() => {
+      let live = true;
+      downloadsApi().then((d) => { if (live) setMode(d.mode); });
+      return () => { live = false; };
+    }, []);
+    return { available: mode === 'viewer' || mode === 'link', checking: mode === 'checking', items: C.downloads || [] };
+  }
+  const sizeText = (text) => {
+    const kb = new Blob([text]).size / 1024;
+    return kb < 1024 ? `${Math.max(1, Math.round(kb))} KB` : `${(kb / 1024).toFixed(1)} MB`;
+  };
+  async function saveDownload(item) {
+    const d = await downloadsApi();
+    const toast = (m, v) => C.actions && C.actions.toast(m, v);
+    if (d.mode === 'viewer') {
+      try {
+        const res = await d.api.save({ filename: item.filename, data: item.content });
+        if (res && res.status === 'saved') toast(`Saved ${item.filename}`, 'success');
+      } catch (e) {
+        const code = e && e.code;
+        if (code === 'declined') return;
+        if (code === 'rate_limited') toast('A download is already waiting for you to confirm.');
+        else toast("This view can't save files. The same files are in the project's data folder.");
+      }
+      return;
+    }
+    if (d.mode === 'link') {
+      const url = URL.createObjectURL(new Blob([item.content], { type: 'application/octet-stream' }));
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = item.filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+    }
+  }
+
   /* Screen registry: Companion.registerScreen(key, Component, meta). */
   C.screenRegistry = {};
   C.registerScreen = (key, Component, meta) => {
@@ -352,6 +431,7 @@
     LinkButton, IconButton, SettingsButton, BellButton, Switch,
     Screen, PlainScreen, Section, Sections, Facts, Rows, EmptyAnswer, DisclaimerBand, Actions,
     isoDate, NutritionCard, HealthRatingList, CitationCard, ClaimCard, DiffCard, VolumeCard, DriversList,
-    TabBar, TAB_META, ChoiceChips, Stepper
+    TabBar, TAB_META, ChoiceChips, Stepper,
+    useDownloads, saveDownload, sizeText, linkFor
   };
 })();
