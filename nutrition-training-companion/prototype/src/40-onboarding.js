@@ -278,10 +278,11 @@
       set({ health: null, healthSource: 'not_connected' });
       go('age');
     };
+    const skip = html`<${LinkButton} label="Not now" size="callout" color="inkMuted48" onPress=${notNow} />`;
     return html`<${Step} title="Connect Apple Health" subtitle="We'll fill in your age and weight from it, so you don't have to type them." onBack=${back}
+      topRight=${skip}
       footer=${html`<${Primary} label="Connect Apple Health" onPress=${connect} loading=${pending} />
-        <${Ghost} label="Import a Health export instead" onPress=${() => go('import')} />
-        <${Ghost} label="Not now" onPress=${notNow} />`}>
+        <${Ghost} label="Import a Health export instead" onPress=${() => go('import')} />`}>
       <${Rows} rows=${HEALTH_READS.map((r) => ({ key: r.key, icon: r.icon, iconColor: 'ink', label: r.label, detail: r.detail }))} />
       <${Caption}>Your iPhone asks which of these to share, and you can change it any time in the Health app. We never sell this data. In the prototype, connecting is simulated.<//>
     <//>`;
