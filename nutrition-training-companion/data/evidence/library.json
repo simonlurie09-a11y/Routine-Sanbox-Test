@@ -515,65 +515,254 @@
       "key": "nutrition.free_sugars_and_health",
       "title": "Free sugars",
       "area": "nutrition",
-      "status": "draft",
-      "statement": "Reducing free sugars lowers body weight slightly and reduces dental caries; keeping free sugars under 10% of energy is recommended.",
-      "population": "",
-      "appUse": "Would explain why sugar is on the food rating.",
-      "appliesTo": {},
-      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
-      "gaps": "",
-      "sources": [],
-      "contradicting": [],
-      "context": [],
-      "reviewedAt": "2026-10-14"
+      "status": "active",
+      "statement": "Higher free sugar intake is linked to worse health, though most evidence beyond weight and tooth decay is observational and low quality. In adults on unrestricted diets, cutting free sugars lowers weight only slightly (about 0.8 kg on average, through eating fewer calories overall), and keeping free sugars below 10% of daily energy is linked to less tooth decay (moderate-quality evidence).",
+      "population": "Weight effect: adults on unrestricted (ad libitum) diets. Trials in children showed no overall weight change. Tooth decay (caries) link: children and adults. The wider links to disease come mostly from observational studies in general populations.",
+      "appUse": "Explains the sugar line in food ratings.",
+      "appliesTo": {
+        "nutrient": "free_sugars",
+        "mode": "explanatory",
+        "maxPctEnergy": 10,
+        "maxPctEnergyBasis": "lower dental caries, moderate-quality cohort evidence",
+        "adultWeightEffectKg": 0.8,
+        "adultWeightEffectCiKg": [
+          0.39,
+          1.21
+        ],
+        "weightEffectPopulation": "adults_ad_libitum",
+        "weightEffectMechanism": "lower_energy_intake",
+        "weightEffectInChildren": "none_shown",
+        "weightEffectLabel": "small"
+      },
+      "verdict": "Active, but narrowed. Four counted sources agree in direction. Te Morenga 2013 found about 0.8 kg less weight in adults on unrestricted diets, explained by lower calorie intake, with no overall effect in children. Moynihan & Kelly 2014 and its update Moores 2022 found moderate-quality evidence of less tooth decay below 10% of energy. The Huang 2023 umbrella review found mostly harmful associations, largely from low-quality observational data. The support is less independent than the count of four suggests: Moores updates Moynihan with overlapping data, Huang pools earlier meta-analyses, and the weight figure rests on one meta-analysis. So the statement stays modest and leaves out the WHO recommendation (not a peer-reviewed journal source) and the 5% target (low or very-low-quality evidence). Erickson 2017 (industry-funded) and Yan 2022 (a narrative review) question how strong the guideline evidence is, but they do not reverse the direction of effect, so they do not outweigh the counted sources.",
+      "gaps": "The active status rests on few independent bodies of evidence: one trial meta-analysis for weight (Te Morenga 2013) and, for tooth decay, one review plus its own non-independent update (Moynihan 2014, Moores 2022). Huang 2023 largely re-pools earlier work. The following would strengthen or test the claim:\n(1) A recent independent or Cochrane meta-analysis of randomised trials on free sugars and body weight, ideally separating sugars in drinks from sugars in solid food. This would test Yan 2022's argument directly.\n(2) An independent caries review, or causal evidence. The Mendelian randomisation study (PMID 41430990) found no strong evidence that genetically predicted sugar intake causes caries. Its journal and year need confirming and it should be properly assessed, because a robust null result would weaken the caries element.\n(3) Missing details: Malik 2013's pooled effect sizes and Moores 2022's PMID. A dedicated Retraction Watch check was not run for each paper, although title searches found no retraction notices.\nWhat would change the claim:\n- Adding the WHO under-10% recommendation to the statement would need a peer-reviewed source that states it.\n- Presenting the under-5% target as evidence-backed would need moderate-quality or better evidence.\n- The status should return to draft if an independent high-quality review or strong causal evidence found no weight or caries benefit from keeping free sugars below 10% of energy.",
+      "sources": [
+        "src-te-morenga-2013",
+        "src-moynihan-2014",
+        "src-moores-2022",
+        "src-huang-2023"
+      ],
+      "contradicting": [
+        "src-erickson-2017",
+        "src-yan-2022"
+      ],
+      "context": [
+        "src-malik-2013",
+        "src-world-health-organization-2015"
+      ],
+      "reviewedAt": "2026-10-14",
+      "judgeAppliesTo": {
+        "nutrient": "free_sugars",
+        "mode": "explanatory",
+        "maxPctEnergy": 10,
+        "maxPctEnergyBasis": "lower dental caries, moderate-quality cohort evidence",
+        "adultWeightEffectKg": 0.8,
+        "adultWeightEffectCiKg": [
+          0.39,
+          1.21
+        ],
+        "weightEffectPopulation": "adults_ad_libitum",
+        "weightEffectMechanism": "lower_energy_intake",
+        "weightEffectInChildren": "none_shown",
+        "weightEffectLabel": "small"
+      }
     },
     {
       "key": "nutrition.sodium_reduction_blood_pressure",
       "title": "Salt and blood pressure",
       "area": "nutrition",
-      "status": "draft",
-      "statement": "Lowering salt intake lowers blood pressure, in people with and without high blood pressure.",
-      "population": "",
-      "appUse": "Would explain why salt is on the food rating.",
-      "appliesTo": {},
-      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
-      "gaps": "",
-      "sources": [],
+      "status": "active",
+      "statement": "Eating less salt lowers blood pressure on average in adults. In pooled randomised trials, systolic pressure fell by about 3 to 4 mm Hg.",
+      "population": "Adults in randomised trials, mostly in high-income countries, including people with and without high blood pressure. The statement does not give a separate effect for people with normal blood pressure. It has not been verified for children or for people with chronic kidney disease.",
+      "appUse": "Explains the salt line in food ratings.",
+      "appliesTo": {
+        "mode": "explanatory_only",
+        "planChange": false,
+        "nutrient": "salt",
+        "direction": "limit",
+        "population": "adults",
+        "outcome": "blood_pressure",
+        "pooledSystolicFallMmHg": {
+          "low": 3.4,
+          "high": 4.3
+        },
+        "sources": [
+          "He 2013 BMJ f1325",
+          "Huang 2020 BMJ m315",
+          "Aburto 2013 BMJ f1326"
+        ]
+      },
+      "verdict": "Three verified BMJ meta-analyses of randomised trials (He 2013, Huang 2020 and Aburto 2013) agree that eating less salt lowers blood pressure in adults. Their pooled systolic falls are about 3.4 to 4.3 mm Hg, so this narrowed statement is active for explanatory use. Only two counted reviews (He 2013 and Huang 2020) back the researcher's split by blood pressure status and the dose-response finding. Aburto 2013 did not confirm the split, and the older Midgley 1996 analysis found only about 1.0/0.1 mm Hg per 100 mmol in trials of people with normal blood pressure, so the claim and its size for people without high blood pressure stay out of the active statement. The three reviews pool overlapping trials and results vary a lot between trials (I² up to 75%). No evidence against lower blood pressure was seen, but the Graudal Cochrane review, the main source arguing the effect is small, was not checked.",
+      "gaps": "1. To say the effect holds for people with normal blood pressure, and to give separate sizes for people with and without high blood pressure, the app needs a third verified source with results for people with normal blood pressure. Candidates are the Graudal Cochrane review (low- vs high-sodium diet), Filippini 2021 (Circulation, dose-response) and the DASH-Sodium trial (Sacks 2001, NEJM). The Graudal review must be checked either way, because it is the strongest likely mixed or contradicting source.\n2. The dose-response figure (about 1.1 mm Hg per 50 mmol) and the claim that longer trials show bigger effects each need a third verified source, such as Filippini 2021 or Gupta 2023 (JAMA crossover trial).\n3. Children, people with chronic kidney disease and populations in low- and middle-income countries are not covered. The children's meta-analysis (IJE 2018) was dropped as unverified.\n4. Effects on heart attack, stroke or death, including the J-curve debate about very low sodium, were not assessed. Any app claim about these needs separate evidence.\n5. A numeric salt target needs peer-reviewed support. The WHO under 5 g salt a day target was seen only on a web page that is not peer-reviewed, and He 2013's 3 g target was not verified.\n6. Mizuta 2025 (Hypertension Research) needs its identifier, metadata and retraction status verified.\n7. Huang 2020's PMID, Aburto 2013's PMCID and participant counts, and some confidence intervals were not confirmed.\n8. Dedicated retraction searches were limited.\n9. The three counted reviews pool overlapping trials, so a fully independent confirmation, such as a large well-run trial, would strengthen the claim.",
+      "sources": [
+        "src-he-2013",
+        "src-huang-2020",
+        "src-aburto-2013"
+      ],
       "contradicting": [],
-      "context": [],
-      "reviewedAt": "2026-10-14"
+      "context": [
+        "src-midgley-1996"
+      ],
+      "reviewedAt": "2026-10-14",
+      "judgeAppliesTo": {
+        "mode": "explanatory_only",
+        "planChange": false,
+        "nutrient": "salt",
+        "direction": "limit",
+        "population": "adults",
+        "outcome": "blood_pressure",
+        "pooledSystolicFallMmHg": {
+          "low": 3.4,
+          "high": 4.3
+        },
+        "sources": [
+          "He 2013 BMJ f1325",
+          "Huang 2020 BMJ m315",
+          "Aburto 2013 BMJ f1326"
+        ]
+      }
     },
     {
       "key": "nutrition.saturated_fat_replacement_cvd",
       "title": "Saturated fat and heart disease",
       "area": "nutrition",
       "status": "draft",
-      "statement": "Reducing saturated fat, especially replacing it with polyunsaturated fat, lowers the risk of cardiovascular events.",
-      "population": "",
+      "statement": "Not yet verified: in adults, replacing saturated fat with polyunsaturated fat (vegetable oils, nuts, seeds) for at least 2 years may modestly lower the risk of cardiovascular events, but cutting saturated fat has not been shown to help people live longer.",
+      "population": "Adults, mostly middle-aged, with or without existing cardiovascular disease, in trials lasting at least 2 years (many older trials enrolled mostly men). Any benefit is expected to be larger in absolute terms for people at higher cardiovascular risk. Not established for children or for mortality outcomes. Applies to no one in the app until the sources are verified.",
       "appUse": "Would explain why saturated fat is on the food rating.",
       "appliesTo": {},
-      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
-      "gaps": "",
+      "verdict": "None of the nine sources could be verified: the shared web search budget was used up before any check ran, so no source counts towards the claim and the status has to stay draft. If the proposed supporting sources are confirmed, they would back a narrow statement about swapping saturated fat for polyunsaturated fat and fewer cardiovascular events. Those sources are Hooper 2020 Cochrane (pub3), Mozaffarian 2010 and Jakobsen 2009, with Sacks 2017 as a position statement. They would not back any claim about mortality. Hamley 2017, which kept only adequately controlled trials and found no effect, and Steen 2026, where every pooled confidence interval crossed 1, show the trial evidence is genuinely contested. The supporting trial meta-analyses also draw on largely the same old trials, so they are not independent of each other.",
+      "gaps": "1. Re-run verification. At least 3 sources that all support the claim have to pass every check (identifier, metadata, peer review, not retracted, strong design, finding supported). The likeliest are Hooper 2020 pub3 (PMID 32827219; also check it is not the May 2020 pub2, PMID 32428300), Mozaffarian 2010 (PMID 20351774) and Jakobsen 2009 (PMID 19211817). Sacks 2017 may fail the strong-design check because it is a position statement.\n2. Even after verification, independence is a concern. Hooper and Mozaffarian pool largely the same trials from the 1960s to 1990s, so a third source with a separate evidence base would make the case stronger. Jakobsen's cohorts could be that source, but they are observational. The verified 2026 AHA guidance (PMID 41914202) or a new large trial would also help.\n3. Verify the contradicting and mixed sources (Hamley 2017, Steen 2026, Siri-Tarino 2010, Chowdhury 2014, de Souza 2015) and weigh them. This applies especially to Steen 2026, the most recent and largest risk-stratified review, whose existence and figures are unconfirmed. For Chowdhury 2014, check whether it has been corrected or retracted.\n4. Resolve the disagreement over which trials to include (the Finnish Mental Hospital Study, Oslo, STARS, and the Minnesota Coronary Experiment re-analysis). It drives the difference between the positive analyses and the null ones.\n5. Confirm the missing confidence intervals (Hooper pub3 mortality, the Steen stroke result, the Mozaffarian per-5%-of-energy estimate).\n6. A verified primary source for any numeric intake cap, such as less than 10% of energy, before the app uses a threshold.",
       "sources": [],
       "contradicting": [],
       "context": [],
-      "reviewedAt": "2026-10-14"
+      "reviewedAt": "2026-10-14",
+      "judgeAppliesTo": {}
     },
     {
       "key": "nutrition.ultra_processed_food_associations",
       "title": "Ultra-processed food",
       "area": "nutrition",
-      "status": "draft",
-      "statement": "Higher intake of ultra-processed foods is associated with higher risk of several adverse health outcomes; one controlled feeding trial found people ate more calories on an ultra-processed diet.",
-      "population": "",
-      "appUse": "Would explain why processing is on the food rating. We describe processing; we never judge a food.",
-      "appliesTo": {},
-      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
-      "gaps": "",
-      "sources": [],
+      "status": "active",
+      "statement": "In meta-analyses of observational studies in adults, diets higher in ultra-processed foods (NOVA group 4) are associated with higher risk of several adverse outcomes. These include cardiovascular disease and death, death from any cause, type 2 diabetes, overweight and obesity, and depression or other common mental disorders. Certainty is mostly rated low or very low (one review rates type 2 diabetes as moderate). These studies show association, not cause, and they describe whole diets, not individual foods. Trial evidence is sparse and short-term. In one inpatient trial (20 adults, 2 weeks per diet), people ate about 500 kcal/day more on an ultra-processed diet than on an unprocessed diet matched for presented nutrients. In an 8-week trial in 55 adults, both diets followed healthy-eating guidance; weight fell on both, but less on the ultra-processed diet.",
+      "population": "Adults in the prospective observational cohorts pooled by the meta-analyses. Ultra-processed food intake was classified with NOVA from reported diet. The Mendoza 2024 cohorts are US health professionals, and the reviews pool many of the same cohorts. Trial findings come from 20 weight-stable US adults on an inpatient ward (Hall 2019) and from 55 adults in England with BMI 25 to under 40 and high habitual ultra-processed food intake (Dicken 2025). Not established for children, pregnancy, individual foods or subgroups of ultra-processed foods.",
+      "appUse": "Explains the processing line in food ratings. We describe processing; we never judge a food.",
+      "appliesTo": {
+        "feature": "nova_line",
+        "mode": "explanatory_only",
+        "novaGroup": 4,
+        "population": "adults",
+        "numericThreshold": null,
+        "scoreOrPenaliseIndividualFood": false,
+        "causalLanguage": false,
+        "certaintyWording": "mostly low or very low (observational)",
+        "citableFigures": [
+          {
+            "source": "Lane 2024",
+            "outcome": "cardiovascular mortality",
+            "effect": "RR 1.50",
+            "certainty": "very low"
+          },
+          {
+            "source": "Lane 2024",
+            "outcome": "all-cause mortality",
+            "effect": "RR 1.21",
+            "certainty": "low"
+          },
+          {
+            "source": "Lane 2024",
+            "outcome": "type 2 diabetes (dose-response)",
+            "effect": "RR 1.12",
+            "certainty": "moderate"
+          },
+          {
+            "source": "Hall 2019",
+            "outcome": "ad libitum energy intake",
+            "effect": "+508 kcal/day",
+            "n": 20,
+            "daysPerDiet": 14,
+            "setting": "inpatient"
+          },
+          {
+            "source": "Dicken 2025",
+            "outcome": "body weight change",
+            "effect": "-1.05% ultra-processed vs -2.06% minimally processed",
+            "n": 55,
+            "weeksPerDiet": 8
+          }
+        ],
+        "notEstablishedFor": [
+          "children",
+          "pregnancy",
+          "individual_foods",
+          "upf_subgroups"
+        ]
+      },
+      "verdict": "The status is active, for explanatory use only. Four counted observational syntheses agree that higher ultra-processed food intake is linked to worse outcomes: Lane 2024, Dai 2024, Pagliai 2021 and Mendoza 2024. Hall 2019 and Dicken 2025 support the trial description. However, the reviews pool overlapping cohorts, most certainty ratings are low or very low, and none can show cause. Aramburu 2024 found only 4 small, short randomised trials, with no significant effect for 30 of 42 outcomes. Dicken 2025 found that LDL cholesterol fell more on the ultra-processed diet. The 2025 US Dietary Guidelines Advisory Committee review is not counted because it failed verification; it rated the evidence in children as only 'limited'. The statement therefore stays associative and says nothing about individual foods.",
+      "gaps": "1) Causal evidence is missing. Larger, longer randomised trials are needed that measure health outcomes, not just energy intake and weight, and that separate processing from nutrient content, energy density and palatability. The planned replication by Hall's group (NCT05290064) has no published results.\n2) Observational exposure is weak. Cohorts that measure ultra-processed food intake better (repeated or objective measures rather than one self-report), and independent cohorts outside the US and Europe, would reduce the overlap between Lane, Dai, Pagliai and Mendoza.\n3) Subgroup results are unverified. Mendoza 2024 subgroup hazard ratios (including the reported inverse links for bread/cold cereals and yoghurt/dairy desserts) need checking before the app says anything about types of ultra-processed food.\n4) Some figures need checking before they can be cited: Pagliai 2021 all-cause mortality RR 1.25 and CVD RR 1.29, and the Lane 2024 effect sizes for anxiety and common mental disorders.\n5) Identifier gaps: the PMID for Aramburu 2024, the PMCID for Hall 2019 and the standalone PubMed page for Mendoza 2024.\n6) Children and pregnancy need peer-reviewed, verified evidence. The DGAC report graded the evidence in children as only limited and could not reach a conclusion for pregnancy.\n7) The Matters Arising critiques of Dicken 2025, the authors' reply (PMID 41495410) and the BMJ rapid responses on Lane 2024's grading methods have not been read.\n\nStatus would move back to draft if a core source were retracted or corrected, or if a high-quality synthesis showed that the associations disappear after better adjustment or exposure measurement.",
+      "sources": [
+        "src-lane-2024",
+        "src-dai-2024",
+        "src-pagliai-2021",
+        "src-mendoza-2024",
+        "src-hall-2019",
+        "src-dicken-2025",
+        "src-aramburu-2024"
+      ],
       "contradicting": [],
       "context": [],
-      "reviewedAt": "2026-10-14"
+      "reviewedAt": "2026-10-14",
+      "judgeAppliesTo": {
+        "feature": "nova_line",
+        "mode": "explanatory_only",
+        "novaGroup": 4,
+        "population": "adults",
+        "numericThreshold": null,
+        "scoreOrPenaliseIndividualFood": false,
+        "causalLanguage": false,
+        "certaintyWording": "mostly low or very low (observational)",
+        "citableFigures": [
+          {
+            "source": "Lane 2024",
+            "outcome": "cardiovascular mortality",
+            "effect": "RR 1.50",
+            "certainty": "very low"
+          },
+          {
+            "source": "Lane 2024",
+            "outcome": "all-cause mortality",
+            "effect": "RR 1.21",
+            "certainty": "low"
+          },
+          {
+            "source": "Lane 2024",
+            "outcome": "type 2 diabetes (dose-response)",
+            "effect": "RR 1.12",
+            "certainty": "moderate"
+          },
+          {
+            "source": "Hall 2019",
+            "outcome": "ad libitum energy intake",
+            "effect": "+508 kcal/day",
+            "n": 20,
+            "daysPerDiet": 14,
+            "setting": "inpatient"
+          },
+          {
+            "source": "Dicken 2025",
+            "outcome": "body weight change",
+            "effect": "-1.05% ultra-processed vs -2.06% minimally processed",
+            "n": 55,
+            "weeksPerDiet": 8
+          }
+        ],
+        "notEstablishedFor": [
+          "children",
+          "pregnancy",
+          "individual_foods",
+          "upf_subgroups"
+        ]
+      }
     }
   ],
   "sources": [
@@ -588,6 +777,7 @@
       "pmid": "20300012",
       "pmcid": null,
       "doi": "10.1519/JSC.0b013e3181d4d436",
+      "url": null,
       "design": "Meta-analysis using multilevel meta-regression: 55 effect sizes nested within 19 treatment groups and 8 studies, comparing single vs multiple sets per exercise (J Strength Cond Res 2010, Krieger)",
       "population": "Adults in resistance-training studies comparing single vs multiple sets per exercise",
       "sampleSize": "8 studies, 19 treatment groups, 55 effect sizes (participant total not seen)",
@@ -627,6 +817,7 @@
       "pmid": "27433992",
       "pmcid": null,
       "doi": "10.1080/02640414.2016.1210197",
+      "url": null,
       "design": "Systematic review and meta-analysis (meta-regression) of 15 studies, 34 treatment groups (J Sports Sci 2017; Schoenfeld, Ogborn, Krieger)",
       "population": "Adults in RCTs comparing different weekly resistance-training set volumes, with direct measures of muscle size",
       "sampleSize": "15 studies, 34 treatment groups (participant total not seen)",
@@ -666,6 +857,7 @@
       "pmid": "35291645",
       "pmcid": "PMC8884877",
       "doi": "10.2478/hukin-2022-0017",
+      "url": null,
       "design": "Systematic review with quantitative synthesis: 7 studies in the qualitative synthesis, 6 in the quantitative. Low-volume groups (<12 weekly sets) were excluded from the quantitative analysis, which compared moderate (12-20) with high (>20) weekly sets in trained men (J Hum Kinet 2022;81:199-210; Baz-Valle, Balsalobre-Fernandez, Alix-Fages, Santos-Concejero)",
       "population": "Young resistance-trained men",
       "sampleSize": "7 studies in the qualitative synthesis, 6 in the quantitative analysis (participant total not seen)",
@@ -707,6 +899,7 @@
       "pmid": "41343037",
       "pmcid": null,
       "doi": "10.1007/s40279-025-02344-w",
+      "url": null,
       "design": "Systematic review with multilevel Bayesian meta-regressions of 67 studies, 2,058 participants, adjusted for intervention duration and training status (Sports Medicine; Pelland, Remmert, Robinson, Hinson, Zourdos; DOI 10.1007/s40279-025-02344-w)",
       "population": "Adults in resistance-training studies, adjusted for training status and intervention duration",
       "sampleSize": "67 studies, 2,058 participants (hypertrophy and strength combined)",
@@ -748,6 +941,7 @@
       "pmid": null,
       "pmcid": "PMC9302196",
       "doi": "10.3389/fspor.2022.949021",
+      "url": null,
       "design": "Umbrella review of meta-analyses (PRISMA; PubMed/MEDLINE, SPORTDiscus, Web of Science): 14 of 52 meta-analyses included, covering 178 primary studies and 4,784 participants (Front Sports Act Living 2022; DOI 10.3389/fspor.2022.949021; PMC9302196; published as a Mini Review)",
       "population": "Healthy adults in resistance-training meta-analyses",
       "sampleSize": "14 meta-analyses included (of 52 screened); 9 rated high quality (81-88%), the rest moderate (63-75%)",
@@ -789,6 +983,7 @@
       "pmid": "30153194",
       "pmcid": "PMC6303131",
       "doi": "10.1249/MSS.0000000000001764",
+      "url": null,
       "design": "Randomised controlled trial: 34 healthy resistance-trained men randomised to 1 set (n=11), 3 sets (n=12) or 5 sets (n=11) per exercise per session, 3 sessions a week for 8 weeks (Med Sci Sports Exerc 2019;51(1):94-103; PMC6303131)",
       "population": "Healthy resistance-trained men",
       "sampleSize": "34 participants (1 RCT)",
@@ -829,6 +1024,7 @@
       "pmid": "25546444",
       "pmcid": null,
       "doi": "10.1519/JSC.0000000000000758",
+      "url": null,
       "design": "Randomised trial: 48 men with no weight-training experience randomised to 1-SET, 3-SET or 5-SET training groups, 3 sessions a week for about 6 months (J Strength Cond Res 2015;29(5):1349-58; Radaelli et al.)",
       "population": "Men with no weight-training experience",
       "sampleSize": "48 participants (1 RCT)",
@@ -871,6 +1067,7 @@
       "pmid": "30160627",
       "pmcid": null,
       "doi": "10.1123/ijspp.2018-0427",
+      "url": null,
       "design": "Randomised controlled trial (PubMed publication type RCT): 49 resistance-trained men randomised to LOW (n=17; 9 weekly biceps sets, 1 session a week), MOD (n=15; 18 sets, 2 sessions) or HIGH (n=17; 27 sets, 2 sessions) for 6 weeks (Int J Sports Physiol Perform 2019;14(3):360-368)",
       "population": "Resistance-trained men",
       "sampleSize": "49 participants (1 RCT; about 17/15/17 per group)",
@@ -911,6 +1108,7 @@
       "pmid": "33433148",
       "pmcid": "PMC8126497",
       "doi": "10.1249/MSS.0000000000002585",
+      "url": null,
       "design": "Systematic review and network meta-analysis (random effects) of 28 studies involving 747 healthy adults. Training was to volitional failure, comparing low-, moderate- and high-load RT. A corrigendum (PMID 35029596) corrected effect sizes for three studies in one figure. The authors say the main findings and conclusions did not change.",
       "population": "Healthy adults; only training with sets taken to volitional failure. Load categories: low (>15RM), moderate (9-15RM), high (≤8RM)",
       "sampleSize": "28 studies, 747 healthy adults",
@@ -956,6 +1154,7 @@
       "pmid": "37414459",
       "pmcid": "PMC10579494",
       "doi": "10.1136/bjsports-2023-106807",
+      "url": null,
       "design": "Systematic review with Bayesian network meta-analysis comparing RT prescriptions with non-exercise control. The strength network had 178 studies (n=5097; 45% women). The hypertrophy network had 119 studies (n=3364; 47% women). Br J Sports Med 2023;57(18):1211-1220, PMID 37414459.",
       "population": "Healthy adults in randomised trials",
       "sampleSize": "Strength network: 178 studies, 5,097 participants. Hypertrophy network: 119 studies, 3,364 participants",
@@ -1000,6 +1199,7 @@
       "pmid": "33874848",
       "pmcid": null,
       "doi": "10.1080/02640414.2021.1898094",
+      "url": null,
       "design": "Systematic review with meta-analysis of 45 studies (4,713 records identified). It compared higher-load (>60% 1RM or <15RM) with lower-load (<=60% 1RM or >=15RM) RT.",
       "population": "Adults; higher load (>60% 1RM or <15RM) vs lower load (≤60% 1RM or ≥15RM)",
       "sampleSize": "45 studies (from 4,713 screened records); participant total not seen",
@@ -1042,6 +1242,7 @@
       "pmid": "28834797",
       "pmcid": null,
       "doi": "10.1519/JSC.0000000000002200",
+      "url": null,
       "design": "Systematic review and meta-analysis of 21 studies (PubMed/MEDLINE, Cochrane Library, Scopus). It compared low-load (<=60% 1RM) with high-load (>60% 1RM) training, all sets to momentary muscular failure, for at least 6 weeks.",
       "population": "Experimental trials comparing low-load (≤60% 1RM) with high-load (>60% 1RM) training, all sets to momentary muscular failure, at least 6 weeks",
       "sampleSize": "21 studies; participant total not seen",
@@ -1083,6 +1284,7 @@
       "pmid": "37385345",
       "pmcid": "PMC10818109",
       "doi": "10.1016/j.jshs.2023.06.005",
+      "url": null,
       "design": "Umbrella review of 44 systematic reviews in healthy adults (Mcleod, Currier, Lowisz, Phillips; J Sport Health Sci 2024;13(1):47-60).",
       "population": "Healthy adults",
       "sampleSize": "44 systematic reviews",
@@ -1125,6 +1327,7 @@
       "pmid": null,
       "pmcid": null,
       "doi": "10.1249/MSS.0000000000003897",
+      "url": null,
       "design": "ACSM position stand: an evidence-based overview of reviews in Med Sci Sports Exerc 2026;58(4):851-872 (doi:10.1249/MSS.0000000000003897), updating the 2009 ACSM position stand. Search results describe it as synthesising 137 systematic reviews (over 30,000 participants per ACSM).",
       "population": "Healthy adults",
       "sampleSize": "Press release: evidence from 137 studies (exact unit, reviews or trials, not confirmed from the abstract)",
@@ -1169,6 +1372,7 @@
       "pmid": "41381816",
       "pmcid": "PMC13018011",
       "doi": "10.1007/s40279-025-02370-8",
+      "url": null,
       "design": "Systematic review and meta-analysis (PubMed, Scopus, Embase searched to 14 June 2025): 10 studies from 7,885 unique articles, 44 effect sizes, 245 participants (high load n=114, low load n=131). Full-text snippet: high load >60% 1RM, low load <=40% 1RM.",
       "population": "Adults doing high- vs low-load isotonic training, with strength tested on non-practised tasks (isometric or isokinetic)",
       "sampleSize": "10 studies, 44 effect sizes, 245 participants (high load n=114, low load n=131)",
@@ -1210,6 +1414,7 @@
       "pmid": "27174923",
       "pmcid": "PMC4967245",
       "doi": "10.1152/japplphysiol.00154.2016",
+      "url": null,
       "design": "Randomised trial, n=49 resistance-trained young men (23±1 yr), 12 weeks of whole-body RT. Higher-repetition group: ~30-50% 1RM, 20-25 reps/set. Lower-repetition group: ~75-90% 1RM, 8-12 reps/set. All sets to volitional failure. PMID 27174923, PMCID PMC4967245. Group sizes conflict between sources (24/25 vs 29/27).",
       "population": "Resistance-trained young men",
       "sampleSize": "49 participants",
@@ -1253,6 +1458,7 @@
       "pmid": "25853914",
       "pmcid": null,
       "doi": "10.1519/JSC.0000000000000958",
+      "url": null,
       "design": "Randomised trial: 18 young men experienced in RT, matched on baseline strength and randomly assigned to low load (25-35 reps/set) or high load (8-12 reps/set), 9 per group, 3 sessions/week for 8 weeks. J Strength Cond Res 2015;29(10):2954-63.",
       "population": "Well-trained young men",
       "sampleSize": "Not seen in search results",
@@ -1294,6 +1500,7 @@
       "pmid": "35015560",
       "pmcid": null,
       "doi": "10.1139/apnm-2021-0515",
+      "url": null,
       "design": "Systematic review with meta-analysis",
       "population": "Adults in trials comparing very low, low, moderate and high loads with volume load (sets x reps x weight) equated",
       "sampleSize": "Number of studies and participants not seen in search results",
@@ -1329,6 +1536,7 @@
       "pmid": "41474371",
       "pmcid": null,
       "doi": "10.1113/JP289684",
+      "url": null,
       "design": "Randomised within-subject (contralateral limb) trial",
       "population": "Healthy young males; 10 weeks, 3 sessions/wk, unilateral biceps curl and knee extension",
       "sampleSize": "20 participants",
@@ -1364,6 +1572,7 @@
       "pmid": "22518835",
       "pmcid": "PMC3404827",
       "doi": "10.1152/japplphysiol.00307.2012",
+      "url": null,
       "design": "Randomised within-subject (unilateral leg) trial",
       "population": "Young men, 10 weeks of unilateral knee-extension training (30%-3 sets, 80%-1 set, 80%-3 sets, to failure)",
       "sampleSize": "Participant number not confirmed in search snippets",
@@ -1399,6 +1608,7 @@
       "pmid": "33312275",
       "pmcid": "PMC7706639",
       "doi": "10.2478/hukin-2020-0013",
+      "url": null,
       "design": "Systematic review with meta-analysis",
       "population": "Trials comparing low- vs high-load training to momentary muscular failure with biopsy-measured fiber CSA",
       "sampleSize": "10 study groups (participant total not seen)",
@@ -1434,6 +1644,7 @@
       "pmid": "29564973",
       "pmcid": null,
       "doi": "10.1080/17461391.2018.1450898",
+      "url": null,
       "design": "Randomised within-subject trial",
       "population": "Men (described as untrained in secondary coverage); 12 weeks, twice weekly, elbow flexion and unilateral leg press. One limb at 20% 1RM; the contralateral limb randomised to 40%, 60% or 80% 1RM with volume load matched to the 20% condition",
       "sampleSize": "30 participants",
@@ -1469,6 +1680,7 @@
       "pmid": "33497853",
       "pmcid": "PMC9068575",
       "doi": "10.1016/j.jshs.2021.01.007",
+      "url": null,
       "design": "Systematic review and meta-analysis of 15 studies, all in young adults (J Sport Health Sci 2022, Grgic, Schoenfeld, Orazem, Sabol)",
       "population": "Young adults (all included studies), untrained and resistance-trained",
       "sampleSize": "15 studies (total participants not seen)",
@@ -1510,6 +1722,7 @@
       "pmid": "36334240",
       "pmcid": "PMC9935748",
       "doi": "10.1007/s40279-022-01784-y",
+      "url": null,
       "design": "Systematic review with meta-analysis of 15 studies in healthy adults (Sports Med 2023;53:649-665, Epub Nov 2022; Refalo et al.)",
       "population": "Healthy adults; studies compared training to momentary failure, to set failure (any definition), or with different velocity-loss thresholds",
       "sampleSize": "15 studies (total participants not seen)",
@@ -1555,6 +1768,7 @@
       "pmid": "38970765",
       "pmcid": null,
       "doi": "10.1007/s40279-024-02069-2",
+      "url": null,
       "design": "Systematic review with a series of meta-regressions, modelling proximity to failure as continuous estimated RIR and adjusting for load, volume-equating method, intervention duration and training status (Sports Med 2024;54:2209-2231)",
       "population": "Resistance-training studies in adults; models adjusted for load, volume-equating method, intervention duration and training status",
       "sampleSize": "Not verified (a secondary blog claimed 55 hypertrophy and 67 strength studies; not confirmed in primary sources)",
@@ -1594,6 +1808,7 @@
       "pmid": null,
       "pmcid": null,
       "doi": "10.1519/JSC.0000000000003936",
+      "url": null,
       "design": "Systematic review with meta-analysis of 13 studies (J Strength Cond Res 2021;35(4):1165-1175; Vieira, Umpierre, Teodoro, Lisboa, Baroni, Izquierdo, Cadore)",
       "population": "Adults in resistance-training trials comparing failure versus non-failure",
       "sampleSize": "Not seen",
@@ -1634,6 +1849,7 @@
       "pmid": "26666744",
       "pmcid": null,
       "doi": "10.1007/s40279-015-0451-3",
+      "url": null,
       "design": "Systematic review and meta-analysis of 8 studies on strength only, 4 volume-controlled and 4 volume-uncontrolled (Sports Med 2016;46(4):487-502; erratum 46(4):605-610)",
       "population": "Adults in resistance-training studies comparing failure versus non-failure training (strength outcomes only)",
       "sampleSize": "8 studies (4 volume-controlled, 4 volume-uncontrolled); participants not seen",
@@ -1674,6 +1890,7 @@
       "pmid": "38393985",
       "pmcid": null,
       "doi": "10.1080/02640414.2024.2321021",
+      "url": null,
       "design": "8-week within-participant (one leg per condition) training trial in resistance-trained adults, n = 18 (12 men, 6 women): failure vs 2 RIR (leg press) / 1 RIR (leg extension); J Sports Sci 2024;42(1):85-101, doi 10.1080/02640414.2024.2321021. Randomisation of limbs not verified.",
       "population": "Resistance-trained individuals",
       "sampleSize": "Not seen",
@@ -1714,6 +1931,7 @@
       "pmid": "35247203",
       "pmcid": null,
       "doi": "10.1007/s40279-022-01667-2",
+      "url": null,
       "design": "Narrative/methodological review (Sports Med 2022;52(7):1461-1472; Pelland, Robinson, Helms, Zourdos and colleagues)",
       "population": "Not applicable",
       "sampleSize": "Not applicable",
@@ -1752,6 +1970,7 @@
       "pmid": "39205815",
       "pmcid": "PMC11349676",
       "doi": "10.3389/fspor.2024.1429789",
+      "url": null,
       "design": "Systematic review with Bayesian meta-analysis of randomised studies comparing inter-set rest durations in healthy adults, with other training variables controlled; 19 measurements (thigh, arm, whole body) from 9 studies. Singer, Wolf, Schoenfeld et al., Front Sports Act Living 2024 (published 14 Aug 2024), doi:10.3389/fspor.2024.1429789.",
       "population": "Healthy adults in randomised resistance-training studies measuring lean or muscle mass",
       "sampleSize": "9 studies; 19 measurements (10 thigh, 6 arm, 3 whole body); total participants not seen",
@@ -1795,6 +2014,7 @@
       "pmid": "28933024",
       "pmcid": null,
       "doi": "10.1007/s40279-017-0788-x",
+      "url": null,
       "design": "Systematic review (PRISMA, 5 databases, no pooled meta-analysis seen) of chronic training studies comparing rest interval durations; 23 studies, 491 participants (413 males, 78 females); studies rated good-to-moderate methodological quality. Grgic, Schoenfeld, Skrepnik, Davies, Mikulic. Sports Med 2018;48(1):137-151.",
       "population": "Resistance-trained and untrained adults",
       "sampleSize": "23 studies; 491 participants",
@@ -1836,6 +2056,7 @@
       "pmid": "28641044",
       "pmcid": null,
       "doi": "10.1080/17461391.2017.1340524",
+      "url": null,
       "design": "Systematic review (no meta-analysis) of 6 studies comparing inter-set rest of <=60 s vs >60 s, with a muscle-mass outcome over at least 4 weeks. Searched PubMed/MEDLINE, Scopus, Web of Science, Cochrane Library and PEDro. Grgic, Lazinica, Mikulic, Krieger, Schoenfeld; Eur J Sport Sci 2017;17(8):983-993; DOI 10.1080/17461391.2017.1340524 (seen in a search summary).",
       "population": "Adults in trials of at least 4 weeks comparing short (<=60 s) vs long (>60 s) inter-set rest, with a muscle mass outcome",
       "sampleSize": "6 trials; total participants not seen",
@@ -1877,6 +2098,7 @@
       "pmid": "26605807",
       "pmcid": null,
       "doi": "10.1519/JSC.0000000000001272",
+      "url": null,
       "design": "Randomised controlled trial (parallel groups): 21 resistance-trained young men randomly assigned to 1-min (SHORT) vs 3-min (LONG) inter-set rest for 8 weeks. Schoenfeld et al., J Strength Cond Res 2016.",
       "population": "Resistance-trained young men",
       "sampleSize": "21 participants (1-min SHORT vs 3-min LONG groups)",
@@ -1917,6 +2139,7 @@
       "pmid": "19077743",
       "pmcid": null,
       "doi": null,
+      "url": null,
       "design": "Two-group parallel training study, 12 untrained men (about 6 per group), 1-min vs 2.5-min rest for 10 weeks. Random allocation is not stated in the abstract text I saw. Buresh, Berg, French, J Strength Cond Res 2009.",
       "population": "Untrained men",
       "sampleSize": "12 participants (about 6 per group)",
@@ -1955,6 +2178,7 @@
       "pmid": null,
       "pmcid": null,
       "doi": "10.1007/s11332-025-01605-5",
+      "url": null,
       "design": "Within-subject training study: 17 untrained young men (mean age 25.3), each leg doing a different condition. LONG: 10RM, 3-4 sets to failure, 2-min rest. SHORT: 10RM, sets to failure until reps matched LONG, 20-s rest. Unilateral knee extension, 2x/week for 10 weeks. Randomisation of legs not confirmed. Attarieh et al., Sport Sci Health 2026;22: article 32. A Correction notice exists (doi:10.1007/s11332-026-01758-x).",
       "population": "Untrained young men",
       "sampleSize": "17 participants",
@@ -1998,6 +2222,7 @@
       "pmid": "35622106",
       "pmcid": null,
       "doi": "10.1519/JSC.0000000000003668",
+      "url": null,
       "design": "Within-subject training study: 28 subjects, each leg allocated to 1 of 4 unilateral knee-extension protocols at 80% 1RM, 2x/week for 10 weeks. LI: 3-min rest. SI: 1-min rest. VLI-SI: 1-min rest with volume load matched to LI. VSI-LI: 3-min rest with volume load matched to SI. Random allocation not confirmed in the text I saw. Longo et al., J Strength Cond Res 2022;36(6):1554-1559 (epub 2020).",
       "population": "Adults (training status not confirmed in results)",
       "sampleSize": "28 participants",
@@ -2040,6 +2265,7 @@
       "pmid": "28032435",
       "pmcid": null,
       "doi": "10.1111/cpf.12409",
+      "url": null,
       "design": "Two-group, volume-matched training study, 20 subjects. SL: 30-s rest with 20RM, n=10. LH: 3-min rest with 8RM, n=10. 8 weeks, MRI upper-arm CSA. One summary described it as randomised, but I did not see random allocation in the abstract text. Rest and load were confounded. Fink, Kikuchi, Nakazato, Clin Physiol Funct Imaging 2018 (online Dec 2016).",
       "population": "Adults (sex/training status not confirmed in results)",
       "sampleSize": "20 participants (10 per group)",
@@ -2079,6 +2305,7 @@
       "pmid": "38274324",
       "pmcid": "PMC10809978",
       "doi": "10.7717/peerj.16777",
+      "url": null,
       "design": "Randomized controlled trial, two parallel groups",
       "population": "Resistance-trained young men and women; lower-body sessions supervised, upper body unsupervised",
       "sampleSize": "1 RCT; 39 participants (29 men, 10 women)",
@@ -2114,6 +2341,7 @@
       "pmid": null,
       "pmcid": "PMC13031491",
       "doi": "10.1038/s41598-026-40612-5",
+      "url": null,
       "design": "Randomized within-subject controlled trial (limbs randomly allocated to continuous or deload condition)",
       "population": "Untrained young men",
       "sampleSize": "1 trial; 19 participants",
@@ -2149,6 +2377,7 @@
       "pmid": "39364857",
       "pmcid": null,
       "doi": "10.1111/sms.14739",
+      "url": null,
       "design": "Randomized controlled trial",
       "population": "Healthy untrained adults, age 32 ± 5 years, 45% female; twice-weekly supervised whole-body resistance training",
       "sampleSize": "1 RCT; 55 randomized (20 periodic and 22 continuous completed)",
@@ -2182,6 +2411,7 @@
       "pmid": "23053130",
       "pmcid": null,
       "doi": "10.1007/s00421-012-2511-9",
+      "url": null,
       "design": "Randomized controlled trial",
       "population": "Young men; bench press training at 75% 1RM, 3 x 10 reps, 3 days/week",
       "sampleSize": "1 RCT; 14 participants",
@@ -2215,6 +2445,7 @@
       "pmid": "21771261",
       "pmcid": null,
       "doi": "10.1111/j.1475-097X.2011.01031.x",
+      "url": null,
       "design": "Controlled trial with two parallel groups (abstract text seen says participants were 'divided into' groups; randomization not confirmed)",
       "population": "Previously untrained young men; high-intensity bench press training",
       "sampleSize": "1 trial; 15 participants",
@@ -2248,6 +2479,7 @@
       "pmid": "26595206",
       "pmcid": null,
       "doi": "10.2466/29.30.PMS.121c23x3",
+      "url": null,
       "design": "Randomized controlled trial",
       "population": "Healthy detrained women; 3 sets of 8-12RM, twice weekly, upper- and lower-body exercises",
       "sampleSize": "1 RCT; 60 participants",
@@ -2281,6 +2513,7 @@
       "pmid": "23347054",
       "pmcid": null,
       "doi": "10.1111/sms.12047",
+      "url": null,
       "design": "Systematic review with meta-analysis",
       "population": "Mixed populations stopping resistance training (young and older adults, inactive people and athletes)",
       "sampleSize": "103 studies included (of 284 screened); participant total not seen",
@@ -2314,6 +2547,7 @@
       "pmid": "37730925",
       "pmcid": "PMC10511399",
       "doi": "10.1186/s40798-023-00633-0",
+      "url": null,
       "design": "Delphi expert consensus (3 rounds)",
       "population": "Expert strength and physique coaches",
       "sampleSize": "34 coaches in round 1, 29 in round 2, 21 in round 3; 138 statements in 4 domains",
@@ -2347,6 +2581,7 @@
       "pmid": "38499934",
       "pmcid": "PMC10948666",
       "doi": "10.1186/s40798-024-00691-y",
+      "url": null,
       "design": "Cross-sectional survey (55-item web survey)",
       "population": "Competitive strength and physique athletes (~74% male, ~8 years training history)",
       "sampleSize": "246 athletes",
@@ -2367,6 +2602,841 @@
         "notes": "Not verified. The web search budget, shared by all agents, was used up before this source could be searched. I checked none of the PMID 38499934, PMCID PMC10948666, DOI 10.1186/s40798-024-00691-y, the metadata or retraction status. All checks are unknown. | No search was attempted because the shared web search budget was already used up. Nothing was checked. If the stated design (a cross-sectional survey) is accurate, it is context only under the strong-design rules. It describes practice and does not measure whether deloads change strength or muscle gains.",
         "identityEvidence": [],
         "supportEvidence": []
+      }
+    },
+    {
+      "id": "src-te-morenga-2013",
+      "short": "Te Morenga et al., 2013",
+      "title": "Dietary sugars and body weight: systematic review and meta-analyses of randomised controlled trials and cohort studies",
+      "authors": "Te Morenga L, Mallard S, Mann J",
+      "year": 2013,
+      "journal": "BMJ",
+      "citation": "BMJ. 2013;346:e7492 (PubMed lists e-publication 2012 Jan 15).",
+      "pmid": "23321486",
+      "pmcid": null,
+      "doi": "10.1136/bmj.e7492",
+      "url": null,
+      "design": "Systematic review and meta-analyses of randomised controlled trials and prospective cohort studies in free-living adults and children (Te Morenga, Mallard, Mann; BMJ 2013;346:e7492, PMID 23321486; PubMed lists the date as 2012 Jan 15). My searches did not show the counts of 30 RCTs and 38 cohort studies.",
+      "population": "Free-living adults and children; weight-loss trials and trials confounded by other interventions excluded",
+      "sampleSize": "30 RCTs (of 7,895 trials screened) and 38 cohort studies (of 9,445 screened); a secondary DARE-based summary reports about 4,960 trial participants",
+      "found": "Pooling randomised trials and cohort studies, it found that adults on unrestricted diets who cut sugars lost about 0.8 kg on average (95% CI 0.39 to 1.21 kg), and those who added sugars gained about 0.75 kg. Swapping sugars for other carbohydrates at the same calories made no difference (0.04 kg), so the effect seems to come from eating fewer calories, and trials in children showed no overall weight change.",
+      "limitations": "Most trials were short (around 10 weeks) and unblinded, publication bias was detected, and the adult weight figure comes from this single meta-analysis.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMID 23321486 resolves to this paper on PubMed (Lisa Te Morenga, Simonette Mallard, Jim Mann; BMJ; DOI 10.1136/bmj.e7492). The BMJ article page gives BMJ 2013;346:e7492, published 15 January 2013. PubMed shows the e-date as 2012 Jan 15, which looks like a PubMed indexing quirk; 2013 is correct. Searching the title with retraction, correction, erratum and expression of concern found no notice. There is only post-publication correspondence: a World Sugar Research Organisation letter (BMJ 2013;346:f1238), the authors' reply (f1240), and the authors' reply to Cottrell and Wittekind (PMID 23485635). These are comments, not corrections. No PMCID was seen. | The numbers in the researcher's finding match what I saw: 0.80, 0.75 and 0.04 kg with their CIs, and no overall effect in children. I did not see two details: the count of 5 child trials and the outcome being BMI (the summary said body weight). The quote is not confirmed word for word. An exact-phrase search for the core clause 'reduced intake of dietary sugars was associated with a decrease in body weight (0.80 kg' returned the PubMed record, but an exact search that included '95% confidence interval 0.39 to 1.21' found no match, so I cannot confirm the CI wording. Limitations noted in summaries: few trials ran longer than about 10 weeks, and most trials were unblinded. A published critique exists (Cottrell et al., PMID 23485634, 'Conclusions ... are unwarranted'), but I did not see its arguments. I found no retraction notice.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/23321486/",
+          "https://www.bmj.com/content/346/bmj.e7492",
+          "https://www.bmj.com/content/346/bmj.f1238",
+          "https://pubmed.ncbi.nlm.nih.gov/23485635",
+          "https://openaccess.wgtn.ac.nz/articles/journal_contribution/Dietary_sugars_and_body_weight_Systematic_review_and_meta-analyses_of_randomised_controlled_trials_and_cohort_studies/12831857"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/23321486/",
+          "https://www.ncbi.nlm.nih.gov/books/NBK116814/",
+          "https://library.fabresearch.org/viewItem.php?id=7518",
+          "https://pubmed.ncbi.nlm.nih.gov/23485634/"
+        ]
+      }
+    },
+    {
+      "id": "src-moynihan-2014",
+      "short": "Moynihan and Kelly, 2014",
+      "title": "Effect on caries of restricting sugars intake: systematic review to inform WHO guidelines",
+      "authors": "Moynihan PJ, Kelly SA",
+      "year": 2014,
+      "journal": "Journal of Dental Research",
+      "citation": "J Dent Res. 2014;93(1):8-18.",
+      "pmid": "24323509",
+      "pmcid": "PMC3872848",
+      "doi": "10.1177/0022034513508954",
+      "url": null,
+      "design": "Systematic review commissioned to inform WHO guidelines, following PRISMA with GRADE assessment. Of 5,990 papers, 55 studies were eligible: 3 intervention, 8 cohort, 20 population and 24 cross-sectional (the DARE summary gives 21 population and 23 cross-sectional). Variability in the data limited meta-analysis. Per DARE, GRADE was applied to the cohort studies only. Moynihan PJ, Kelly SA. J Dent Res 2014;93(1):8-18, PMID 24323509, PMC3872848.",
+      "population": "Children and adults",
+      "sampleSize": "Number of included studies and participants not seen in search results",
+      "found": "This review of 55 studies, commissioned to inform WHO guidelines, found moderate-quality evidence that tooth decay is lower when free sugars are below 10% of energy. At least one link between sugar and decay appeared in 42 of 50 child studies and all 5 adult studies, while evidence for a further benefit below 5% was rated very low quality.",
+      "limitations": "Most included studies were observational and too varied to pool, so it shows an association rather than proof that cutting sugar prevents decay.",
+      "quote": "There is evidence of moderate quality showing that caries is lower when free-sugars intake is < 10% E.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMID 24323509 resolves to this paper on PubMed. It shows DOI 10.1177/0022034513508954 and PMCID PMC3872848, and the Europe PMC PDF for PMC3872848 lists P.J. Moynihan and S.A.M. Kelly. The citation is J Dent Res. 2014 Jan;93(1):8-18, e-published in 2013, so the year 2014 is correct. The abstract wording matches: moderate-quality evidence that caries is lower when free sugars are under 10% of energy, and very-low-quality evidence for under 5%. Searching for retraction, erratum, correction and expression of concern found none. PMID 24595637 is a response to a letter to the editor, which is correspondence, not a correction. | The researcher gave no quote. I could confirm the moderate-quality evidence for the <10% limit. I did not see the 'very low quality' grading for <5% in this abstract myself, but the 2022 update's abstract says the <5% evidence was upgraded 'from very low to low', which corroborates the original very-low grading. The search summaries did not confirm the claim that the studies span 1950-2011. The total of 55 studies is consistent across sources, but the counts by design differ slightly between PMC and DARE.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/24323509/",
+          "https://europepmc.org/api/getPdf?pmcid=PMC3872848",
+          "https://www.ncbi.nlm.nih.gov/books/NBK179817/",
+          "https://pubmed.ncbi.nlm.nih.gov/24595637",
+          "https://discovery.dundee.ac.uk/en/publications/moderate-evidence-support-a-relationship-between-sugar-intake-and/"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/24323509/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC3872848/",
+          "https://www.ncbi.nlm.nih.gov/books/NBK179817/",
+          "https://europepmc.org/api/getPdf?pmcid=PMC3872848"
+        ]
+      }
+    },
+    {
+      "id": "src-moores-2022",
+      "short": "Moores et al., 2022",
+      "title": "Systematic Review of the Effect on Caries of Sugars Intake: Ten-Year Update",
+      "authors": "Moores CJ, Kelly SAM, Moynihan PJ",
+      "year": 2022,
+      "journal": "Journal of Dental Research",
+      "citation": "J Dent Res. 2022;101(9):1034-1045.",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.1177/00220345221082918",
+      "url": null,
+      "design": "Systematic review, a ten-year update covering studies from about 2011 to 2020, with GRADE profiles of new and original cohort data. Moores CJ, Kelly SAM, Moynihan PJ. J Dent Res 2022;101(9):1034-1045, DOI 10.1177/00220345221082918. I did not see a PMID or the number of included studies.",
+      "population": "Children and adults",
+      "sampleSize": "Number of included studies and participants not seen in search results",
+      "found": "This 10-year update (studies from about 2011 to 2020) again found moderate-quality evidence for less tooth decay when sugars are below 10% of energy. New cohort data upgraded the evidence for below 5% from very low to low quality.",
+      "limitations": "It comes from the same research group and reuses cohort data from the 2014 review, so it is not independent confirmation.",
+      "quote": "GRADE profiles of new and original cohort data confirmed \"moderate-quality\" evidence that caries is lower when sugars intake is <10%E.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "DOI 10.1177/00220345221082918 resolves to this paper: a proxied SAGE page plus the Cambridge and Newcastle repository records give the same title, authors (Moores CJ, Kelly SAM, Moynihan PJ) and J Dent Res 2022;101(9):1034-1045. Citing papers, including the PubMed-indexed record 41810620 and PMC10224604, give the same details. The abstract I saw matches the claimed finding: under 10% of energy stays moderate quality, and under 5% rises from very low to low. It covers 2011-2020 and reports 6 of 7 child studies and 4 of 4 adult studies showing lower caries under 10%. The PMID was not supplied and I could not confirm it on PubMed. A third-party PubMed mirror URL (whitecross.co.jp/pub-med/view/35302414) suggests PMID 35302414, but a PubMed search for that PMID returned nothing, so I left it out of corrected. Searching for retraction, erratum and corrigendum found none. Peer-reviewed status rests on J Dent Res being a peer-reviewed journal and the Crossref DOI; I did not directly confirm MEDLINE indexing. | The researcher gave no quote. The finding matches the abstract text I saw, including the upgrade from 'very low' to 'low' for <5%E. One ResearchGate summary still describes the <5% evidence as very low, but the abstract sentence I saw states the upgrade to low. I did not see the details of the methods (PRISMA, OHAT, harvest plots) or the number of studies. The publisher page was found but no PubMed record, so the PMID is left blank.",
+        "identityEvidence": [
+          "https://www.repository.cam.ac.uk/items/94eef646-c4e4-4d8c-922e-e12251df8287",
+          "https://https-sage-cnpereading-com-443.webvpn1.xju.edu.cn/doi/10.1177/00220345221082918",
+          "https://apps-eprint4-l.ncl.ac.uk/281158",
+          "https://pubmed.ncbi.nlm.nih.gov/41810620/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC10224604/"
+        ],
+        "supportEvidence": [
+          "https://journals.sagepub.com/doi/abs/10.1177/00220345221082918",
+          "https://www.repository.cam.ac.uk/items/94eef646-c4e4-4d8c-922e-e12251df8287",
+          "https://pubmed.ncbi.nlm.nih.gov/38303969"
+        ]
+      }
+    },
+    {
+      "id": "src-huang-2023",
+      "short": "Huang et al., 2023",
+      "title": "Dietary sugar consumption and health: umbrella review",
+      "authors": "Huang Y, et al.",
+      "year": 2023,
+      "journal": "BMJ",
+      "citation": "BMJ. 2023 Apr 5;381:e071609. doi: 10.1136/bmj-2022-071609.",
+      "pmid": "37019448",
+      "pmcid": "PMC10074550",
+      "doi": "10.1136/bmj-2022-071609",
+      "url": null,
+      "design": "Umbrella review of 73 meta-analyses of observational studies and RCTs, covering 83 health outcomes from 8,601 unique articles (Huang Y et al., BMJ 2023, published 5 April 2023, doi 10.1136/bmj-2022-071609, PMID 37019448, PMC10074550).",
+      "population": "General populations (adults and children) across included meta-analyses",
+      "sampleSize": "73 meta-analyses covering 83 health outcomes, drawn from 8,601 unique articles (74 outcomes from observational meta-analyses, 9 from RCT meta-analyses)",
+      "found": "This umbrella review of 73 meta-analyses covering 83 health outcomes found 45 significant harmful links between dietary sugar and disease, mostly cardiometabolic, and 4 beneficial ones. The authors concluded that high sugar intake is generally more harmful than beneficial and suggested keeping free or added sugars under 25 g a day.",
+      "limitations": "Most of the evidence it pools is observational and low quality, it overlaps with earlier reviews, and the 25 g limit is the authors' suggestion rather than a tested threshold.",
+      "quote": "High dietary sugar consumption is generally more harmful than beneficial for health, especially in cardiometabolic disease.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMID 37019448 resolves to this umbrella review on PubMed (first author Yin Huang, senior author Dehong Cao, West China Hospital). PubMed shows BMJ 2023 Apr 5;381:e071609, DOI 10.1136/bmj-2022-071609 and PMCID PMC10074550. The PMC copy and the BMJ PDF agree. The volume (381) was missing from the citation and has been added in corrected. Searching for correction, erratum, retraction and expression of concern found no notice on this paper. The retractions that came up concerned a different BMJ paper on the UK soft-drinks tax. | The quote is only partly confirmed. An exact-phrase search returned the PMC full text (PMC10074550) among its hits, and the result summary said the conclusion matches this wording, but I did not read the raw abstract text directly. The counts in the researcher's finding match what I saw: 73 meta-analyses, 83 outcomes, 8,601 articles, and 45 harmful associations split 18/10/7/10. The full text adds 4 beneficial associations and 34 non-significant ones. I did not confirm the 74/9 split between observational and RCT outcomes, or that the 'other' outcomes include dental and neuropsychiatric ones. The paper supports the statement's caveat that most of the evidence is observational and low quality. The 25 g/day limit is stricter than the 10% framing in the statement.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/37019448/?dopt=Abstract",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10074550/",
+          "https://www.bmj.com/content/bmj/381/bmj-2022-071609.full.pdf"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/37019448/?dopt=Abstract",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC10074550/",
+          "https://www.ncbi.nlm.nih.gov/search/research-news/18686/"
+        ]
+      }
+    },
+    {
+      "id": "src-malik-2013",
+      "short": "Malik et al., 2013",
+      "title": "Sugar-sweetened beverages and weight gain in children and adults: a systematic review and meta-analysis",
+      "authors": "Malik VS, Pan A, Willett WC, Hu FB",
+      "year": 2013,
+      "journal": "American Journal of Clinical Nutrition",
+      "citation": "Am J Clin Nutr. 2013 Oct;98(4):1084-102. doi: 10.3945/ajcn.113.058362. Epub 2013 Aug 21.",
+      "pmid": "23966427",
+      "pmcid": null,
+      "doi": "10.3945/ajcn.113.058362",
+      "url": null,
+      "design": "Systematic review and meta-analysis of prospective cohort studies and RCTs on SSB intake and weight (PubMed, EMBASE and Cochrane searched through March 2013). Malik VS, Pan A, Willett WC, Hu FB. Am J Clin Nutr 2013;98(4):1084-102, doi 10.3945/ajcn.113.058362. I did not see the number of included studies.",
+      "population": "Children and adults",
+      "sampleSize": "Not seen in search results",
+      "found": "This meta-analysis of cohort studies and trials concluded that sugar-sweetened drinks promote weight gain in children and adults. In child trials, cutting these drinks slowed the gain in BMI.",
+      "limitations": "It covers sugary drinks only, not free sugars in general, and our checks did not confirm its pooled effect sizes.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "fail"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PMID was missing. PubMed lists this paper as PMID 23966427: Am J Clin Nutr 2013 Oct;98(4):1084-102, DOI 10.3945/ajcn.113.058362, e-published 2013 Aug 21, first author Vasanti S Malik. That matches the supplied DOI and metadata. The abstract, which the researcher had not seen, gives 32 articles: 20 in children (15 cohorts n=25,745; 5 RCTs n=2,772) and 12 in adults (7 cohorts n=174,252; 5 RCTs n=292). It concludes that SSB consumption promotes weight gain. A PMC URL (pmc.ncbi.nlm.nih.gov/articles/3778861) came up in an erratum-search result, but its title was not shown and a follow-up search did not confirm it, so no PMCID is given. Searching for erratum, correction and retraction found none. | The researcher's 'finding' is a second-hand description from Luger 2017, not the paper's own results, and they admit they did not see the effect sizes. The exposure here is sugar-sweetened beverages, not total free sugars, which is a different exposure from the one in the proposed statement. Its child RCT result (less BMI gain when SSBs were reduced) also sits uneasily with the statement's line that trials in children showed no overall weight effect. That line comes from Te Morenga's trials of advice to cut free sugars, so the two are not strictly in conflict. A search summary named PMID 23966427, but I did not see it in an actual result title or URL, so I have not used it. I did not see the full abstract text.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/23966427/?dopt=Abstract",
+          "https://pubmed.ncbi.nlm.nih.gov/23966427/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC5836186/",
+          "https://temertymedicine.utoronto.ca/news/more-evidence-sugary-drinks-cause-weight-gain",
+          "https://foodnavigator-usa.com/Article/2013/08/28/Harvard-meta-analysis-provides-more-evidence-that-1st-line-of-defense-against-weight-gain-is-to-reduce-or-stop-drinking-sugary-drinks"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/28445680/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC5836186/",
+          "https://www.researchgate.net/publication/256072930_Sugar-sweetened_beverages_and_weight_gain_in_children_and_adults_A_systematic_review_and_meta-analysis"
+        ]
+      }
+    },
+    {
+      "id": "src-erickson-2017",
+      "short": "Erickson et al., 2017",
+      "title": "The Scientific Basis of Guideline Recommendations on Sugar Intake: A Systematic Review",
+      "authors": "Erickson J, Sadeghirad B, Lytvyn L, Slavin J, Johnston BC",
+      "year": 2017,
+      "journal": "Annals of Internal Medicine",
+      "citation": "Ann Intern Med. 2017;166(4):257-267.",
+      "pmid": "27992898",
+      "pmcid": null,
+      "doi": "10.7326/M16-2020",
+      "url": null,
+      "design": "Systematic review of dietary guidelines on sugar intake. MEDLINE, EMBASE, Web of Science, guideline registries and grey literature were searched for English-language guidelines from 1995 to 2016. 9 guidelines with 12 recommendations were included. Guideline quality was rated with AGREE II by three independent reviewers, and evidence quality with GRADE. Erickson J et al. Ann Intern Med 2017;166(4):257-267, PMID 27992898, DOI 10.7326/M16-2020.",
+      "population": "Public health guidelines on sugar intake",
+      "sampleSize": "Number of guidelines not seen in search results",
+      "found": "This review of 9 sugar guidelines (12 recommendations, 1995 to 2016) found that they scored poorly on standard quality criteria and rested on low to very-low quality evidence. It concluded that they do not meet criteria for trustworthy recommendations.",
+      "limitations": "It judges how the guidelines were made rather than testing whether sugar harms health, it was funded by an industry body (ILSI North America), and an accompanying editorial disputed its methods.",
+      "quote": "Guidelines on dietary sugar do not meet criteria for trustworthy recommendations and are based on low-quality evidence.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMID 27992898 resolves to this paper on PubMed (first author Jennifer Erickson). It shows Ann Intern Med 2017 Feb 21;166(4):257-267, doi 10.7326/M16-2020, e-published 2016 Dec 20. The McMaster experts page confirms the journal, volume, pages and DOI. Searching for retraction, erratum, correction and expression of concern found none. Context: the study was funded by ILSI North America's Technical Committee on Dietary Carbohydrates. That funding drew critical editorials and press coverage, and a later rebuttal ('Guidelines to lower intake of added sugar are necessary and justified', PMID 35831540) comments on it. This is relevant to how much weight the 'contradicts' evidence deserves, but it is not a correction or retraction. | The researcher gave no quote. The researcher's account of the paper is accurate, and the proposed statement cites it correctly as judging the guidelines to rest on low-quality evidence. I set the direction to 'mixed' rather than 'contradicts', because the proposed statement already includes this caveat; the paper only challenges how certain the WHO 'strong' recommendation is. 'The strongest published challenge' is the researcher's own characterisation, not a finding. Important context: the study was funded mainly by the food and agriculture industry (ILSI North America), although the authors state they worked independently of the funder. An accompanying editorial (Schillinger and Kearns, PMID 27992900) disputed the use of AGREE II for nutrition guidelines. I found no retraction notice.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/27992898/",
+          "https://experts.mcmaster.ca/scholarly-works/1543588",
+          "https://pubmed.ncbi.nlm.nih.gov/35831540/",
+          "https://medicalresearch.com/?p=30648",
+          "https://www.healio.com/news/primary-care/20170203/new-review-on-dietary-sugar-guidelines-spark-debate"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/27992898/",
+          "https://www.acpjournals.org/doi/10.7326/M16-2020",
+          "https://pubmed.ncbi.nlm.nih.gov/27992900/",
+          "https://www.medscape.com/viewarticle/873425"
+        ]
+      }
+    },
+    {
+      "id": "src-yan-2022",
+      "short": "Yan et al., 2022",
+      "title": "Current WHO recommendation to reduce free sugar intake from all sources to below 10% of daily energy intake for supporting overall health is not well supported by available evidence",
+      "authors": "Yan RR, Chan CB, Louie JCY",
+      "year": 2022,
+      "journal": "American Journal of Clinical Nutrition",
+      "citation": "Am J Clin Nutr. 2022 Jul 6;116(1):15-39. doi: 10.1093/ajcn/nqac084.",
+      "pmid": "35380611",
+      "pmcid": "PMC9307988",
+      "doi": "10.1093/ajcn/nqac084",
+      "url": null,
+      "design": "Narrative review (Yan RR, Chan CB, Louie JCY. Am J Clin Nutr 2022, DOI 10.1093/ajcn/nqac084, PMC9307988). This is not a strong design.",
+      "population": "Human observational studies, clinical trials and animal studies of sugar intake",
+      "sampleSize": "Not applicable (narrative review)",
+      "found": "This review argues that the 10% limit is poorly supported for overall health. In its account, the evidence linking sugar to obesity comes mostly from sugary drinks, and studies of sugar in solid foods mostly found no effect.",
+      "limitations": "It is a narrative rather than a systematic review, a correction was later published, and other researchers said it misrepresented their work.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "fail",
+        "finding_supported": "fail"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMCID PMC9307988 resolves to this paper. The missing fields come from the PubMed correction notice PMID 36200570, which names the original article (authors Rina Ruolin Yan, Chi Bun Chan, Jimmy Chun Yu Louie) as Am J Clin Nutr 2022 Jul 6;116(1):15-39, doi 10.1093/ajcn/nqac084, and links it to PMID 35380611. The same PMID appears in several citing records. I did not see the original's own PubMed page directly. ERRATUM: a correction notice was published (PMID 36200570; Am J Clin Nutr 2022;116(4):1187; doi 10.1093/ajcn/nqac231). The search results did not show what it changed, so I cannot confirm whether it affects the findings. No retraction or expression of concern was found. Post-publication critique exists: a letter by Hieronimus and Stanhope (PMC9718636) says their work was misrepresented, and its own title-correction is PMC9761762. 'Reply to Yan et al' is PMID 35921216. It is a peer-reviewed review article in a PubMed/PMC-indexed journal. The researcher called it a narrative review; I did not verify the article type beyond 'review'. | The researcher describes the review accurately, but it is a narrative review, so context only, and it argues against the evidential basis of the 10% recommendation for overall health. It therefore does not support the proposed statement, and findingSupported is fail. A letter by Hieronimus and Stanhope disputed how the review represented their work, and the authors did not reply. I did not see a single abstract sentence I could quote word for word with confidence, so verifiedQuote is null. The researcher did not record a PMID or DOI; the DOI above was seen in the search results.",
+        "identityEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9307988/",
+          "https://pubmed.ncbi.nlm.nih.gov/36200570/",
+          "https://pubmed.ncbi.nlm.nih.gov/35921216/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC9718636/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC9761762/"
+        ],
+        "supportEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9307988/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10464488/"
+        ]
+      }
+    },
+    {
+      "id": "src-world-health-organization-2015",
+      "short": "World Health Organization, 2015",
+      "title": "Guideline: Sugars intake for adults and children",
+      "authors": "World Health Organization",
+      "year": 2015,
+      "journal": "World Health Organization guideline (NCBI Bookshelf); not a peer-reviewed journal article",
+      "citation": "Geneva: WHO; 2015.",
+      "pmid": null,
+      "pmcid": null,
+      "doi": null,
+      "url": "https://who.int/news/item/04-03-2015-who-calls-on-countries-to-reduce-sugars-intake-among-adults-and-children",
+      "design": "WHO guideline using GRADE (Guideline: Sugars intake for adults and children, WHO, Geneva 2015; indexed in PubMed as PMID 25905159 and on NCBI Bookshelf). It is not published in a peer-reviewed journal.",
+      "population": "Adults and children",
+      "sampleSize": "Based on the WHO-commissioned systematic reviews (including Te Morenga 2013 and Moynihan & Kelly 2014)",
+      "found": "The WHO strongly recommends keeping free sugars below 10% of total energy for adults and children and conditionally suggests going below 5%. The recommendations rest mainly on evidence about weight gain and tooth decay.",
+      "limitations": "It is a guideline, not a peer-reviewed journal article, so it explains the official advice but does not count as independent evidence for the claim.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "unknown",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "fail",
+        "not_retracted": "unknown",
+        "study_design_strong": "fail",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "No PMID, PMCID or DOI was supplied, so there is no identifier to resolve. The work is on NCBI Bookshelf as NBK285537, 'Guideline: Sugars Intake for Adults and Children' (WHO, Geneva, 2015); the researcher's NBK285533 is only its References sub-page. Title, WHO authorship and 2015 date agree across the Bookshelf pages and an independent PMC paper analysing the 'WHO 2015 sugars intake guideline' (PMC4969989). peerReviewedIndexed fails because this is a WHO guideline, not a peer-reviewed journal article; it went through an external peer-review group (NBK285530) but is not in a journal. I did not run a separate retraction or withdrawal search, so notRetracted is unknown, though the guideline is still hosted on Bookshelf and cited by 2025-2026 PubMed records. I did not see a PubMed record for the guideline. | The design fails the strong-design definition only because it is not in a peer-reviewed journal. It is still the authoritative source for the WHO recommendation sentence in the statement, so I set the direction to 'supports' rather than the researcher's 'context'. I confirmed the wording of the strong (<10%) and conditional (<5%) recommendations through secondary quotations (Foodwatch, and Yan 2022 on PMC) and the PubMed record. I did not read the WHO guideline text or the NBK285533 page directly. The 'very low' grading for the 5% evidence is corroborated indirectly by the Moores 2022 abstract (upgraded from very low). The guideline has no abstract, so verifiedQuote is null.",
+        "identityEvidence": [
+          "https://www.ncbi.nlm.nih.gov/books/NBK285537/",
+          "https://www.ncbi.nlm.nih.gov/books/NBK285537/pdf/Bookshelf_NBK285537.pdf",
+          "https://www.ncbi.nlm.nih.gov/books/NBK285530/",
+          "https://www.ncbi.nlm.nih.gov/books/NBK285533/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4969989/"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/25905159/",
+          "https://www.foodwatch.com.au/?p=10661",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9307988/"
+        ]
+      }
+    },
+    {
+      "id": "src-he-2013",
+      "short": "He et al., 2013",
+      "title": "Effect of longer term modest salt reduction on blood pressure: Cochrane systematic review and meta-analysis of randomised trials",
+      "authors": "He FJ, Li J, MacGregor GA",
+      "year": 2013,
+      "journal": "BMJ",
+      "citation": "BMJ. 2013 Apr 3;346:f1325. (Also published as Cochrane Database Syst Rev 2013, Issue 4, Art. No. CD004937, doi 10.1002/14651858.CD004937.pub2)",
+      "pmid": "23558162",
+      "pmcid": null,
+      "doi": "10.1136/bmj.f1325",
+      "url": null,
+      "design": "Cochrane systematic review and meta-analysis of randomised trials of modest salt reduction lasting 4 or more weeks (BMJ 2013;346:f1325, PMID 23558162; also Cochrane CD004937.pub2). The trial count and participant total (34 trials, 3230 participants per the researcher) did not appear in my search results.",
+      "population": "Adults with hypertension and adults with normal blood pressure, in randomised trials of modest salt reduction lasting 4 or more weeks",
+      "sampleSize": "34 trials, 3230 participants",
+      "found": "In trials lasting at least four weeks, eating about 4.4 g less salt a day lowered systolic blood pressure by about 4.2 mm Hg and diastolic by about 2.1 mm Hg. The fall was larger in people with high blood pressure (about 5.4 mm Hg systolic) than in those with normal blood pressure (about 2.4 mm Hg).",
+      "limitations": "Results varied a lot between trials (I² 75%), and many of its trials are also in the other reviews, so it is not fully independent evidence.",
+      "quote": "A modest reduction in salt intake for 4 or more weeks causes significant and, from a population viewpoint, important falls in BP in both hypertensive and normotensive individuals",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMID 23558162 resolves to He FJ, Li J, MacGregor GA, 'Effect of longer term modest salt reduction on blood pressure: Cochrane systematic review and meta-analysis of randomised trials', BMJ 2013;346:f1325, DOI 10.1136/bmj.f1325. A BMJ abstract page, reached through a library proxy, shows the same DOI, authors and title, with a publication date of 04 April 2013; PubMed gives 3 April 2013. That is a minor online-date difference. The Cochrane version (CD004937.pub2) is a separate record with its own PMID, 23633321, and it reports 34 trials and 3230 participants, which matches the claimed n. A search of the title with retraction, correction and erratum terms found no notice. Only letters and rapid responses were seen. Those results came from bibliographic pages, so the check is not exhaustive. | The numbers I saw match the researcher's on the urinary sodium fall, the 4.4 g salt equivalent, the pooled SBP and DBP, the hypertensive SBP with CI and I2, and the normotensive SBP and DBP. Some figures came from a PubMed-indexed commentary (PMID 24192084) and a Cochrane abstract snippet. I did not see the normotensive SBP CI (-3.56 to -1.29), I2=66% or the 3 g/day target. The conclusion sentence I saw is the Cochrane-version wording ('4 or more weeks', 'BP'). The researcher's quote ('four or more weeks', 'blood pressure') may be the BMJ wording, but I did not see the BMJ abstract text word for word, so quoteVerbatim is false. Heterogeneity is high (I2=75%). I saw no retraction or erratum notice, but the full PubMed record for 23558162 was not shown.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/23558162/?dopt=Abstract",
+          "https://www-bmj-com.bibliotheek.ehb.be/content/346/bmj.f1325.abstract",
+          "https://pubmed.ncbi.nlm.nih.gov/23633321/",
+          "https://cochranelibrary.com/cdsr/doi/10.1002/14651858.CD004937.pub2"
+        ],
+        "supportEvidence": [
+          "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD004937.pub2/abstract",
+          "https://pubmed.ncbi.nlm.nih.gov/24192084/",
+          "https://www-bmj-com.bibliotheek.ehb.be/content/346/bmj.f1325.abstract"
+        ]
+      }
+    },
+    {
+      "id": "src-huang-2020",
+      "short": "Huang et al., 2020",
+      "title": "Effect of dose and duration of reduction in dietary sodium on blood pressure levels: systematic review and meta-analysis of randomised trials",
+      "authors": "Huang L, Trieu K, Yoshimura S, Neal B, Woodward M, Campbell NRC, et al.",
+      "year": 2020,
+      "journal": "BMJ",
+      "citation": "BMJ. 2020;368:m315. doi:10.1136/bmj.m315",
+      "pmid": null,
+      "pmcid": "PMC7190039",
+      "doi": "10.1136/bmj.m315",
+      "url": null,
+      "design": "Systematic review and dose-response meta-analysis of randomised trials of reduced vs usual dietary sodium (BMJ 2020;368:m315, doi 10.1136/bmj.m315, PMC7190039). A citing protocol paper (PMC8724716) describes it as 133 randomised trials with 12,197 participants. I did not see those totals in the abstract itself.",
+      "population": "Randomised trials of reduced vs usual dietary sodium in hypertensive and non-hypertensive individuals",
+      "sampleSize": "Number of trials and participants not seen in search results",
+      "found": "Each 50 mmol a day less sodium (about 2.9 g of salt) went with about 1.1 mm Hg lower systolic blood pressure, in people with and without high blood pressure. The fall was larger in older people, non-white people and people who started with higher blood pressure, and short trials underestimated the effect.",
+      "limitations": "It includes very short trials and shares many trials with He 2013, and its trial and participant totals were confirmed only from a paper that cites it.",
+      "quote": "Reductions in blood pressure were observed in diverse population subsets examined, including hypertensive and non-hypertensive individuals.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMC7190039 resolves to this BMJ 2020 paper by Huang et al. The DOI 10.1136/bmj.m315 appears in reference lists and in the bmj.com PDF URL (content/368/bmj.m315). Title, authors, journal and year agree across PMC, the NHS medicines resources page, the George Institute page and the QMUL repository. The source gave no PMID, and three searches (by title and by authors) did not turn up a PubMed record, so the PMID is still missing and was not filled in. PMC gives the PROSPERO registration as CRD42019140812. The source said n was not seen; a search summary gives 133 trials and 12,197 participants. The abstract figures match the claimed finding: 130 mmol, 4.26 mm Hg, 1.10 and 0.33 mm Hg per 50 mmol, and 1.05 vs 2.13 mm Hg by duration. A search of the title with retraction, correction and expression-of-concern terms found no notice. A critical commentary indexed in PubMed (PMID 36932152) exists but is not a correction. | An exact-phrase search returned PMC7190039, and the result said the quoted sentence is in its abstract. I verified the 1.10 mm Hg per 50 mmol figure, the subgroup modifiers (older, non-white, higher baseline SBP) and the conclusion that short trials underestimate the effect. I did not see these researcher figures: mean urinary sodium reduction 130 mmol (115 to 145), mean SBP fall 4.26 mm Hg (3.62 to 4.89), DBP 0.33 (0.04 to 0.63), or the 1.05 vs 2.13 mm Hg duration contrast. The trial count and participant total come only from a secondary citing paper. The pooled analysis includes very short trials (under 15 days), not only trials of 4 weeks or more. A PMID was not shown in my results.",
+        "identityEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7190039/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/7190039/",
+          "https://www.bmj.com/content/368/bmj.m315.full.pdf",
+          "https://www.medicinesresources.nhs.uk/effect-of-dose-and-duration-of-reduction-in-dietary-sodium-on-blood-pressure-levels-systematic-review-and-meta-analysis-of-randomised-trials.html",
+          "https://georgeinstitute.org/publications/effect-of-dose-and-duration-of-reduction-in-dietary-sodium-on-blood-pressure-levels",
+          "https://qmro.qmul.ac.uk/xmlui/handle/123456789/63179"
+        ],
+        "supportEvidence": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7190039/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8724716/"
+        ]
+      }
+    },
+    {
+      "id": "src-aburto-2013",
+      "short": "Aburto et al., 2013",
+      "title": "Effect of lower sodium intake on health: systematic review and meta-analyses",
+      "authors": "Aburto NJ, Ziolkovska A, Hooper L, Elliott P, Cappuccio FP, Meerpohl JJ",
+      "year": 2013,
+      "journal": "BMJ",
+      "citation": "BMJ. 2013 Apr 3;346:f1326.",
+      "pmid": "23558163",
+      "pmcid": null,
+      "doi": "10.1136/bmj.f1326",
+      "url": null,
+      "design": "Systematic review and meta-analyses of randomised controlled trials and prospective cohort studies in non-acutely ill adults and children (outcomes: BP, renal function, blood lipids, catecholamines; mortality and cardiovascular outcomes in adults). BMJ 2013;346:f1326, PMID 23558163. Trial and participant counts were not seen.",
+      "population": "Adults, plus trials and a cohort study in children with blood pressure outcomes",
+      "sampleSize": "37 RCTs in adults for BP, renal function, blood lipids and catecholamines; participant total not seen",
+      "found": "In adults, eating less sodium lowered systolic blood pressure by about 3.4 mm Hg and diastolic by about 1.5 mm Hg, and going below 2 g of sodium a day lowered systolic pressure by about 3.5 mm Hg. It found no significant harm to blood fats.",
+      "limitations": "The split between people with and without high blood pressure was not confirmed from this review, and its main figure was seen in a UK government report that cites it rather than in the abstract itself.",
+      "quote": "systolic blood pressure was reduced by 3.47 mm Hg (0.76 to 6.18) and diastolic blood pressure by 1.81 mm Hg (0.54 to 3.08)",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMID 23558163 resolves to Aburto NJ et al., 'Effect of lower sodium intake on health: systematic review and meta-analyses', BMJ 2013, DOI 10.1136/bmj.f1326. The first author is at the WHO Nutrition Policy and Scientific Advice Unit. The UEA eprints copy and the BMJ link agree on title, first author, journal, year and DOI. BMJ gives a publication date of 04 April 2013 and the source gives 3 April, which is minor. One search summary mentioned PMC4816261, but a second search could not confirm it, so the PMCID was not filled in. The retraction and erratum search found no notice for this paper. The only retraction that came up was an unrelated 2012 Heart review on sodium in heart failure. A letter by Graudal and Jurgens criticises the paper but is not a correction. | The PubMed record was confirmed: authors, journal, PMID and DOI match. The researcher's 3.39 mm Hg figure matches the SACN report's citation of Aburto 2013. I did not see it in the PubMed abstract text, and an exact-phrase search for the quote did not return the abstract, so quoteVerbatim is false. The under-2 g/day comparison (about 3.5 mm Hg) matches. I did not see the stroke RR of 1.24. My results did not show hypertensive vs normotensive subgroup figures, so this source supports the general claim (BP falls in adults) but I could not confirm the proposed split by BP status from it. The population includes children for some outcomes. I saw no retraction or erratum notice.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/23558163/",
+          "https://ueaeprints.uea.ac.uk/id/eprint/42429/",
+          "https://ueaeprints.uea.ac.uk/id/eprint/42429/1/bmj.f1326.full.pdf",
+          "https://wrap.warwick.ac.uk/56662/",
+          "https://ebm.bmj.com/content/19/1/33"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/23558163/",
+          "https://assets.publishing.service.gov.uk/media/5a82b61bed915d74e34032cc/SACN_COT_-_Potassium-based_sodium_replacers.pdf"
+        ]
+      }
+    },
+    {
+      "id": "src-midgley-1996",
+      "short": "Midgley et al., 1996",
+      "title": "Effect of reduced dietary sodium on blood pressure: a meta-analysis of randomized controlled trials",
+      "authors": "Midgley JP, Matthew AG, Greenwood CM, Logan AG",
+      "year": 1996,
+      "journal": "JAMA",
+      "citation": "JAMA. 1996 May;275(20):1590-7. doi:10.1001/jama.1996.03530440070039",
+      "pmid": "8622251",
+      "pmcid": null,
+      "doi": "10.1001/jama.1996.03530440070039",
+      "url": null,
+      "design": "Meta-analysis of 56 randomised controlled trials (28 trials, 1131 hypertensive subjects; 28 trials, 2374 normotensive subjects) with timed urinary sodium monitoring. Midgley JP, Matthew AG, Greenwood CM, Logan AG. JAMA 1996;275(20):1590-7, PMID 8622251.",
+      "population": "Hypertensive and normotensive trial populations",
+      "sampleSize": "Not seen in search results",
+      "found": "An older pooled analysis of 56 trials found that 100 mmol a day less sodium (about 6 g of salt) lowered blood pressure by about 3.7/0.9 mm Hg in people with high blood pressure, but only about 1.0/0.1 mm Hg in people with normal blood pressure.",
+      "limitations": "It dates from 1996, includes short trials and showed signs of publication bias, and the statistical significance of the normal-blood-pressure result was not seen.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMID 8622251 resolves to Midgley JP, Matthew AG, Greenwood CM, Logan AG, 'Effect of reduced dietary sodium on blood pressure: a meta-analysis of randomized controlled trials', JAMA 1996 May;275(20):1590-7, DOI 10.1001/jama.1996.03530440070039. The source left the authors, journal and DOI blank; they are filled in from PubMed. PubMed commentary PMID 8622253 links to this article. The JAMA abstract, reached through a library proxy, confirms the finding: a 100 mmol/d sodium reduction lowered blood pressure by 3.7/0.9 mm Hg in hypertensive trials and 1.0/0.1 mm Hg in normotensive trials, and publication bias was evident. The 56-trial basis is mentioned in a JAMA letter. Searches for retraction and erratum found no notice; only critical letters to the editor came up, and these are not formal corrections. | Authors and journal (JAMA 1996) are now identified; the researcher had left them blank. The hypertensive figure, 3.7 mm Hg (2.35 to 5.05) per 100 mmol/d, matches the researcher's. I could not see the normotensive numeric results or the authors' conclusion, and the snippet's wording about normotensives was truncated and partly garbled. So I cannot confirm whether this paper supports a meaningful fall in normotensives. The researcher's 'mixed' direction is consistent with what I saw. Heterogeneity and publication bias were noted. This is an older 1996 analysis that includes short-term trials. The researcher gave no quote, and I saw no clean full sentence to quote.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/8622251/",
+          "https://pubmed.ncbi.nlm.nih.gov/8622253/",
+          "https://jamanetwork-com.libproxy.ajou.ac.kr/journals/jama/fullarticle/410405",
+          "https://www.nasw.org/sites/default/files/Taubes%20part%205_%20Poles%20apart.pdf"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/8622251/"
+        ]
+      }
+    },
+    {
+      "id": "src-lane-2024",
+      "short": "Lane et al., 2024",
+      "title": "Ultra-processed food exposure and adverse health outcomes: umbrella review of epidemiological meta-analyses",
+      "authors": "Lane MM, Gamage E, Du S, Ashtree DN, McGuinness AJ, Gauci S, Baker P, Lawrence M, Rebholz CM, Srour B, Touvier M, Jacka FN, O'Neil A, Segasby T, Marx W",
+      "year": 2024,
+      "journal": "BMJ",
+      "citation": "BMJ. 2024;384:e077310",
+      "pmid": "38418082",
+      "pmcid": "PMC10899807",
+      "doi": "10.1136/bmj-2023-077310",
+      "url": null,
+      "design": "Umbrella review of epidemiological meta-analyses (mostly observational, largely prospective cohort data), with evidence-class grading (I-IV/V) plus GRADE; 45 unique pooled analyses (13 dose-response, 32 non-dose-response), n=9,888,373. BMJ 2024;384:e077310, PMID 38418082.",
+      "population": "Adults and children in observational studies worldwide; NOVA-defined UPF exposure; searches 2009 to June 2023 (MEDLINE, PsycINFO, Embase, Cochrane)",
+      "sampleSize": "14 meta-analyses, 45 unique pooled analyses (13 dose-response, 32 non-dose-response); n = 9,888,373",
+      "found": "This umbrella review pooled 45 analyses covering about 9.9 million people. Higher ultra-processed food intake was linked to higher risk of cardiovascular death (RR 1.50, very low certainty), type 2 diabetes (RR 1.12 in dose-response analysis, moderate certainty) and anxiety. Evidence was weaker for death from any cause (RR 1.21, low certainty), depression and obesity.",
+      "limitations": "It rests on observational studies with mostly self-reported diet and overlapping cohorts, so it shows association, not cause, and most outcomes were rated low or very low certainty.",
+      "quote": "cardiovascular disease related mortality (risk ratio 1.50, 95% confidence interval 1.37 to 1.63; GRADE=very low) and type 2 diabetes (dose-response risk ratio 1.12, 1.11 to 1.13; moderate)",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 38418082 matches: Lane MM et al., 'Ultra-processed food exposure and adverse health outcomes: umbrella review of epidemiological meta-analyses', BMJ 2024;384:e077310 (28 Feb 2024), DOI 10.1136/bmj-2023-077310, PMCID PMC10899807. The BMJ publisher page and the JCU and Bond repository pages agree. My search for a correction, retraction, erratum or expression of concern found none. A PubMed comment exists (PMID 38531598, 'other approaches and evidence needed to prove genuine causal effect'), but it is commentary, not a notice. One secondary site (lifespan.io) cites the article number wrongly as e077210; that is its own typo, not an erratum. | Identity confirmed (Lane MM et al., BMJ 2024, PMID 38418082, PMC10899807). Search snippets showed the key abstract numbers: CVD mortality RR 1.50 (very low), T2D dose-response RR 1.12 (moderate), all-cause mortality RR 1.21 (low), heart disease mortality HR 1.66 (low). These match the researcher's statement, including that T2D is the only moderate-GRADE outcome and that most outcomes are low or very low. Not seen: '14 meta-analyses' and '32 of 45 (71%)'. Quote: a search summary gave '45 unique analyses, including 13 dose-response associations and 32 nondose-response associations (n=9,888,373)'. That is close to the quote but not word for word, so quoteVerbatim is false. The verifiedQuote is a fragment of the class I sentence, not a full sentence. No retraction or erratum notice was seen, but the PubMed page was not displayed in full. Published critiques (e.g., Munafo, PMID 38531598) note that the evidence is associational.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/38418082/",
+          "https://bmj.com/content/384/bmj-2023-077310",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC10899807",
+          "https://researchonline.jcu.edu.au/87551/",
+          "https://research.bond.edu.au/en/publications/ultra-processed-food-exposure-and-adverse-health-outcomes-umbrell/"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/38418082/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC10899807/",
+          "https://researchonline.jcu.edu.au/87551/",
+          "https://www.sciencemediacentre.org/expert-reaction-to-umbrella-review-looking-at-ultra-processed-food-exposure-and-adverse-health-outcomes/"
+        ]
+      }
+    },
+    {
+      "id": "src-dai-2024",
+      "short": "Dai et al., 2024",
+      "title": "Ultra-processed foods and human health: An umbrella review and updated meta-analyses of observational evidence",
+      "authors": "Dai S, Wellens J, Yang N, Li D, Wang J, Wang L, et al.",
+      "year": 2024,
+      "journal": "Clinical Nutrition",
+      "citation": "Clin Nutr. 2024 Jun;43(6):1386-1394",
+      "pmid": "38688162",
+      "pmcid": null,
+      "doi": "10.1016/j.clnu.2024.04.016",
+      "url": null,
+      "design": "Umbrella review with updated meta-analyses of observational studies: 39 meta-analyses identified, updated with 122 individual articles covering 49 unique health outcomes; credibility classes I-IV plus GRADE. Clin Nutr 2024;43(6):1386-1394, PMID 38688162.",
+      "population": "Observational studies of NOVA-defined UPF intake in children and adults; Medline and Embase searched to March 2023",
+      "sampleSize": "39 meta-analyses updated with 122 individual articles covering 49 unique health outcomes",
+      "found": "It updated 39 meta-analyses with 122 studies on 49 outcomes and found 25 outcomes linked to ultra-processed food intake. The strongest evidence was for decline in kidney function (OR 1.25) and childhood wheezing (OR 1.42). Diabetes, overweight, obesity, depression and common mental disorders had highly suggestive evidence.",
+      "limitations": "It is observational and draws on many of the same cohorts as other reviews; wheezing lost its top rating in sensitivity analyses, and certainty was low for several outcomes.",
+      "quote": "2 health outcomes, including renal function decline (OR: 1.25; 95% CI: 1.18, 1.33) and wheezing in children and adolescents (OR: 1.42; 95% CI: 1.34, 1.49), showed convincing evidence (Class I)",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "A search result showed the PubMed page pubmed.ncbi.nlm.nih.gov/38688162/ under this exact title. Reference lists in other PubMed records also pair PMID 38688162 with DOI 10.1016/j.clnu.2024.04.016 (Clin Nutr 2024, Epub 18 Apr 2024). On ScienceDirect and the Clinical Nutrition site the record is Clin Nutr 43(6):1386-1394, received 27 Nov 2023, accepted 11 Apr 2024, online 17 Apr 2024, with Shuhui Dai and Judith Wellens as co-first authors. The pages confirm 39 meta-analyses updated with 122 articles on 49 outcomes. No PMCID was seen; the Edinburgh repository holds a CC-BY version of record. My searches found no corrigendum, retraction or expression of concern. A preprints.org record (202308.1407) also appeared in results; the cited item is the peer-reviewed journal version. | Identity confirmed (Dai S, Wellens J, Yang N et al., Clin Nutr 2024, doi 10.1016/j.clnu.2024.04.016). The core numbers and the Class I/II outcomes match the researcher's finding. Not seen: 'No study reported a beneficial association'. The researcher left out that wheezing lost its Class I rating in sensitivity analyses and that GRADE was low for several outcomes. Quote: the snippet read 'The umbrella review identified 39 meta-analyses...' while the quote reads 'This umbrella review...', so verbatim is unconfirmed. The abstract text came from the journal or Edinburgh full text via search snippets, not from the PubMed abstract display. It supports the statement's T2D, overweight/obesity and common mental disorder associations at Class II.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/38688162/",
+          "https://www.sciencedirect.com/science/article/pii/S0261561424001225",
+          "https://www.clinicalnutritionjournal.com/article/S0261-5614(24)00122-5/fulltext",
+          "https://www.research.ed.ac.uk/en/publications/ultra-processed-foods-and-human-health-an-umbrella-review-and-upd/",
+          "https://pubmed.ncbi.nlm.nih.gov/40362869/"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/38688162/",
+          "https://www.clinicalnutritionjournal.com/article/S0261-5614(24)00122-5/fulltext",
+          "https://www.pure.ed.ac.uk/ws/portalfiles/portal/439290781/Ultra-processed_foods_DAI_DOA12042024_VOR_CC-BY.pdf"
+        ]
+      }
+    },
+    {
+      "id": "src-pagliai-2021",
+      "short": "Pagliai et al., 2021",
+      "title": "Consumption of ultra-processed foods and health status: a systematic review and meta-analysis",
+      "authors": "Pagliai G, Dinu M, Madarena MP, Bonaccio M, Iacoviello L, Sofi F",
+      "year": 2021,
+      "journal": "British Journal of Nutrition",
+      "citation": "Br J Nutr. 2021;125(3):308-318 (Epub 2020 Aug 14)",
+      "pmid": "32792031",
+      "pmcid": "PMC7844609",
+      "doi": "10.1017/S0007114520002688",
+      "url": null,
+      "design": "Systematic review and meta-analysis of observational studies: 23 studies (10 cross-sectional, 13 prospective cohort); cohorts included 183,491 participants followed 3.5-19 years. Br J Nutr 2021;125(3):308-318, PMID 32792031.",
+      "population": "Adults in cross-sectional and prospective cohort studies; follow-up 3.5 to 19 years in cohorts",
+      "sampleSize": "23 studies (10 cross-sectional, 13 prospective cohort); 19 in quantitative analysis; cohorts pooled 183,491 participants",
+      "found": "Across 23 studies, cross-sectional data linked the highest intake to more overweight/obesity (+39%), large waist size (+39%), low HDL cholesterol and metabolic syndrome. In cohorts, higher intake was linked to cerebrovascular disease (RR 1.34) and depression (RR 1.20). No significant link was found with high blood pressure, high blood sugar or high triglycerides.",
+      "limitations": "The obesity findings come only from cross-sectional studies, which cannot show which came first, and each cohort result rests on just two studies.",
+      "quote": "twenty-three studies (ten cross-sectional and thirteen prospective cohort studies) were included in the systematic review",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 32792031 matches: Pagliai G, Dinu M, Madarena MP, Bonaccio M, Iacoviello L, Sofi F, Br J Nutr 2021 Feb 14;125(3):308-318, Epub 2020 Aug 14, DOI 10.1017/S0007114520002688. It reports 23 studies (10 cross-sectional, 13 prospective cohort). The PMC and Cambridge pages agree. My search found no retraction, expression of concern or erratum. A May 2023 Cambridge University Press addendum about graphical abstracts missing from several BJN articles cites this paper only in its reference list; it does not correct the paper's content. | Identity confirmed (Pagliai G et al., Br J Nutr 2021, doi 10.1017/S0007114520002688). The cross-sectional percentages, the null results, the cohort n, cerebrovascular RR 1.34 and depression RR 1.20 all matched. NOT seen: the all-cause mortality RR 1.25 and CVD RR 1.29 that the researcher cites (the snippet was cut off), so those two numbers are unverified. The overweight/obesity association here comes from cross-sectional data only, which is weaker than prospective evidence. Quote: only the fragment shown was seen; the opening words 'At the end of the selection process' were not seen, so verbatim is unconfirmed.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/32792031/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7844609/",
+          "https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/consumption-of-ultraprocessed-foods-and-health-status-a-systematic-review-and-metaanalysis/FDCA00C0C747AA36E1860BBF69A62704"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/32792031/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7844609/"
+        ]
+      }
+    },
+    {
+      "id": "src-mendoza-2024",
+      "short": "Mendoza et al., 2024",
+      "title": "Ultra-processed foods and cardiovascular disease: analysis of three large US prospective cohorts and a systematic review and meta-analysis of prospective cohort studies",
+      "authors": "Mendoza K, Smith-Warner SA, Rossato SL, Khandpur N, Manson JE, Qi L, et al.",
+      "year": 2024,
+      "journal": "The Lancet Regional Health - Americas",
+      "citation": "Lancet Reg Health Am. 2024;37:100859",
+      "pmid": "39286398",
+      "pmcid": "PMC11403639",
+      "doi": "10.1016/j.lana.2024.100859",
+      "url": null,
+      "design": "Prospective cohort analysis of NHS (n=75,735), NHSII (n=90,813) and HPFS (n=40,409), plus a systematic review and random-effects meta-analysis of prospective cohort studies. Lancet Reg Health Am 2024;37:100859, PMID 39286398.",
+      "population": "US health professionals (NHS n=75,735; NHSII n=90,813; HPFS n=40,409) plus international prospective cohorts",
+      "sampleSize": "206,958 participants in the 3 US cohorts; meta-analysis reported (secondary sources) as 22 prospective studies, about 1.26 million participants, 63,666 CVD cases",
+      "found": "Three large US cohorts covered about 207,000 health professionals. People with the highest ultra-processed food intake had 17% higher risk of cardiovascular disease, 23% higher risk of coronary heart disease and 9% higher risk of stroke than those with the lowest. The authors rated the evidence from their meta-analysis as high for coronary heart disease, moderate for cardiovascular disease and low for stroke.",
+      "limitations": "The cohorts are US health professionals and also feed other reviews; results for different types of ultra-processed food were not verified.",
+      "quote": "17% (11%–24%), 23% (12%–34%), and 9% (3%–15%) higher CVD, CHD, and stroke risk, respectively",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PMID is confirmed only indirectly. A PubMed similar-articles listing (on the record for PMID 36466395) pairs PMID 39286398 with Lancet Reg Health Am, eCollection Sep 2024, DOI 10.1016/j.lana.2024.100859. The PMC page (PMC11403639), the Lancet page and the DOAJ page tie that DOI to this exact title. I did not see the standalone PubMed page for 39286398. The citation 'Mendoza K, Smith-Warner SA, Rossato SL, et al. Lancet Reg Health Am. 2024;37:100859' appears across sources. The abstract figures agree: 17%, 23% and 9% higher CVD, CHD and stroke risk; 22 prospective studies in the meta-analysis; evidence quality high for CHD, moderate for CVD, low for stroke. My search found no corrigendum or retraction. The DOAJ listing dates the issue September 2024. | Identity confirmed. Headline numbers and evidence-quality ratings were seen in Lancet/PMC snippets and agree with the researcher. Subgroups: Harvard news coverage confirmed that sugar-sweetened drinks and processed meats were linked to higher risk. The inverse associations (bread/cold cereals, yoghurt/dairy desserts, savoury snacks) were NOT seen. The number of studies in the meta-analysis is inconsistent across secondary sources (22 vs 19 plus 3 cohorts) and was not confirmed from the abstract. The outcome is CVD incidence (not CVD mortality). It supports the 'several adverse outcomes' and 'subgroups differ' parts of the statement. The researcher's quote ('Random-effects meta-analyses pooled...') was not seen. The verifiedQuote is a fragment and may be lightly reformatted by the search tool.",
+        "identityEvidence": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11403639/",
+          "https://www.thelancet.com/journals/lanam/article/PIIS2667-193X(24)00186-8/fulltext",
+          "https://pubmed.ncbi.nlm.nih.gov/36466395/",
+          "https://doaj.org/article/1a1b2694a34b449585468279a48d76ca",
+          "https://research.wur.nl/en/publications/ultra-processed-foods-and-cardiovascular-disease-analysis-of-thre/"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/39286398/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11403639/",
+          "https://www.thelancet.com/journals/lanam/article/PIIS2667-193X(24)00186-8/fulltext",
+          "https://www.hsph.harvard.edu/news/hsph-in-the-news/ultra-processed-foods-heart-health/",
+          "https://www.acc.org/latest-in-cardiology/articles/2025/01/01/42/prioritizing-health-ultra-processed-foods-the-enemy-in-the-food-system"
+        ]
+      }
+    },
+    {
+      "id": "src-hall-2019",
+      "short": "Hall et al., 2019",
+      "title": "Ultra-Processed Diets Cause Excess Calorie Intake and Weight Gain: An Inpatient Randomized Controlled Trial of Ad Libitum Food Intake",
+      "authors": "Hall KD, Ayuketah A, Brychta R, Cai H, Cassimatis T, Chen KY, et al.",
+      "year": 2019,
+      "journal": "Cell Metabolism",
+      "citation": "Cell Metab. 2019 Jul 2;30(1):67-77.e3 (Epub 2019 May 16)",
+      "pmid": "31105044",
+      "pmcid": "PMC7946062",
+      "doi": "10.1016/j.cmet.2019.05.008",
+      "url": null,
+      "design": "Inpatient randomised crossover controlled feeding trial, ad libitum intake, n=20 weight-stable adults (mean age 31.2, mean BMI 27), 14 days on each diet at the NIH Clinical Center (NCT03407053). Cell Metab 2019;30(1):67-77.e3, PMID 31105044.",
+      "population": "Weight-stable adults admitted to the NIH Clinical Center, Bethesda, USA",
+      "sampleSize": "20 participants; 2 weeks on each diet",
+      "found": "Twenty weight-stable adults lived on a research ward and ate as much as they wanted. They ate about 508 kcal/day more on an ultra-processed diet than on an unprocessed diet matched for presented calories, sugar, fat, sodium and fibre. Over 2 weeks per diet, they gained 0.9 kg on the ultra-processed diet and lost 0.9 kg on the unprocessed one.",
+      "limitations": "The trial was small, short and run in a controlled inpatient setting, so it cannot show long-term health effects or which features of processing cause the extra eating.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 31105044 shows this title: Cell Metab 2019 Jul 2, DOI 10.1016/j.cmet.2019.05.008, 20 weight-stable adults at the NIH Clinical Center. Retraction Watch and the NIH Director's blog corroborate it. I did not see the PMCID (PMC7946062) confirmed, so it is unverified. An erratum exists: Cell Metab 2019 Jul 2;30(1):226, DOI 10.1016/j.cmet.2019.05.020. It corrects the documented diet order in the individual meal data sheets for one subject and does not change the findings. Retraction Watch (Jan 2021) reported scrutiny from Nick Brown and the Ludwin-Peerys, who later said they were satisfied that many of the major issues appeared resolved. I found no retraction or expression of concern. | Identity confirmed (Hall KD et al., Cell Metab 2019; NCT03407053). Search snippets of the full text confirmed all key numbers. 'Energy density' matching was not seen explicitly. The researcher's quote ('Limiting consumption of ultra-processed foods may be an effective strategy...') was not seen in any snippet, so quoteVerbatim is false. The snippets were paraphrased, so no full abstract sentence was confirmed word for word; verifiedQuote is null. No retraction or erratum notice was seen, but the PubMed record display was not retrieved directly. A 2024 secondary analysis (PMID 39163976) found that diet order did not significantly affect energy balance in this UPF crossover, which supports robustness. The trial was small and short (2 weeks per arm), as the proposed statement says.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/31105044/",
+          "https://retractionwatch.com/2021/01/21/sleuths-scrutinize-high-profile-study-of-ultra-processed-foods-and-weight-gain/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7959109/",
+          "https://directorsblog.nih.gov/2019/05/21/ultra-processed-diet-leads-to-extra-calories-weight-gain/"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/31105044/",
+          "https://www.cell.com/cell-metabolism/fulltext/S1550-4131(19)30248-7",
+          "https://clinicaltrials.gov/study/NCT03407053",
+          "https://pubmed.ncbi.nlm.nih.gov/39163976/"
+        ]
+      }
+    },
+    {
+      "id": "src-dicken-2025",
+      "short": "Dicken et al., 2025",
+      "title": "Ultraprocessed or minimally processed diets following healthy dietary guidelines on weight and cardiometabolic health: a randomized, crossover trial",
+      "authors": "Dicken SJ, Jassil FC, Brown A, Kalis M, Stanley C, Ranson C, et al.",
+      "year": 2025,
+      "journal": "Nature Medicine",
+      "citation": "Nat Med. 2025;31(10):3297-3308 (Epub 2025 Aug 4)",
+      "pmid": "40760353",
+      "pmcid": "PMC12532614",
+      "doi": "10.1038/s41591-025-03842-0",
+      "url": null,
+      "design": "Randomised 2x2 crossover controlled feeding trial, free-living, ad libitum, all food provided; two 8-week diets (both following the UK Eatwell Guide) with a 4-week washout; n=55 adults in England with BMI 25 to <40 and high habitual UPF intake (UPDATE trial, NCT05627570). Nat Med 2025;31(10):3297-3308, PMID 40760353.",
+      "population": "Adults in England with BMI 25 to under 40 kg/m2 and habitual UPF intake of at least 50% of energy",
+      "sampleSize": "55 randomised (28 MPF-first, 27 UPF-first); 50 in intention-to-treat sample",
+      "found": "The trial included 55 adults in England with overweight or obesity. Both 8-week diets followed UK healthy-eating guidance and led to weight loss, but less on the ultra-processed diet (-1.05% vs -2.06%). Triglycerides improved more on the minimally processed diet, whereas LDL cholesterol fell more on the ultra-processed diet.",
+      "limitations": "It was a short trial of moderate size in one population, it has published critiques of its conclusions, and differences in energy intake were not verified.",
+      "quote": "Both diets resulted in percentage weight loss after 8 weeks, with significantly greater reductions on the MPF diet.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "A direct PubMed search by PMID returned nothing. A ClinicalTrials.gov reference table pairs PMID 40760353 with this title: Nat Med 2025 Oct;31(10):3297-3308, DOI 10.1038/s41591-025-03842-0. The Nature page (published 4 Aug 2025), the PMC page (PMC12532614) and the Nature Medicine vol 31 issue 10 page agree; first author is Dicken SJ and senior author Batterham RL. Published correspondence criticises the trial (Ludwig et al.; Robinson & Forde 'Concerns over conclusions...'; Wang & Peng; PubMed 41495405), and the authors replied (PMID 41495410). None of this is a retraction, correction or expression of concern, and I found none. | Identity confirmed (Dicken SJ et al., Nat Med 2025 Oct;31(10):3297-3308, Epub 2025 Aug 4). Point estimates (-2.06%, -1.05%, P=0.024) and the triglyceride/LDL direction matched. The CI of the difference (-1.87 to -0.14), Cohen's d and 'n=50 ITT' were not seen word for word. One secondary source wrongly said LDL improved more on MPF; snippets from the paper confirm LDL-C fell more on UPF. The proposed statement ('weight fell on both diets, but less on the ultra-processed one') matches the paper, so direction is set to supports (the researcher had 'mixed'). Matters Arising critiques (Ludwig et al.; Robinson & Forde; Wang & Peng) and an author reply (PMID 41495410) exist; no retraction seen. The researcher's long %WC quote was seen only in paraphrased form, so it is not verbatim.",
+        "identityEvidence": [
+          "https://www.nature.com/articles/s41591-025-03842-0",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12532614/",
+          "https://clinicaltrials.gov/study/NCT05627570",
+          "https://www.nature.com/nm/volumes/31/issues/10",
+          "https://www.nature.com/articles/s41591-025-04089-5",
+          "https://www.nature.com/articles/s41591-025-04087-7",
+          "https://pubmed.ncbi.nlm.nih.gov/41495410/",
+          "https://pubmed.ncbi.nlm.nih.gov/41495405/"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/41495410/",
+          "https://www.nature.com/articles/s41591-025-03842-0",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC12532614/",
+          "https://clinicaltrials.gov/study/NCT05627570",
+          "https://www.nature.com/articles/s41591-025-04087-7"
+        ]
+      }
+    },
+    {
+      "id": "src-aramburu-2024",
+      "short": "Aramburu et al., 2024",
+      "title": "Ultra-processed foods consumption and health-related outcomes: a systematic review of randomized controlled trials",
+      "authors": "Aramburu A, Alvarado-Gamarra G, Cornejo R, Curi-Quinto K, Díaz-Parra CDP, Rojas-Limache G, Lanata CF",
+      "year": 2024,
+      "journal": "Frontiers in Nutrition",
+      "citation": "Front Nutr. 2024;11:1421728 (published 26 June 2024)",
+      "pmid": null,
+      "pmcid": "PMC11233771",
+      "doi": "10.3389/fnut.2024.1421728",
+      "url": null,
+      "design": "Systematic review of randomised controlled trials with GRADE: 4 RCTs (3 educational interventions, 1 controlled feeding trial), 455 participants, median follow-up 12 weeks; searches of six databases to 22 April 2024. Front Nutr 2024;11:1421728, PMC11233771.",
+      "population": "RCTs of interventions to modify UPF intake (3 educational interventions, 1 controlled feeding trial in weight-stable adults)",
+      "sampleSize": "4 RCTs; 455 participants; median follow-up 12 weeks",
+      "found": "This review found only 4 randomised trials, with 455 participants followed for a median of 12 weeks: 3 education programmes and 1 controlled feeding trial. There was no significant effect for 30 of 42 outcomes. Eating less ultra-processed food lowered energy intake and weight in the feeding trial, and weight and waist size in the education trials, at low to varying certainty.",
+      "limitations": "The trials are too few, small and short to confirm or rule out health effects, and the single feeding trial is probably Hall 2019, so it is not independent evidence.",
+      "quote": "No significant effects were observed in 30 out of the 42 outcomes evaluated.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "No PMID was given, and three searches (including extended PubMed title searches) did not surface one, so the PMID is still missing and I did not fill it in. The DOI 10.3389/fnut.2024.1421728 resolves on frontiersin.org to this title. The PMC page (PMC11233771) agrees: Front Nutr 2024 Jun 26;11:1421728, authors Aramburu, Alvarado-Gamarra, Cornejo, Curi-Quinto, Díaz-Parra, Rojas-Limache, Lanata. The pages confirm 4 RCTs (3 educational, 1 controlled feeding), 455 participants, median 12 weeks, and no significant effect in 30 of 42 outcomes. The journal is peer-reviewed and the article is in PMC with a Crossref DOI. My search for retraction, correction, erratum or expression of concern found none; the only 'Correction' hit concerns a different paper. | Identity confirmed (Aramburu A et al., Front Nutr, 26 June 2024, doi 10.3389/fnut.2024.1421728). No PMID was checked. Design, counts and the 30/42 null finding were confirmed, and the quote appeared word for word in the search snippet. The authors' wording that 'well-designed clinical trials are needed' was not seen verbatim, but the review's framing (few, small trials) was. It directly supports the statement's caveat that randomised trial evidence on health outcomes is sparse and short-term, so direction is supports rather than mixed. The single controlled feeding trial is presumably Hall 2019 (not named in the snippet).",
+        "identityEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11233771/",
+          "https://frontiersin.org/articles/10.3389/fnut.2024.1421728/full",
+          "https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2024.1421728/pdf",
+          "https://zenodo.org/records/13932156",
+          "https://cris.upc.edu.pe/en/publications/ultra-processed-foods-consumption-and-health-related-outcomes-a-s/"
+        ],
+        "supportEvidence": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11233771/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11233771/"
+        ]
       }
     }
   ]

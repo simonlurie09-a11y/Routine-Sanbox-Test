@@ -22,13 +22,13 @@ How this version was checked: one agent searched for evidence for and against ea
 | [HRV-guided endurance training](#recovery-hrv-guided-endurance-training) | Not enough evidence yet | 0 |
 | [Short sleep and next-day performance](#recovery-sleep-loss-impairs-performance) | Not enough evidence yet | 0 |
 | [How accurate wearables are](#wearables-measurement-validity) | Not enough evidence yet | 0 |
+| [Free sugars](#nutrition-free-sugars-and-health) | Enough verified evidence | 4 |
+| [Salt and blood pressure](#nutrition-sodium-reduction-blood-pressure) | Enough verified evidence | 3 |
+| [Ultra-processed food](#nutrition-ultra-processed-food-associations) | Enough verified evidence | 7 |
 | [Protein for muscle gain](#nutrition-protein-intake-for-muscle-gain) | Not enough evidence yet | 0 |
 | [Daily fibre](#nutrition-fibre-intake-target) | Not enough evidence yet | 0 |
 | [Protein and kidney function](#nutrition-high-protein-kidney-function-healthy) | Not enough evidence yet | 0 |
-| [Free sugars](#nutrition-free-sugars-and-health) | Not enough evidence yet | 0 |
-| [Salt and blood pressure](#nutrition-sodium-reduction-blood-pressure) | Not enough evidence yet | 0 |
 | [Saturated fat and heart disease](#nutrition-saturated-fat-replacement-cvd) | Not enough evidence yet | 0 |
-| [Ultra-processed food](#nutrition-ultra-processed-food-associations) | Not enough evidence yet | 0 |
 
 ## More weekly sets for a low-volume muscle
 <a id="hypertrophy-volume-raise-low-weekly-sets"></a>
@@ -525,6 +525,187 @@ How this version was checked: one agent searched for evidence for and against ea
 
 
 
+## Free sugars
+<a id="nutrition-free-sugars-and-health"></a>
+
+`nutrition.free_sugars_and_health` · **Enough verified evidence**
+
+**Claim.** Higher free sugar intake is linked to worse health, though most evidence beyond weight and tooth decay is observational and low quality. In adults on unrestricted diets, cutting free sugars lowers weight only slightly (about 0.8 kg on average, through eating fewer calories overall), and keeping free sugars below 10% of daily energy is linked to less tooth decay (moderate-quality evidence).
+
+**Who it applies to.** Weight effect: adults on unrestricted (ad libitum) diets. Trials in children showed no overall weight change. Tooth decay (caries) link: children and adults. The wider links to disease come mostly from observational studies in general populations.
+
+**What the app does with it.** Explains the sugar line in food ratings.
+
+**Why this status.** Active, but narrowed. Four counted sources agree in direction. Te Morenga 2013 found about 0.8 kg less weight in adults on unrestricted diets, explained by lower calorie intake, with no overall effect in children. Moynihan & Kelly 2014 and its update Moores 2022 found moderate-quality evidence of less tooth decay below 10% of energy. The Huang 2023 umbrella review found mostly harmful associations, largely from low-quality observational data. The support is less independent than the count of four suggests: Moores updates Moynihan with overlapping data, Huang pools earlier meta-analyses, and the weight figure rests on one meta-analysis. So the statement stays modest and leaves out the WHO recommendation (not a peer-reviewed journal source) and the 5% target (low or very-low-quality evidence). Erickson 2017 (industry-funded) and Yan 2022 (a narrative review) question how strong the guideline evidence is, but they do not reverse the direction of effect, so they do not outweigh the counted sources.
+
+### Supporting studies
+
+- **Te Morenga et al., 2013.** Dietary sugars and body weight: systematic review and meta-analyses of randomised controlled trials and cohort studies. *BMJ* BMJ. 2013;346:e7492 (PubMed lists e-publication 2012 Jan 15). PMID [23321486](https://pubmed.ncbi.nlm.nih.gov/23321486/) · DOI [10.1136/bmj.e7492](https://doi.org/10.1136/bmj.e7492)
+  - Design: Systematic review and meta-analyses of randomised controlled trials and prospective cohort studies in free-living adults and children (Te Morenga, Mallard, Mann; BMJ 2013;346:e7492, PMID 23321486; PubMed lists the date as 2012 Jan 15). My searches did not show the counts of 30 RCTs and 38 cohort studies (30 RCTs (of 7,895 trials screened) and 38 cohort studies (of 9,445 screened); a secondary DARE-based summary reports about 4,960 trial participants).
+  - What it found: Pooling randomised trials and cohort studies, it found that adults on unrestricted diets who cut sugars lost about 0.8 kg on average (95% CI 0.39 to 1.21 kg), and those who added sugars gained about 0.75 kg. Swapping sugars for other carbohydrates at the same calories made no difference (0.04 kg), so the effect seems to come from eating fewer calories, and trials in children showed no overall weight change.
+  - Limitations: Most trials were short (around 10 weeks) and unblinded, publication bias was detected, and the adult weight figure comes from this single meta-analysis.
+  - Checks: all six passed, 2026-10-14.
+- **Moynihan and Kelly, 2014.** Effect on caries of restricting sugars intake: systematic review to inform WHO guidelines. *Journal of Dental Research* J Dent Res. 2014;93(1):8-18. PMID [24323509](https://pubmed.ncbi.nlm.nih.gov/24323509/) · PMCID PMC3872848 · DOI [10.1177/0022034513508954](https://doi.org/10.1177/0022034513508954)
+  - Design: Systematic review commissioned to inform WHO guidelines, following PRISMA with GRADE assessment. Of 5,990 papers, 55 studies were eligible: 3 intervention, 8 cohort, 20 population and 24 cross-sectional (the DARE summary gives 21 population and 23 cross-sectional). Variability in the data limited meta-analysis. Per DARE, GRADE was applied to the cohort studies only. Moynihan PJ, Kelly SA. J Dent Res 2014;93(1):8-18, PMID 24323509, PMC3872848 (Number of included studies and participants not seen in search results).
+  - What it found: This review of 55 studies, commissioned to inform WHO guidelines, found moderate-quality evidence that tooth decay is lower when free sugars are below 10% of energy. At least one link between sugar and decay appeared in 42 of 50 child studies and all 5 adult studies, while evidence for a further benefit below 5% was rated very low quality.
+  - Limitations: Most included studies were observational and too varied to pool, so it shows an association rather than proof that cutting sugar prevents decay.
+  - Checks: all six passed, 2026-10-14.
+- **Moores et al., 2022.** Systematic Review of the Effect on Caries of Sugars Intake: Ten-Year Update. *Journal of Dental Research* J Dent Res. 2022;101(9):1034-1045. DOI [10.1177/00220345221082918](https://doi.org/10.1177/00220345221082918)
+  - Design: Systematic review, a ten-year update covering studies from about 2011 to 2020, with GRADE profiles of new and original cohort data. Moores CJ, Kelly SAM, Moynihan PJ. J Dent Res 2022;101(9):1034-1045, DOI 10.1177/00220345221082918. I did not see a PMID or the number of included studies (Number of included studies and participants not seen in search results).
+  - What it found: This 10-year update (studies from about 2011 to 2020) again found moderate-quality evidence for less tooth decay when sugars are below 10% of energy. New cohort data upgraded the evidence for below 5% from very low to low quality.
+  - Limitations: It comes from the same research group and reuses cohort data from the 2014 review, so it is not independent confirmation.
+  - Checks: all six passed, 2026-10-14.
+- **Huang et al., 2023.** Dietary sugar consumption and health: umbrella review. *BMJ* BMJ. 2023 Apr 5;381:e071609. doi: 10.1136/bmj-2022-071609. PMID [37019448](https://pubmed.ncbi.nlm.nih.gov/37019448/) · PMCID PMC10074550 · DOI [10.1136/bmj-2022-071609](https://doi.org/10.1136/bmj-2022-071609)
+  - Design: Umbrella review of 73 meta-analyses of observational studies and RCTs, covering 83 health outcomes from 8,601 unique articles (Huang Y et al., BMJ 2023, published 5 April 2023, doi 10.1136/bmj-2022-071609, PMID 37019448, PMC10074550) (73 meta-analyses covering 83 health outcomes, drawn from 8,601 unique articles (74 outcomes from observational meta-analyses, 9 from RCT meta-analyses)).
+  - What it found: This umbrella review of 73 meta-analyses covering 83 health outcomes found 45 significant harmful links between dietary sugar and disease, mostly cardiometabolic, and 4 beneficial ones. The authors concluded that high sugar intake is generally more harmful than beneficial and suggested keeping free or added sugars under 25 g a day.
+  - Limitations: Most of the evidence it pools is observational and low quality, it overlaps with earlier reviews, and the 25 g limit is the authors' suggestion rather than a tested threshold.
+  - Checks: all six passed, 2026-10-14.
+
+### Contradicting or mixed evidence
+
+- **Erickson et al., 2017.** The Scientific Basis of Guideline Recommendations on Sugar Intake: A Systematic Review. *Annals of Internal Medicine* Ann Intern Med. 2017;166(4):257-267. PMID [27992898](https://pubmed.ncbi.nlm.nih.gov/27992898/) · DOI [10.7326/M16-2020](https://doi.org/10.7326/M16-2020)
+  - Design: Systematic review of dietary guidelines on sugar intake. MEDLINE, EMBASE, Web of Science, guideline registries and grey literature were searched for English-language guidelines from 1995 to 2016. 9 guidelines with 12 recommendations were included. Guideline quality was rated with AGREE II by three independent reviewers, and evidence quality with GRADE. Erickson J et al. Ann Intern Med 2017;166(4):257-267, PMID 27992898, DOI 10.7326/M16-2020 (Number of guidelines not seen in search results).
+  - What it found: This review of 9 sugar guidelines (12 recommendations, 1995 to 2016) found that they scored poorly on standard quality criteria and rested on low to very-low quality evidence. It concluded that they do not meet criteria for trustworthy recommendations.
+  - Limitations: It judges how the guidelines were made rather than testing whether sugar harms health, it was funded by an industry body (ILSI North America), and an accompanying editorial disputed its methods.
+  - Checks: the abstract supports the stated finding: unknown.
+- **Yan et al., 2022.** Current WHO recommendation to reduce free sugar intake from all sources to below 10% of daily energy intake for supporting overall health is not well supported by available evidence. *American Journal of Clinical Nutrition* Am J Clin Nutr. 2022 Jul 6;116(1):15-39. doi: 10.1093/ajcn/nqac084. PMID [35380611](https://pubmed.ncbi.nlm.nih.gov/35380611/) · PMCID PMC9307988 · DOI [10.1093/ajcn/nqac084](https://doi.org/10.1093/ajcn/nqac084)
+  - Design: Narrative review (Yan RR, Chan CB, Louie JCY. Am J Clin Nutr 2022, DOI 10.1093/ajcn/nqac084, PMC9307988). This is not a strong design.
+  - What it found: This review argues that the 10% limit is poorly supported for overall health. In its account, the evidence linking sugar to obesity comes mostly from sugary drinks, and studies of sugar in solid foods mostly found no effect.
+  - Limitations: It is a narrative rather than a systematic review, a correction was later published, and other researchers said it misrepresented their work.
+  - Checks: strong study design: fail; the abstract supports the stated finding: fail.
+
+### Context
+
+- **Malik et al., 2013.** Sugar-sweetened beverages and weight gain in children and adults: a systematic review and meta-analysis. *American Journal of Clinical Nutrition* Am J Clin Nutr. 2013 Oct;98(4):1084-102. doi: 10.3945/ajcn.113.058362. Epub 2013 Aug 21. PMID [23966427](https://pubmed.ncbi.nlm.nih.gov/23966427/) · DOI [10.3945/ajcn.113.058362](https://doi.org/10.3945/ajcn.113.058362)
+  - Design: Systematic review and meta-analysis of prospective cohort studies and RCTs on SSB intake and weight (PubMed, EMBASE and Cochrane searched through March 2013). Malik VS, Pan A, Willett WC, Hu FB. Am J Clin Nutr 2013;98(4):1084-102, doi 10.3945/ajcn.113.058362. I did not see the number of included studies.
+  - What it found: This meta-analysis of cohort studies and trials concluded that sugar-sweetened drinks promote weight gain in children and adults. In child trials, cutting these drinks slowed the gain in BMI.
+  - Limitations: It covers sugary drinks only, not free sugars in general, and our checks did not confirm its pooled effect sizes.
+  - Checks: the abstract supports the stated finding: fail.
+- **World Health Organization, 2015.** Guideline: Sugars intake for adults and children. *World Health Organization guideline (NCBI Bookshelf); not a peer-reviewed journal article* Geneva: WHO; 2015. 
+  - Design: WHO guideline using GRADE (Guideline: Sugars intake for adults and children, WHO, Geneva 2015; indexed in PubMed as PMID 25905159 and on NCBI Bookshelf). It is not published in a peer-reviewed journal (Based on the WHO-commissioned systematic reviews (including Te Morenga 2013 and Moynihan & Kelly 2014)).
+  - What it found: The WHO strongly recommends keeping free sugars below 10% of total energy for adults and children and conditionally suggests going below 5%. The recommendations rest mainly on evidence about weight gain and tooth decay.
+  - Limitations: It is a guideline, not a peer-reviewed journal article, so it explains the official advice but does not count as independent evidence for the claim.
+  - Checks: identifier resolves to this paper: unknown; strong study design: fail; peer-reviewed and indexed: fail; no retraction or expression of concern found: unknown; the abstract supports the stated finding: unknown.
+
+**What would change the status.** The active status rests on few independent bodies of evidence: one trial meta-analysis for weight (Te Morenga 2013) and, for tooth decay, one review plus its own non-independent update (Moynihan 2014, Moores 2022). Huang 2023 largely re-pools earlier work. The following would strengthen or test the claim:
+(1) A recent independent or Cochrane meta-analysis of randomised trials on free sugars and body weight, ideally separating sugars in drinks from sugars in solid food. This would test Yan 2022's argument directly.
+(2) An independent caries review, or causal evidence. The Mendelian randomisation study (PMID 41430990) found no strong evidence that genetically predicted sugar intake causes caries. Its journal and year need confirming and it should be properly assessed, because a robust null result would weaken the caries element.
+(3) Missing details: Malik 2013's pooled effect sizes and Moores 2022's PMID. A dedicated Retraction Watch check was not run for each paper, although title searches found no retraction notices.
+What would change the claim:
+- Adding the WHO under-10% recommendation to the statement would need a peer-reviewed source that states it.
+- Presenting the under-5% target as evidence-backed would need moderate-quality or better evidence.
+- The status should return to draft if an independent high-quality review or strong causal evidence found no weight or caries benefit from keeping free sugars below 10% of energy.
+
+## Salt and blood pressure
+<a id="nutrition-sodium-reduction-blood-pressure"></a>
+
+`nutrition.sodium_reduction_blood_pressure` · **Enough verified evidence**
+
+**Claim.** Eating less salt lowers blood pressure on average in adults. In pooled randomised trials, systolic pressure fell by about 3 to 4 mm Hg.
+
+**Who it applies to.** Adults in randomised trials, mostly in high-income countries, including people with and without high blood pressure. The statement does not give a separate effect for people with normal blood pressure. It has not been verified for children or for people with chronic kidney disease.
+
+**What the app does with it.** Explains the salt line in food ratings.
+
+**Why this status.** Three verified BMJ meta-analyses of randomised trials (He 2013, Huang 2020 and Aburto 2013) agree that eating less salt lowers blood pressure in adults. Their pooled systolic falls are about 3.4 to 4.3 mm Hg, so this narrowed statement is active for explanatory use. Only two counted reviews (He 2013 and Huang 2020) back the researcher's split by blood pressure status and the dose-response finding. Aburto 2013 did not confirm the split, and the older Midgley 1996 analysis found only about 1.0/0.1 mm Hg per 100 mmol in trials of people with normal blood pressure, so the claim and its size for people without high blood pressure stay out of the active statement. The three reviews pool overlapping trials and results vary a lot between trials (I² up to 75%). No evidence against lower blood pressure was seen, but the Graudal Cochrane review, the main source arguing the effect is small, was not checked.
+
+### Supporting studies
+
+- **He et al., 2013.** Effect of longer term modest salt reduction on blood pressure: Cochrane systematic review and meta-analysis of randomised trials. *BMJ* BMJ. 2013 Apr 3;346:f1325. (Also published as Cochrane Database Syst Rev 2013, Issue 4, Art. No. CD004937, doi 10.1002/14651858.CD004937.pub2). PMID [23558162](https://pubmed.ncbi.nlm.nih.gov/23558162/) · DOI [10.1136/bmj.f1325](https://doi.org/10.1136/bmj.f1325)
+  - Design: Cochrane systematic review and meta-analysis of randomised trials of modest salt reduction lasting 4 or more weeks (BMJ 2013;346:f1325, PMID 23558162; also Cochrane CD004937.pub2). The trial count and participant total (34 trials, 3230 participants per the researcher) did not appear in my search results (34 trials, 3230 participants).
+  - What it found: In trials lasting at least four weeks, eating about 4.4 g less salt a day lowered systolic blood pressure by about 4.2 mm Hg and diastolic by about 2.1 mm Hg. The fall was larger in people with high blood pressure (about 5.4 mm Hg systolic) than in those with normal blood pressure (about 2.4 mm Hg).
+  - Limitations: Results varied a lot between trials (I² 75%), and many of its trials are also in the other reviews, so it is not fully independent evidence.
+  - Checks: all six passed, 2026-10-14.
+- **Huang et al., 2020.** Effect of dose and duration of reduction in dietary sodium on blood pressure levels: systematic review and meta-analysis of randomised trials. *BMJ* BMJ. 2020;368:m315. doi:10.1136/bmj.m315. PMCID PMC7190039 · DOI [10.1136/bmj.m315](https://doi.org/10.1136/bmj.m315)
+  - Design: Systematic review and dose-response meta-analysis of randomised trials of reduced vs usual dietary sodium (BMJ 2020;368:m315, doi 10.1136/bmj.m315, PMC7190039). A citing protocol paper (PMC8724716) describes it as 133 randomised trials with 12,197 participants. I did not see those totals in the abstract itself (Number of trials and participants not seen in search results).
+  - What it found: Each 50 mmol a day less sodium (about 2.9 g of salt) went with about 1.1 mm Hg lower systolic blood pressure, in people with and without high blood pressure. The fall was larger in older people, non-white people and people who started with higher blood pressure, and short trials underestimated the effect.
+  - Limitations: It includes very short trials and shares many trials with He 2013, and its trial and participant totals were confirmed only from a paper that cites it.
+  - Checks: all six passed, 2026-10-14.
+- **Aburto et al., 2013.** Effect of lower sodium intake on health: systematic review and meta-analyses. *BMJ* BMJ. 2013 Apr 3;346:f1326. PMID [23558163](https://pubmed.ncbi.nlm.nih.gov/23558163/) · DOI [10.1136/bmj.f1326](https://doi.org/10.1136/bmj.f1326)
+  - Design: Systematic review and meta-analyses of randomised controlled trials and prospective cohort studies in non-acutely ill adults and children (outcomes: BP, renal function, blood lipids, catecholamines; mortality and cardiovascular outcomes in adults). BMJ 2013;346:f1326, PMID 23558163. Trial and participant counts were not seen (37 RCTs in adults for BP, renal function, blood lipids and catecholamines; participant total not seen).
+  - What it found: In adults, eating less sodium lowered systolic blood pressure by about 3.4 mm Hg and diastolic by about 1.5 mm Hg, and going below 2 g of sodium a day lowered systolic pressure by about 3.5 mm Hg. It found no significant harm to blood fats.
+  - Limitations: The split between people with and without high blood pressure was not confirmed from this review, and its main figure was seen in a UK government report that cites it rather than in the abstract itself.
+  - Checks: all six passed, 2026-10-14.
+
+### Context
+
+- **Midgley et al., 1996.** Effect of reduced dietary sodium on blood pressure: a meta-analysis of randomized controlled trials. *JAMA* JAMA. 1996 May;275(20):1590-7. doi:10.1001/jama.1996.03530440070039. PMID [8622251](https://pubmed.ncbi.nlm.nih.gov/8622251/) · DOI [10.1001/jama.1996.03530440070039](https://doi.org/10.1001/jama.1996.03530440070039)
+  - Design: Meta-analysis of 56 randomised controlled trials (28 trials, 1131 hypertensive subjects; 28 trials, 2374 normotensive subjects) with timed urinary sodium monitoring. Midgley JP, Matthew AG, Greenwood CM, Logan AG. JAMA 1996;275(20):1590-7, PMID 8622251.
+  - What it found: An older pooled analysis of 56 trials found that 100 mmol a day less sodium (about 6 g of salt) lowered blood pressure by about 3.7/0.9 mm Hg in people with high blood pressure, but only about 1.0/0.1 mm Hg in people with normal blood pressure.
+  - Limitations: It dates from 1996, includes short trials and showed signs of publication bias, and the statistical significance of the normal-blood-pressure result was not seen.
+  - Checks: the abstract supports the stated finding: unknown.
+
+**What would change the status.** 1. To say the effect holds for people with normal blood pressure, and to give separate sizes for people with and without high blood pressure, the app needs a third verified source with results for people with normal blood pressure. Candidates are the Graudal Cochrane review (low- vs high-sodium diet), Filippini 2021 (Circulation, dose-response) and the DASH-Sodium trial (Sacks 2001, NEJM). The Graudal review must be checked either way, because it is the strongest likely mixed or contradicting source.
+2. The dose-response figure (about 1.1 mm Hg per 50 mmol) and the claim that longer trials show bigger effects each need a third verified source, such as Filippini 2021 or Gupta 2023 (JAMA crossover trial).
+3. Children, people with chronic kidney disease and populations in low- and middle-income countries are not covered. The children's meta-analysis (IJE 2018) was dropped as unverified.
+4. Effects on heart attack, stroke or death, including the J-curve debate about very low sodium, were not assessed. Any app claim about these needs separate evidence.
+5. A numeric salt target needs peer-reviewed support. The WHO under 5 g salt a day target was seen only on a web page that is not peer-reviewed, and He 2013's 3 g target was not verified.
+6. Mizuta 2025 (Hypertension Research) needs its identifier, metadata and retraction status verified.
+7. Huang 2020's PMID, Aburto 2013's PMCID and participant counts, and some confidence intervals were not confirmed.
+8. Dedicated retraction searches were limited.
+9. The three counted reviews pool overlapping trials, so a fully independent confirmation, such as a large well-run trial, would strengthen the claim.
+
+## Ultra-processed food
+<a id="nutrition-ultra-processed-food-associations"></a>
+
+`nutrition.ultra_processed_food_associations` · **Enough verified evidence**
+
+**Claim.** In meta-analyses of observational studies in adults, diets higher in ultra-processed foods (NOVA group 4) are associated with higher risk of several adverse outcomes. These include cardiovascular disease and death, death from any cause, type 2 diabetes, overweight and obesity, and depression or other common mental disorders. Certainty is mostly rated low or very low (one review rates type 2 diabetes as moderate). These studies show association, not cause, and they describe whole diets, not individual foods. Trial evidence is sparse and short-term. In one inpatient trial (20 adults, 2 weeks per diet), people ate about 500 kcal/day more on an ultra-processed diet than on an unprocessed diet matched for presented nutrients. In an 8-week trial in 55 adults, both diets followed healthy-eating guidance; weight fell on both, but less on the ultra-processed diet.
+
+**Who it applies to.** Adults in the prospective observational cohorts pooled by the meta-analyses. Ultra-processed food intake was classified with NOVA from reported diet. The Mendoza 2024 cohorts are US health professionals, and the reviews pool many of the same cohorts. Trial findings come from 20 weight-stable US adults on an inpatient ward (Hall 2019) and from 55 adults in England with BMI 25 to under 40 and high habitual ultra-processed food intake (Dicken 2025). Not established for children, pregnancy, individual foods or subgroups of ultra-processed foods.
+
+**What the app does with it.** Explains the processing line in food ratings. We describe processing; we never judge a food.
+
+**Why this status.** The status is active, for explanatory use only. Four counted observational syntheses agree that higher ultra-processed food intake is linked to worse outcomes: Lane 2024, Dai 2024, Pagliai 2021 and Mendoza 2024. Hall 2019 and Dicken 2025 support the trial description. However, the reviews pool overlapping cohorts, most certainty ratings are low or very low, and none can show cause. Aramburu 2024 found only 4 small, short randomised trials, with no significant effect for 30 of 42 outcomes. Dicken 2025 found that LDL cholesterol fell more on the ultra-processed diet. The 2025 US Dietary Guidelines Advisory Committee review is not counted because it failed verification; it rated the evidence in children as only 'limited'. The statement therefore stays associative and says nothing about individual foods.
+
+### Supporting studies
+
+- **Lane et al., 2024.** Ultra-processed food exposure and adverse health outcomes: umbrella review of epidemiological meta-analyses. *BMJ* BMJ. 2024;384:e077310. PMID [38418082](https://pubmed.ncbi.nlm.nih.gov/38418082/) · PMCID PMC10899807 · DOI [10.1136/bmj-2023-077310](https://doi.org/10.1136/bmj-2023-077310)
+  - Design: Umbrella review of epidemiological meta-analyses (mostly observational, largely prospective cohort data), with evidence-class grading (I-IV/V) plus GRADE; 45 unique pooled analyses (13 dose-response, 32 non-dose-response), n=9,888,373. BMJ 2024;384:e077310, PMID 38418082 (14 meta-analyses, 45 unique pooled analyses (13 dose-response, 32 non-dose-response); n = 9,888,373).
+  - What it found: This umbrella review pooled 45 analyses covering about 9.9 million people. Higher ultra-processed food intake was linked to higher risk of cardiovascular death (RR 1.50, very low certainty), type 2 diabetes (RR 1.12 in dose-response analysis, moderate certainty) and anxiety. Evidence was weaker for death from any cause (RR 1.21, low certainty), depression and obesity.
+  - Limitations: It rests on observational studies with mostly self-reported diet and overlapping cohorts, so it shows association, not cause, and most outcomes were rated low or very low certainty.
+  - Checks: all six passed, 2026-10-14.
+- **Dai et al., 2024.** Ultra-processed foods and human health: An umbrella review and updated meta-analyses of observational evidence. *Clinical Nutrition* Clin Nutr. 2024 Jun;43(6):1386-1394. PMID [38688162](https://pubmed.ncbi.nlm.nih.gov/38688162/) · DOI [10.1016/j.clnu.2024.04.016](https://doi.org/10.1016/j.clnu.2024.04.016)
+  - Design: Umbrella review with updated meta-analyses of observational studies: 39 meta-analyses identified, updated with 122 individual articles covering 49 unique health outcomes; credibility classes I-IV plus GRADE. Clin Nutr 2024;43(6):1386-1394, PMID 38688162 (39 meta-analyses updated with 122 individual articles covering 49 unique health outcomes).
+  - What it found: It updated 39 meta-analyses with 122 studies on 49 outcomes and found 25 outcomes linked to ultra-processed food intake. The strongest evidence was for decline in kidney function (OR 1.25) and childhood wheezing (OR 1.42). Diabetes, overweight, obesity, depression and common mental disorders had highly suggestive evidence.
+  - Limitations: It is observational and draws on many of the same cohorts as other reviews; wheezing lost its top rating in sensitivity analyses, and certainty was low for several outcomes.
+  - Checks: all six passed, 2026-10-14.
+- **Pagliai et al., 2021.** Consumption of ultra-processed foods and health status: a systematic review and meta-analysis. *British Journal of Nutrition* Br J Nutr. 2021;125(3):308-318 (Epub 2020 Aug 14). PMID [32792031](https://pubmed.ncbi.nlm.nih.gov/32792031/) · PMCID PMC7844609 · DOI [10.1017/S0007114520002688](https://doi.org/10.1017/S0007114520002688)
+  - Design: Systematic review and meta-analysis of observational studies: 23 studies (10 cross-sectional, 13 prospective cohort); cohorts included 183,491 participants followed 3.5-19 years. Br J Nutr 2021;125(3):308-318, PMID 32792031 (23 studies (10 cross-sectional, 13 prospective cohort); 19 in quantitative analysis; cohorts pooled 183,491 participants).
+  - What it found: Across 23 studies, cross-sectional data linked the highest intake to more overweight/obesity (+39%), large waist size (+39%), low HDL cholesterol and metabolic syndrome. In cohorts, higher intake was linked to cerebrovascular disease (RR 1.34) and depression (RR 1.20). No significant link was found with high blood pressure, high blood sugar or high triglycerides.
+  - Limitations: The obesity findings come only from cross-sectional studies, which cannot show which came first, and each cohort result rests on just two studies.
+  - Checks: all six passed, 2026-10-14.
+- **Mendoza et al., 2024.** Ultra-processed foods and cardiovascular disease: analysis of three large US prospective cohorts and a systematic review and meta-analysis of prospective cohort studies. *The Lancet Regional Health - Americas* Lancet Reg Health Am. 2024;37:100859. PMID [39286398](https://pubmed.ncbi.nlm.nih.gov/39286398/) · PMCID PMC11403639 · DOI [10.1016/j.lana.2024.100859](https://doi.org/10.1016/j.lana.2024.100859)
+  - Design: Prospective cohort analysis of NHS (n=75,735), NHSII (n=90,813) and HPFS (n=40,409), plus a systematic review and random-effects meta-analysis of prospective cohort studies. Lancet Reg Health Am 2024;37:100859, PMID 39286398 (206,958 participants in the 3 US cohorts; meta-analysis reported (secondary sources) as 22 prospective studies, about 1.26 million participants, 63,666 CVD cases).
+  - What it found: Three large US cohorts covered about 207,000 health professionals. People with the highest ultra-processed food intake had 17% higher risk of cardiovascular disease, 23% higher risk of coronary heart disease and 9% higher risk of stroke than those with the lowest. The authors rated the evidence from their meta-analysis as high for coronary heart disease, moderate for cardiovascular disease and low for stroke.
+  - Limitations: The cohorts are US health professionals and also feed other reviews; results for different types of ultra-processed food were not verified.
+  - Checks: all six passed, 2026-10-14.
+- **Hall et al., 2019.** Ultra-Processed Diets Cause Excess Calorie Intake and Weight Gain: An Inpatient Randomized Controlled Trial of Ad Libitum Food Intake. *Cell Metabolism* Cell Metab. 2019 Jul 2;30(1):67-77.e3 (Epub 2019 May 16). PMID [31105044](https://pubmed.ncbi.nlm.nih.gov/31105044/) · PMCID PMC7946062 · DOI [10.1016/j.cmet.2019.05.008](https://doi.org/10.1016/j.cmet.2019.05.008)
+  - Design: Inpatient randomised crossover controlled feeding trial, ad libitum intake, n=20 weight-stable adults (mean age 31.2, mean BMI 27), 14 days on each diet at the NIH Clinical Center (NCT03407053). Cell Metab 2019;30(1):67-77.e3, PMID 31105044 (20 participants; 2 weeks on each diet).
+  - What it found: Twenty weight-stable adults lived on a research ward and ate as much as they wanted. They ate about 508 kcal/day more on an ultra-processed diet than on an unprocessed diet matched for presented calories, sugar, fat, sodium and fibre. Over 2 weeks per diet, they gained 0.9 kg on the ultra-processed diet and lost 0.9 kg on the unprocessed one.
+  - Limitations: The trial was small, short and run in a controlled inpatient setting, so it cannot show long-term health effects or which features of processing cause the extra eating.
+  - Checks: all six passed, 2026-10-14.
+- **Dicken et al., 2025.** Ultraprocessed or minimally processed diets following healthy dietary guidelines on weight and cardiometabolic health: a randomized, crossover trial. *Nature Medicine* Nat Med. 2025;31(10):3297-3308 (Epub 2025 Aug 4). PMID [40760353](https://pubmed.ncbi.nlm.nih.gov/40760353/) · PMCID PMC12532614 · DOI [10.1038/s41591-025-03842-0](https://doi.org/10.1038/s41591-025-03842-0)
+  - Design: Randomised 2x2 crossover controlled feeding trial, free-living, ad libitum, all food provided; two 8-week diets (both following the UK Eatwell Guide) with a 4-week washout; n=55 adults in England with BMI 25 to <40 and high habitual UPF intake (UPDATE trial, NCT05627570). Nat Med 2025;31(10):3297-3308, PMID 40760353 (55 randomised (28 MPF-first, 27 UPF-first); 50 in intention-to-treat sample).
+  - What it found: The trial included 55 adults in England with overweight or obesity. Both 8-week diets followed UK healthy-eating guidance and led to weight loss, but less on the ultra-processed diet (-1.05% vs -2.06%). Triglycerides improved more on the minimally processed diet, whereas LDL cholesterol fell more on the ultra-processed diet.
+  - Limitations: It was a short trial of moderate size in one population, it has published critiques of its conclusions, and differences in energy intake were not verified.
+  - Checks: all six passed, 2026-10-14.
+- **Aramburu et al., 2024.** Ultra-processed foods consumption and health-related outcomes: a systematic review of randomized controlled trials. *Frontiers in Nutrition* Front Nutr. 2024;11:1421728 (published 26 June 2024). PMCID PMC11233771 · DOI [10.3389/fnut.2024.1421728](https://doi.org/10.3389/fnut.2024.1421728)
+  - Design: Systematic review of randomised controlled trials with GRADE: 4 RCTs (3 educational interventions, 1 controlled feeding trial), 455 participants, median follow-up 12 weeks; searches of six databases to 22 April 2024. Front Nutr 2024;11:1421728, PMC11233771 (4 RCTs; 455 participants; median follow-up 12 weeks).
+  - What it found: This review found only 4 randomised trials, with 455 participants followed for a median of 12 weeks: 3 education programmes and 1 controlled feeding trial. There was no significant effect for 30 of 42 outcomes. Eating less ultra-processed food lowered energy intake and weight in the feeding trial, and weight and waist size in the education trials, at low to varying certainty.
+  - Limitations: The trials are too few, small and short to confirm or rule out health effects, and the single feeding trial is probably Hall 2019, so it is not independent evidence.
+  - Checks: all six passed, 2026-10-14.
+
+**What would change the status.** 1) Causal evidence is missing. Larger, longer randomised trials are needed that measure health outcomes, not just energy intake and weight, and that separate processing from nutrient content, energy density and palatability. The planned replication by Hall's group (NCT05290064) has no published results.
+2) Observational exposure is weak. Cohorts that measure ultra-processed food intake better (repeated or objective measures rather than one self-report), and independent cohorts outside the US and Europe, would reduce the overlap between Lane, Dai, Pagliai and Mendoza.
+3) Subgroup results are unverified. Mendoza 2024 subgroup hazard ratios (including the reported inverse links for bread/cold cereals and yoghurt/dairy desserts) need checking before the app says anything about types of ultra-processed food.
+4) Some figures need checking before they can be cited: Pagliai 2021 all-cause mortality RR 1.25 and CVD RR 1.29, and the Lane 2024 effect sizes for anxiety and common mental disorders.
+5) Identifier gaps: the PMID for Aramburu 2024, the PMCID for Hall 2019 and the standalone PubMed page for Mendoza 2024.
+6) Children and pregnancy need peer-reviewed, verified evidence. The DGAC report graded the evidence in children as only limited and could not reach a conclusion for pregnancy.
+7) The Matters Arising critiques of Dicken 2025, the authors' reply (PMID 41495410) and the BMJ rapid responses on Lane 2024's grading methods have not been read.
+
+Status would move back to draft if a core source were retracted or corrected, or if a high-quality synthesis showed that the associations disappear after better adjustment or exposure measurement.
+
 ## Protein for muscle gain
 <a id="nutrition-protein-intake-for-muscle-gain"></a>
 
@@ -564,57 +745,25 @@ How this version was checked: one agent searched for evidence for and against ea
 
 
 
-## Free sugars
-<a id="nutrition-free-sugars-and-health"></a>
-
-`nutrition.free_sugars_and_health` · **Not enough evidence yet**
-
-**Claim being tested.** Reducing free sugars lowers body weight slightly and reduces dental caries; keeping free sugars under 10% of energy is recommended.
-
-**What the app does with it.** Would explain why sugar is on the food rating.
-
-**Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
-
-
-
-## Salt and blood pressure
-<a id="nutrition-sodium-reduction-blood-pressure"></a>
-
-`nutrition.sodium_reduction_blood_pressure` · **Not enough evidence yet**
-
-**Claim being tested.** Lowering salt intake lowers blood pressure, in people with and without high blood pressure.
-
-**What the app does with it.** Would explain why salt is on the food rating.
-
-**Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
-
-
-
 ## Saturated fat and heart disease
 <a id="nutrition-saturated-fat-replacement-cvd"></a>
 
 `nutrition.saturated_fat_replacement_cvd` · **Not enough evidence yet**
 
-**Claim being tested.** Reducing saturated fat, especially replacing it with polyunsaturated fat, lowers the risk of cardiovascular events.
+**Claim being tested.** Not yet verified: in adults, replacing saturated fat with polyunsaturated fat (vegetable oils, nuts, seeds) for at least 2 years may modestly lower the risk of cardiovascular events, but cutting saturated fat has not been shown to help people live longer.
+
+**Who it applies to.** Adults, mostly middle-aged, with or without existing cardiovascular disease, in trials lasting at least 2 years (many older trials enrolled mostly men). Any benefit is expected to be larger in absolute terms for people at higher cardiovascular risk. Not established for children or for mortality outcomes. Applies to no one in the app until the sources are verified.
 
 **What the app does with it.** Would explain why saturated fat is on the food rating.
 
-**Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
+**Why this status.** None of the nine sources could be verified: the shared web search budget was used up before any check ran, so no source counts towards the claim and the status has to stay draft. If the proposed supporting sources are confirmed, they would back a narrow statement about swapping saturated fat for polyunsaturated fat and fewer cardiovascular events. Those sources are Hooper 2020 Cochrane (pub3), Mozaffarian 2010 and Jakobsen 2009, with Sacks 2017 as a position statement. They would not back any claim about mortality. Hamley 2017, which kept only adequately controlled trials and found no effect, and Steen 2026, where every pooled confidence interval crossed 1, show the trial evidence is genuinely contested. The supporting trial meta-analyses also draw on largely the same old trials, so they are not independent of each other.
 
-
-
-## Ultra-processed food
-<a id="nutrition-ultra-processed-food-associations"></a>
-
-`nutrition.ultra_processed_food_associations` · **Not enough evidence yet**
-
-**Claim being tested.** Higher intake of ultra-processed foods is associated with higher risk of several adverse health outcomes; one controlled feeding trial found people ate more calories on an ultra-processed diet.
-
-**What the app does with it.** Would explain why processing is on the food rating. We describe processing; we never judge a food.
-
-**Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
-
-
+**What would change the status.** 1. Re-run verification. At least 3 sources that all support the claim have to pass every check (identifier, metadata, peer review, not retracted, strong design, finding supported). The likeliest are Hooper 2020 pub3 (PMID 32827219; also check it is not the May 2020 pub2, PMID 32428300), Mozaffarian 2010 (PMID 20351774) and Jakobsen 2009 (PMID 19211817). Sacks 2017 may fail the strong-design check because it is a position statement.
+2. Even after verification, independence is a concern. Hooper and Mozaffarian pool largely the same trials from the 1960s to 1990s, so a third source with a separate evidence base would make the case stronger. Jakobsen's cohorts could be that source, but they are observational. The verified 2026 AHA guidance (PMID 41914202) or a new large trial would also help.
+3. Verify the contradicting and mixed sources (Hamley 2017, Steen 2026, Siri-Tarino 2010, Chowdhury 2014, de Souza 2015) and weigh them. This applies especially to Steen 2026, the most recent and largest risk-stratified review, whose existence and figures are unconfirmed. For Chowdhury 2014, check whether it has been corrected or retracted.
+4. Resolve the disagreement over which trials to include (the Finnish Mental Hospital Study, Oslo, STARS, and the Minnesota Coronary Experiment re-analysis). It drives the difference between the positive analyses and the null ones.
+5. Confirm the missing confidence intervals (Hooper pub3 mortality, the Steen stroke result, the Mozaffarian per-5%-of-energy estimate).
+6. A verified primary source for any numeric intake cap, such as less than 10% of energy, before the app uses a threshold.
 
 ---
 

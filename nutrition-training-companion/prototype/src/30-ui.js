@@ -258,8 +258,12 @@
     const [y, m, d] = iso.split('-').map(Number);
     return new Date(y, m - 1, d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
   }
+  /* PubMed first, then DOI, then the page the source was found on (guidelines). */
   function linkFor(src) {
-    return src.pmid ? { href: `https://pubmed.ncbi.nlm.nih.gov/${src.pmid}/`, text: `PubMed ${src.pmid}` } : { href: `https://doi.org/${src.doi}`, text: `doi.org/${src.doi}` };
+    if (src.pmid) return { href: `https://pubmed.ncbi.nlm.nih.gov/${src.pmid}/`, text: `PubMed ${src.pmid}` };
+    if (src.doi) return { href: `https://doi.org/${src.doi}`, text: `doi.org/${src.doi}` };
+    if (src.url) return { href: src.url, text: src.url.replace(/^https?:\/\//, '').replace(/\/$/, '') };
+    return null;
   }
   /* role: "supports" (default) shows the verification badge; "contradicts" and
      "context" are listed for honesty and never count toward a claim. */
@@ -288,9 +292,9 @@
             : html`<${Caption} color="inkMuted80">${ROLE_WORDS[role] || ROLE_WORDS.context}<//>`}
           <${Caption}>${M.isVerified(source) ? `Checked ${isoDate(source.verifiedAt)}` : 'Not yet verified'}<//>
         <//>
-        <a className="link row" href=${link.href} target="_blank" rel="noopener noreferrer">
+        ${link ? html`<a className="link row" href=${link.href} target="_blank" rel="noopener noreferrer">
           <${Glyph} name="link" size=${16} color="primary" /><${T} size="caption" color="primary">${link.text}<//>
-        </a>
+        </a>` : null}
       </div>
     <//>`;
   }
