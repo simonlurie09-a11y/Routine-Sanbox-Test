@@ -39,13 +39,16 @@
       body: "Sleep, HRV and resting heart rate are read against your own baseline, not anyone else's." }
   ];
 
-  /* What the Apple Health connection reads, and what for. */
+  /* What the Apple Health connection reads, and what for. The connection
+     shares exactly these (HEALTH_TYPES), and is made only once the age gate
+     has passed, when sign-up finishes. */
   const HEALTH_READS = [
     { key: 'dob', icon: 'person.crop.circle', label: 'Date of birth', detail: 'Your age, so you don\'t type it.' },
     { key: 'body', icon: 'target', label: 'Weight and height', detail: 'Protein and energy targets.' },
     { key: 'readiness', icon: 'waveform.path.ecg', label: 'Sleep, HRV and resting heart rate', detail: 'Readiness, against your own baseline.' },
     { key: 'workouts', icon: 'figure.run', label: 'Workouts', detail: 'Cardio minutes in your training week.' }
   ];
+  const HEALTH_TYPES = { hrv: true, resting_hr: true, sleep: true, workouts: true, daily_activity: false, heart_rate: false };
 
   /* ------------------------------------------------------------- helpers */
   const clock = (sec) => `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`;
@@ -250,6 +253,13 @@
     <//>`;
   }
 
+  /* Forget whatever Apple Health filled in earlier (going back and choosing again). */
+  const clearHealth = (ans) => (ans.health
+    ? { health: null, healthSource: null, birthDate: null, birthYear: '', weight: '', weightUnit: 'kg' }
+    : { health: null, healthSource: null });
+  /* Health says the person is under 18: sign-up stops, whatever year is typed. */
+  const healthMinor = (ans) => !!(ans.health && ans.health.birthDate && H.ageOn(ans.health.birthDate) < U.ADULT_AGE);
+
   /* Answers that Apple Health (connected or exported) fills in. */
   const fromSummary = (summary, source) => {
     const patch = { health: summary, healthSource: source };
@@ -266,22 +276,19 @@
 
   /* 6. Apple Health (optional): HealthKit's permission sheet in the app; here
      it's simulated, or a real Health export can be read on the device. */
-  function Health({ set, go, back }) {
-    const s = C.useApp();
-    const pending = s.devices.apple_health && s.devices.apple_health.status === 'pending';
+  function Health({ ans, set, go, back }) {
     const connect = () => {
-      A.connectDevice('apple_health');
-      set(fromSummary(H.SIMULATED, 'connected'));
+      set({ ...clearHealth(ans), ...fromSummary(H.SIMULATED, 'connected') });
       go('age');
     };
     const notNow = () => {
-      set({ health: null, healthSource: 'not_connected' });
+      set({ ...clearHealth(ans), healthSource: 'not_connected' });
       go('age');
     };
     const skip = html`<${LinkButton} label="Not now" size="callout" color="inkMuted48" onPress=${notNow} />`;
     return html`<${Step} title="Connect Apple Health" subtitle="We'll fill in your age and weight from it, so you don't have to type them." onBack=${back}
       topRight=${skip}
-      footer=${html`<${Primary} label="Connect Apple Health" onPress=${connect} loading=${pending} />
+      footer=${html`<${Primary} label="Connect Apple Health" onPress=${connect} />
         <${Ghost} label="Import a Health export instead" onPress=${() => go('import')} />`}>
       <${Rows} rows=${HEALTH_READS.map((r) => ({ key: r.key, icon: r.icon, iconColor: 'ink', label: r.label, detail: r.detail }))} />
       <${Caption}>Your iPhone asks which of these to share, and you can change it any time in the Health app. We never sell this data. In the prototype, connecting is simulated.<//>
@@ -292,7 +299,7 @@
   function Import({ ans, set, go, back }) {
     const [summary, setSummary] = useState(null);
     const use = () => {
-      set(fromSummary(summary, 'export'));
+      set({ ...clearHealth(ans), ...fromSummary(summary, 'export') });
       go('age');
     };
     return html`<${Step} title="Import a Health export" subtitle="Use the file the Health app exports. It's read on this device." onBack=${back}
@@ -313,7 +320,7 @@
       go('weight');
     };
     const next = () => {
-      if (check.verdict === 'minor') return go('under18');
+      if (check.verdict === 'minor' || healthMinor(ans)) return go('under18');
       if (check.verdict === 'adult') return adult();
       return A.alert({
         title: `Have you turned ${U.ADULT_AGE} yet?`,
@@ -328,14 +335,17 @@
       footer=${html`<${Primary} label="Continue" onPress=${next} disabled=${!check.valid} />`}>
       <${U.AgeField} value=${year} error=${check.error} onChange=${(v) => set({ birthYear: v })} />
       ${keepDate ? html`<${U.FromHealth} text=${healthLine(ans, `Born ${U.longBirth(keepDate)}`)} />` : null}
+      ${!keepDate && healthMinor(ans) ? html`<${U.FromHealth} text=${healthLine(ans, `Born ${U.longBirth(ans.health.birthDate)}`)} />` : null}
       <${Caption}>We use it to check your age and for energy estimates.<//>
     <//>`;
   }
 
   /* 7b. Under 18: sign-up stops here. */
-  function Under18({ back }) {
+  function Under18({ ans, back }) {
     return html`<${Step} title="Companion is for adults" subtitle=${`You need to be ${U.ADULT_AGE} or over to use it.`} onBack=${back}>
-      <${Body}>Its training and nutrition information is written for adults, so you can't continue. If you entered the wrong year, go back and change it.<//>
+      <${Body}>${healthMinor(ans)
+        ? `Its training and nutrition information is written for adults, and your Apple Health data says you're under ${U.ADULT_AGE}, so you can't continue. We haven't kept anything from Apple Health.`
+        : "Its training and nutrition information is written for adults, so you can't continue. If you entered the wrong year, go back and change it."}<//>
       <${Callout}>For advice about training or food, talk to a parent, a coach or your doctor.<//>
     <//>`;
   }
@@ -392,7 +402,14 @@
       const h = ans.health;
       if (h && h.heightCm) extraProfile.heightCm = Math.round(h.heightCm.value);
       if (h && h.sex) extraProfile.sexForEquations = h.sex;
-      if (ans.healthSource === 'export' && h) A.recordHealthImport(h);
+      const used = [];
+      if (h) {
+        if (committed.current.birthDate) used.push('birthDate');
+        if (h.weightKg && committed.current.weightKg === Math.round(h.weightKg.value * 10) / 10) used.push('weightKg');
+        if (extraProfile.heightCm) used.push('heightCm');
+        if (extraProfile.sexForEquations) used.push('sexForEquations');
+      }
+      if (ans.healthSource === 'export' && h) A.recordHealthImport(h, used);
       const connected = ans.healthSource === 'connected';
       A.completeOnboarding({ ...committed.current, ...extraProfile }, {
         setup: { ...U.FRESH_SETUP, body: !!extraProfile.heightCm, devices: connected },
@@ -400,6 +417,8 @@
         consents: { health_data_processing: true, ai_processing: false, scan_image_upload: false, off_contribution: false, product_analytics: false },
         appleHealth: connected ? 'connected' : 'not_connected'
       });
+      /* Connected only now, past the age gate, sharing exactly what the page listed. */
+      if (connected) A.connectDevice('apple_health', { ...HEALTH_TYPES });
       A.toast('Account created', 'success');
     };
 

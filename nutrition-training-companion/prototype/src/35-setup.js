@@ -101,15 +101,17 @@
     const verdict = exact != null ? (exact >= ADULT_AGE ? 'adult' : 'minor') : age > ADULT_AGE ? 'adult' : age < ADULT_AGE ? 'minor' : 'ask';
     return { valid: true, error: null, year: y, age, verdict };
   }
-  /* Weight text in kg or lb -> kilograms (30 to 300 kg). */
+  /* Weight text in kg (30 to 300) or lb (66 to 661) -> kilograms. Pounds are
+     kept to 0.01 kg so they convert back to exactly what was typed. */
+  const WEIGHT_RANGE = { kg: [30, 300], lb: [66, 661] };
   function checkWeight(text, unit) {
     const v = parseNumber(text);
-    const kg = unit === 'lb' ? v * LB : v;
-    const [lo, hi] = unit === 'lb' ? [66, 661] : [30, 300];
-    const error = text !== '' && !(kg >= 30 && kg <= 300) ? `Between ${lo} and ${hi} ${unit}.` : null;
-    return { valid: text !== '' && !error, error, kg: Math.round(kg * 10) / 10 };
+    const [lo, hi] = WEIGHT_RANGE[unit] || WEIGHT_RANGE.kg;
+    const error = text !== '' && !(v >= lo && v <= hi) ? `Between ${lo} and ${hi} ${unit}.` : null;
+    const kg = unit === 'lb' ? Math.round(v * LB * 100) / 100 : Math.round(v * 10) / 10;
+    return { valid: text !== '' && !error, error, kg };
   }
-  const weightText = (kg, unit) => (kg == null ? '' : String(unit === 'lb' ? Math.round((kg / LB) * 10) / 10 : kg));
+  const weightText = (kg, unit) => (kg == null ? '' : String(unit === 'lb' ? Math.round((kg / LB) * 10) / 10 : Math.round(kg * 10) / 10));
 
   /* ------------------------------------------------------------- layout */
   /* The sign-up page layout. onBack defaults to popping the stack; pass null
@@ -439,11 +441,20 @@
     const keepDate = p.birthDate && Number(p.birthDate.slice(0, 4)) === Number(year) ? p.birthDate : null;
     const check = checkAge(year, keepDate);
     const minor = check.valid && check.verdict === 'minor';
-    const save = () => {
+    const store = () => {
       A.updateProfile({ birthYear: check.year, birthDate: keepDate });
       A.toast('Saved');
       A.pop();
     };
+    /* Born exactly 18 years ago: the year alone can't tell, so ask (as sign-up does). */
+    const save = () => (check.verdict !== 'ask' ? store() : A.alert({
+      title: `Have you turned ${ADULT_AGE} yet?`,
+      message: `If you were born in ${check.year}, you turn ${ADULT_AGE} this year.`,
+      buttons: [
+        { label: 'Not yet', style: 'cancel', onPress: () => A.toast(`Companion is for adults, ${ADULT_AGE} and over, so we haven't saved it.`, 'error') },
+        { label: `Yes, I'm ${ADULT_AGE}`, onPress: store }
+      ]
+    }));
     return html`<${FormPage} title="What year were you born?" subtitle=${`Companion is for adults, ${ADULT_AGE} and over.`}
       footer=${html`<${Primary} label="Save" onPress=${save} disabled=${!check.valid || minor || check.year === p.birthYear} />`}>
       <${AgeField} value=${year} onChange=${setYear}
@@ -459,7 +470,7 @@
     const [unit, setUnit] = useState(() => p.weightUnit || 'kg');
     const [text, setText] = useState(() => weightText(p.weightKg, p.weightUnit || 'kg'));
     const check = checkWeight(text, unit);
-    const same = check.valid && check.kg === p.weightKg && unit === (p.weightUnit || 'kg');
+    const same = check.valid && unit === (p.weightUnit || 'kg') && parseNumber(text) === parseNumber(weightText(p.weightKg, unit));
     const save = () => {
       A.updateProfile({ weightKg: check.kg, weightUnit: unit });
       A.toast('Saved');
@@ -548,7 +559,7 @@
       </label>`}
       ${state.error ? html`<${Callout} color="danger">${state.error}<//>` : null}
       ${summary ? html`<${HealthSummary} summary=${summary} />` : null}
-      <${Caption}>We read the file on this device and keep only your birth date, sex, height and weight. Nothing is uploaded, and the file isn't stored.<//>
+      <${Caption}>We read the file on this device. Nothing is uploaded, and the file isn't stored. We keep your birth date, sex, height and weight, and a note of the file's name and how many records it had.<//>
     </div>`;
   }
 
@@ -580,27 +591,54 @@
     const s = C.useApp();
     const [summary, setSummary] = useState(null);
     const patch = summary ? H.toProfile(summary) : null;
-    const minor = summary && summary.birthDate && H.ageOn(summary.birthDate) < ADULT_AGE;
+    const minor = !!(summary && summary.birthDate && H.ageOn(summary.birthDate) < ADULT_AGE);
     const use = () => {
+      if (minor) return;
       const p = { ...patch };
-      if (minor) {
-        delete p.birthDate;
-        delete p.birthYear;
-      }
       A.updateProfile(p);
-      A.recordHealthImport(summary);
+      A.recordHealthImport(summary, Object.keys(p).filter((k) => k !== 'birthYear'));
       if (p.heightCm) A.completeSetup('body');
-      A.completeSetup('devices');
       A.toast('Details updated from Apple Health', 'success');
       A.pop();
     };
     const fields = patch ? Object.keys(patch).filter((k) => k !== 'birthDate').length : 0;
     const prior = s.devices.apple_health && s.devices.apple_health.lastImport;
     return html`<${FormPage} title="Import from Apple Health" subtitle="Use the file the Health app exports."
-      footer=${summary ? html`<${Primary} label="Use these details" onPress=${use} disabled=${!fields} />` : null}>
+      footer=${summary ? html`<${Primary} label="Use these details" onPress=${use} disabled=${!fields || minor} />` : null}>
       <${HealthImportPanel} summary=${summary} onResult=${setSummary} />
-      ${minor ? html`<${Callout}>${`This export says you're under ${ADULT_AGE}, so we haven't used the birth date. Companion is for adults.`}<//>` : null}
+      ${minor ? html`<${Callout} color="danger">${`This export says its owner is under ${ADULT_AGE}, so we can't use any of it. Companion is for adults.`}<//>` : null}
       ${!summary && prior ? html`<${Caption}>${`Last import: ${prior.fileName}, ${shortDate(prior.at)}.`}<//>` : null}
+    <//>`;
+  }
+
+  /* --------------------------------------------------- AI consent, at use */
+  /* AI features are optional and start off, so they're asked for where
+     they're first used: a request in your own words, or a label photo.
+     One consent covers both, so the text names both. */
+  const AI_USE = {
+    requests: {
+      subtitle: 'So we can understand requests in your own words.',
+      body: 'Claude, by Anthropic, reads the words you type here and works out what you’re asking for. Our evidence check then decides, the same as always.',
+      sent: 'We send the words you type, not your health records.'
+    },
+    labels: {
+      subtitle: 'So we can read label photos.',
+      body: 'Your phone reads the text on the label. When the text is hard to read, or there’s no nutrition panel, Claude, by Anthropic, tidies the ingredients and estimates the values from them, and we show how sure we are.',
+      sent: 'We send the text from the label, not your health records.'
+    }
+  };
+  function AiConsent({ use, topLeft, dark, otherLabel, onOther }) {
+    const u = AI_USE[use];
+    const turnOn = () => {
+      A.setConsent('ai_processing', true);
+      A.toast('AI features on');
+    };
+    return html`<${PlainScreen} dark=${dark} title="Turn on AI features?" subtitle=${u.subtitle} topLeft=${topLeft}
+      footer=${html`<${Button} fullWidth=${true} label="Turn on and continue" onPress=${turnOn} />
+        <${Button} fullWidth=${true} variant="ghost" label=${otherLabel} onPress=${onOther} />`}>
+      <${T} size="body" color=${dark ? 'onDark' : 'ink'} as="p">${u.body}<//>
+      <${T} size="callout" color=${dark ? 'bodyOnDark' : 'inkMuted80'} as="p">${`${u.sent} The same setting covers requests in your own words and label photos. You can turn it off in Settings, under Privacy choices.`}<//>
+      <${T} size="caption" color=${dark ? 'bodyMuted' : 'inkMuted48'} as="p">In the prototype, simple rules stand in for Claude, and nothing leaves your browser.<//>
     <//>`;
   }
 
@@ -620,7 +658,7 @@
   C.setup = {
     ITEMS, FRESH_SETUP, isDone, remaining, SetupCard,
     ADULT_AGE, SAFETY, REGIONS, SEX_OPTIONS, EXPERIENCE, SESSION_MINUTES,
-    FormPage, Primary, Ghost, Field, Cell, MultiChips, OptionCard, Check, FromHealth,
+    FormPage, Primary, Ghost, Field, Cell, MultiChips, OptionCard, Check, FromHealth, AiConsent,
     GoalOptions, AgeField, WeightField, HealthImportPanel, HealthSummary,
     checkAge, checkWeight, weightText, parseNumber, digitsOnly, decimalOnly, toggleIn, longBirth
   };

@@ -274,6 +274,11 @@
   }
 
   /* --------------------------------------------------------------- Device */
+  const IMPORT_WORDS = { birthDate: 'birth date', sexForEquations: 'sex', heightCm: 'height', weightKg: 'weight' };
+  function importUse(note) {
+    const words = (note.used || []).map((k) => IMPORT_WORDS[k]).filter(Boolean);
+    return words.length ? `We used your ${M.listJoin(words)} from it.` : 'We didn’t use anything from it.';
+  }
   function readinessCaption(provider) {
     const types = READINESS_TYPES.filter((t) => D.PROVIDERS[provider].dataTypes.includes(t));
     if (!types.length) return null;
@@ -306,7 +311,7 @@
     const note = PROVIDER_NOTES[provider] ? html`<div className="stack-sm">
       <${Caption}>${PROVIDER_NOTES[provider]}<//>
       ${provider === 'apple_health' ? html`<${LinkButton} label="Import a Health export" size="callout" align="flex-start" onPress=${() => A.push('health-import')} />` : null}
-      ${imported ? html`<${Caption}>${`Last import: ${imported.fileName || 'a Health export'}, ${longDate(imported.at)}. We used your birth date, height and weight from it.`}<//>` : null}
+      ${imported ? html`<${Caption}>${`Last import: ${imported.fileName || 'a Health export'}, ${longDate(imported.at)}. ${importUse(imported)}`}<//>` : null}
     </div>` : null;
     const badge = html`<div className="row"><${Badge} palette="connection" status=${status} /></div>`;
     const existingTypes = Object.keys(dev.dataTypes || {}).length ? dev.dataTypes : undefined;

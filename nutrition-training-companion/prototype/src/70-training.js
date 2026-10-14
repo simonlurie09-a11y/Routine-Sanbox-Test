@@ -318,6 +318,15 @@
     <//>`;
   }
 
+  /* A request that waited for a detail (health answers, weight): has it been given? */
+  const needMet = (s, rec) => (rec.needs === 'health' ? C.setup.isDone(s, 'health') : rec.needs === 'weight' ? s.profile.weightKg != null : false);
+  /* Run the same intent through the gate again and show the new answer. */
+  function recheck(rec) {
+    const draft = M.evaluateChange(rec.intent, C.getState(), { requestText: rec.requestText });
+    const id = A.createRecommendation(draft, { trigger: rec.trigger || 'user_request', requestText: rec.requestText });
+    A.replace('recommendation', { id });
+  }
+
   /* Blocked answers: the EmptyState layout, never an error (docs/08 §8.11). */
   function BlockedView({ s, rec, ctx }) {
     const target = isTarget(rec);
@@ -333,6 +342,13 @@
       answer = html`<${EmptyAnswer} icon="exclamationmark.triangle" title="Paused for your safety" body=${rec.reason} />`;
       actions = html`<${Button} fullWidth=${true} label="Update your health details" onPress=${() => A.push('setup-health')} />${keep}`;
       caption = 'If something hurts, or you have a medical condition, a qualified professional such as a doctor or physiotherapist can tell you what’s safe to train.';
+    } else if (rec.status === 'blocked_constraints' && rec.needs && needMet(s, rec)) {
+      /* The missing detail has been given since: offer to check again. */
+      answer = html`<${EmptyAnswer} icon="checkmark" title="Thanks, we can check it now" body=${rec.needs === 'health'
+        ? 'You’ve answered the health and safety questions, so we can check your request against the evidence.'
+        : 'You’ve added your weight, so we can work out a protein target in grams.'} />`;
+      actions = html`<${Button} fullWidth=${true} label="Check my request again" onPress=${() => recheck(rec)} />${keep}`;
+      caption = own;
     } else if (rec.status === 'blocked_constraints' && rec.needs === 'health') {
       answer = html`<${EmptyAnswer} icon="heart" title="Answer the health questions first" body=${rec.reason} />`;
       actions = html`<${Button} fullWidth=${true} label="Answer the health questions" onPress=${() => A.push('setup-health')} />${keep}`;
@@ -642,17 +658,8 @@
     /* Requests in your own words go to Claude, so they need the AI consent
        (optional at sign-up, so asked here, when it's first needed). */
     if (!s.consents.ai_processing && !intent) {
-      const turnOn = () => {
-        A.setConsent('ai_processing', true);
-        A.toast('AI features on');
-      };
-      return html`<${PlainScreen} title="Turn on AI features?" subtitle="So we can understand requests in your own words." topLeft=${cancel}
-        footer=${html`<${Button} fullWidth=${true} label="Turn on and continue" onPress=${turnOn} />
-          <${Button} fullWidth=${true} variant="ghost" label="Edit my split myself" onPress=${() => A.replace('split-edit', {})} />`}>
-        <${Body}>Claude, by Anthropic, reads the words you type here and works out what you’re asking for. Our evidence check then decides, the same as always.<//>
-        <${Callout}>We send the words you type, not your health records. You can turn this off in Settings, under Privacy choices.<//>
-        <${Caption}>In the prototype, a simple keyword matcher stands in for Claude, and nothing leaves your browser.<//>
-      <//>`;
+      return html`<${C.setup.AiConsent} use="requests" topLeft=${cancel}
+        otherLabel="Edit my split myself" onOther=${() => A.replace('split-edit', {})} />`;
     }
 
     if (!intent) {

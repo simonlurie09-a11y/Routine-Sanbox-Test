@@ -566,9 +566,15 @@
 
   function LabelCapture({ params }) {
     const ctx = useScreen();
+    const s = C.useApp();
     const close = html`<button type="button" className="round-ctrl" aria-label="Close" onClick=${() => closeOrPop(ctx)}>
       <${Glyph} name="xmark" size=${18} color="onDark" />
     </button>`;
+    /* Reading labels uses Claude, so it waits for the AI consent (asked here, where it's used). */
+    if (!s.consents.ai_processing) {
+      return html`<${C.setup.AiConsent} use="labels" dark=${true} topLeft=${close}
+        otherLabel="Enter the values myself" onOther=${() => A.replace('quick-add', { meal: params.meal })} />`;
+    }
     return html`<${PlainScreen} dark=${true} title="Photograph the label" subtitle="In the app this opens your camera. Here, pick a sample photo." topLeft=${close}>
       ${D.LABEL_SAMPLES.map((sm) => html`<button key=${sm.id} type="button" style=${{ ...DARK_TILE, alignItems: 'flex-start', padding: 'var(--spacing-lg)' }}
         onClick=${() => A.push('label-review', { sampleId: sm.id, gtin: params.gtin, meal: params.meal })}>

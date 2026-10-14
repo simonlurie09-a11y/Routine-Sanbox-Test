@@ -24,7 +24,7 @@ flowchart TD
 Design rules:
 
 * **Required at sign-up:** disclaimer, account, health-data consent, age gate, weight and goal. The health-data consent is a tick box on the account page, not a screen of its own. It states what is stored, why, who processes it and how to withdraw. Sign-in with Apple, Google or email is refused until it is ticked.
-* **Apple Health is optional and only fills answers in.** Connecting reads the date of birth and the latest weight and height, so the age and weight steps open already filled in, with "from Apple Health" under them. The person can still change them. See *Apple Health at sign-up* below.
+* **Apple Health is optional and only fills answers in.** Connecting reads the date of birth and the latest weight and height, so the age and weight steps open already filled in, with "from Apple Health" under them. The person can still change them. If Health says they are under 18, sign-up stops whatever year is typed, and nothing from Health is kept. Syncing starts only once sign-up finishes, past the age gate, and shares exactly the data types the page listed. See *Apple Health at sign-up* below.
 * **Everything else is set up from the tabs.** Each item is one short page with the same layout as the sign-up pages: back chevron, large title, grey subtitle, the fields, then one primary button at the bottom. The pages are:
   * health and safety;
   * your training (experience, days per week, session length, equipment);
@@ -43,7 +43,7 @@ Design rules:
 
   A card disappears once its items are done.
 * **No suggestion before the health and safety questions are answered.** The safety flags decide what is safe to suggest, so until the answers are given, every request gets the same answer: "Answer the health questions first", with a button to the page. The plan is unchanged. The database enforces the same rule (`user_profiles.safety_answered_at`, checked by the recommendation gate).
-* **Optional consents start off and are asked for where they are used.** For example, the first time someone asks for a change in their own words, the app asks to turn on AI features. All of them are also in Settings, under Privacy choices.
+* **Optional consents start off and are asked for where they are used.** AI features are asked for the first time someone asks for a change in their own words, or photographs a label. One consent covers both, and the prompt says so; the alternative is offered alongside ("Edit my split myself", "Enter the values myself"). All of them are also in Settings, under Privacy choices.
 * Every consent states what is collected, why, who processes it, and how to withdraw. Each is saved as a `consents` row with its document version.
 * The health and safety page asks yes/no questions first and optional free text second. Free text is stored encrypted (`health_notes_enc`). "A professional supervises my training" appears only once a medical condition is switched on.
 * Sign-up never sets or suggests targets. People enter their own targets later, or keep the defaults.
@@ -55,8 +55,8 @@ Design rules:
   * height and body mass (latest samples);
   * sleep, heart rate variability (SDNN), resting heart rate and workouts, for readiness and the training week (see [03 §3.5](03-architecture.md#35-wearable-sync)).
 
-  The date of birth is used on the device for the age gate, and only the birth year is sent to the server. If read access is denied, HealthKit returns nothing, so the steps simply open empty. Android uses Health Connect for weight and height; it has no date of birth.
-* **In the browser prototype.** A web page cannot read HealthKit, so the prototype simulates the permission. It also offers the closest real thing: the person can choose the export the Health app makes (Health → profile picture → Export All Health Data → `export.zip`, or the `export.xml` inside it). The page reads the file on the device, as a stream, handling ZIP64 for exports over 4 GB. It keeps only the birth date, sex, latest height and latest weight, and shows how many nights of sleep, HRV readings, resting heart rates and workouts the file holds. Nothing is uploaded and the file is not stored. A one-off export can't stay up to date, so readiness still comes from connected devices.
+  The date of birth is used on the device for the age gate, and only the birth year is sent to the server. If read access is denied, HealthKit returns nothing, so the steps simply open empty. If the date of birth says the person is under 18, sign-up stops and nothing read from Health is kept or synced. Android uses Health Connect for weight and height; it has no date of birth.
+* **In the browser prototype.** A web page cannot read HealthKit, so the prototype simulates the permission. It also offers the closest real thing: the person can choose the export the Health app makes (Health → profile picture → Export All Health Data → `export.zip`, or the `export.xml` inside it). The page reads the file on the device, as a stream, handling ZIP64 for exports over 4 GB. It keeps the birth date, sex, latest height and latest weight, plus a note of the file's name, how many records it had and which fields it filled in. It shows how many nights of sleep, HRV readings, resting heart rates and workouts the file holds. Nothing is uploaded and the file is not stored. An export whose owner is under 18 is refused, in sign-up and in Settings. A one-off export can't stay up to date, so readiness still comes from connected devices.
 
 ## 7.2 Dashboard (home)
 
@@ -170,7 +170,7 @@ The questions come from a fixed bank. The LLM may only rephrase them. Each quest
 | Flag | Effect |
 |---|---|
 | Health and safety not yet answered | No suggestions of any kind. Every request is answered with "Answer the health questions first" and a link to the page; nothing changes. Enforced in the engine and by the database gate (`safety_answered_at`). |
-| `under_18` | Sign-up stops. The app is for adults. A birth year (typed, or read from Apple Health) that makes someone under 18 can't be saved later in Settings either. |
+| `under_18` | Sign-up stops. The app is for adults. A birth year (typed, or read from Apple Health) that makes someone under 18 can't be saved later in Settings either, and a year that turns 18 this year asks "Have you turned 18 yet?" first. |
 | `eating_disorder_history` | No calorie-deficit or weight-loss target suggestions. Calorie numbers can be hidden from the dashboard. Shows a "talk to a professional" resource. |
 | `pregnancy` | No automatic training or nutrition suggestions. Logging still works. Shows a professional-advice note. |
 | `injury_reported` | No suggestions that load the flagged region. Exercises in that region are excluded from generated plans. Professional-advice note. |

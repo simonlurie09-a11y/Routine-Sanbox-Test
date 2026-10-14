@@ -286,7 +286,9 @@
         };
         if (x.setup) next.setup = { ...s.setup, ...x.setup };
         if (x.consents) next.consents = { ...s.consents, ...x.consents };
-        if (x.appleHealth === 'not_connected' && s.devices.apple_health && s.devices.apple_health.status !== 'pending') {
+        /* A new account starts with Apple Health unconnected (the sample's connection
+           isn't theirs); sign-up connects it afterwards if they chose to. */
+        if (x.appleHealth && s.devices.apple_health && s.devices.apple_health.status !== 'pending') {
           const prev = s.devices.apple_health;
           next.devices = { ...s.devices, apple_health: { status: 'revoked', connectedAt: null, lastSync: null, dataTypes: {}, lastImport: prev.lastImport } };
         }
@@ -441,9 +443,10 @@
         toast(`${D.PROVIDERS[provider].short} connected`, 'success');
       }, 1200);
     },
-    /* A one-off Apple Health export read in the browser: keep a short note of it. */
-    recordHealthImport(summary) {
-      const note = { at: Date.now(), fileName: summary.fileName || null, counts: { ...summary.counts }, simulated: !!summary.simulated };
+    /* A one-off Apple Health export read in the browser: keep a short note of
+       it, and of which profile fields it filled in (used). */
+    recordHealthImport(summary, used) {
+      const note = { at: Date.now(), fileName: summary.fileName || null, counts: { ...summary.counts }, used: (used || []).slice(), simulated: !!summary.simulated };
       setState((s) => ({ devices: { ...s.devices, apple_health: { ...s.devices.apple_health, lastImport: note } } }));
     },
     disconnectDevice(provider, purge) {
