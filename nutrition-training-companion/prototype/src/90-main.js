@@ -98,7 +98,7 @@
 
   /* ------------------------------------------------- tour (side panel) */
   const TOUR = [
-    { label: 'Start from onboarding', run: () => { C.actions.resetPrototype(); } },
+    { label: 'Start from sign-up', run: () => { C.actions.resetPrototype(); } },
     { label: 'Scan a barcode', run: () => { C.actions.skipOnboarding(); C.actions.present('scanner', {}, 'cover'); } },
     { label: 'Photograph a label', run: () => { C.actions.skipOnboarding(); C.actions.present('label-capture', {}, 'cover'); } },
     { label: 'Ask for a bigger back', run: () => { C.actions.skipOnboarding(); C.actions.go('training'); C.actions.present('change-request', { text: 'I want a bigger back' }); } },

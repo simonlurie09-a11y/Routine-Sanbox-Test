@@ -100,6 +100,10 @@ CREATE TABLE user_profiles (
   -- 'under_18', 'injury_reported', 'condition_reported', 'pregnancy',
   -- 'eating_disorder_history', 'clinician_supervised'
   safety_flags             text[] NOT NULL DEFAULT '{}',
+  -- NULL until the health and safety questions are answered. Sign-up asks
+  -- only for the account, age, weight and goal; these questions come after,
+  -- from the app's tabs (docs/07 §7.1), and nothing is suggested until then.
+  safety_answered_at       timestamptz,
   updated_at               timestamptz NOT NULL DEFAULT now()
 );
 
@@ -523,7 +527,8 @@ ALTER TABLE split_versions
 -- Gate 1: 'proposed' / 'accepted' requires that the recommendation names the
 -- claims it relies on, that each claim is active, and that each has at least
 -- min_sources_required verified sources. Counts are recomputed from
--- recommendation_evidence, never trusted from the caller.
+-- recommendation_evidence, never trusted from the caller. It also requires
+-- that the user has answered the health and safety questions.
 CREATE FUNCTION enforce_recommendation_gate() RETURNS trigger
 LANGUAGE plpgsql AS $$
 DECLARE
@@ -556,6 +561,16 @@ BEGIN
         USING ERRCODE = 'check_violation';
     END IF;
     NEW.verified_source_count := weakest;
+
+    -- Safety gate: the safety flags decide what may be suggested, so nothing is
+    -- suggested before the user has answered the health and safety questions.
+    IF NOT EXISTS (
+      SELECT 1 FROM user_profiles p
+      WHERE p.user_id = NEW.user_id AND p.safety_answered_at IS NOT NULL
+    ) THEN
+      RAISE EXCEPTION 'safety gate: recommendation % is for a user who has not answered the health and safety questions', NEW.id
+        USING ERRCODE = 'check_violation';
+    END IF;
   END IF;
   RETURN NEW;
 END;

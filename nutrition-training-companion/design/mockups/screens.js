@@ -588,8 +588,8 @@
       <div className="safe-top"></div>
       <div className="gutter stack" style=${{ paddingTop: 'var(--spacing-xl)' }}>
         <div className="stack-xs">
-          <${T} size="title2" font="bold" as="h1">What's your goal?<//>
-          <${T} size="body" color="inkMuted48" as="p">You can change this later.<//>
+          <${T} size="title2" font="bold" as="h1">What do you want to work on?<//>
+          <${T} size="body" color="inkMuted48" as="p">Pick one. You can change it any time.<//>
         </div>
         <div className="stack-sm" style=${{ gap: 'var(--spacing-base)' }}>
           ${GOALS.map(([icon, title, body, selected]) => html`
@@ -601,7 +601,7 @@
               </div>
             <//>`)}
         </div>
-        <${Button} fullWidth=${true} label="Continue" />
+        <${Button} fullWidth=${true} label="Finish" />
       </div>
       <div style=${{ height: 'var(--spacing-xl)' }}></div>
       <div className="safe-bottom"></div>

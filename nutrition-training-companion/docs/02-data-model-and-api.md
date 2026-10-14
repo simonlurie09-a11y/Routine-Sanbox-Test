@@ -44,7 +44,7 @@ erDiagram
 
 | Group | Tables | Notes |
 |---|---|---|
-| Identity and privacy | `users`, `user_keys`, `user_profiles`, `consents`, `body_measurements`, `privacy_requests` | `user_keys` holds the KMS-wrapped data key for that user's `*_enc` columns; deleting it is crypto-shredding. `consents` has one row per grant per purpose, so consent history is auditable. `user_profiles.safety_flags` drives the hard safety rules. |
+| Identity and privacy | `users`, `user_keys`, `user_profiles`, `consents`, `body_measurements`, `privacy_requests` | `user_keys` holds the KMS-wrapped data key for that user's `*_enc` columns; deleting it is crypto-shredding. `consents` has one row per grant per purpose, so consent history is auditable. `user_profiles.safety_flags` drives the hard safety rules, and nothing is suggested while `user_profiles.safety_answered_at` is NULL (the questions come after sign-up). |
 | Food catalogue (shared) | `food_items`, `barcode_lookups`, `health_ratings` | `gtin14` is the normalised barcode. `nutrients_per_100` uses canonical keys and units. `owner_user_id` marks private items (custom foods, confirmed scans). Health ratings are versioned by ruleset. |
 | Food logging | `ingredient_scans`, `food_log_entries`, view `daily_nutrition`, `nutrition_targets` | Log entries snapshot the nutrients at log time and carry `estimate_confidence`, so the dashboard can say "2 of today's entries are estimates". `client_entry_id` makes offline sync idempotent. |
 | Training | `muscles`, `exercises`, `exercise_muscles`, `workout_splits`, `split_versions`, `split_reviews`, `workout_sessions`, `set_logs`, `check_ins` | Split versions are immutable snapshots with `diff_from_parent` and `weekly_volume`. `exercise_muscles.set_credit` gives fractional set counting (e.g. 1.0 primary, 0.5 secondary). Reviews hold *descriptive* findings only. |
@@ -90,7 +90,7 @@ These are tested in `schema_test.sql`.
 |---|---|
 | `GET /v1/me` · `PATCH /v1/me/profile` | Profile, goal, experience, equipment, schedule. Writing health notes or safety flags is audited. |
 | `GET /v1/me/consents` · `POST /v1/me/consents` · `DELETE /v1/me/consents/{purpose}` | Grant or revoke per purpose. Revoking `wearable:*` pauses that provider; revoking `ai_processing` switches off LLM-backed features. |
-| `POST /v1/onboarding/complete` | Marks onboarding done after the required steps (disclaimer, consents, age gate). |
+| `POST /v1/onboarding/complete` | Marks sign-up done after the required steps: disclaimer, account, health-data consent, age gate, weight and goal. Everything else is set up later from the app's tabs. |
 | `POST /v1/me/exports` · `GET /v1/me/exports/{id}` | Starts an export job, then returns a signed URL (7-day expiry) to a ZIP of JSON + CSV covering everything, including recommendations with their frozen citations. |
 | `DELETE /v1/me` | Schedules deletion (7-day grace period, cancellable), then revokes provider tokens, deletes rows, destroys the data key and issues a deletion receipt. |
 | `GET /v1/me/access-log` | Recent access to the user's data by system and staff actors (from `audit_events`). |

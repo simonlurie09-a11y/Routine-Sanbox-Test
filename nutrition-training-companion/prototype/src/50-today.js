@@ -280,6 +280,7 @@
       </header>
       <div className="gutter" style=${{ flex: 1, minHeight: 0, overflowY: 'auto', paddingBottom: 'var(--spacing-xxl)' }}>
         <${Sections}>
+          <${C.setup.SetupCard} />
           <${NutritionSection} s=${s} />
           <${Section} title="Recovery"><${ReadinessCard} s=${s} /><//>
           <${TrainingSection} s=${s} />

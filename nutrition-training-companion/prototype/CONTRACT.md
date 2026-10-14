@@ -23,7 +23,9 @@ Read these before writing a screen:
 | `10-domain.js` | core | pure logic: health rating, barcode check digit and lookup, label parsing and estimates, weekly volume, split review, diffs, intent parsing, **evidence gate**, readiness |
 | `20-store.js` | core | state, `Companion.actions`, navigation, overlays, persistence, `Companion.selectors` |
 | `30-ui.js` | core | `Companion.ui` kit and `Companion.registerScreen` |
-| `40-onboarding.js` | builder A | onboarding |
+| `33-health-import.js` | core | `Companion.healthImport`: reads an Apple Health export (`export.zip` or `export.xml`) in the browser, as a stream, and the simulated HealthKit result |
+| `35-setup.js` | core | `Companion.setup`: the sign-up page layout (`FormPage`), the *Finish setting up* list and card, and the setup pages (health and safety, training, split, height and sex, goal, age, weight, notifications, Health import) |
+| `40-onboarding.js` | builder A | sign-up: disclaimer, account and consent, Apple Health, age, weight, goal |
 | `50-today.js`, `55-recovery.js` | builder B | Today tab, Recovery tab, readiness detail |
 | `60-food.js` | builder C | Food tab and every food flow |
 | `70-training.js` | builder D | Training tab, split, change requests, recommendation detail, workouts |

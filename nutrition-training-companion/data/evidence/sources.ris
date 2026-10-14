@@ -906,6 +906,577 @@ N1  - Cross-sectional survey (55-item web survey). Not verified 2026-10-14. Used
 ER  - 
 
 TY  - JOUR
+TI  - Effects of Acute Sleep Loss on Physical Performance: A Systematic and Meta-Analytical Review
+AU  - Craven, J
+AU  - McCartney, D
+AU  - Desbrow, B
+AU  - Sabapathy, S
+AU  - Bellinger, P
+AU  - Roberts, L
+AU  - Irwin, C
+PY  - 2022
+JO  - Sports Medicine
+VL  - 52
+IS  - 11
+SP  - 2669
+EP  - 2690
+DO  - 10.1007/s40279-022-01706-y
+AN  - PMID:35708888
+UR  - https://pubmed.ncbi.nlm.nih.gov/35708888/
+N2  - Pooling 227 results from 69 studies, a night of sleep loss lowered exercise performance by about 7.6% on average (95% CI 3.1% to 11.9%), and performance fell in every type of exercise tested. Losses were biggest after a full night without sleep or after waking early, grew by about 0.4% for each extra hour awake, and showed up consistently in afternoon or evening tests but much less in morning tests; the reported drop in strength was small (about 3%).
+N1  - Systematic review with meta-analysis (multi-level) and meta-regression: 227 outcome measures from 69 publications comparing normal sleep with acute sleep loss (total deprivation, early or late sleep restriction). Sports Med 2022;52:2669-2690, PMID 35708888.. Verified 2026-10-14. Used for: recovery.sleep_loss_impairs_performance: supports
+ER  - 
+
+TY  - JOUR
+TI  - Effects of sleep deprivation on sports performance and perceived exertion in athletes and non-athletes: a systematic review and meta-analysis
+AU  - Kong, Y
+AU  - Yu, B
+AU  - Guan, G
+AU  - Wang, Y
+AU  - He, H
+PY  - 2025
+JO  - Frontiers in Physiology
+VL  - 16
+SP  - 1544286
+DO  - 10.3389/fphys.2025.1544286
+AN  - PMID:40236824
+UR  - https://pubmed.ncbi.nlm.nih.gov/40236824/
+N2  - Across 45 randomised and crossover trials, sleep deprivation lowered aerobic endurance, explosive power and maximal force in athletes (standardised effect sizes -0.66, -0.63 and -0.35). In non-athletes it lowered aerobic endurance (-1.02) but had no effect on explosive power (-0.02).
+N1  - Systematic review and meta-analysis of randomized controlled and randomized crossover trials (PROSPERO CRD42023492792, Cochrane RoB 2, searched to September 2024), 45 studies. Front Physiol 2025;16:1544286, PMID 40236824, PMC11996801.. Verified 2026-10-14. Used for: recovery.sleep_loss_impairs_performance: supports
+ER  - 
+
+TY  - JOUR
+TI  - Effects of Acute Sleep Deprivation on Sporting Performance in Athletes: A Comprehensive Systematic Review and Meta-Analysis
+AU  - Gong, M
+AU  - Sun, M
+AU  - Sun, Y
+AU  - Jin, L
+AU  - Li, S
+PY  - 2024
+JO  - Nature and Science of Sleep
+VL  - 16
+SP  - 935
+EP  - 948
+DO  - 10.2147/NSS.S467531
+AN  - PMID:39006249
+UR  - https://pubmed.ncbi.nlm.nih.gov/39006249/
+N2  - Across 27 studies in athletes, acute sleep deprivation lowered overall performance by a medium amount (effect size -0.56). The biggest effects were on high-intensity intermittent exercise (-1.57) and skill (-1.06) and the smallest on explosive power (-0.39); afternoon performance was hit harder than morning performance (-1.11 vs -0.30), and losing sleep at the end of the night was worst.
+N1  - Systematic review and meta-analysis of 27 studies (75 indicators per researcher; I saw the 27-study count) in athletes after acute sleep deprivation. Nat Sci Sleep 2024;16:935-948, DOI 10.2147/NSS.S467531.. Verified 2026-10-14. Used for: recovery.sleep_loss_impairs_performance: supports
+ER  - 
+
+TY  - JOUR
+TI  - Inadequate sleep and muscle strength: Implications for resistance training
+AU  - Knowles, OE
+AU  - Drinkwater, EJ
+AU  - Urwin, CS
+AU  - Lamon, S
+AU  - Aisbett, B
+PY  - 2018
+JO  - Journal of Science and Medicine in Sport
+VL  - 21
+IS  - 9
+SP  - 959
+EP  - 968
+DO  - 10.1016/j.jsams.2018.01.012
+AN  - PMID:29422383
+UR  - https://pubmed.ncbi.nlm.nih.gov/29422383/
+N2  - This review of studies on sleep and resistance training found that several nights in a row of restricted sleep could reduce force in multi-joint lifts such as squats, but not in single-joint movements. Hormone responses to training were inconsistent.
+N1  - Systematic review (search of five electronic databases, no meta-analysis seen). J Sci Med Sport 2018;21(9):959-968, DOI 10.1016/j.jsams.2018.01.012. I did not see the number of included studies (17 per the researcher).. Not verified 2026-10-14. Used for: recovery.sleep_loss_impairs_performance: context
+ER  - 
+
+TY  - JOUR
+TI  - Implications of sleep loss or sleep deprivation on muscle strength: a systematic review
+AU  - Easow, J
+PY  - 2025
+JO  - Sleep and Breathing
+VL  - 29
+IS  - 4
+SP  - 242
+DO  - 10.1007/s11325-025-03413-0
+AN  - PMID:40663194
+UR  - https://pubmed.ncbi.nlm.nih.gov/40663194/
+N2  - Across 13 studies in healthy adults, some found lower muscle strength after a night without sleep and others found no clear difference. Taken together, short- and longer-term sleep loss reduced some measures of strength, power and muscular endurance and increased fatigue.
+N1  - Systematic review without meta-analysis: 13 included studies with counterbalanced or randomised designs in healthy adults (514 database records plus 563 from organization and citation searching). Sleep Breath, published July 2025, PMID 40663194, PMC12263768, DOI 10.1007/s11325-025-03413-0.. Not verified 2026-10-14. Used for: recovery.sleep_loss_impairs_performance: context
+ER  - 
+
+TY  - JOUR
+TI  - Sleep and athletic performance: the effects of sleep loss on exercise performance, and physiological and cognitive responses to exercise
+AU  - Fullagar, HH
+AU  - Skorski, S
+AU  - Duffield, R
+AU  - Hammes, D
+AU  - Coutts, AJ
+AU  - Meyer, T
+PY  - 2015
+JO  - Sports Medicine
+VL  - 45
+IS  - 2
+SP  - 161
+EP  - 86
+DO  - 10.1007/s40279-014-0260-0
+AN  - PMID:25315456
+UR  - https://pubmed.ncbi.nlm.nih.gov/25315456/
+N2  - This earlier review describes how sleep restriction and deprivation affect exercise, the body and the mind. It reports slower and less accurate thinking after sleep loss, but concludes that the link between sleep loss and exercise performance was still unclear at the time.
+N1  - Narrative review, context only. Sports Med 2015;45(2):161-186, PMID 25315456 (the researcher listed none), DOI 10.1007/s40279-014-0260-0.. Not verified 2026-10-14. Used for: recovery.sleep_loss_impairs_performance: context
+ER  - 
+
+TY  - JOUR
+TI  - A Validation of Six Wearable Devices for Estimating Sleep, Heart Rate and Heart Rate Variability in Healthy Adults
+AU  - Miller, DJ
+AU  - Sargent, C
+AU  - Roach, GD
+PY  - 2022
+JO  - Sensors (Basel)
+VL  - 22
+IS  - 16
+SP  - 6317
+DO  - 10.3390/s22166317
+AN  - PMID:36016077
+UR  - https://pubmed.ncbi.nlm.nih.gov/36016077/
+N2  - Across one laboratory night in 53 healthy young adults, six wearables agreed with polysomnography on sleep versus wake for about 86-89% of epochs, but for only about 50-65% on sleep stages. Against ECG, WHOOP read heart rate 0.3 bpm low (ICC 0.99) and HRV 4.5 ms low.
+N1  - Validation study against criterion references: polysomnography for sleep and ECG for heart rate/HRV. One laboratory night (9 h in bed, 23:00-08:00) with all six devices worn at once: Apple Watch S6, Garmin Forerunner 245 Music, Polar Vantage V, Oura Ring Gen 2, WHOOP 3.0, Somfit. n=53 (26 F, 27 M), age 25.4 +/- 5.9 y.. Verified 2026-10-14. Used for: wearables.measurement_validity: supports
+ER  - 
+
+TY  - JOUR
+TI  - Validation of nocturnal resting heart rate and heart rate variability in consumer wearables
+AU  - Dial, MB
+AU  - Hollander, ME
+AU  - Vatne, EA
+AU  - Emerson, AM
+AU  - Edwards, NA
+AU  - Hagen, JA
+PY  - 2025
+JO  - Physiological Reports
+VL  - 13
+IS  - 16
+SP  - e70527
+DO  - 10.14814/phy2.70527
+UR  - https://doi.org/10.14814/phy2.70527
+N2  - In 13 healthy adults over 536 nights, Oura Gen 3 and Gen 4 night-time resting heart rate (CCC 0.97-0.98) and HRV (CCC 0.97-0.99) agreed closely with ECG. WHOOP agreed moderately (CCC 0.91 for heart rate, 0.94 for HRV), while Polar (heart rate CCC 0.86, HRV 0.82) and Garmin HRV (0.87) agreed poorly.
+N1  - Validation study against an ECG reference worn at the same time as multiple consumer wearables during sleep (Lin's CCC, MAPE). Devices: Garmin Fenix 6, Oura Gen 3, Oura Gen 4, Polar Grit X Pro, WHOOP 4.0. n=13 healthy adults (6 female), 536 nights in total (repeated measures).. Not verified 2026-10-14. Used for: wearables.measurement_validity: context
+ER  - 
+
+TY  - JOUR
+TI  - The Accuracy of Acquiring Heart Rate Variability from Portable Devices: A Systematic Review and Meta-Analysis
+AU  - Dobbs, WC
+AU  - Fedewa, MV
+AU  - MacDonald, HV
+AU  - Holmes, CJ
+AU  - Cicone, ZS
+AU  - Plews, DJ
+AU  - Esco, MR
+PY  - 2019
+JO  - Sports Medicine
+VL  - 49
+IS  - 3
+SP  - 417
+EP  - 435
+DO  - 10.1007/s40279-019-01061-5
+AN  - PMID:30706234
+UR  - https://pubmed.ncbi.nlm.nih.gov/30706234/
+N2  - Pooling 23 studies, HRV from portable devices differed from ECG by a small but significant amount (effect size 0.23, 95% CI 0.05-0.42), with large variation between studies (I² 78.6%). The size of the error depended on the HRV metric, body position and sex, but not on device type, and the authors judged it acceptable for field use.
+N1  - Systematic review and meta-analysis (PRISMA) of portable-device HRV compared with ECG; literature searched up to 29 July 2017. 23 studies, 301 effects.. Verified 2026-10-14. Used for: wearables.measurement_validity: supports
+ER  - 
+
+TY  - JOUR
+TI  - Accuracy of Photoplethysmography-Derived Pulse Rate Variability Compared with Electrocardiography-Derived Heart Rate Variability: A Systematic Review and Meta-Analysis
+AU  - Xu, S
+PY  - 2026
+JO  - Sensors (Basel)
+VL  - 26
+IS  - 16
+SP  - 5192
+DO  - 10.3390/s26165192
+AN  - PMID:42655500
+UR  - https://pubmed.ncbi.nlm.nih.gov/42655500/
+N2  - Pooling 10 studies of healthy people at rest, pulse rate variability from optical (PPG) sensors differed from ECG HRV by a small standardised error: 0.19 for RMSSD and 0.13 for SDNN. The authors warn against reading this as showing that PPG and ECG are interchangeable, or applying it to sleep, exercise or daily life.
+N1  - Systematic review and meta-analysis of PPG-derived pulse rate variability compared with ECG-derived HRV (RMSSD, SDNN) in healthy or apparently healthy non-clinical populations. 43 studies in the qualitative synthesis (33 narrative); 10 unique studies pooled quantitatively (8 each for the RMSSD and SDNN meta-analyses).. Verified 2026-10-14. Used for: wearables.measurement_validity: supports
+ER  - 
+
+TY  - JOUR
+TI  - Pulse rate variability is not the same as heart rate variability: findings from a large, diverse clinical population study
+AU  - Kantrowitz
+AU  - Ben-David
+PY  - 2025
+JO  - Frontiers in Physiology
+DO  - 10.3389/fphys.2025.1630032
+UR  - https://doi.org/10.3389/fphys.2025.1630032
+N2  - In 931 adults at a hospital, optical pulse rate variability disagreed significantly with ECG HRV (p<0.001 for all comparisons), and the size of the gap varied across chronic diseases.
+N1  - Cross-sectional beat-to-beat agreement study comparing PPG pulse rate variability with ECG-derived HRV (criterion) using two Warfighter Monitor devices (chest and bicep). Time-domain indices SDNN, rMSSD and pNN50; Pearson correlation, Bland-Altman, and one-way ANOVA across chronic diseases. n=931 adults from a tertiary academic medical center in the southeastern US.. Not verified 2026-10-14. Used for: wearables.measurement_validity: context
+ER  - 
+
+TY  - JOUR
+TI  - Assessing the Accuracy of Popular Commercial Technologies That Measure Resting Heart Rate and Heart Rate Variability
+AU  - Stone, JD
+AU  - ...
+AU  - Hagen, JA
+PY  - 2021
+JO  - Frontiers in Sports and Active Living
+VL  - 3
+SP  - 585870
+DO  - 10.3389/fspor.2021.585870
+UR  - https://doi.org/10.3389/fspor.2021.585870
+N2  - In 5 healthy young adults (148 trials), most of seven commercial devices and apps measured resting heart rate accurately. RMSSD accuracy varied widely: about 4-7% error for the best (HRV4Training, Oura) versus 112% for a smartphone camera app.
+N1  - Validation study of seven commercial off-the-shelf devices/apps against a multi-lead ECG reference for resting-state HR and rMSSD (MAPE, Lin's CCC). n=5 healthy young adults, 148 total trials.. Verified 2026-10-14. Used for: wearables.measurement_validity: supports
+ER  - 
+
+TY  - JOUR
+TI  - Performance of seven consumer sleep-tracking devices compared with polysomnography
+AU  - Chinoy, ED
+AU  - Cuellar, JA
+AU  - Huwa, KE
+AU  - Jameson, JT
+AU  - Watson, CH
+AU  - Bessman, SC
+PY  - 2021
+JO  - Sleep
+DO  - 10.1093/sleep/zsaa291
+AN  - PMID:33378539
+UR  - https://pubmed.ncbi.nlm.nih.gov/33378539/
+N2  - In a laboratory comparison of seven consumer sleep trackers against polysomnography, the devices detected sleep very well (sensitivity at least 0.93) but wake poorly (specificity 0.18-0.54, lowest for the two Garmin models). Performance was worse on nights with disrupted sleep.
+N1  - Laboratory validation study of seven consumer sleep trackers against polysomnography, with research actigraphy (Actiwatch) as a comparator, including nights with disrupted sleep. Sample size and number of nights not seen in the snippets.. Verified 2026-10-14. Used for: wearables.measurement_validity: supports
+ER  - 
+
+TY  - JOUR
+TI  - Performance of consumer wrist-worn sleep tracking devices compared to polysomnography: a meta-analysis
+AU  - Lee, YJ
+AU  - Lee, JY
+AU  - Cho, JH
+AU  - Kang, YJ
+AU  - Choi, JH
+PY  - 2025
+JO  - Journal of Clinical Sleep Medicine
+VL  - 21
+IS  - 3
+SP  - 573
+EP  - 582
+DO  - 10.5664/jcsm.11460
+AN  - PMID:39484805
+UR  - https://pubmed.ncbi.nlm.nih.gov/39484805/
+N2  - Pooling 24 studies (798 participants), wrist-worn trackers' total sleep time, sleep efficiency, sleep latency and wake after sleep onset all differed significantly from polysomnography; for example, total sleep time differed by about 17 minutes and wake after sleep onset by about 13 minutes. The authors judge the devices useful for general sleep patterns but not as reliable as polysomnography.
+N1  - Systematic review and meta-analysis of consumer wrist-worn sleep trackers against polysomnography; databases searched to March 2024. 24 studies, 798 participants (devices included Fitbit, Jawbone, WHOOP, Garmin, Apple Watch, Xiaomi Mi Band 5).. Verified 2026-10-14. Used for: wearables.measurement_validity: supports
+ER  - 
+
+TY  - JOUR
+TI  - Accuracy of Fitbit Charge 4, Garmin Vivosmart 4, and WHOOP Versus Polysomnography: Systematic Review
+AU  - Schyvens
+PY  - 2024
+JO  - JMIR mHealth and uHealth
+VL  - 12
+SP  - e52192
+DO  - 10.2196/52192
+UR  - https://doi.org/10.2196/52192
+N2  - A review of 8 validation studies found Fitbit Charge 4 and Garmin Vivosmart 4 moderately accurate against polysomnography. WHOOP was closest for total sleep time but furthest for REM sleep, and every device needed better sleep-stage classification.
+N1  - Systematic review (no meta-analysis seen) of validation studies of Fitbit Charge 4, Garmin Vivosmart 4 and WHOOP against PSG (or an ambulatory EEG monitor such as Sleep Profiler). 504 records screened; 8 articles included.. Verified 2026-10-14. Used for: wearables.measurement_validity: supports
+ER  - 
+
+TY  - JOUR
+TI  - A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults
+AU  - Morton, RW
+AU  - Murphy, KT
+AU  - McKellar, SR
+PY  - 2018
+JO  - British Journal of Sports Medicine
+VL  - 52
+IS  - 6
+SP  - 376
+EP  - 384
+DO  - 10.1136/bjsports-2017-097608
+AN  - PMID:28698222
+UR  - https://pubmed.ncbi.nlm.nih.gov/28698222/
+N2  - Pooling 49 randomised trials (1,863 people), adding protein during at least 6 weeks of resistance training increased fat-free mass gains by about 0.3 kg on average (95% CI 0.09 to 0.52). Gains levelled off at a total intake of about 1.6 g/kg/day; the effect was smaller in older people and larger in trained people (about 0.75 kg).
+N1  - Systematic review, meta-analysis and meta-regression of RCTs (resistance exercise training of at least 6 weeks with dietary protein supplementation), 49 studies, 1,863 participants, with a two-phase breakpoint analysis of total protein intake vs change in fat-free mass. Br J Sports Med 2018; a 2020 correction is indexed (PMID 32943392, PMC7513243).. Verified 2026-10-14. Used for: nutrition.protein_intake_for_muscle_gain: supports
+ER  - 
+
+TY  - JOUR
+TI  - International Society of Sports Nutrition Position Stand: protein and exercise
+AU  - Jäger, R
+AU  - Kerksick, CM
+AU  - Campbell, BI
+PY  - 2017
+JO  - Journal of the International Society of Sports Nutrition
+VL  - 14
+IS  - 1
+SP  - 20
+DO  - 10.1186/s12970-017-0177-8
+AN  - PMID:28642676
+UR  - https://pubmed.ncbi.nlm.nih.gov/28642676/
+N2  - This expert position stand concludes that a total intake of 1.4 to 2.0 g/kg/day is enough for most people who exercise to build and maintain muscle. It suggests that trained people who are cutting calories may need 2.3 to 3.1 g/kg/day to keep lean mass.
+N1  - Position stand of the International Society of Sports Nutrition (an objective and critical review of protein intake for healthy, exercising individuals), published in the peer-reviewed Journal of the International Society of Sports Nutrition, 2017;14:20.. Verified 2026-10-14. Used for: nutrition.protein_intake_for_muscle_gain: supports
+ER  - 
+
+TY  - JOUR
+TI  - Effects of 16 weeks of two different high-protein diets with either resistance or concurrent training on body composition, muscular strength and performance, and markers of liver and kidney function in resistance-trained males
+AU  - Bagheri
+PY  - 2023
+JO  - Journal of the International Society of Sports Nutrition
+VL  - 20
+IS  - 1
+SP  - 2236053
+DO  - 10.1080/15502783.2023.2236053
+AN  - PMID:37516903
+UR  - https://pubmed.ncbi.nlm.nih.gov/37516903/
+N2  - In 48 resistance-trained young men over 16 weeks, 3.2 g/kg/day gave no more lean mass or strength than 1.6 g/kg/day. The one exception was a larger gain in peak power in one of the resistance-training groups. Kidney and liver markers did not change.
+N1  - Four-arm parallel 2x2 trial (resistance vs concurrent training x 1.6 vs 3.2 g/kg/day protein), 16 weeks, four sessions per week, n=48 resistance-trained males (age 26 ± 6 yr, BMI 25.6 ± 2.9), n=12 per arm. I did not see the word 'randomised' in the text I saw.. Not verified 2026-10-14. Used for: nutrition.protein_intake_for_muscle_gain: context
+ER  - 
+
+TY  - JOUR
+TI  - Systematic review and meta-analysis of protein intake to support muscle mass and function in healthy adults
+AU  - Nunes, EA
+AU  - Colenso-Semple, L
+AU  - McKellar, SR
+PY  - 2022
+JO  - Journal of Cachexia, Sarcopenia and Muscle
+VL  - 13
+IS  - 2
+SP  - 795
+EP  - 810
+DO  - 10.1002/jcsm.12922
+AN  - PMID:35187864
+UR  - https://pubmed.ncbi.nlm.nih.gov/35187864/
+N2  - Pooling 74 randomised trials in healthy adults, eating more protein alongside resistance exercise gave small extra lean-mass gains (standardised mean difference 0.22, 95% CI 0.14 to 0.30). The gains were more noticeable in younger people eating 1.6 g/kg/day or more. Effects on strength and physical function were small or unclear.
+N1  - Systematic review with three-level random-effects meta-analyses and meta-regressions of 74 RCTs in healthy, non-obese adults who increased daily protein intake (PROSPERO CRD42020159001); J Cachexia Sarcopenia Muscle 2022;13(2):795-810.. Not verified 2026-10-14. Used for: nutrition.protein_intake_for_muscle_gain: context
+ER  - 
+
+TY  - JOUR
+TI  - Dose-response relationship between protein intake and muscle mass increase: a systematic review and meta-analysis of randomized controlled trials
+AU  - Tagawa, R
+AU  - Watanabe, D
+PY  - 2021
+JO  - Nutrition Reviews
+VL  - 79
+IS  - 1
+SP  - 66
+EP  - 75
+DO  - 10.1093/nutrit/nuaa104
+AN  - PMID:33300582
+UR  - https://pubmed.ncbi.nlm.nih.gov/33300582/
+N2  - Pooling randomised trials both with and without resistance training, each extra 0.1 g/kg/day of protein was linked to about 0.39 kg more lean mass below 1.3 g/kg/day, and about 0.12 kg above it. Gains slowed above 1.3 g/kg/day but did not stop, which points to diminishing returns up to about 3.5 g/kg/day rather than a ceiling at 1.6.
+N1  - Systematic review and dose-response meta-analysis of RCTs using a multivariate spline model; Nutrition Reviews 2021;79(1):66-75 (Tagawa R, Watanabe D, Ito K, Ueda K, Nakayama K, Sanbongi C, Miyachi M). Includes trials with and without resistance training.. Not verified 2026-10-14. Used for: nutrition.protein_intake_for_muscle_gain: contradicts
+ER  - 
+
+TY  - JOUR
+TI  - Synergistic Effect of Increased Total Protein Intake and Strength Training on Muscle Strength: A Dose-Response Meta-analysis of Randomized Controlled Trials
+AU  - Tagawa, R
+AU  - Watanabe, D
+AU  - Ito
+AU  - Otsuyama
+AU  - Nakayama
+AU  - Sanbongi
+AU  - Miyachi
+PY  - 2022
+JO  - Sports Medicine - Open
+VL  - 8
+IS  - 1
+SP  - 110
+DO  - 10.1186/s40798-022-00508-w
+AN  - PMID:36057893
+UR  - https://pubmed.ncbi.nlm.nih.gov/36057893/
+N2  - Extra protein increased strength only when combined with resistance training (about 2% more). With training, strength rose by about 0.72% per extra 0.1 g/kg/day up to 1.5 g/kg/day, with no further gain above that.
+N1  - Systematic review and dose-response meta-analysis of RCTs (random-effects model and spline model): 82 articles in the meta-analyses, 69 used for spline curves; Sports Medicine - Open 2022.. Not verified 2026-10-14. Used for: nutrition.protein_intake_for_muscle_gain: context
+ER  - 
+
+TY  - JOUR
+TI  - Protein supplementation augments the adaptive response of skeletal muscle to resistance-type exercise training: a meta-analysis
+AU  - Cermak, NM
+AU  - Res, PT
+AU  - de Groot, LC
+AU  - Saris, WH
+AU  - van Loon, LJ
+PY  - 2012
+JO  - American Journal of Clinical Nutrition
+VL  - 96
+IS  - 6
+SP  - 1454
+EP  - 64
+DO  - 10.3945/ajcn.112.037556
+AN  - PMID:23134885
+UR  - https://pubmed.ncbi.nlm.nih.gov/23134885/
+N2  - This meta-analysis of protein supplements taken during prolonged resistance training reported an average extra fat-free mass gain of about 0.7 kg, plus greater leg-press strength. These figures come from press reports and a conference abstract and were not checked against the paper.
+N1  - Systematic review with random-effects meta-analysis of protein supplementation during prolonged resistance-type exercise training in younger and older adults; AJCN 2012;96(6):1454-1464, DOI 10.3945/ajcn.112.037556 (Cermak NM, Res PT, de Groot LC, Saris WH, van Loon LJ). A news report gives 22 randomised controlled trials and 680 participants.. Not verified 2026-10-14. Used for: nutrition.protein_intake_for_muscle_gain: context
+ER  - 
+
+TY  - JOUR
+TI  - Carbohydrate quality and human health: a series of systematic reviews and meta-analyses
+AU  - Reynolds, A
+AU  - Mann, J
+AU  - Cummings, J
+AU  - Winter, N
+AU  - Mete, E
+AU  - Te Morenga, L
+PY  - 2019
+JO  - The Lancet
+VL  - 393
+IS  - 10170
+SP  - 434
+EP  - 445
+DO  - 10.1016/S0140-6736(18)31809-9
+AN  - PMID:30638909
+UR  - https://pubmed.ncbi.nlm.nih.gov/30638909/
+N2  - A series of reviews of prospective studies and clinical trials found that people who ate the most fibre had 15 to 30% lower all-cause and cardiovascular death, and lower rates of coronary heart disease, stroke, type 2 diabetes and colorectal cancer, than people who ate the least. The biggest risk reductions were at about 25 to 29 g a day, and trials showed lower body weight, systolic blood pressure and total cholesterol with more fibre.
+N1  - A series of systematic reviews and meta-analyses of prospective observational studies and clinical trials, with dose-response analyses. The counts (185 prospective studies, about 135 million person-years, 58 clinical trials, 4,635 adults) come from secondary news coverage shown in the search, not from abstract text I saw.. Verified 2026-10-14. Used for: nutrition.fibre_intake_target: supports
+ER  - 
+
+TY  - JOUR
+TI  - Dietary fibre intake and risk of cardiovascular disease: systematic review and meta-analysis
+AU  - Threapleton, DE
+AU  - Greenwood, DC
+AU  - Evans, CEL
+AU  - Cleghorn, CL
+AU  - Nykjaer, C
+AU  - Woodhead, C
+PY  - 2013
+JO  - BMJ
+VL  - 347
+SP  - f6879
+DO  - 10.1136/bmj.f6879
+AN  - PMID:24355537
+UR  - https://pubmed.ncbi.nlm.nih.gov/24355537/
+N2  - Across 22 cohort study publications, each extra 7 g of fibre a day was linked to about 9% lower risk of cardiovascular disease and of coronary heart disease (relative risk 0.91 for both). Insoluble fibre, cereal fibre and vegetable fibre were also linked to lower risk.
+N1  - Systematic review and random-effects dose-response meta-analysis of prospective cohort studies with at least 3 years of follow-up. 22 cohort study publications.. Verified 2026-10-14. Used for: nutrition.fibre_intake_target: supports
+ER  - 
+
+TY  - JOUR
+TI  - Dietary fibre, whole grains, and risk of colorectal cancer: systematic review and dose-response meta-analysis of prospective studies
+AU  - Aune, D
+AU  - Chan, DS
+AU  - Lau, R
+AU  - Vieira, R
+AU  - Greenwood, DC
+AU  - Kampman, E
+AU  - Norat, T
+PY  - 2011
+JO  - BMJ
+VL  - 343
+SP  - d6617
+DO  - 10.1136/bmj.d6617
+AN  - PMID:22074852
+UR  - https://pubmed.ncbi.nlm.nih.gov/22074852/
+N2  - Across 25 prospective studies, each extra 10 g of total fibre a day was linked to about 10% lower colorectal cancer risk (relative risk 0.90), and cereal fibre and whole grains showed similar links. Fruit and vegetable fibre showed no clear link.
+N1  - Systematic review and dose-response meta-analysis of prospective studies, searched to December 2010. 25 prospective studies.. Verified 2026-10-14. Used for: nutrition.fibre_intake_target: supports
+ER  - 
+
+TY  - JOUR
+TI  - Dietary fibre and incidence of type 2 diabetes in eight European countries: the EPIC-InterAct Study and a meta-analysis of prospective studies
+AU  - InterAct Consortium
+PY  - 2015
+JO  - Diabetologia
+VL  - 58
+SP  - 1394
+EP  - 1408
+DO  - 10.1007/s00125-015-3585-9
+AN  - PMID:26021487
+UR  - https://pubmed.ncbi.nlm.nih.gov/26021487/
+N2  - In a European study of 11,559 people who developed type 2 diabetes, those eating the most fibre had 18% lower risk, but the link was no longer significant after allowing for body weight. Pooled across 19 cohorts, each extra 10 g a day was linked to 9% lower risk, driven by cereal fibre; fruit and vegetable fibre showed no clear link.
+N1  - Two parts. First, the EPIC-InterAct case-cohort study: 11,559 incident type 2 diabetes cases and a subcohort of 15,258, with 10.8 years of follow-up. Second, a meta-analysis of prospective cohorts: 18 other cohorts plus EPIC-InterAct, 19 in total. The meta-analysis part is the strong design; the case-cohort is a single observational study.. Verified 2026-10-14. Used for: nutrition.fibre_intake_target: supports
+ER  - 
+
+TY  - JOUR
+TI  - Dietary fiber and health outcomes: an umbrella review of systematic reviews and meta-analyses
+AU  - Veronese, N
+AU  - Solmi, M
+AU  - Caruso, MG
+AU  - Giannelli, G
+AU  - Osella, AR
+AU  - Evangelou, E
+PY  - 2018
+JO  - The American Journal of Clinical Nutrition
+VL  - 107
+IS  - 3
+SP  - 436
+EP  - 444
+DO  - 10.1093/ajcn/nqx082
+AN  - PMID:29566200
+UR  - https://pubmed.ncbi.nlm.nih.gov/29566200/
+N2  - An earlier umbrella review of 21 outcomes found convincing evidence only for lower cardiovascular death, lower all-cause death and lower pancreatic cancer risk with higher fibre. Other outcomes, including heart disease, stroke, type 2 diabetes and colorectal cancer, did not reach that grade.
+N1  - Umbrella review of systematic reviews with meta-analyses of observational studies, using random-effects summary effects, 95% prediction intervals, heterogeneity, small-study effects and excess significance bias. 21 eligible outcomes.. Not verified 2026-10-14. Used for: nutrition.fibre_intake_target: context
+ER  - 
+
+TY  - JOUR
+TI  - The impact of dietary fiber consumption on human health: An umbrella review of evidence from 17,155,277 individuals
+AU  - Veronese, N
+PY  - 2025
+JO  - Clinical Nutrition
+VL  - 51
+SP  - 325
+EP  - 333
+DO  - 10.1016/j.clnu.2025.06.021
+AN  - PMID:40651334
+UR  - https://pubmed.ncbi.nlm.nih.gov/40651334/
+N2  - An umbrella review covering more than 17 million people found that higher fibre intake was linked to lower risk for 29 of 38 health outcomes. Evidence was graded convincing for lower cardiovascular death, pancreatic cancer and diverticular disease, and highly suggestive for lower all-cause death, cardiovascular disease and coronary heart disease.
+N1  - Umbrella review of meta-analyses of observational studies with credibility grading. 33 meta-analyses, 38 health outcomes, 17,155,277 individuals (per the title).. Verified 2026-10-14. Used for: nutrition.fibre_intake_target: supports
+ER  - 
+
+TY  - JOUR
+TI  - Role of Diet in Colorectal Cancer Incidence: Umbrella Review of Meta-analyses of Prospective Observational Studies
+AU  - Veettil, SK
+AU  - Wong, TY
+AU  - Loo, YS
+AU  - Playdon, MC
+AU  - Lai, NM
+AU  - Giovannucci, EL
+PY  - 2021
+JO  - JAMA Network Open
+VL  - 4
+IS  - 2
+SP  - e2037341
+DO  - 10.1001/jamanetworkopen.2020.37341
+AN  - PMID:33591366
+UR  - https://pubmed.ncbi.nlm.nih.gov/33591366/
+N2  - An umbrella review of 45 meta-analyses of prospective studies found convincing evidence that higher fibre intake is linked to lower colorectal cancer risk, as are higher calcium and yogurt intakes.
+N1  - Umbrella review of meta-analyses of prospective observational studies with credibility grading. 45 meta-analyses describing 109 diet-colorectal cancer associations.. Verified 2026-10-14. Used for: nutrition.fibre_intake_target: supports
+ER  - 
+
+TY  - JOUR
+TI  - Dietary fibre for the prevention of recurrent colorectal adenomas and carcinomas
+AU  - Yao, Y
+AU  - Suo, T
+AU  - Andersson, R
+AU  - Cao, Y
+AU  - Wang, C
+AU  - Lu, J
+PY  - 2017
+JO  - Cochrane Database of Systematic Reviews
+DO  - 10.1002/14651858.CD003430.pub2
+AN  - PMID:28064440
+UR  - https://pubmed.ncbi.nlm.nih.gov/28064440/
+N2  - In 5 randomised trials of 3,641 people who had already had bowel polyps, eating more fibre did not reduce the number who developed new polyps (relative risk 1.04). In 2 trials, colorectal cancer diagnoses were more common in the fibre groups (about 12 vs 4 per 1,000; low-quality evidence).
+N1  - Cochrane systematic review and meta-analysis of RCTs and quasi-RCTs (search to 4 April 2016; update of the 2002 review). 7 studies were eligible and 5 provided data (4,798 participants). Primary outcome, at least one adenoma: 5 RCTs, n=3,641. Colorectal cancer: 2 RCTs, n=2,794.. Not verified 2026-10-14. Used for: nutrition.fibre_intake_target: context
+ER  - 
+
+TY  - JOUR
+TI  - Dietary fibre for the primary prevention of cardiovascular disease
+AU  - Hartley, L
+AU  - May, MD
+AU  - Loveman, E
+AU  - Colquitt, JL
+AU  - Rees, K
+PY  - 2016
+JO  - Cochrane Database of Systematic Reviews
+DO  - 10.1002/14651858.CD011472.pub2
+AN  - PMID:26758499
+UR  - https://pubmed.ncbi.nlm.nih.gov/26758499/
+N2  - Across 23 randomised trials with 1,513 participants, more fibre modestly lowered total cholesterol (by 0.20 mmol/L), LDL cholesterol (by 0.14 mmol/L) and diastolic blood pressure (by 1.77 mmHg). The fall in systolic blood pressure was not significant.
+N1  - Cochrane systematic review and meta-analysis of RCTs: dietary fibre vs no or minimal intervention in adults from the general population or at risk of CVD. 23 RCTs, 1,513 participants randomised. Most trials were short (few ran beyond 12 weeks).. Verified 2026-10-14. Used for: nutrition.fibre_intake_target: supports
+ER  - 
+
+TY  - JOUR
+TI  - Scientific Opinion on Dietary Reference Values for carbohydrates and dietary fibre
+AU  - EFSA Panel on Dietetic Products
+AU  - Nutrition
+AU  - Allergies
+PY  - 2010
+JO  - EFSA Journal
+VL  - 8
+IS  - 3
+SP  - 1462
+DO  - 10.2903/j.efsa.2010.1462
+UR  - https://doi.org/10.2903/j.efsa.2010.1462
+N2  - The European Food Safety Authority set 25 g of fibre a day as adequate for normal bowel function in adults, and 2 g per megajoule of energy for children aged 1 and over.
+N1  - EFSA NDA Panel scientific opinion setting dietary reference values, published in EFSA Journal 2010;8(3):1462. This is an expert regulatory opinion, not a systematic review of disease outcomes.. Not verified 2026-10-14. Used for: nutrition.fibre_intake_target: context
+ER  - 
+
+TY  - JOUR
 TI  - Dietary sugars and body weight: systematic review and meta-analyses of randomised controlled trials and cohort studies
 AU  - Te Morenga, L
 AU  - Mallard, S

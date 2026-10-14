@@ -18,15 +18,15 @@ How this version was checked: one agent searched for evidence for and against ea
 | [Planned lighter weeks](#training-deload-periods) | Not enough evidence yet | 0 |
 | [Adding cardio to strength training](#training-concurrent-aerobic-compatible) | Not enough evidence yet | 0 |
 | [Limiting weekly running increases](#endurance-weekly-distance-progression) | Not enough evidence yet | 0 |
+| [Short sleep and next-day performance](#recovery-sleep-loss-impairs-performance) | Enough verified evidence | 3 |
 | [Lifting less on low-HRV days](#recovery-hrv-guided-lifting-volume) | Not enough evidence yet | 0 |
 | [HRV-guided endurance training](#recovery-hrv-guided-endurance-training) | Not enough evidence yet | 0 |
-| [Short sleep and next-day performance](#recovery-sleep-loss-impairs-performance) | Not enough evidence yet | 0 |
-| [How accurate wearables are](#wearables-measurement-validity) | Not enough evidence yet | 0 |
+| [How accurate wearables are](#wearables-measurement-validity) | Enough verified evidence | 7 |
+| [Daily fibre](#nutrition-fibre-intake-target) | Enough verified evidence | 7 |
 | [Free sugars](#nutrition-free-sugars-and-health) | Enough verified evidence | 4 |
 | [Salt and blood pressure](#nutrition-sodium-reduction-blood-pressure) | Enough verified evidence | 3 |
 | [Ultra-processed food](#nutrition-ultra-processed-food-associations) | Enough verified evidence | 7 |
-| [Protein for muscle gain](#nutrition-protein-intake-for-muscle-gain) | Not enough evidence yet | 0 |
-| [Daily fibre](#nutrition-fibre-intake-target) | Not enough evidence yet | 0 |
+| [Protein for muscle gain](#nutrition-protein-intake-for-muscle-gain) | Not enough evidence yet | 2 |
 | [Protein and kidney function](#nutrition-high-protein-kidney-function-healthy) | Not enough evidence yet | 0 |
 | [Saturated fat and heart disease](#nutrition-saturated-fat-replacement-cvd) | Not enough evidence yet | 0 |
 
@@ -473,6 +473,57 @@ How this version was checked: one agent searched for evidence for and against ea
 
 
 
+## Short sleep and next-day performance
+<a id="recovery-sleep-loss-impairs-performance"></a>
+
+`recovery.sleep_loss_impairs_performance` · **Enough verified evidence**
+
+**Claim.** In healthy adults and athletes tested in the lab, one night of restricted or no sleep lowers physical performance the next day on average, including aerobic endurance. How much it drops varies widely between studies and tasks, so the average cannot predict the effect for any one person.
+
+**Who it applies to.** Healthy adults and athletes, mostly young men, tested in laboratory randomised or crossover studies the day after one night (about 24 h) of no sleep or partly restricted sleep. It does not cover several nights of short sleep in a row, habitual short sleepers or sleep tracked in everyday life. Evidence on women and older adults is limited.
+
+**What the app does with it.** Explains your readiness: short sleep can make a session feel harder. It never changes your plan by itself.
+
+**Why this status.** Active, in a narrowed form. Three verified meta-analyses from different teams (Craven 2022, Gong 2024 and Kong 2025) all find that one night of sleep loss lowers next-day physical performance on average, and all three show it for aerobic endurance. Craven puts the average drop at about 7.6%, but heterogeneity is extreme (I² about 98%) and the other two report only standardised effect sizes, so no percentage is carried into the app. Several of the researcher's details are left out because they rest on one source or on subgroup figures nobody verified, and Kong's summary partly conflicts with some of them: the 6 h threshold, the "feels harder" (RPE) wording, strength falling "only after total deprivation", early-night restriction having no effect, and the time-of-day and late-restriction moderators, which only two counted sources back. Knowles 2018 and Easow 2025 show that strength effects are mixed but do not contradict the overall direction. Because the three meta-analyses share many primary trials, the app should use this only to explain, never to change the plan.
+
+### Supporting studies
+
+- **Craven et al., 2022.** Effects of Acute Sleep Loss on Physical Performance: A Systematic and Meta-Analytical Review. *Sports Medicine* Sports Med. 2022 Nov;52(11):2669-2690. PMID [35708888](https://pubmed.ncbi.nlm.nih.gov/35708888/) · PMCID PMC9584849 · DOI [10.1007/s40279-022-01706-y](https://doi.org/10.1007/s40279-022-01706-y)
+  - Design: Systematic review with meta-analysis (multi-level) and meta-regression: 227 outcome measures from 69 publications comparing normal sleep with acute sleep loss (total deprivation, early or late sleep restriction). Sports Med 2022;52:2669-2690, PMID 35708888 (69 publications, 227 outcome measures (participant total not seen)).
+  - What it found: Pooling 227 results from 69 studies, a night of sleep loss lowered exercise performance by about 7.6% on average (95% CI 3.1% to 11.9%), and performance fell in every type of exercise tested. Losses were biggest after a full night without sleep or after waking early, grew by about 0.4% for each extra hour awake, and showed up consistently in afternoon or evening tests but much less in morning tests; the reported drop in strength was small (about 3%).
+  - Limitations: The studies are mostly small lab trials in young men and their results differ enormously (I² about 98%), so the average cannot say how much any one person will be affected, and the strength and morning-session details were not checked against the full text.
+  - Checks: all six passed, 2026-10-14.
+- **Kong et al., 2025.** Effects of sleep deprivation on sports performance and perceived exertion in athletes and non-athletes: a systematic review and meta-analysis. *Frontiers in Physiology* Front Physiol. 2025 Apr 1;16:1544286. PMID [40236824](https://pubmed.ncbi.nlm.nih.gov/40236824/) · PMCID PMC11996801 · DOI [10.3389/fphys.2025.1544286](https://doi.org/10.3389/fphys.2025.1544286)
+  - Design: Systematic review and meta-analysis of randomized controlled and randomized crossover trials (PROSPERO CRD42023492792, Cochrane RoB 2, searched to September 2024), 45 studies. Front Physiol 2025;16:1544286, PMID 40236824, PMC11996801 (45 trials (16 aerobic endurance, 8 anaerobic endurance, 23 explosive power, 10 maximal force, 4 speed, 4 skill control, 12 RPE); participant total not seen).
+  - What it found: Across 45 randomised and crossover trials, sleep deprivation lowered aerobic endurance, explosive power and maximal force in athletes (standardised effect sizes -0.66, -0.63 and -0.35). In non-athletes it lowered aerobic endurance (-1.02) but had no effect on explosive power (-0.02).
+  - Limitations: It reports standardised effect sizes rather than percentages, and its results for perceived effort and for each type of sleep loss (early, late or total) were not verified.
+  - Checks: all six passed, 2026-10-14.
+- **Gong et al., 2024.** Effects of Acute Sleep Deprivation on Sporting Performance in Athletes: A Comprehensive Systematic Review and Meta-Analysis. *Nature and Science of Sleep* Nat Sci Sleep. 2024 Jul 9;16:935-948. PMID [39006249](https://pubmed.ncbi.nlm.nih.gov/39006249/) · PMCID PMC11246080 · DOI [10.2147/NSS.S467531](https://doi.org/10.2147/NSS.S467531)
+  - Design: Systematic review and meta-analysis of 27 studies (75 indicators per researcher; I saw the 27-study count) in athletes after acute sleep deprivation. Nat Sci Sleep 2024;16:935-948, DOI 10.2147/NSS.S467531 (27 studies, 75 indicators; participant total not seen).
+  - What it found: Across 27 studies in athletes, acute sleep deprivation lowered overall performance by a medium amount (effect size -0.56). The biggest effects were on high-intensity intermittent exercise (-1.57) and skill (-1.06) and the smallest on explosive power (-0.39); afternoon performance was hit harder than morning performance (-1.11 vs -0.30), and losing sleep at the end of the night was worst.
+  - Limitations: It covers athletes only, and its results for each type of sleep loss, including a reportedly small effect of a full night without sleep, were not verified.
+  - Checks: all six passed, 2026-10-14.
+
+### Context
+
+- **Knowles et al., 2018.** Inadequate sleep and muscle strength: Implications for resistance training. *Journal of Science and Medicine in Sport* J Sci Med Sport. 2018;21(9):959-968. PMID [29422383](https://pubmed.ncbi.nlm.nih.gov/29422383/) · DOI [10.1016/j.jsams.2018.01.012](https://doi.org/10.1016/j.jsams.2018.01.012)
+  - Design: Systematic review (search of five electronic databases, no meta-analysis seen). J Sci Med Sport 2018;21(9):959-968, DOI 10.1016/j.jsams.2018.01.012. I did not see the number of included studies (17 per the researcher) (17 studies; participant total not seen).
+  - What it found: This review of studies on sleep and resistance training found that several nights in a row of restricted sleep could reduce force in multi-joint lifts such as squats, but not in single-joint movements. Hormone responses to training were inconsistent.
+  - Limitations: It is mainly about several nights of short sleep rather than one night, it did not pool results, and its PubMed record could not be confirmed (its DOI could).
+  - Checks: identifier resolves to this paper: unknown; the abstract supports the stated finding: unknown.
+- **Easow et al., 2025.** Implications of sleep loss or sleep deprivation on muscle strength: a systematic review. *Sleep and Breathing* Sleep Breath. 2025 Jul 15;29(4):242. PMID [40663194](https://pubmed.ncbi.nlm.nih.gov/40663194/) · PMCID PMC12263768 · DOI [10.1007/s11325-025-03413-0](https://doi.org/10.1007/s11325-025-03413-0)
+  - Design: Systematic review without meta-analysis: 13 included studies with counterbalanced or randomised designs in healthy adults (514 database records plus 563 from organization and citation searching). Sleep Breath, published July 2025, PMID 40663194, PMC12263768, DOI 10.1007/s11325-025-03413-0 (13 studies included (514 database records plus 563 from other sources screened); participant total not seen).
+  - What it found: Across 13 studies in healthy adults, some found lower muscle strength after a night without sleep and others found no clear difference. Taken together, short- and longer-term sleep loss reduced some measures of strength, power and muscular endurance and increased fatigue.
+  - Limitations: It is a review without pooled numbers that mixes one-night and longer-term sleep loss, so it cannot say how large the acute effect on strength is.
+  - Checks: the abstract supports the stated finding: unknown.
+- **Fullagar et al., 2015.** Sleep and athletic performance: the effects of sleep loss on exercise performance, and physiological and cognitive responses to exercise. *Sports Medicine* Sports Med. 2015 Feb;45(2):161-86. PMID [25315456](https://pubmed.ncbi.nlm.nih.gov/25315456/) · DOI [10.1007/s40279-014-0260-0](https://doi.org/10.1007/s40279-014-0260-0)
+  - Design: Narrative review, context only. Sports Med 2015;45(2):161-186, PMID 25315456 (the researcher listed none), DOI 10.1007/s40279-014-0260-0.
+  - What it found: This earlier review describes how sleep restriction and deprivation affect exercise, the body and the mind. It reports slower and less accurate thinking after sleep loss, but concludes that the link between sleep loss and exercise performance was still unclear at the time.
+  - Limitations: It is a narrative review that predates the meta-analyses and did not pool results, so it gives background only and cannot confirm the size or direction of the effect.
+  - Checks: strong study design: fail; the abstract supports the stated finding: fail.
+
+**What would change the status.** 1) Any hours threshold (for example "6 h or less") needs checking against the Craven full text or another counted source before the app ties the message to a number. 2) To add timing or protocol detail (worse in afternoon or evening, worse after waking early, weaker after going to bed late), a third counted source has to confirm it. Kong's subgroup results by type of sleep loss and Gong's per-protocol figures (including the reportedly small -0.23 for a full night without sleep) must be verified, and the conflict over early-night restriction resolved. 3) To mention strength or perceived effort, the Craven strength subgroup (about -3%, total deprivation only, lower body) and Kong's RPE result (SMD 0.47) need verification against the full text. 4) Showing users a percentage would need at least three sources reporting comparable percentage effects; only Craven does. 5) The three meta-analyses share many of the same small lab crossover trials. An overlap check, or large independent trials, would show how independent they really are; if they turn out to rest on the same handful of trials, the status should be reconsidered. 6) The population cannot be widened without evidence on women, older adults, habitual short sleepers, real-world sleep tracked by wearables, and whether caffeine or naps offset the effect. 7) Several sources are still unverified and were not used: the endurance-specific meta-analysis seen on ResearchGate, Bonnar 2018, the Heliyon 2024 trial in Sanda athletes (mixed results), and PMID 41900490 on sex differences. Knowles 2018's PMID is also unconfirmed. Large new trials or meta-analyses finding no effect after one night would also call for a review.
+
 ## Lifting less on low-HRV days
 <a id="recovery-hrv-guided-lifting-volume"></a>
 
@@ -499,31 +550,149 @@ How this version was checked: one agent searched for evidence for and against ea
 
 
 
-## Short sleep and next-day performance
-<a id="recovery-sleep-loss-impairs-performance"></a>
-
-`recovery.sleep_loss_impairs_performance` · **Not enough evidence yet**
-
-**Claim being tested.** Acute sleep loss (a night of restricted or no sleep) reduces next-day physical performance on average.
-
-**What the app does with it.** Would explain how short sleep affects a session.
-
-**Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
-
-
-
 ## How accurate wearables are
 <a id="wearables-measurement-validity"></a>
 
-`wearables.measurement_validity` · **Not enough evidence yet**
+`wearables.measurement_validity` · **Enough verified evidence**
 
-**Claim being tested.** Consumer wearables estimate night-time heart rate and HRV with reasonable agreement against ECG, but sleep staging is less accurate; HRV metrics from different devices (RMSSD versus SDNN) are not interchangeable.
+**Claim.** In healthy, mostly young adults at rest, heart rate variability (HRV) from consumer and portable devices is close to ECG-measured HRV but not the same. The error is small but real and varies with the device, the HRV metric and body position, so readings should not be treated as interchangeable with ECG values, with other devices or with other metrics. Against polysomnography, consumer sleep trackers detect sleep well but miss much of the time spent awake, and their sleep-stage and sleep-summary estimates (such as total sleep time and wake after sleep onset) differ meaningfully.
 
-**What the app does with it.** Would explain how far to trust each device's numbers.
+**Who it applies to.** Healthy, mostly young adults (roughly 18-40) using consumer wrist, ring, strap or app-based devices. The HRV evidence comes mainly from resting measurements; among the counted sources, only one single-night laboratory study (Miller 2022) has night-time data. The sleep evidence comes mainly from laboratory comparisons with polysomnography. The claim is not established for older adults, clinical populations (where agreement appears worse), exercise, or free-living daytime measurement.
 
-**Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
+**What the app does with it.** Explains why we compare each device only with its own baseline and keep each maker's score under its own name.
 
+**Why this status.** Active, but only for a narrowed, explanatory statement. Four counted sources agree that wearable HRV is close to ECG HRV but not equivalent, with an error that varies: the Dobbs 2019 and Xu 2026 meta-analyses, Stone 2021 and Miller 2022. Four more agree that sleep-versus-wake detection is reasonable but that wake detection, sleep stages and sleep-summary metrics differ from polysomnography: Miller 2022, Chinoy 2021, Lee 2025 and Schyvens 2024. Some parts of the proposed statement were dropped because they rest mainly on Dial 2025 (not counted, rated mixed) and on unverified Miller figures: the night-time resting heart rate accuracy, the device rankings (Oura/WHOOP good, Polar/Garmin poor) and the numeric HR/HRV error ranges. The tensions in the evidence do not undermine the conservative within-device, labelled-value use. Dobbs found no device-type effect, and Dobbs and Xu disagree on which metric has the larger error. Kantrowitz 2025 found worse agreement in clinical patients, which fits the statement rather than contradicting it.
 
+### Supporting studies
+
+- **Miller et al., 2022.** A Validation of Six Wearable Devices for Estimating Sleep, Heart Rate and Heart Rate Variability in Healthy Adults. *Sensors (Basel)* Sensors (Basel). 2022 Aug 22;22(16):6317. PMID [36016077](https://pubmed.ncbi.nlm.nih.gov/36016077/) · PMCID PMC9412437 · DOI [10.3390/s22166317](https://doi.org/10.3390/s22166317)
+  - Design: Validation study against criterion references: polysomnography for sleep and ECG for heart rate/HRV. One laboratory night (9 h in bed, 23:00-08:00) with all six devices worn at once: Apple Watch S6, Garmin Forerunner 245 Music, Polar Vantage V, Oura Ring Gen 2, WHOOP 3.0, Somfit. n=53 (26 F, 27 M), age 25.4 +/- 5.9 y (1 study; 53 participants; 1 night each).
+  - What it found: Across one laboratory night in 53 healthy young adults, six wearables agreed with polysomnography on sleep versus wake for about 86-89% of epochs, but for only about 50-65% on sleep stages. Against ECG, WHOOP read heart rate 0.3 bpm low (ICC 0.99) and HRV 4.5 ms low.
+  - Limitations: It covers a single night in young healthy adults using older device models (Oura Gen 2, WHOOP 3.0), and heart rate and HRV figures were confirmed only for WHOOP.
+  - Checks: all six passed, 2026-10-14.
+- **Dobbs et al., 2019.** The Accuracy of Acquiring Heart Rate Variability from Portable Devices: A Systematic Review and Meta-Analysis. *Sports Medicine* Sports Med. 2019 Mar;49(3):417-435. PMID [30706234](https://pubmed.ncbi.nlm.nih.gov/30706234/) · DOI [10.1007/s40279-019-01061-5](https://doi.org/10.1007/s40279-019-01061-5)
+  - Design: Systematic review and meta-analysis (PRISMA) of portable-device HRV compared with ECG; literature searched up to 29 July 2017. 23 studies, 301 effects (23 studies; 301 effect sizes (total participants not captured)).
+  - What it found: Pooling 23 studies, HRV from portable devices differed from ECG by a small but significant amount (effect size 0.23, 95% CI 0.05-0.42), with large variation between studies (I² 78.6%). The size of the error depended on the HRV metric, body position and sex, but not on device type, and the authors judged it acceptable for field use.
+  - Limitations: The literature runs only to 2017 and is mostly chest straps and apps rather than modern wrist or ring wearables during sleep, and the higher error for SDNN did not survive sensitivity analysis.
+  - Checks: all six passed, 2026-10-14.
+- **Xu et al., 2026.** Accuracy of Photoplethysmography-Derived Pulse Rate Variability Compared with Electrocardiography-Derived Heart Rate Variability: A Systematic Review and Meta-Analysis. *Sensors (Basel)* Sensors (Basel). 2026 Aug 17;26(16):5192. PMID [42655500](https://pubmed.ncbi.nlm.nih.gov/42655500/) · PMCID PMC13517957 · DOI [10.3390/s26165192](https://doi.org/10.3390/s26165192)
+  - Design: Systematic review and meta-analysis of PPG-derived pulse rate variability compared with ECG-derived HRV (RMSSD, SDNN) in healthy or apparently healthy non-clinical populations. 43 studies in the qualitative synthesis (33 narrative); 10 unique studies pooled quantitatively (8 each for the RMSSD and SDNN meta-analyses) (43 studies in the qualitative synthesis; 10 unique studies pooled (8 each for the RMSSD and SDNN meta-analyses); total participants not captured).
+  - What it found: Pooling 10 studies of healthy people at rest, pulse rate variability from optical (PPG) sensors differed from ECG HRV by a small standardised error: 0.19 for RMSSD and 0.13 for SDNN. The authors warn against reading this as showing that PPG and ECG are interchangeable, or applying it to sleep, exercise or daily life.
+  - Limitations: Few studies were pooled, all under resting or controlled conditions, so it says little directly about night-time wearable readings; it is also very recent and has not had a dedicated retraction check.
+  - Checks: all six passed, 2026-10-14.
+- **Stone et al., 2021.** Assessing the Accuracy of Popular Commercial Technologies That Measure Resting Heart Rate and Heart Rate Variability. *Frontiers in Sports and Active Living* Front Sports Act Living. 2021 Mar 1;3:585870. PMCID PMC7956986 · DOI [10.3389/fspor.2021.585870](https://doi.org/10.3389/fspor.2021.585870)
+  - Design: Validation study of seven commercial off-the-shelf devices/apps against a multi-lead ECG reference for resting-state HR and rMSSD (MAPE, Lin's CCC). n=5 healthy young adults, 148 total trials (1 study; 5 participants; 148 trials).
+  - What it found: In 5 healthy young adults (148 trials), most of seven commercial devices and apps measured resting heart rate accurately. RMSSD accuracy varied widely: about 4-7% error for the best (HRV4Training, Oura) versus 112% for a smartphone camera app.
+  - Limitations: With only five participants and daytime resting measurements, it cannot show how devices perform overnight or across a wider population.
+  - Checks: all six passed, 2026-10-14.
+- **Chinoy et al., 2021.** Performance of seven consumer sleep-tracking devices compared with polysomnography. *Sleep* Sleep. 2021;44(5):zsaa291 (published online December 2020). PMID [33378539](https://pubmed.ncbi.nlm.nih.gov/33378539/) · DOI [10.1093/sleep/zsaa291](https://doi.org/10.1093/sleep/zsaa291)
+  - Design: Laboratory validation study of seven consumer sleep trackers against polysomnography, with research actigraphy (Actiwatch) as a comparator, including nights with disrupted sleep. Sample size and number of nights not seen in the snippets (1 study; 34 participants; 3 consecutive nights).
+  - What it found: In a laboratory comparison of seven consumer sleep trackers against polysomnography, the devices detected sleep very well (sensitivity at least 0.93) but wake poorly (specificity 0.18-0.54, lowest for the two Garmin models). Performance was worse on nights with disrupted sleep.
+  - Limitations: It used a small laboratory sample of healthy adults, and its sleep-stage findings and exact sample size were not verified.
+  - Checks: all six passed, 2026-10-14.
+- **Lee et al., 2025.** Performance of consumer wrist-worn sleep tracking devices compared to polysomnography: a meta-analysis. *Journal of Clinical Sleep Medicine* J Clin Sleep Med. 2025 Mar 1;21(3):573-582. PMID [39484805](https://pubmed.ncbi.nlm.nih.gov/39484805/) · PMCID PMC11874098 · DOI [10.5664/jcsm.11460](https://doi.org/10.5664/jcsm.11460)
+  - Design: Systematic review and meta-analysis of consumer wrist-worn sleep trackers against polysomnography; databases searched to March 2024. 24 studies, 798 participants (devices included Fitbit, Jawbone, WHOOP, Garmin, Apple Watch, Xiaomi Mi Band 5) (24 studies; 798 participants).
+  - What it found: Pooling 24 studies (798 participants), wrist-worn trackers' total sleep time, sleep efficiency, sleep latency and wake after sleep onset all differed significantly from polysomnography; for example, total sleep time differed by about 17 minutes and wake after sleep onset by about 13 minutes. The authors judge the devices useful for general sleep patterns but not as reliable as polysomnography.
+  - Limitations: It covers wrist devices only (no rings), may include the same studies as Miller and Chinoy, and the direction of some errors was unclear.
+  - Checks: all six passed, 2026-10-14.
+- **Schyvens et al., 2024.** Accuracy of Fitbit Charge 4, Garmin Vivosmart 4, and WHOOP Versus Polysomnography: Systematic Review. *JMIR mHealth and uHealth* JMIR Mhealth Uhealth. 2024;12:e52192. PMCID PMC11004611 · DOI [10.2196/52192](https://doi.org/10.2196/52192)
+  - Design: Systematic review (no meta-analysis seen) of validation studies of Fitbit Charge 4, Garmin Vivosmart 4 and WHOOP against PSG (or an ambulatory EEG monitor such as Sleep Profiler). 504 records screened; 8 articles included (Number of studies and participants not captured).
+  - What it found: A review of 8 validation studies found Fitbit Charge 4 and Garmin Vivosmart 4 moderately accurate against polysomnography. WHOOP was closest for total sleep time but furthest for REM sleep, and every device needed better sleep-stage classification.
+  - Limitations: Only eight studies covering three devices were included, some used a home EEG headband instead of full polysomnography, and the review gives no pooled numbers.
+  - Checks: all six passed, 2026-10-14.
+
+### Context
+
+- **Dial et al., 2025.** Validation of nocturnal resting heart rate and heart rate variability in consumer wearables. *Physiological Reports* Physiol Rep. 2025 Aug 20;13(16):e70527. PMCID PMC12367097 · DOI [10.14814/phy2.70527](https://doi.org/10.14814/phy2.70527)
+  - Design: Validation study against an ECG reference worn at the same time as multiple consumer wearables during sleep (Lin's CCC, MAPE). Devices: Garmin Fenix 6, Oura Gen 3, Oura Gen 4, Polar Grit X Pro, WHOOP 4.0. n=13 healthy adults (6 female), 536 nights in total (repeated measures) (1 study; 13 participants; 536 nights).
+  - What it found: In 13 healthy adults over 536 nights, Oura Gen 3 and Gen 4 night-time resting heart rate (CCC 0.97-0.98) and HRV (CCC 0.97-0.99) agreed closely with ECG. WHOOP agreed moderately (CCC 0.91 for heart rate, 0.94 for HRV), while Polar (heart rate CCC 0.86, HRV 0.82) and Garmin HRV (0.87) agreed poorly.
+  - Limitations: It has only 13 participants and one model per brand, results shifted with the analysis method, Oura promotes it and WHOOP disputes its methods; it was not counted because its direction was rated mixed.
+  - Checks: the abstract supports the stated finding: unknown.
+- **Kantrowitz et al., 2025.** Pulse rate variability is not the same as heart rate variability: findings from a large, diverse clinical population study. *Frontiers in Physiology* Front Physiol. 2025 (published 30 July 2025); article 1630032. PMCID PMC12343505 · DOI [10.3389/fphys.2025.1630032](https://doi.org/10.3389/fphys.2025.1630032)
+  - Design: Cross-sectional beat-to-beat agreement study comparing PPG pulse rate variability with ECG-derived HRV (criterion) using two Warfighter Monitor devices (chest and bicep). Time-domain indices SDNN, rMSSD and pNN50; Pearson correlation, Bland-Altman, and one-way ANOVA across chronic diseases. n=931 adults from a tertiary academic medical center in the southeastern US (1 study; 931 participants).
+  - What it found: In 931 adults at a hospital, optical pulse rate variability disagreed significantly with ECG HRV (p<0.001 for all comparisons), and the size of the gap varied across chronic diseases.
+  - Limitations: It studied clinical patients using research-grade chest and arm sensors, not healthy people wearing consumer devices at night, so it did not count towards this claim.
+  - Checks: the abstract supports the stated finding: fail.
+
+**What would change the status.** The following evidence is needed before the claim can go further. (1) At least three counted, independent ECG-referenced studies of night-time resting heart rate in current consumer wearables; only Miller's WHOOP data is verified now, and Dial 2025 was not counted. These would be needed before stating heart rate accuracy or any '1-2 bpm' figure. (2) Larger night-time HRV validations: Xu 2026 warns against generalising resting results to sleep, and the 5-8% RMSSD error figure rests on Dial 2025 (n=13) alone. (3) A direct test of cross-device interchangeability, measuring the same people on the same nights with several devices and comparing the devices with one another; this is currently inferred from device-specific error against ECG. (4) Independent replication of device rankings (Oura/WHOOP good, Polar/Garmin poor) across current device generations, free of manufacturer involvement, and checks of Miller's unverified Oura and Polar figures. (5) A resolution of the inconsistencies: Dobbs found no device-type effect while Stone and Dial found large device differences, and Dobbs and Xu disagree on whether SDNN or RMSSD has the larger error. (6) Evidence in older adults, clinical populations, during exercise and in free-living use. (7) More verified sleep-stage accuracy data beyond Miller's 50-65% and Schyvens' qualitative review; for example, the uncaptured npj Digital Medicine 2024 staging paper and the 2025 six-device validation. (8) Formal retraction and expression-of-concern checks for every source, especially Xu 2026, and a check for overlapping studies between the reviews and the primary studies.
+
+## Daily fibre
+<a id="nutrition-fibre-intake-target"></a>
+
+`nutrition.fibre_intake_target` · **Enough verified evidence**
+
+**Claim.** In prospective studies of generally healthy adults, people who eat more dietary fibre from food have lower rates of cardiovascular disease (including coronary heart disease) and colorectal cancer. The risk is about 9% lower for cardiovascular and coronary disease for each extra 7 g a day, and about 10% lower for colorectal cancer for each extra 10 g a day, and the largest review found the biggest risk reductions at about 25 to 29 g a day. These are associations, not proven cause and effect, and any extra benefit above about 30 g a day is uncertain.
+
+**Who it applies to.** Generally healthy adults in general-population prospective cohorts, mostly in high-income countries. This is not evidence for children (EFSA uses a separate value of 2 g/MJ for children aged 1 and over). It is also not evidence for preventing new polyps or bowel cancer in people who have already had colorectal adenomas, or for fibre supplements used in place of fibre from food.
+
+**What the app does with it.** If your fibre target is under 25 g a day, we can suggest 25 to 30 g. It also explains the fibre line in food ratings.
+
+**Why this status.** The status is active, but the statement is narrower than the draft. Seven counted sources agree that eating more fibre is linked to lower risk. For cardiovascular and coronary disease the decisive sources are Threapleton 2013, Reynolds 2019 and Veronese 2025; for colorectal cancer they are Aune 2011, Reynolds 2019 and Veettil 2021. Hartley 2016 adds short trials showing modest falls in cholesterol and diastolic blood pressure. The 25 to 29 g/day sweet spot comes from Reynolds alone, so the app uses 25 g/day only as a modest minimum, which the per-gram dose-response results also support. Several parts of the draft were removed or softened: "greater benefit at higher intakes", the causal framing, and the links to all-cause death and type 2 diabetes. Each of those links has only two counted sources, and the diabetes link lost significance after adjusting for body weight in InterAct 2015. The Cochrane trials in people with prior polyps (Yao 2017) found no fall in adenoma recurrence and a low-quality signal of more cancer diagnoses with fibre. Those trials studied a different population, so they do not outweigh the cohort evidence in healthy adults.
+
+### Supporting studies
+
+- **Reynolds et al., 2019.** Carbohydrate quality and human health: a series of systematic reviews and meta-analyses. *The Lancet* Lancet. 2019;393(10170):434-445. Erratum in: Lancet. 2019;393(10170):406 (doi:10.1016/S0140-6736(19)30119-9). PMID [30638909](https://pubmed.ncbi.nlm.nih.gov/30638909/) · DOI [10.1016/S0140-6736(18)31809-9](https://doi.org/10.1016/S0140-6736(18)31809-9)
+  - Design: A series of systematic reviews and meta-analyses of prospective observational studies and clinical trials, with dose-response analyses. The counts (185 prospective studies, about 135 million person-years, 58 clinical trials, 4,635 adults) come from secondary news coverage shown in the search, not from abstract text I saw (185 prospective studies (just under 135 million person-years) and 58 clinical trials (4,635 adult participants)).
+  - What it found: A series of reviews of prospective studies and clinical trials found that people who ate the most fibre had 15 to 30% lower all-cause and cardiovascular death, and lower rates of coronary heart disease, stroke, type 2 diabetes and colorectal cancer, than people who ate the least. The biggest risk reductions were at about 25 to 29 g a day, and trials showed lower body weight, systolic blood pressure and total cholesterol with more fibre.
+  - Limitations: The findings on disease and death are observational, so they cannot prove fibre is the cause; a published correction exists but its content was not checked, and the dose-response curves above about 30 g a day are uncertain.
+  - Checks: all six passed, 2026-10-14.
+- **Threapleton et al., 2013.** Dietary fibre intake and risk of cardiovascular disease: systematic review and meta-analysis. *BMJ* BMJ. 2013;347:f6879. PMID [24355537](https://pubmed.ncbi.nlm.nih.gov/24355537/) · PMCID PMC3898422 · DOI [10.1136/bmj.f6879](https://doi.org/10.1136/bmj.f6879)
+  - Design: Systematic review and random-effects dose-response meta-analysis of prospective cohort studies with at least 3 years of follow-up. 22 cohort study publications (22 cohort study publications).
+  - What it found: Across 22 cohort study publications, each extra 7 g of fibre a day was linked to about 9% lower risk of cardiovascular disease and of coronary heart disease (relative risk 0.91 for both). Insoluble fibre, cereal fibre and vegetable fibre were also linked to lower risk.
+  - Limitations: These are observational data with moderate differences between studies, so other features of a high-fibre diet or lifestyle may explain part of the link.
+  - Checks: all six passed, 2026-10-14.
+- **Aune et al., 2011.** Dietary fibre, whole grains, and risk of colorectal cancer: systematic review and dose-response meta-analysis of prospective studies. *BMJ* BMJ. 2011;343:d6617. PMID [22074852](https://pubmed.ncbi.nlm.nih.gov/22074852/) · PMCID PMC3213242 · DOI [10.1136/bmj.d6617](https://doi.org/10.1136/bmj.d6617)
+  - Design: Systematic review and dose-response meta-analysis of prospective studies, searched to December 2010. 25 prospective studies (25 prospective studies (16 in the total-fibre dose-response analysis)).
+  - What it found: Across 25 prospective studies, each extra 10 g of total fibre a day was linked to about 10% lower colorectal cancer risk (relative risk 0.90), and cereal fibre and whole grains showed similar links. Fruit and vegetable fibre showed no clear link.
+  - Limitations: It is observational, with searches only up to 2010, so it cannot rule out confounding, and later trials in people with prior polyps did not show a benefit.
+  - Checks: all six passed, 2026-10-14.
+- **InterAct Consortium, 2015.** Dietary fibre and incidence of type 2 diabetes in eight European countries: the EPIC-InterAct Study and a meta-analysis of prospective studies. *Diabetologia* Diabetologia. 2015;58:1394-1408. PMID [26021487](https://pubmed.ncbi.nlm.nih.gov/26021487/) · PMCID PMC4472947 · DOI [10.1007/s00125-015-3585-9](https://doi.org/10.1007/s00125-015-3585-9)
+  - Design: Two parts. First, the EPIC-InterAct case-cohort study: 11,559 incident type 2 diabetes cases and a subcohort of 15,258, with 10.8 years of follow-up. Second, a meta-analysis of prospective cohorts: 18 other cohorts plus EPIC-InterAct, 19 in total. The meta-analysis part is the strong design; the case-cohort is a single observational study (EPIC-InterAct case-cohort (case count not seen) plus meta-analysis of 19 cohorts).
+  - What it found: In a European study of 11,559 people who developed type 2 diabetes, those eating the most fibre had 18% lower risk, but the link was no longer significant after allowing for body weight. Pooled across 19 cohorts, each extra 10 g a day was linked to 9% lower risk, driven by cereal fibre; fruit and vegetable fibre showed no clear link.
+  - Limitations: Body weight may explain much of the link, so the study gives only weak support for a direct effect of fibre on diabetes risk.
+  - Checks: all six passed, 2026-10-14.
+- **Veronese et al., 2025.** The impact of dietary fiber consumption on human health: An umbrella review of evidence from 17,155,277 individuals. *Clinical Nutrition* Clin Nutr. 2025;51:325-333. PMID [40651334](https://pubmed.ncbi.nlm.nih.gov/40651334/) · DOI [10.1016/j.clnu.2025.06.021](https://doi.org/10.1016/j.clnu.2025.06.021)
+  - Design: Umbrella review of meta-analyses of observational studies with credibility grading. 33 meta-analyses, 38 health outcomes, 17,155,277 individuals (per the title) (33 meta-analyses, 38 health outcomes, 17,155,277 individuals).
+  - What it found: An umbrella review covering more than 17 million people found that higher fibre intake was linked to lower risk for 29 of 38 health outcomes. Evidence was graded convincing for lower cardiovascular death, pancreatic cancer and diverticular disease, and highly suggestive for lower all-cause death, cardiovascular disease and coronary heart disease.
+  - Limitations: It re-grades overlapping meta-analyses of observational studies that pool many of the same cohorts, so it is not independent confirmation, and its grades for type 2 diabetes and colorectal cancer were not seen.
+  - Checks: all six passed, 2026-10-14.
+- **Veettil et al., 2021.** Role of Diet in Colorectal Cancer Incidence: Umbrella Review of Meta-analyses of Prospective Observational Studies. *JAMA Network Open* JAMA Netw Open. 2021;4(2):e2037341. PMID [33591366](https://pubmed.ncbi.nlm.nih.gov/33591366/) · PMCID PMC7887658 · DOI [10.1001/jamanetworkopen.2020.37341](https://doi.org/10.1001/jamanetworkopen.2020.37341)
+  - Design: Umbrella review of meta-analyses of prospective observational studies with credibility grading. 45 meta-analyses describing 109 diet-colorectal cancer associations (45 meta-analyses describing 109 diet-CRC associations).
+  - What it found: An umbrella review of 45 meta-analyses of prospective studies found convincing evidence that higher fibre intake is linked to lower colorectal cancer risk, as are higher calcium and yogurt intakes.
+  - Limitations: It summarises observational meta-analyses that overlap with other reviews, so it shows a consistent link rather than cause and effect, and the size of the fibre effect was not confirmed from the original paper.
+  - Checks: all six passed, 2026-10-14.
+- **Hartley et al., 2016.** Dietary fibre for the primary prevention of cardiovascular disease. *Cochrane Database of Systematic Reviews* Cochrane Database Syst Rev. 2016;2016(1):CD011472. PMID [26758499](https://pubmed.ncbi.nlm.nih.gov/26758499/) · PMCID PMC7032538 · DOI [10.1002/14651858.CD011472.pub2](https://doi.org/10.1002/14651858.CD011472.pub2)
+  - Design: Cochrane systematic review and meta-analysis of RCTs: dietary fibre vs no or minimal intervention in adults from the general population or at risk of CVD. 23 RCTs, 1,513 participants randomised. Most trials were short (few ran beyond 12 weeks) (23 RCTs, 1,513 participants randomised).
+  - What it found: Across 23 randomised trials with 1,513 participants, more fibre modestly lowered total cholesterol (by 0.20 mmol/L), LDL cholesterol (by 0.14 mmol/L) and diastolic blood pressure (by 1.77 mmHg). The fall in systolic blood pressure was not significant.
+  - Limitations: The trials were short, most had an unclear risk of bias, and none measured heart attacks, strokes or deaths.
+  - Checks: all six passed, 2026-10-14.
+
+### Context
+
+- **Veronese et al., 2018.** Dietary fiber and health outcomes: an umbrella review of systematic reviews and meta-analyses. *The American Journal of Clinical Nutrition* Am J Clin Nutr. 2018;107(3):436-444. PMID [29566200](https://pubmed.ncbi.nlm.nih.gov/29566200/) · DOI [10.1093/ajcn/nqx082](https://doi.org/10.1093/ajcn/nqx082)
+  - Design: Umbrella review of systematic reviews with meta-analyses of observational studies, using random-effects summary effects, 95% prediction intervals, heterogeneity, small-study effects and excess significance bias. 21 eligible outcomes (18 meta-analyses including 298 prospective observational studies, 21 outcomes).
+  - What it found: An earlier umbrella review of 21 outcomes found convincing evidence only for lower cardiovascular death, lower all-cause death and lower pancreatic cancer risk with higher fibre. Other outcomes, including heart disease, stroke, type 2 diabetes and colorectal cancer, did not reach that grade.
+  - Limitations: It re-grades overlapping observational meta-analyses, and its pancreatic cancer result rested on case-control rather than prospective studies.
+  - Checks: the abstract supports the stated finding: unknown.
+- **Yao et al., 2017.** Dietary fibre for the prevention of recurrent colorectal adenomas and carcinomas. *Cochrane Database of Systematic Reviews* Cochrane Database Syst Rev. 2017;1(1):CD003430. PMID [28064440](https://pubmed.ncbi.nlm.nih.gov/28064440/) · PMCID PMC6465195 · DOI [10.1002/14651858.CD003430.pub2](https://doi.org/10.1002/14651858.CD003430.pub2)
+  - Design: Cochrane systematic review and meta-analysis of RCTs and quasi-RCTs (search to 4 April 2016; update of the 2002 review). 7 studies were eligible and 5 provided data (4,798 participants). Primary outcome, at least one adenoma: 5 RCTs, n=3,641. Colorectal cancer: 2 RCTs, n=2,794 (Primary outcome (at least one adenoma): 5 RCTs, n=3,641. Colorectal cancer incidence: 2 RCTs, n=2,794).
+  - What it found: In 5 randomised trials of 3,641 people who had already had bowel polyps, eating more fibre did not reduce the number who developed new polyps (relative risk 1.04). In 2 trials, colorectal cancer diagnoses were more common in the fibre groups (about 12 vs 4 per 1,000; low-quality evidence).
+  - Limitations: It covers only people with prior polyps followed for a few years, with high drop-out, so it says little about lifelong diets in healthy adults.
+  - Checks: the abstract supports the stated finding: unknown.
+- **EFSA Panel on Dietetic Products et al., 2010.** Scientific Opinion on Dietary Reference Values for carbohydrates and dietary fibre. *EFSA Journal* EFSA Journal. 2010;8(3):1462. DOI [10.2903/j.efsa.2010.1462](https://doi.org/10.2903/j.efsa.2010.1462)
+  - Design: EFSA NDA Panel scientific opinion setting dietary reference values, published in EFSA Journal 2010;8(3):1462. This is an expert regulatory opinion, not a systematic review of disease outcomes.
+  - What it found: The European Food Safety Authority set 25 g of fibre a day as adequate for normal bowel function in adults, and 2 g per megajoule of energy for children aged 1 and over.
+  - Limitations: The value rests on bowel function, not on heart disease, cancer or death, and it is an expert-panel opinion rather than a conventionally peer-reviewed study.
+  - Checks: peer-reviewed and indexed: unknown; the abstract supports the stated finding: unknown.
+
+**What would change the status.** 1. No randomised trial has tested fibre intake against hard outcomes (death, cardiovascular events, type 2 diabetes or colorectal cancer incidence). The links to disease and death are observational and open to confounding by overall diet quality, body weight and lifestyle, and to error in food-frequency measurement. A long-term trial with hard outcomes, or strong Mendelian randomisation evidence, would be needed before the app makes causal claims.
+2. The 25 to 29 g/day point of greatest risk reduction rests on one counted source (Reynolds 2019). A second and third verified dose-response analysis locating the lowest risk would firm up the specific target. EFSA's 25 g/day is based on bowel function and is not counted, and the WHO 2023 guideline was seen only in secondary reports.
+3. Lower all-cause mortality (Reynolds 2019, Veronese 2025) and lower type 2 diabetes risk (Reynolds 2019, InterAct 2015) each have only two counted sources. The diabetes link also weakens after adjusting for body weight. Adding these to the statement and health rating would need a third verified source each, for example a corrected Yao 2023 entry or a verified Ramezani 2024 (Clin Nutr 43(1):65-83), and the all-cause figure of 0.90 per 10 g/day would need a counted source (Yang 2015 was seen only in passing).
+4. Whether benefit continues above about 30 g/day is uncertain. Few participants eat that much, and Yao 2023 (not counted) reported a non-linear all-cause curve.
+5. The counted meta-analyses and umbrella reviews pool largely the same cohorts, so they are not independent replications.
+6. Colorectal evidence conflicts by population. Cohorts support a lower risk, but trials in people with prior polyps (Yao 2017 Cochrane) found no benefit and a low-quality signal of more cancer diagnoses. Larger, longer trials would clarify this.
+7. Still unverified: what the Reynolds 2019 Department of Error corrects; the PMID, full author list and type 2 diabetes and colorectal grades of Veronese 2025; the Veettil fibre effect size (RR 0.84); and some identifiers (PMID 33591366 for Veettil, PMC6465195 for Yao 2017).
+8. Most data come from adults in high-income countries, and fibre definitions differ between studies (AOAC methods vs non-starch polysaccharide), so gram amounts are not always comparable.
 
 ## Free sugars
 <a id="nutrition-free-sugars-and-health"></a>
@@ -711,26 +880,66 @@ Status would move back to draft if a core source were retracted or corrected, or
 
 `nutrition.protein_intake_for_muscle_gain` · **Not enough evidence yet**
 
-**Claim being tested.** For adults doing resistance training, a protein intake around 1.6 g per kg of body weight per day maximises gains in muscle mass on average; intakes up to about 2.2 g/kg are reasonable for those who want to be sure.
+**Claim being tested.** For healthy adults doing resistance training for at least 6 weeks, a total protein intake of about 1.6 g per kg of body weight per day appears, on average, to be enough to get the extra muscle-mass gain that protein can add, and intakes of 1.4 to 2.0 g/kg/day are generally sufficient. The extra gain from protein is small, around 0.3 kg of fat-free mass on average in pooled trials.
+
+**Who it applies to.** Healthy, non-obese adults who do structured resistance training for at least 6 weeks to gain muscle, and who are not cutting calories. The benefit is smaller in older adults, and the evidence for them is less consistent. It does not cover people cutting calories (the ISSN suggests 2.3 to 3.1 g/kg/day to keep lean mass during a calorie deficit), pregnant people, or people with medical conditions such as kidney disease.
 
 **What the app does with it.** Would let us suggest a protein target for muscle gain. Until then, your targets are yours to set.
 
-**Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
+**Why this status.** This stays a draft because only two sources count: Morton 2018 (the main finding is a meta-regression breakpoint at about 1.6 g/kg/day, with an extra 0.30 kg of fat-free mass) and the 2017 ISSN position stand by Jäger (1.4 to 2.0 g/kg/day is sufficient). The rule needs three. Bagheri 2023 would back 1.6 g/kg/day as enough for trained young men, but it was not counted because the text seen never says participants were randomised. Nunes 2022 was not counted either: it is mixed, and its age-group results were not verified. The counted sources do not support the proposed 2.2 g/kg/day cap: the confidence interval behind it comes from a later review, and the ISSN upper bound is 2.0. They also do not support the claim that 3.2 g/kg/day adds nothing, which rests only on Bagheri. Tagawa 2021 points the other way: lean-mass gains slowed above about 1.3 g/kg/day but did not stop, so the evidence shows diminishing returns rather than a firm ceiling at 1.6.
 
+### Supporting studies
 
+- **Morton et al., 2018.** A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults. *British Journal of Sports Medicine* Br J Sports Med. 2018 Mar;52(6):376-384. Correction: Br J Sports Med. 2020;54(19):e7 (doi:10.1136/bjsports-2017-097608corr1; PMID 32943392; PMC7513243). PMID [28698222](https://pubmed.ncbi.nlm.nih.gov/28698222/) · PMCID PMC5867436 · DOI [10.1136/bjsports-2017-097608](https://doi.org/10.1136/bjsports-2017-097608)
+  - Design: Systematic review, meta-analysis and meta-regression of RCTs (resistance exercise training of at least 6 weeks with dietary protein supplementation), 49 studies, 1,863 participants, with a two-phase breakpoint analysis of total protein intake vs change in fat-free mass. Br J Sports Med 2018; a 2020 correction is indexed (PMID 32943392, PMC7513243) (49 RCTs, 1,863 participants. Per a secondary summary (Stronger by Science), the breakpoint analysis used about 42 study arms and 723 subjects.).
+  - What it found: Pooling 49 randomised trials (1,863 people), adding protein during at least 6 weeks of resistance training increased fat-free mass gains by about 0.3 kg on average (95% CI 0.09 to 0.52). Gains levelled off at a total intake of about 1.6 g/kg/day; the effect was smaller in older people and larger in trained people (about 0.75 kg).
+  - Limitations: The 1.6 g/kg/day figure comes from one breakpoint analysis that pooled trained and untrained, younger and older adults, so it is an imprecise average for the group and not a personal threshold.
+  - Checks: all six passed, 2026-10-14.
+- **Jäger et al., 2017.** International Society of Sports Nutrition Position Stand: protein and exercise. *Journal of the International Society of Sports Nutrition* J Int Soc Sports Nutr. 2017;14(1):20. PMID [28642676](https://pubmed.ncbi.nlm.nih.gov/28642676/) · PMCID PMC5477153 · DOI [10.1186/s12970-017-0177-8](https://doi.org/10.1186/s12970-017-0177-8)
+  - Design: Position stand of the International Society of Sports Nutrition (an objective and critical review of protein intake for healthy, exercising individuals), published in the peer-reviewed Journal of the International Society of Sports Nutrition, 2017;14:20.
+  - What it found: This expert position stand concludes that a total intake of 1.4 to 2.0 g/kg/day is enough for most people who exercise to build and maintain muscle. It suggests that trained people who are cutting calories may need 2.3 to 3.1 g/kg/day to keep lean mass.
+  - Limitations: It is an expert review, not new trial data, and it does not name a single best intake or a point beyond which more protein adds no muscle.
+  - Checks: all six passed, 2026-10-14.
 
-## Daily fibre
-<a id="nutrition-fibre-intake-target"></a>
+### Contradicting or mixed evidence
 
-`nutrition.fibre_intake_target` · **Not enough evidence yet**
+- **Tagawa et al., 2021.** Dose-response relationship between protein intake and muscle mass increase: a systematic review and meta-analysis of randomized controlled trials. *Nutrition Reviews* Nutr Rev. 2021 Jan;79(1):66-75. PMID [33300582](https://pubmed.ncbi.nlm.nih.gov/33300582/) · PMCID PMC7727026 · DOI [10.1093/nutrit/nuaa104](https://doi.org/10.1093/nutrit/nuaa104)
+  - Design: Systematic review and dose-response meta-analysis of RCTs using a multivariate spline model; Nutrition Reviews 2021;79(1):66-75 (Tagawa R, Watanabe D, Ito K, Ueda K, Nakayama K, Sanbongi C, Miyachi M). Includes trials with and without resistance training (105 articles, 5,402 participants (counts reported by a later citing paper)).
+  - What it found: Pooling randomised trials both with and without resistance training, each extra 0.1 g/kg/day of protein was linked to about 0.39 kg more lean mass below 1.3 g/kg/day, and about 0.12 kg above it. Gains slowed above 1.3 g/kg/day but did not stop, which points to diminishing returns up to about 3.5 g/kg/day rather than a ceiling at 1.6.
+  - Limitations: It mixes people who did and did not do resistance training, so it cannot pinpoint the best intake for people training to build muscle.
+  - Checks: the abstract supports the stated finding: fail.
 
-**Claim being tested.** Eating at least 25 to 29 g of dietary fibre a day is linked to lower risk of death, heart disease, type 2 diabetes and colorectal cancer, with greater benefit at higher intakes.
+### Context
 
-**What the app does with it.** Would let us suggest a daily fibre target. Until then, your targets are yours to set.
+- **Bagheri et al., 2023.** Effects of 16 weeks of two different high-protein diets with either resistance or concurrent training on body composition, muscular strength and performance, and markers of liver and kidney function in resistance-trained males. *Journal of the International Society of Sports Nutrition* J Int Soc Sports Nutr. 2023 Dec;20(1):2236053. PMID [37516903](https://pubmed.ncbi.nlm.nih.gov/37516903/) · PMCID PMC10388821 · DOI [10.1080/15502783.2023.2236053](https://doi.org/10.1080/15502783.2023.2236053)
+  - Design: Four-arm parallel 2x2 trial (resistance vs concurrent training x 1.6 vs 3.2 g/kg/day protein), 16 weeks, four sessions per week, n=48 resistance-trained males (age 26 ± 6 yr, BMI 25.6 ± 2.9), n=12 per arm. I did not see the word 'randomised' in the text I saw (48 participants (n=12 per arm)).
+  - What it found: In 48 resistance-trained young men over 16 weeks, 3.2 g/kg/day gave no more lean mass or strength than 1.6 g/kg/day. The one exception was a larger gain in peak power in one of the resistance-training groups. Kidney and liver markers did not change.
+  - Limitations: With only 12 men per group, and randomisation not confirmed, it is too small to rule out modest differences, and it applies only to trained young men.
+  - Checks: strong study design: unknown; the abstract supports the stated finding: unknown.
+- **Nunes et al., 2022.** Systematic review and meta-analysis of protein intake to support muscle mass and function in healthy adults. *Journal of Cachexia, Sarcopenia and Muscle* J Cachexia Sarcopenia Muscle. 2022 Apr;13(2):795-810. PMID [35187864](https://pubmed.ncbi.nlm.nih.gov/35187864/) · PMCID PMC8978023 · DOI [10.1002/jcsm.12922](https://doi.org/10.1002/jcsm.12922)
+  - Design: Systematic review with three-level random-effects meta-analyses and meta-regressions of 74 RCTs in healthy, non-obese adults who increased daily protein intake (PROSPERO CRD42020159001); J Cachexia Sarcopenia Muscle 2022;13(2):795-810 (74 RCTs (total participant count not seen)).
+  - What it found: Pooling 74 randomised trials in healthy adults, eating more protein alongside resistance exercise gave small extra lean-mass gains (standardised mean difference 0.22, 95% CI 0.14 to 0.30). The gains were more noticeable in younger people eating 1.6 g/kg/day or more. Effects on strength and physical function were small or unclear.
+  - Limitations: It does not test whether gains stop above 1.6 g/kg/day, its results by age group were not verified, and a 2025 published letter questions its methods.
+  - Checks: the abstract supports the stated finding: unknown.
+- **Tagawa et al., 2022.** Synergistic Effect of Increased Total Protein Intake and Strength Training on Muscle Strength: A Dose-Response Meta-analysis of Randomized Controlled Trials. *Sports Medicine - Open* Sports Med Open. 2022 Sep 4;8(1):110. PMID [36057893](https://pubmed.ncbi.nlm.nih.gov/36057893/) · PMCID PMC9441410 · DOI [10.1186/s40798-022-00508-w](https://doi.org/10.1186/s40798-022-00508-w)
+  - Design: Systematic review and dose-response meta-analysis of RCTs (random-effects model and spline model): 82 articles in the meta-analyses, 69 used for spline curves; Sports Medicine - Open 2022 (82 articles in meta-analyses; 69 articles used for spline curves (participant total not seen)).
+  - What it found: Extra protein increased strength only when combined with resistance training (about 2% more). With training, strength rose by about 0.72% per extra 0.1 g/kg/day up to 1.5 g/kg/day, with no further gain above that.
+  - Limitations: It measures strength, not muscle mass, so it cannot confirm a muscle-mass target.
+  - Checks: the abstract supports the stated finding: fail.
+- **Cermak et al., 2012.** Protein supplementation augments the adaptive response of skeletal muscle to resistance-type exercise training: a meta-analysis. *American Journal of Clinical Nutrition* Am J Clin Nutr. 2012 Dec;96(6):1454-64. PMID [23134885](https://pubmed.ncbi.nlm.nih.gov/23134885/) · DOI [10.3945/ajcn.112.037556](https://doi.org/10.3945/ajcn.112.037556)
+  - Design: Systematic review with random-effects meta-analysis of protein supplementation during prolonged resistance-type exercise training in younger and older adults; AJCN 2012;96(6):1454-1464, DOI 10.3945/ajcn.112.037556 (Cermak NM, Res PT, de Groot LC, Saris WH, van Loon LJ). A news report gives 22 randomised controlled trials and 680 participants (22 RCTs, 680 participants (per news report); an earlier abstract version reported 24 RCTs, 746 subjects).
+  - What it found: This meta-analysis of protein supplements taken during prolonged resistance training reported an average extra fat-free mass gain of about 0.7 kg, plus greater leg-press strength. These figures come from press reports and a conference abstract and were not checked against the paper.
+  - Limitations: It does not test how much total daily protein is needed, and its results could not be checked directly; they suggest the average extra gain may be larger than 0.3 kg, depending on which trials are included.
+  - Checks: the abstract supports the stated finding: unknown.
 
-**Why this status.** We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.
-
-
+**What would change the status.** - A third counted source. The quickest route is to confirm in the Bagheri 2023 methods (PMC10388821) that participants were randomised. If they were, it would count, but only for trained young men, and only to show that 1.6 g/kg/day is enough compared with 3.2.
+- Verification of the Nunes 2022 subgroup results: the under-65 vs 65-and-over split, the benefit at 1.2 to 1.59 g/kg/day in older adults, and the effect sizes, plus a check that its strength CI is a reporting error.
+- Randomised trials in trained adults with muscle size as the outcome that compare 1.6 with 2.2 g/kg/day, and 1.2 with 1.6 g/kg/day. These are needed to support any upper cap above 2.0 or any statement that higher intakes add nothing.
+- Direct verification of the Morton 2018 breakpoint from the full text: the 1.62 figure, its 95% CI of about 1.03 to 2.20, the p-value and the number of study arms. Also confirmation of what the 2020 correction changed.
+- A reconciliation of Tagawa 2021's continuing slope above 1.3 g/kg/day with the plateau idea, for example a dose-response analysis limited to people doing resistance training.
+- Longer trials that measure muscle size directly rather than fat-free mass by DXA or BIA, and better evidence for older adults and untrained people.
+- Dedicated retraction checks (for example Retraction Watch) for Bagheri, Nunes and Tagawa.
+- Safety evidence for higher intakes in people with medical conditions or who are pregnant.
 
 ## Protein and kidney function
 <a id="nutrition-high-protein-kidney-function-healthy"></a>

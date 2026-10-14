@@ -690,13 +690,13 @@
           reason: `Our verified evidence on protein is about building muscle, and your goal is set to ${goalLabel(profile.goal).toLowerCase()}. So we haven't changed your targets.` };
       }
       if (!profile.weightKg) {
-        return { ...ask, status: 'blocked_constraints', reason: 'Add your weight in Profile so we can work out a protein target in grams.' };
+        return { ...ask, status: 'blocked_constraints', needs: 'weight', reason: 'Add your weight so we can work out a protein target in grams.' };
       }
       const perKg = firstNumber(ap, ['targetGPerKg', 'proteinGPerKgPerDay', 'gPerKgPerDay', 'gPerKg'], 1.6);
       target = Math.round(perKg * profile.weightKg);
       basis = `${fmt.num(perKg, 1)} g per kg of body weight a day, which is ${target} g for ${fmt.num(profile.weightKg, 1)} kg`;
     } else {
-      target = Math.round(firstNumber(ap, ['minGPerDay', 'targetMinGPerDay', 'targetGPerDay', 'minimumGPerDay'], 25));
+      target = Math.round(firstNumber(ap, ['minTargetGPerDay', 'minGPerDay', 'targetMinGPerDay', 'targetGPerDay', 'minimumGPerDay'], 25));
       basis = `at least ${target} g a day`;
     }
     if (current != null && current >= target) {
@@ -734,6 +734,12 @@
     const base = { intent, required: REQUIRED_SOURCES, disclaimerVersion: D.DISCLAIMER.version };
     if (intent.type === 'unknown') return { ...base, status: 'not_understood' };
     if (intent.type === 'remove_exercise') return { ...base, status: 'user_edit' };
+    /* The health and safety answers decide what's safe to suggest, so nothing
+       is suggested until they're given (sign-up leaves them for later). */
+    if (state.setup && state.setup.health === false) {
+      return { ...base, kind: intent.type === 'nutrition_target' ? 'target_change' : 'split_change', status: 'blocked_constraints', needs: 'health',
+        reason: 'Before we suggest any change, we need your answers to the health and safety questions. They decide which suggestions are safe for you.' };
+    }
     if (intent.type === 'nutrition_target') return evaluateTarget(intent, state, base, requestText);
 
     const notEnough = 'Our evidence library doesn\'t yet have 3 verified studies behind this kind of change, so we haven\'t changed your plan.';

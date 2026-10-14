@@ -6,34 +6,57 @@ The visual design of these screens (Apple Design System tokens, components, pale
 
 ## 7.1 Onboarding
 
+Sign-up asks only for what the app can't start without: the account, age, weight and what you want to work on. Everything else is set up afterwards, from the tabs, in any order.
+
 ```mermaid
 flowchart TD
-  A["Welcome<br/>what the app does and does not do"] --> B["Medical disclaimer<br/>must be acknowledged"]
-  B --> C["Create account<br/>Sign in with Apple, Google,<br/>or email + 6-digit code"]
-  C --> D["Privacy choices<br/>health data processing (required)<br/>AI features (optional)<br/>label image upload (optional)<br/>analytics (off by default)"]
+  A["Welcome<br/>three slides: what the app does and does not do"] --> B["Medical disclaimer<br/>must be acknowledged"]
+  B --> C["Create account<br/>Sign in with Apple, Google,<br/>or email + 6-digit code<br/>+ health-data consent (required tick box)"]
+  C --> D["Connect Apple Health (optional)<br/>fills in age and weight"]
   D --> E{"Age 18 or over?"}
   E -- "No" --> E2["Cannot continue<br/>explain why"]
-  E -- "Yes" --> F["Goal<br/>fat loss, muscle, strength,<br/>endurance, hybrid, general health"]
-  F --> G["Basics<br/>height, weight, birth year,<br/>sex for energy equations (optional)"]
-  G --> H["Health and safety screen<br/>injuries, conditions, pregnancy,<br/>history of disordered eating"]
-  H --> H2{"Any flag set?"}
-  H2 -- "Yes" --> H3["Explain what changes:<br/>some suggestions switched off,<br/>advice to see a professional"]
-  H2 -- "No" --> I
-  H3 --> I["Training background<br/>experience, days per week,<br/>session length, equipment"]
-  I --> J["Current split<br/>enter it, pick a template, or skip"]
-  J --> J2["Instant descriptive review<br/>weekly sets per muscle, rest days"]
-  J2 --> K["Nutrition targets<br/>enter your own; app suggestions<br/>arrive with the evidence gate"]
-  K --> L["Connect wearables (optional)<br/>per provider, per data type"]
-  L --> M["Notifications (optional)"]
-  M --> N["Dashboard tour"]
+  E -- "Yes" --> F["Weight<br/>kg or lb"]
+  F --> G["What do you want to work on?<br/>fat loss, muscle, strength,<br/>endurance, hybrid, general health"]
+  G --> H["Today<br/>with a Finish setting up card"]
+  H -.-> S["Set up from the tabs, any order:<br/>health and safety · training · split ·<br/>targets · height and sex · devices ·<br/>notifications · privacy choices"]
 ```
 
 Design rules:
 
-* Required steps are kept to: disclaimer, account, health-data consent, age gate and goal. Everything else can be skipped and revisited from Settings.
-* Every consent screen states what is collected, why, who processes it, and how to withdraw. Each is saved as a `consents` row with its document version.
-* The health and safety screen asks yes/no questions first and optional free text second. Free text is stored encrypted (`health_notes_enc`).
-* Onboarding never suggests calorie targets before Phase 3 (see the build plan). Users enter their own targets, or skip.
+* **Required at sign-up:** disclaimer, account, health-data consent, age gate, weight and goal. The health-data consent is a tick box on the account page, not a screen of its own. It states what is stored, why, who processes it and how to withdraw. Sign-in with Apple, Google or email is refused until it is ticked.
+* **Apple Health is optional and only fills answers in.** Connecting reads the date of birth and the latest weight and height, so the age and weight steps open already filled in, with "from Apple Health" under them. The person can still change them. See *Apple Health at sign-up* below.
+* **Everything else is set up from the tabs.** Each item is one short page with the same layout as the sign-up pages: back chevron, large title, grey subtitle, the fields, then one primary button at the bottom. The pages are:
+  * health and safety;
+  * your training (experience, days per week, session length, equipment);
+  * your current split;
+  * daily targets;
+  * height and sex;
+  * connected devices;
+  * notifications;
+  * privacy choices.
+
+  They are listed:
+  * on Today, in a *Finish setting up* card (the first three left to do, then "See all");
+  * on Training, which shows the three it needs (health and safety, training, split);
+  * on Food, which shows targets;
+  * in Settings, as one row each.
+
+  A card disappears once its items are done.
+* **No suggestion before the health and safety questions are answered.** The safety flags decide what is safe to suggest, so until the answers are given, every request gets the same answer: "Answer the health questions first", with a button to the page. The plan is unchanged. The database enforces the same rule (`user_profiles.safety_answered_at`, checked by the recommendation gate).
+* **Optional consents start off and are asked for where they are used.** For example, the first time someone asks for a change in their own words, the app asks to turn on AI features. All of them are also in Settings, under Privacy choices.
+* Every consent states what is collected, why, who processes it, and how to withdraw. Each is saved as a `consents` row with its document version.
+* The health and safety page asks yes/no questions first and optional free text second. Free text is stored encrypted (`health_notes_enc`). "A professional supervises my training" appears only once a medical condition is switched on.
+* Sign-up never sets or suggests targets. People enter their own targets later, or keep the defaults.
+
+### Apple Health at sign-up
+
+* **In the iOS app.** HealthKit's permission sheet asks for read access to:
+  * date of birth and biological sex (characteristics);
+  * height and body mass (latest samples);
+  * sleep, heart rate variability (SDNN), resting heart rate and workouts, for readiness and the training week (see [03 §3.5](03-architecture.md#35-wearable-sync)).
+
+  The date of birth is used on the device for the age gate, and only the birth year is sent to the server. If read access is denied, HealthKit returns nothing, so the steps simply open empty. Android uses Health Connect for weight and height; it has no date of birth.
+* **In the browser prototype.** A web page cannot read HealthKit, so the prototype simulates the permission. It also offers the closest real thing: the person can choose the export the Health app makes (Health → profile picture → Export All Health Data → `export.zip`, or the `export.xml` inside it). The page reads the file on the device, as a stream, handling ZIP64 for exports over 4 GB. It keeps only the birth date, sex, latest height and latest weight, and shows how many nights of sleep, HRV readings, resting heart rates and workouts the file holds. Nothing is uploaded and the file is not stored. A one-off export can't stay up to date, so readiness still comes from connected devices.
 
 ## 7.2 Dashboard (home)
 
@@ -146,7 +169,8 @@ The questions come from a fixed bank. The LLM may only rephrase them. Each quest
 
 | Flag | Effect |
 |---|---|
-| `under_18` | Onboarding stops. The app is for adults. |
+| Health and safety not yet answered | No suggestions of any kind. Every request is answered with "Answer the health questions first" and a link to the page; nothing changes. Enforced in the engine and by the database gate (`safety_answered_at`). |
+| `under_18` | Sign-up stops. The app is for adults. A birth year (typed, or read from Apple Health) that makes someone under 18 can't be saved later in Settings either. |
 | `eating_disorder_history` | No calorie-deficit or weight-loss target suggestions. Calorie numbers can be hidden from the dashboard. Shows a "talk to a professional" resource. |
 | `pregnancy` | No automatic training or nutrition suggestions. Logging still works. Shows a professional-advice note. |
 | `injury_reported` | No suggestions that load the flagged region. Exercises in that region are excluded from generated plans. Professional-advice note. |

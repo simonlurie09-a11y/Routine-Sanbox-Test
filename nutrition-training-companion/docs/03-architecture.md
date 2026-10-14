@@ -301,6 +301,16 @@ sequenceDiagram
   App->>HK: Call the observer completion handler
 ```
 
+At sign-up, the same authorisation request also asks for the date of birth, biological sex, height and body mass. The app fills in the age and weight steps from them. The exact date of birth is used on the device for the age gate, and only the birth year is sent ([07 §7.1](07-product-flows.md#71-onboarding)).
+
+HealthKit has no web API. The browser prototype simulates the permission, and it can read a real Health export that the person chooses (`export.zip` or `export.xml`). The file is read in the page, as a stream:
+
+1. find `export.xml` through the ZIP central directory (ZIP64 included);
+2. inflate it with the browser's `DecompressionStream('deflate-raw')`;
+3. scan the `<Me>`, `<Record>` and `<Workout>` tags chunk by chunk.
+
+It keeps only the profile fields, and nothing leaves the device. This is a prototype convenience, not a production path: a one-off export can't stay up to date.
+
 ### Connection lifecycle
 
 ```mermaid

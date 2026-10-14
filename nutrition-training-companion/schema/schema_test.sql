@@ -26,6 +26,9 @@ END $$;
 INSERT INTO users (id, auth_subject) VALUES
   ('00000000-0000-0000-0000-00000000000a', 'sub-a'),
   ('00000000-0000-0000-0000-00000000000b', 'sub-b');
+INSERT INTO user_profiles (user_id, safety_answered_at) VALUES
+  ('00000000-0000-0000-0000-00000000000a', now()),
+  ('00000000-0000-0000-0000-00000000000b', now());
 
 INSERT INTO claims (id, key, version, statement, applies_to, status, reviewed_by, reviewed_at) VALUES
   ('10000000-0000-0000-0000-000000000001', 'hypertrophy.volume.raise_low_weekly_sets', 1,
@@ -87,6 +90,15 @@ DO $$ BEGIN
           WHERE id = '40000000-0000-0000-0000-000000000001') = 3, 'count should be 3';
   RAISE NOTICE 'PASS: proposed with 3 verified sources';
 END $$;
+
+-- 5b. Not before the health and safety questions are answered: the same change
+--     is blocked while safety_answered_at is NULL, and passes once it is set.
+UPDATE recommendations SET status = 'draft' WHERE id = '40000000-0000-0000-0000-000000000001';
+UPDATE user_profiles SET safety_answered_at = NULL WHERE user_id = '00000000-0000-0000-0000-00000000000a';
+SELECT t.expect_error($$UPDATE recommendations SET status = 'proposed'
+  WHERE id = '40000000-0000-0000-0000-000000000001'$$, 'safety gate: .* has not answered');
+UPDATE user_profiles SET safety_answered_at = now() WHERE user_id = '00000000-0000-0000-0000-00000000000a';
+UPDATE recommendations SET status = 'proposed' WHERE id = '40000000-0000-0000-0000-000000000001';
 
 -- 6. Every named claim must clear the bar: a second claim with only 1 source
 --    blocks it, and so does a named claim with no evidence rows at all.

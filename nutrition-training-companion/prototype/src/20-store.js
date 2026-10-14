@@ -64,8 +64,11 @@
         name: '', email: '', goal: 'muscle_gain', heightCm: 180, weightKg: 82, birthYear: 1994,
         sexForEquations: 'unspecified', experience: 'intermediate', daysPerWeek: 4, sessionMinutes: 60,
         equipment: D.EQUIPMENT.slice(), safetyFlags: [], injuryRegions: [], healthNotes: '',
-        signInMethod: null, splitSource: 'sample', notificationsAllowed: false
+        signInMethod: null, splitSource: 'sample', notificationsAllowed: false, weightUnit: 'kg', birthDate: null
       },
+      /* What's still to set up after sign-up (35-setup.js). The sample profile
+         is fully set up; sign-up starts every item at false. */
+      setup: { health: true, training: true, split: true, targets: true, body: true, devices: true, notifications: true, privacy: true },
       consents: {
         health_data_processing: true, ai_processing: true, scan_image_upload: false,
         off_contribution: false, product_analytics: false
@@ -132,7 +135,7 @@
   }
 
   /* ------------------------------------------------------------ store */
-  const PERSISTED = ['version', 'onboarded', 'sampleData', 'profile', 'consents', 'disclaimerAcknowledgedAt', 'targets',
+  const PERSISTED = ['version', 'onboarded', 'sampleData', 'profile', 'setup', 'consents', 'disclaimerAcknowledgedAt', 'targets',
     'customFoods', 'foodLog', 'split', 'recommendations', 'sessions', 'devices', 'notificationsReadAt', 'privacyRequests'];
 
   function load() {
@@ -269,8 +272,29 @@
     updateProfile(patch) {
       setState((s) => ({ profile: { ...s.profile, ...patch } }));
     },
-    completeOnboarding(profilePatch) {
-      setState((s) => ({ onboarded: true, profile: { ...s.profile, ...(profilePatch || {}) }, disclaimerAcknowledgedAt: s.disclaimerAcknowledgedAt || Date.now(), nav: initialNav() }));
+    /* extra: { setup, consents, appleHealth: 'connected' | 'not_connected' }. Sign-up
+       asks only for the essentials, so it sets what's left to set up, the
+       optional consents (off: they're opt-in) and whether Apple Health was connected. */
+    completeOnboarding(profilePatch, extra) {
+      const x = extra || {};
+      setState((s) => {
+        const next = {
+          onboarded: true,
+          profile: { ...s.profile, ...(profilePatch || {}) },
+          disclaimerAcknowledgedAt: s.disclaimerAcknowledgedAt || Date.now(),
+          nav: initialNav()
+        };
+        if (x.setup) next.setup = { ...s.setup, ...x.setup };
+        if (x.consents) next.consents = { ...s.consents, ...x.consents };
+        if (x.appleHealth === 'not_connected' && s.devices.apple_health && s.devices.apple_health.status !== 'pending') {
+          const prev = s.devices.apple_health;
+          next.devices = { ...s.devices, apple_health: { status: 'revoked', connectedAt: null, lastSync: null, dataTypes: {}, lastImport: prev.lastImport } };
+        }
+        return next;
+      });
+    },
+    completeSetup(key) {
+      setState((s) => ({ setup: { ...s.setup, [key]: true } }));
     },
     acknowledgeDisclaimer() {
       setState({ disclaimerAcknowledgedAt: Date.now() });
@@ -416,6 +440,11 @@
         setState((s) => ({ devices: { ...s.devices, [provider]: { ...s.devices[provider], status: 'active', connectedAt: s.devices[provider].connectedAt || Date.now(), lastSync: Date.now() } } }));
         toast(`${D.PROVIDERS[provider].short} connected`, 'success');
       }, 1200);
+    },
+    /* A one-off Apple Health export read in the browser: keep a short note of it. */
+    recordHealthImport(summary) {
+      const note = { at: Date.now(), fileName: summary.fileName || null, counts: { ...summary.counts }, simulated: !!summary.simulated };
+      setState((s) => ({ devices: { ...s.devices, apple_health: { ...s.devices.apple_health, lastImport: note } } }));
     },
     disconnectDevice(provider, purge) {
       setState((s) => ({ devices: { ...s.devices, [provider]: { status: 'revoked', connectedAt: null, lastSync: null, dataTypes: {}, purged: !!purge } } }));

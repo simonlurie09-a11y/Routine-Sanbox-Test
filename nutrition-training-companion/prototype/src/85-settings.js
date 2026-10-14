@@ -1,17 +1,21 @@
 /* Companion prototype — Settings and everything under it (builder E).
-   Settings (docs/08 §8.5): profile and goal, targets, connected devices and
-   device detail (docs/08 §8.6, docs/07 §7.8), privacy choices, your data
-   (export, delete) and about. Safety flags follow docs/07 §7.9. Sign-in,
-   device connections and downloads are simulated in the prototype. */
+   Settings (docs/08 §8.5): you (goal, age, weight, height and sex, health and
+   safety, training: each its own page in 35-setup.js), targets, connected
+   devices and device detail (docs/08 §8.6, docs/07 §7.8), notifications,
+   privacy choices, your data (export, delete) and about. Targets, devices and
+   privacy choices use the sign-up page layout (Companion.setup.FormPage), as
+   they're also steps in "Finish setting up". Sign-in, device connections and
+   downloads are simulated in the prototype. */
 (function () {
   'use strict';
 
   const C = window.Companion;
   const React = window.React;
-  const { useState, useEffect } = React;
-  const { html, T, Card, Button, Input, Chip, Screen, Section, Sections, Facts, Rows, Badge, Caption, Callout, Body,
-          CardTitle, LinkButton, Switch, EmptyAnswer, ChoiceChips, Stepper, Actions, isoDate } = C.ui;
-  const M = C.domain, D = C.data, A = C.actions;
+  const { useState } = React;
+  const { html, T, Card, Button, Input, Screen, Section, Sections, Rows, Badge, Caption, Callout, Body,
+          CardTitle, LinkButton, Switch, EmptyAnswer, Actions, isoDate } = C.ui;
+  const M = C.domain, D = C.data, A = C.actions, U = C.setup;
+  const { FormPage, Primary } = U;
 
   /* ------------------------------------------------------------ constants */
   /* Device order, as in the Connected devices mockup. */
@@ -21,30 +25,6 @@
   const READINESS_WORDS = { sleep: 'sleep', hrv: 'HRV', resting_hr: 'resting heart rate' };
 
   const SIGN_IN = { apple: 'Apple', google: 'Google', email: 'email' };
-  const EXPERIENCE = [
-    { value: 'novice', label: 'Beginner' },
-    { value: 'intermediate', label: 'Intermediate' },
-    { value: 'advanced', label: 'Advanced' }
-  ];
-  const SESSION_MINUTES = [45, 60, 75, 90];
-  const SEX_OPTIONS = [
-    { value: 'female', label: 'Female' },
-    { value: 'male', label: 'Male' },
-    { value: 'unspecified', label: 'Prefer not to say' }
-  ];
-  const REGIONS = [
-    { value: 'upper', label: 'Upper body' },
-    { value: 'lower', label: 'Lower body' },
-    { value: 'core', label: 'Core' }
-  ];
-  /* docs/07 §7.9: what each flag changes, in one line. */
-  const SAFETY = [
-    { flag: 'injury_reported', label: 'An injury or pain', detail: "We won't suggest changes that load the injured area." },
-    { flag: 'condition_reported', label: 'A medical condition', detail: 'We hold training suggestions until you tell us a professional supervises your training.' },
-    { flag: 'pregnancy', label: 'Pregnancy', detail: "We won't make training or nutrition suggestions. Logging still works." },
-    { flag: 'eating_disorder_history', label: 'A history of disordered eating', detail: "We won't suggest calorie-deficit or weight-loss targets." },
-    { flag: 'clinician_supervised', label: 'A professional supervises my training', detail: 'Lifts the hold that a medical condition puts on suggestions. We note it on every suggestion.' }
-  ];
   const TARGET_FIELDS = [
     { key: 'energyKcal', label: 'Calories (kcal)', name: 'Calories', min: 1, max: 10000, format: (v) => M.fmt.kcal(v) },
     { key: 'proteinG', label: 'Protein (g)', name: 'Protein', min: 0, max: 1000, format: (v) => M.fmt.g(v) },
@@ -68,11 +48,10 @@
     heart_rate: () => 'Heart rate during workouts, shown for context.'
   };
   const PROVIDER_NOTES = {
-    apple_health: "Apple Health data is read on your iPhone and synced here. iPhone doesn't tell apps when you've turned off reading, so missing data shows as no data.",
+    apple_health: "Apple Health data is read on your iPhone and synced here. iPhone doesn't tell apps when you've turned off reading, so missing data shows as no data. A web page can't read Health, so this prototype simulates the connection; you can import a real Health export instead.",
     oura: 'Oura shares data only while your ring has an active membership (Gen3 and later).',
     google_health: "Fitbit now connects through your Google account. If you connected Fitbit before, you'll need to connect again."
   };
-  const SAVE_DELAY_MS = 700;
 
   /* ------------------------------------------------------------- helpers */
   const plural = (n, one, many) => `${n} ${n === 1 ? one : (many || `${one}s`)}`;
@@ -83,45 +62,9 @@
     const day = M.fmt.relativeDay(ts);
     return `${day === 'Today' || day === 'Yesterday' ? day.toLowerCase() : day} at ${M.fmt.time(ts)}`;
   }
-  const parseNumber = (v) => {
-    const t = String(v == null ? '' : v).trim().replace(',', '.');
-    return /^\d+(\.\d+)?$/.test(t) ? Number(t) : NaN;
-  };
   const digitsOnly = (v, max) => String(v || '').replace(/[^0-9]/g, '').slice(0, max);
-  const decimalOnly = (v) => String(v || '').replace(/[^0-9.,]/g, '').slice(0, 6);
-  const toggleIn = (list, value, order) => {
-    const next = list.includes(value) ? list.filter((x) => x !== value) : [...list, value];
-    return order ? next.sort((a, b) => order.indexOf(a) - order.indexOf(b)) : next;
-  };
-  const saveProfile = (patch) => {
-    A.updateProfile(patch);
-    A.toast('Saved');
-  };
   const latest = (s, kind) => (s.privacyRequests || []).find((r) => r.kind === kind) || null;
   const scheduledDeletion = (s) => (s.privacyRequests || []).find((r) => r.kind === 'deletion' && r.status === 'scheduled') || null;
-
-  /* A labelled group of controls (the label matches the Input label style). */
-  function Field({ label, hint, children }) {
-    return html`<div className="stack-xs">
-      <${T} size="callout" font="semiBold" as="p">${label}<//>
-      ${children}
-      ${hint ? html`<${Caption}>${hint}<//>` : null}
-    </div>`;
-  }
-  function MultiChips({ options, values, onChange, label, order }) {
-    return html`<div className="row row--wrap" role="group" aria-label=${label}>
-      ${options.map((o) => html`<${Chip} key=${o.value} variant="filter" active=${values.includes(o.value)} label=${o.label}
-        onPress=${() => onChange(toggleIn(values, o.value, order))} />`)}
-    </div>`;
-  }
-  /* Saves a typed value a moment after the last keystroke, when it is valid. */
-  function useAutosave(value, stored, valid, save) {
-    useEffect(() => {
-      if (!valid || value === stored) return undefined;
-      const t = setTimeout(save, SAVE_DELAY_MS);
-      return () => clearTimeout(t);
-    }, [value, stored, valid]);
-  }
 
   /* Confirmations for the prototype controls (Settings and About). */
   function confirmReset() {
@@ -136,8 +79,8 @@
   }
   function confirmOnboarding() {
     A.alert({
-      title: 'Start onboarding again?',
-      message: "We'll reset the sample data and take you back to the first onboarding screen.",
+      title: 'Start sign-up again?',
+      message: "We'll reset the sample data and take you back to the first sign-up screen.",
       buttons: [
         { label: 'Cancel', style: 'cancel' },
         { label: 'Start again', style: 'destructive', onPress: () => A.resetPrototype() }
@@ -159,22 +102,48 @@
     return parts.join(', ');
   }
 
+  const EXPERIENCE_WORDS = { novice: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
+  const NOT_YET = 'Not set yet';
+
   function Settings() {
     const s = C.useApp();
     const p = s.profile;
     const t = s.targets;
+    const done = (key) => U.isDone(s, key);
     const optional = CONSENTS.filter((c) => !c.required);
     const optionalOn = optional.filter((c) => s.consents[c.key]).length;
     const deletion = scheduledDeletion(s);
+    const left = U.remaining(s);
+    const flags = (p.safetyFlags || []).filter((f) => f !== 'clinician_supervised');
+    const method = p.signInMethod && SIGN_IN[p.signInMethod] ? p.signInMethod : null;
+    const age = p.birthDate ? C.healthImport.ageOn(p.birthDate) : p.birthYear ? new Date().getFullYear() - p.birthYear : null;
+    const sexWord = p.sexForEquations && p.sexForEquations !== 'unspecified' ? `, ${p.sexForEquations}` : '';
+    const weight = p.weightKg == null ? NOT_YET : p.weightUnit === 'lb' ? `${U.weightText(p.weightKg, 'lb')} lb` : `${M.fmt.num(p.weightKg, 1)} kg`;
     return html`<${Screen} title="Settings" subtitle=${p.email ? p.email : null}>
       <${Sections}>
+        ${left.length ? html`<${Rows} rows=${[{
+          key: 'setup', icon: 'checkmark', iconColor: 'primary', label: 'Finish setting up',
+          detail: `${plural(left.length, 'thing')} left: ${M.listJoin(left.slice(0, 2).map((i) => i.title.toLowerCase()))}${left.length > 2 ? ' and more' : ''}.`,
+          onPress: () => A.push('setup')
+        }]} />` : null}
         <${Section} title="You">
           <${Rows} rows=${[
-            { key: 'profile', icon: 'person.crop.circle', iconColor: 'ink', label: 'Profile and goal',
-              detail: `${M.goalLabel(p.goal)}. ${plural(p.daysPerWeek, 'day')} a week, ${p.sessionMinutes} min each.`,
-              onPress: () => A.push('profile') },
-            { key: 'targets', icon: 'target', iconColor: 'ink', label: 'Targets',
-              detail: `${M.fmt.kcal(t.energyKcal)} and ${M.fmt.g(t.proteinG)} protein a day.`,
+            { key: 'account',
+              label: method ? `Signed in with ${SIGN_IN[method]}` : 'Sample profile',
+              detail: method ? p.email || null : 'You skipped sign-in. In the prototype, sign-in is simulated.' },
+            { key: 'goal', label: 'Goal', detail: M.goalLabel(p.goal), onPress: () => A.push('setup-goal') },
+            { key: 'age', label: 'Age', detail: age != null ? `${age}, born ${p.birthYear}` : NOT_YET, onPress: () => A.push('setup-age') },
+            { key: 'weight', label: 'Weight', detail: weight, onPress: () => A.push('setup-weight') },
+            { key: 'body', label: 'Height and sex', detail: done('body') && p.heightCm ? `${p.heightCm} cm${sexWord}` : NOT_YET,
+              onPress: () => A.push('setup-body') },
+            { key: 'health', label: 'Health and safety',
+              detail: !done('health') ? 'Not answered yet. We need it before we suggest a change.' : flags.length ? `${plural(flags.length, 'thing')} reported. Some suggestions are paused.` : 'Nothing reported.',
+              onPress: () => A.push('setup-health') },
+            { key: 'training', label: 'Training',
+              detail: done('training') ? `${EXPERIENCE_WORDS[p.experience] || 'Intermediate'}. ${plural(p.daysPerWeek, 'day')} a week, ${p.sessionMinutes} min each.` : NOT_YET,
+              onPress: () => A.push('setup-training') },
+            { key: 'targets', label: 'Targets',
+              detail: done('targets') ? `${M.fmt.kcal(t.energyKcal)} and ${M.fmt.g(t.proteinG)} protein a day.` : NOT_YET,
               onPress: () => A.push('targets') }
           ]} />
         <//>
@@ -182,6 +151,9 @@
           <${Rows} rows=${[
             { key: 'devices', icon: 'applewatch', iconColor: 'ink', label: 'Connected devices', detail: `${devicesSummary(s)}.`,
               onPress: () => A.push('devices') },
+            { key: 'notifications', icon: 'bell', iconColor: 'ink', label: 'Notifications',
+              detail: !done('notifications') ? NOT_YET : p.notificationsAllowed ? 'On. Never with health values.' : 'Off.',
+              onPress: () => A.push('setup-notifications') },
             { key: 'privacy', icon: 'lock.shield', iconColor: 'ink', label: 'Privacy choices',
               detail: `${optionalOn} of ${optional.length} optional choices on.`, onPress: () => A.push('privacy') },
             { key: 'data', icon: 'square.and.arrow.up', iconColor: 'ink', label: 'Your data',
@@ -201,129 +173,8 @@
         <${Section} title="Prototype" caption="These change only the prototype in this browser.">
           <${Rows} rows=${[
             { key: 'reset', icon: 'arrow.clockwise', label: 'Reset sample data', color: 'primary', chevron: false, onPress: confirmReset },
-            { key: 'onboarding', icon: 'arrow.uturn.backward', label: 'Start onboarding again', color: 'primary', chevron: false, onPress: confirmOnboarding }
+            { key: 'onboarding', icon: 'arrow.uturn.backward', label: 'Start sign-up again', color: 'primary', chevron: false, onPress: confirmOnboarding }
           ]} />
-        <//>
-      <//>
-    <//>`;
-  }
-
-  /* -------------------------------------------------------------- Profile */
-  function SafetyGroup({ p }) {
-    const flags = p.safetyFlags || [];
-    const regions = p.injuryRegions || [];
-    const has = (f) => flags.includes(f);
-    const setFlag = (flag, on) => {
-      const others = flags.filter((f) => f !== flag);
-      const patch = { safetyFlags: on ? [...others, flag] : others };
-      if (flag === 'injury_reported' && !on) patch.injuryRegions = [];
-      saveProfile(patch);
-    };
-    const regionWords = REGIONS.filter((r) => regions.includes(r.value)).map((r) => r.label.toLowerCase());
-    const detailFor = (q) => (q.flag === 'injury_reported' && has(q.flag) && regionWords.length
-      ? `We won't suggest changes that load your ${M.listJoin(regionWords)}.`
-      : q.detail);
-    return html`<div className="ads-group" role="list">
-      ${SAFETY.map((q) => html`<div key=${q.flag} role="listitem" className="ads-group__row row--stacked">
-        <div className="row row--between" style=${{ alignItems: 'flex-start', gap: 'var(--spacing-base)' }}>
-          <div className="grow stack-xxs">
-            <${T} size="body">${q.label}<//>
-            <${T} size="caption" color="inkMuted80">${detailFor(q)}<//>
-          </div>
-          <${Switch} on=${has(q.flag)} label=${q.label} onChange=${(on) => setFlag(q.flag, on)} />
-        </div>
-        ${q.flag === 'injury_reported' && has(q.flag) ? html`<div style=${{ paddingTop: 'var(--spacing-sm)' }}>
-          <${Field} label="Where is it?"
-            hint=${regions.length ? 'Pick every area that applies.' : 'Pick where, so we know which suggestions to pause.'}>
-            <${MultiChips} label="Where is the injury?" options=${REGIONS} values=${regions} order=${REGIONS.map((r) => r.value)}
-              onChange=${(v) => saveProfile({ injuryRegions: v })} />
-          <//>
-        </div>` : null}
-      </div>`)}
-    </div>`;
-  }
-
-  function Profile() {
-    const s = C.useApp();
-    const p = s.profile;
-    const goal = M.GOALS.find((g) => g.id === p.goal) || null;
-    const [height, setHeight] = useState(() => (p.heightCm != null ? String(p.heightCm) : ''));
-    const [weight, setWeight] = useState(() => (p.weightKg != null ? String(p.weightKg) : ''));
-    const [notes, setNotes] = useState(() => p.healthNotes || '');
-    const h = parseNumber(height);
-    const w = parseNumber(weight);
-    const hErr = height !== '' && !(h >= 100 && h <= 250) ? 'Between 100 and 250 cm.' : null;
-    const wErr = weight !== '' && !(w >= 30 && w <= 300) ? 'Between 30 and 300 kg.' : null;
-    useAutosave(height, p.heightCm != null ? String(p.heightCm) : '', height !== '' && !hErr, () => saveProfile({ heightCm: Math.round(h) }));
-    useAutosave(weight, p.weightKg != null ? String(p.weightKg) : '', weight !== '' && !wErr && w !== p.weightKg,
-      () => saveProfile({ weightKg: Math.round(w * 10) / 10 }));
-    useAutosave(notes.trim(), (p.healthNotes || '').trim(), true, () => saveProfile({ healthNotes: notes.trim() }));
-
-    const method = p.signInMethod && SIGN_IN[p.signInMethod] ? p.signInMethod : null;
-    const account = method
-      ? { key: 'account', label: `Signed in with ${SIGN_IN[method]}`, detail: p.email || null }
-      : { key: 'account', label: 'Sample profile', detail: 'You skipped sign-in. In the prototype, sign-in is simulated.' };
-    const anyFlag = SAFETY.some((q) => q.flag !== 'clinician_supervised' && (p.safetyFlags || []).includes(q.flag));
-
-    return html`<${Screen} title="Profile and goal" subtitle="Changes save as you make them.">
-      <${Sections}>
-        <${Section} title="Account">
-          <${Rows} rows=${[account]} />
-        <//>
-
-        <${Section} title="Goal">
-          <${ChoiceChips} label="Goal" options=${M.GOALS.map((g) => ({ value: g.id, label: g.label }))} value=${p.goal}
-            onChange=${(v) => saveProfile({ goal: v })} />
-          ${goal ? html`<${Callout}>${goal.body}<//>` : null}
-        <//>
-
-        <${Section} title="Training" caption="We keep anything we suggest inside these.">
-          <${Field} label="Experience">
-            <${ChoiceChips} label="Experience" options=${EXPERIENCE} value=${p.experience} onChange=${(v) => saveProfile({ experience: v })} />
-          <//>
-          <div className="row row--between">
-            <${T} size="callout" font="semiBold" as="p">Days per week<//>
-            <${Stepper} label="days per week" value=${p.daysPerWeek} min=${1} max=${7} onChange=${(v) => saveProfile({ daysPerWeek: v })} />
-          </div>
-          <${Field} label="Session length" hint="Including warm-up.">
-            <${ChoiceChips} label="Session length" options=${SESSION_MINUTES.map((m) => ({ value: m, label: `${m} min` }))}
-              value=${p.sessionMinutes} onChange=${(v) => saveProfile({ sessionMinutes: v })} />
-          <//>
-          <${Field} label="Equipment you can use" hint="Pick everything you have access to.">
-            <${MultiChips} label="Equipment" options=${D.EQUIPMENT.map((e) => ({ value: e, label: M.capitalise(e) }))}
-              values=${p.equipment || []} order=${D.EQUIPMENT} onChange=${(v) => saveProfile({ equipment: v })} />
-          <//>
-        <//>
-
-        <${Section} title="About you" caption="We use these for energy estimates.">
-          <div className="grid2">
-            <${Input} label="Height (cm)" inputMode="numeric" value=${height} error=${hErr}
-              onChange=${(e) => setHeight(digitsOnly(e.target.value, 3))} />
-            <${Input} label="Weight (kg)" inputMode="decimal" value=${weight} error=${wErr}
-              onChange=${(e) => setWeight(decimalOnly(e.target.value))} />
-          </div>
-          <${Field} label="Sex for energy equations" hint="Optional. Energy equations differ slightly by sex, and we use it for nothing else.">
-            <${ChoiceChips} label="Sex for energy equations" options=${SEX_OPTIONS} value=${p.sexForEquations || 'unspecified'}
-              onChange=${(v) => saveProfile({ sexForEquations: v })} />
-          <//>
-        <//>
-
-        <${Section} title="Health and safety" caption="Turn on anything that applies. Each one changes what we suggest.">
-          <${SafetyGroup} p=${p} />
-          ${anyFlag ? html`<${Callout}>Please talk to a qualified healthcare professional before you change your training or diet.<//>` : null}
-          <${Input} label="Anything else we should know?" value=${notes} hint="Optional. Stored encrypted."
-            onChange=${(e) => setNotes(e.target.value)} />
-        <//>
-
-        <${Section} title="Notifications">
-          <${Rows} rows=${[{
-            key: 'notifications',
-            label: 'Push notifications',
-            detail: 'A suggestion to review or a device to reconnect. Never health values.',
-            right: html`<${Switch} on=${!!p.notificationsAllowed} label="Push notifications"
-              onChange=${(on) => saveProfile({ notificationsAllowed: on })} />`
-          }]} />
-          <${Caption}>In the app, your phone asks you to confirm. In the prototype, nothing is sent.<//>
         <//>
       <//>
     <//>`;
@@ -344,11 +195,13 @@
     A.push('recommendation', { id });
   }
 
+  const RECENT_CHANGES = 3;
   function Targets() {
     const s = C.useApp();
     const t = s.targets;
+    const done = U.isDone(s, 'targets');
     const [form, setForm] = useState(() => Object.fromEntries(TARGET_FIELDS.map((f) => [f.key, t[f.key] != null ? String(t[f.key]) : ''])));
-    const values = Object.fromEntries(TARGET_FIELDS.map((f) => [f.key, parseNumber(form[f.key])]));
+    const values = Object.fromEntries(TARGET_FIELDS.map((f) => [f.key, U.parseNumber(form[f.key])]));
     const errors = Object.fromEntries(TARGET_FIELDS.map((f) => {
       const v = values[f.key];
       return [f.key, Number.isNaN(v) || v < f.min || v > f.max ? `Enter ${f.min} to ${f.max.toLocaleString('en-GB')}.` : null];
@@ -357,40 +210,39 @@
     const changed = TARGET_FIELDS.some((f) => values[f.key] !== t[f.key]);
     const edHistory = (s.profile.safetyFlags || []).includes('eating_disorder_history');
     const save = () => {
-      A.setTargets(Object.fromEntries(TARGET_FIELDS.map((f) => [f.key, Math.round(values[f.key])])));
-      A.toast('Targets saved', 'success');
+      if (changed) A.setTargets(Object.fromEntries(TARGET_FIELDS.map((f) => [f.key, Math.round(values[f.key])])));
+      A.completeSetup('targets');
+      A.toast(changed ? 'Targets saved' : 'Targets kept', 'success');
+      A.pop();
     };
-    const field = (f) => html`<${Input} key=${f.key} label=${f.label} inputMode="numeric" value=${form[f.key]} error=${errors[f.key]}
-      onChange=${(e) => { const v = digitsOnly(e.target.value, 5); setForm((x) => ({ ...x, [f.key]: v })); }} />`;
+    const field = (f) => html`<div key=${f.key} style=${{ minWidth: 0 }}><${Input} label=${f.label} inputMode="numeric" value=${form[f.key]} error=${errors[f.key]}
+      onChange=${(e) => { const v = digitsOnly(e.target.value, 5); setForm((x) => ({ ...x, [f.key]: v })); }} /></div>`;
     const history = (t.history || []).slice().reverse();
 
-    return html`<${Screen} title="Targets" subtitle="Your daily numbers.">
-      <${Sections}>
-        <div className="stack">
-          ${field(TARGET_FIELDS[0])}
-          <div className="grid2">${TARGET_FIELDS.slice(1).map(field)}</div>
-          <${Caption}>${`These are your targets. We suggest a change only when its claim has ${M.REQUIRED_SOURCES} verified studies.${edHistory ? " We won't suggest calorie targets." : ''}`}<//>
-          <${Actions}>
-            <${Button} fullWidth=${true} label="Save targets" disabled=${!changed || !ok} onPress=${save} />
-          <//>
-        </div>
+    return html`<${FormPage} title="Your daily targets" subtitle="Your own numbers. We never change them without asking."
+      footer=${html`<${Primary} label=${!done && !changed ? 'These are right' : 'Save targets'} disabled=${!ok || (done && !changed)} onPress=${save} />`}>
+      ${field(TARGET_FIELDS[0])}
+      <div className="grid2">${TARGET_FIELDS.slice(1).map(field)}</div>
+      ${edHistory ? html`<${Card}>
+        <${Callout}>You told us about a history of disordered eating, so we won't suggest calorie targets. Keep these numbers, or change them yourself.<//>
+      <//>` : null}
+      <${Caption}>${`We suggest a change only when its claim has ${M.REQUIRED_SOURCES} verified studies, and only when you ask.`}<//>
 
-        <${Section} title="Check against the evidence" caption="We look at your target, your goal and your weight, and suggest a change only if verified studies back it.">
-          <${Rows} rows=${[['proteinG', 'Check my protein target'], ['fiberG', 'Check my fibre target']].map(([key, label]) => ({
-            key, label, icon: 'checkmark.seal.fill', iconColor: 'ink',
-            detail: M.claimByKey(M.TARGET_RULES[key].claim) && M.claimByKey(M.TARGET_RULES[key].claim).status === 'active' ? 'Backed by verified studies.' : 'Not enough evidence yet. We\'ll tell you why.',
-            onPress: () => checkTarget(key, label)
-          }))} />
-        <//>
+      <${Section} title="Check against the evidence" caption="We look at your target, your goal and your weight, and suggest a change only if verified studies back it.">
+        <${Rows} rows=${[['proteinG', 'Check my protein target'], ['fiberG', 'Check my fibre target']].map(([key, label]) => ({
+          key, label, icon: 'checkmark.seal.fill', iconColor: 'ink',
+          detail: M.claimByKey(M.TARGET_RULES[key].claim) && M.claimByKey(M.TARGET_RULES[key].claim).status === 'active' ? 'Backed by verified studies.' : 'Not enough evidence yet. We\'ll tell you why.',
+          onPress: () => checkTarget(key, label)
+        }))} />
+      <//>
 
-        <${Section} title="Changes" caption="Newest first. Every change is also in History, under Nutrition.">
-          <${Rows} rows=${history.map((h, i) => ({
-            key: `${h.at}-${i}`,
-            label: `${M.fmt.relativeDay(h.at)}${i === 0 ? ', current' : ''}`,
-            detail: targetSummary(h.values),
-            right: html`<${Badge} palette="splitOrigin" status=${h.origin || 'user_edit'} />`
-          }))} />
-        <//>
+      <${Section} title="Changes" caption=${history.length > RECENT_CHANGES ? `The latest ${RECENT_CHANGES}, newest first. Every change is in History, under Nutrition.` : 'Newest first. Every change is also in History, under Nutrition.'}>
+        <${Rows} rows=${history.slice(0, RECENT_CHANGES).map((h, i) => ({
+          key: `${h.at}-${i}`,
+          label: `${M.fmt.relativeDay(h.at)}${i === 0 ? ', current' : ''}`,
+          detail: targetSummary(h.values),
+          right: html`<${Badge} palette="splitOrigin" status=${h.origin || 'user_edit'} />`
+        }))} />
       <//>
     <//>`;
   }
@@ -398,24 +250,26 @@
   /* -------------------------------------------------------------- Devices */
   function Devices() {
     const s = C.useApp();
-    return html`<${Screen} title="Connected devices" subtitle="Choose what each device shares.">
-      <${Sections}>
-        <section className="stack-sm">
-          <${Rows} rows=${DEVICE_ORDER.filter((p) => s.devices[p]).map((p) => ({
-            key: p,
-            label: D.PROVIDERS[p].name,
-            right: html`<${Badge} palette="connection" status=${s.devices[p].status} />`,
-            onPress: () => A.push('device', { provider: p })
-          }))} />
-          <${Caption}>We use this data to compare you with your own baseline. We never sell it or use it for advertising.<//>
-        </section>
-        <${Section} title="Your data">
-          <${Rows} rows=${[
-            { key: 'export', label: 'Export your data', onPress: () => A.push('your-data') },
-            { key: 'delete', label: 'Delete your account', color: 'danger', onPress: () => A.push('your-data') }
-          ]} />
-        <//>
-      <//>
+    const done = U.isDone(s, 'devices');
+    const imported = s.devices.apple_health && s.devices.apple_health.lastImport;
+    const finish = () => {
+      A.completeSetup('devices');
+      A.pop();
+    };
+    return html`<${FormPage} title="Connected devices" subtitle="Optional. Choose what each one shares."
+      footer=${html`<${Primary} label="Done" onPress=${finish} />`}>
+      <${Rows} rows=${DEVICE_ORDER.filter((p) => s.devices[p]).map((p) => ({
+        key: p,
+        label: D.PROVIDERS[p].name,
+        right: html`<${Badge} palette="connection" status=${s.devices[p].status} />`,
+        onPress: () => A.push('device', { provider: p })
+      }))} />
+      <${Rows} rows=${[{
+        key: 'import', icon: 'heart', iconColor: 'ink', label: 'Import a Health export',
+        detail: imported ? `Last imported ${M.fmt.relativeDay(imported.at).toLowerCase()}, from ${imported.fileName || 'a Health export'}.` : 'Fill in your age, height and weight from the file the Health app exports.',
+        onPress: () => A.push('health-import')
+      }]} />
+      <${Caption}>${`We compare this data with your own baseline. We never sell it or use it for advertising.${done ? '' : ' Tap Done when you\'ve connected what you want.'}`}<//>
     <//>`;
   }
 
@@ -448,7 +302,12 @@
     const name = prov.short;
     const status = dev.status;
     const subtitle = dev.lastSync ? `Last synced ${whenText(dev.lastSync)}` : status === 'pending' ? 'Connecting…' : 'Not connected';
-    const note = PROVIDER_NOTES[provider] ? html`<${Caption}>${PROVIDER_NOTES[provider]}<//>` : null;
+    const imported = dev.lastImport;
+    const note = PROVIDER_NOTES[provider] ? html`<div className="stack-sm">
+      <${Caption}>${PROVIDER_NOTES[provider]}<//>
+      ${provider === 'apple_health' ? html`<${LinkButton} label="Import a Health export" size="callout" align="flex-start" onPress=${() => A.push('health-import')} />` : null}
+      ${imported ? html`<${Caption}>${`Last import: ${imported.fileName || 'a Health export'}, ${longDate(imported.at)}. We used your birth date, height and weight from it.`}<//>` : null}
+    </div>` : null;
     const badge = html`<div className="row"><${Badge} palette="connection" status=${status} /></div>`;
     const existingTypes = Object.keys(dev.dataTypes || {}).length ? dev.dataTypes : undefined;
 
@@ -550,21 +409,29 @@
   /* -------------------------------------------------------------- Privacy */
   function Privacy() {
     const s = C.useApp();
-    return html`<${Screen} title="Privacy choices" subtitle="Change these at any time.">
-      <${Sections}>
-        <section className="stack-sm">
-          <${Rows} rows=${CONSENTS.map((c) => ({
-            key: c.key,
-            label: c.label,
-            detail: c.detail,
-            right: html`<${Switch} on=${c.required ? true : !!s.consents[c.key]} label=${c.label} disabled=${!!c.required}
-              onChange=${c.required ? null : (on) => { A.setConsent(c.key, on); A.toast('Saved'); }} />`
-          }))} />
-          <${Caption}>Health data processing is how the app works, so it stays on. To stop it, delete your account.<//>
-          <${LinkButton} label="Export or delete your data" size="callout" align="flex-start" onPress=${() => A.push('your-data')} />
-        </section>
-        <${Caption}>In the app, each choice is saved with the date and the wording you agreed to.<//>
-      <//>
+    const [choices, setChoices] = useState(() => Object.fromEntries(CONSENTS.map((c) => [c.key, c.required ? true : !!s.consents[c.key]])));
+    const changed = CONSENTS.some((c) => !c.required && choices[c.key] !== !!s.consents[c.key]);
+    const done = U.isDone(s, 'privacy');
+    const save = () => {
+      CONSENTS.forEach((c) => {
+        if (!c.required && choices[c.key] !== !!s.consents[c.key]) A.setConsent(c.key, choices[c.key]);
+      });
+      A.completeSetup('privacy');
+      A.toast('Saved');
+      A.pop();
+    };
+    return html`<${FormPage} title="Privacy choices" subtitle="Only the first one is required. Change these any time."
+      footer=${html`<${Primary} label="Save" disabled=${done && !changed} onPress=${save} />`}>
+      <${Rows} rows=${CONSENTS.map((c) => ({
+        key: c.key,
+        label: c.label,
+        detail: c.detail,
+        right: html`<${Switch} on=${!!choices[c.key]} label=${c.label} disabled=${!!c.required}
+          onChange=${c.required ? null : (on) => setChoices((x) => ({ ...x, [c.key]: on }))} />`
+      }))} />
+      <${Caption}>Health data processing is how the app works, so it stays on. To stop it, delete your account. Turning another one off stops that use from then on.<//>
+      <${LinkButton} label="Export or delete your data" size="callout" align="flex-start" onPress=${() => A.push('your-data')} />
+      <${Caption}>In the app, each choice is saved with the date and the wording you agreed to.<//>
     <//>`;
   }
 
@@ -650,7 +517,7 @@
         <//>
 
         <${Actions}>
-          <${Button} fullWidth=${true} variant="outline" label="Start onboarding again" onPress=${confirmOnboarding} />
+          <${Button} fullWidth=${true} variant="outline" label="Start sign-up again" onPress=${confirmOnboarding} />
         <//>
       <//>
     <//>`;
@@ -659,7 +526,6 @@
   /* ------------------------------------------------------------ register */
   const push = (title, extra) => ({ title, tab: 'today', presentation: 'push', demoParams: {}, ...(extra || {}) });
   C.registerScreen('settings', Settings, push('Settings'));
-  C.registerScreen('profile', Profile, push('Profile and goal'));
   C.registerScreen('targets', Targets, push('Targets'));
   C.registerScreen('devices', Devices, push('Connected devices'));
   C.registerScreen('device', Device, push('Device', {

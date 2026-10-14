@@ -47,9 +47,10 @@
     return `“${/[.?!]$/.test(t) ? t : `${t}.`}”`;
   }
 
-  function RecBadge({ status }) {
+  function RecBadge({ status, needs }) {
     const known = C.palettes.recommendation[status];
-    return html`<${Badge} palette="recommendation" status=${status} label=${known ? undefined : (EXTRA_LABELS[status] || status)} />`;
+    const label = status === 'blocked_constraints' && needs ? 'Needed a detail' : EXTRA_LABELS[status] || status;
+    return html`<${Badge} palette="recommendation" status=${status} label=${known ? undefined : label} />`;
   }
 
   const Chevron = () => html`<${Glyph} name="chevron.right" size=${18} color="inkMuted48" />`;
@@ -107,7 +108,7 @@
     const request = requestLine(rec);
     const reason = reasonLine(rec);
     return html`<${Card} onPress=${() => A.push('recommendation', { id: rec.id })}>
-      <div className="row"><${RecBadge} status=${rec.status} /></div>
+      <div className="row"><${RecBadge} status=${rec.status} needs=${rec.needs} /></div>
       <${CardTitle}>${rec.title || 'Not changed'}<//>
       ${request ? html`<${Callout}>${request}<//>` : null}
       ${reason ? html`<${Caption} color="inkMuted80">${reason}<//>` : null}

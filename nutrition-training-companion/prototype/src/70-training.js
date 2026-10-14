@@ -74,9 +74,10 @@
   /* Suggestions about daily nutrition targets rather than the split. */
   const isTarget = (rec) => rec.kind === 'target_change' || !!(rec.intent && rec.intent.type === 'nutrition_target');
   const targetChange = (rec) => (rec.proposal && rec.proposal.targets && rec.proposal.targets[0]) || null;
-  function RecBadge({ status }) {
+  function RecBadge({ status, needs }) {
     const known = C.palettes.recommendation[status];
-    return html`<${Badge} palette="recommendation" status=${status} label=${known ? undefined : (EXTRA_LABELS[status] || status)} />`;
+    const label = status === 'blocked_constraints' && needs ? 'Needed a detail' : EXTRA_LABELS[status] || status;
+    return html`<${Badge} palette="recommendation" status=${status} label=${known ? undefined : label} />`;
   }
 
   const isFromReview = (rec) => rec.trigger === 'split_review' || !!(rec.intent && rec.intent.source === 'split_review');
@@ -157,7 +158,7 @@
       <${Caption}>${isFromReview(rec) ? 'You asked, from your split review' : 'You asked'}<//>
       <${T} size="body" as="p">${text}<//>
       <${CardFooter}>
-        <${RecBadge} status=${rec.status} />
+        <${RecBadge} status=${rec.status} needs=${rec.needs} />
         <${Caption}>${M.fmt.relativeDay(rec.createdAt)}<//>
       <//>
     <//>`;
@@ -330,17 +331,21 @@
     let evidence = null;
     if (rec.status === 'blocked_safety') {
       answer = html`<${EmptyAnswer} icon="exclamationmark.triangle" title="Paused for your safety" body=${rec.reason} />`;
-      actions = html`<${Button} fullWidth=${true} label="Update your health details" onPress=${() => A.push('profile')} />${keep}`;
+      actions = html`<${Button} fullWidth=${true} label="Update your health details" onPress=${() => A.push('setup-health')} />${keep}`;
       caption = 'If something hurts, or you have a medical condition, a qualified professional such as a doctor or physiotherapist can tell you what’s safe to train.';
+    } else if (rec.status === 'blocked_constraints' && rec.needs === 'health') {
+      answer = html`<${EmptyAnswer} icon="heart" title="Answer the health questions first" body=${rec.reason} />`;
+      actions = html`<${Button} fullWidth=${true} label="Answer the health questions" onPress=${() => A.push('setup-health')} />${keep}`;
+      caption = `They take about a minute. Until then, ${target ? 'your targets stay' : 'your split stays'} as ${target ? 'they are' : 'it is'}. ${own}`;
     } else if (rec.status === 'blocked_constraints') {
       answer = target
         ? html`<${EmptyAnswer} icon="info.circle" title="We need a detail first" body=${rec.reason} />`
         : html`<${EmptyAnswer} icon="info.circle" title="No room in your sessions" body=${rec.reason} />`;
       actions = target
-        ? html`<${Button} fullWidth=${true} label="Update your profile" onPress=${() => A.push('profile')} />${keep}`
+        ? html`<${Button} fullWidth=${true} label=${rec.needs === 'weight' ? 'Add your weight' : 'Update your details'} onPress=${() => A.push(rec.needs === 'weight' ? 'setup-weight' : 'setup-training')} />${keep}`
         : html`
         <${Button} fullWidth=${true} label="Edit my split myself" onPress=${() => editMyself(ctx)} />
-        <${Button} fullWidth=${true} variant="outline" label="Change your session length" onPress=${() => A.push('profile')} />`;
+        <${Button} fullWidth=${true} variant="outline" label="Change your session length" onPress=${() => A.push('setup-training')} />`;
       caption = target ? own : `Your sessions are set to ${sessionLimit(s)} minutes. ${own}`;
     } else {
       answer = html`<${EmptyAnswer} icon="magnifyingglass" title="Not enough evidence yet" body=${rec.reason || 'We couldn’t verify enough studies for this change, so we haven’t changed your plan.'} />`;
@@ -391,7 +396,7 @@
     return html`<${Screen} title=${rec.status === 'not_needed' ? 'Your request' : 'Suggested change'} subtitle=${target ? 'Your targets are unchanged' : 'Your split is unchanged'}>
       <${Sections}>
         <div className="stack-sm">
-          <div className="row"><${RecBadge} status=${rec.status} /></div>
+          <div className="row"><${RecBadge} status=${rec.status} needs=${rec.needs} /></div>
           <${Callout}>${line}<//>
           <${Caption}>${originLine(rec)}<//>
         </div>
@@ -461,6 +466,7 @@
     });
     return html`<${Screen} title="Training" subtitle=${`${s.split.name}, version ${s.split.current}`}>
       <${Sections}>
+        <${C.setup.SetupCard} keys=${['health', 'training', 'split']} title="Before we suggest changes" />
         ${pending.length ? html`<${Section} title="Suggested changes">
           <div className="stack-sm">${pending.map((rec) => html`<${SuggestionCard} key=${rec.id} s=${s} rec=${rec} />`)}</div>
         <//>` : null}
@@ -587,6 +593,7 @@
   const EXAMPLES = ['A bigger back', 'Wider shoulders', 'Get stronger', 'More protein', 'Add running', 'Remove cable fly'];
 
   function ChangeRequest({ params }) {
+    const s = C.useApp();
     const [text, setText] = useState(params.text || '');
     const [error, setError] = useState(null);
     const [intent, setIntent] = useState(null);
@@ -631,6 +638,22 @@
       timer.current = setTimeout(() => route(M.evaluateChange(intent, C.getState(), { requestText }), requestText), 800);
     };
     const cancel = html`<${LinkButton} label="Cancel" onPress=${A.dismiss} />`;
+
+    /* Requests in your own words go to Claude, so they need the AI consent
+       (optional at sign-up, so asked here, when it's first needed). */
+    if (!s.consents.ai_processing && !intent) {
+      const turnOn = () => {
+        A.setConsent('ai_processing', true);
+        A.toast('AI features on');
+      };
+      return html`<${PlainScreen} title="Turn on AI features?" subtitle="So we can understand requests in your own words." topLeft=${cancel}
+        footer=${html`<${Button} fullWidth=${true} label="Turn on and continue" onPress=${turnOn} />
+          <${Button} fullWidth=${true} variant="ghost" label="Edit my split myself" onPress=${() => A.replace('split-edit', {})} />`}>
+        <${Body}>Claude, by Anthropic, reads the words you type here and works out what you’re asking for. Our evidence check then decides, the same as always.<//>
+        <${Callout}>We send the words you type, not your health records. You can turn this off in Settings, under Privacy choices.<//>
+        <${Caption}>In the prototype, a simple keyword matcher stands in for Claude, and nothing leaves your browser.<//>
+      <//>`;
+    }
 
     if (!intent) {
       return html`<${PlainScreen} title="What would you like to change?" subtitle="Describe it in your own words." topLeft=${cancel}

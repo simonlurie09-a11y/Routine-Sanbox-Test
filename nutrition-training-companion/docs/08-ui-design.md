@@ -89,11 +89,12 @@ Two deliberate choices about food:
 * Tab roots use the collapsing `AppHeader` with `showBack={false}`, a `gearshape` settings button on the left and a `NotificationBell` on the right. The bell counts pending suggestions and reconnect requests.
 * Today is the one exception, as the system specifies: a fixed hero with the greeting.
 
-**Settings** (from the gear): Profile and goal · Targets · Connected devices · Privacy choices · Your data (export, delete) · About and disclaimer.
+**Settings** (from the gear): Finish setting up (while anything is left) · You: account, goal, age, weight, height and sex, health and safety, training, targets · Connected devices · Notifications · Privacy choices · Your data (export, delete) · About and disclaimer. Each row under *You* opens one short page in the sign-up layout (below), never one long form.
 
 | Screen | System blueprint | Main components |
 |---|---|---|
-| Splash → onboarding slides → goal → email → code → profile basics → health screen → dashboard | Login and onboarding | `Card` (selectable), `Input`, `OtpInput`, `Button` |
+| Splash → slides → disclaimer → account (Apple, Google or email + consent) → code → Apple Health → age → weight → goal → dashboard | Login and onboarding | `Card` (selectable), `Input`, `OtpInput`, `Button` |
+| Setup pages (health and safety, training, split, targets, height and sex, devices, notifications, privacy, goal, age, weight, Health import) | Login and onboarding, as single steps | `Input`, `Chip`, platform switch, `Card` (selectable), `Button` |
 | Today | Dashboard | `StatGauge`, `Card`, `StatusBadge`, `GroupedRows`, `NotificationBell` |
 | Food, Training lists | Tab-root list screen | search `Input` (pill), filter `Chip`s, `Card` rows, `EmptyState` |
 | Add food | — | `Sheet` |
@@ -113,11 +114,28 @@ All screens are 390-point iPhone width. They are rendered full length; a real de
 
 ### Onboarding: goal
 
-<img src="../design/screens/goal.png" width="300" alt="What's your goal? screen with six selectable goal cards; Build muscle is selected">
+<img src="../design/screens/goal.png" width="300" alt="What do you want to work on? screen with six selectable goal cards; Build muscle is selected">
 
 * This is the system's "account type" pattern: selectable `Card`s, 1px `hairline` becoming 2px `primaryFocus` when selected, a 28px leading icon going `ink` → `primary`, a `headline-semiBold` title and a `callout` `inkMuted48` line.
-* "Continue" stays disabled until a goal is picked.
-* The surrounding onboarding follows the system's journey: splash, three photo-led slides, goal, email, 6-digit code ("Enter the code"), profile basics, then the health and safety screen ([07 §7.1](07-product-flows.md#71-onboarding)). The medical disclaimer is its own plain screen that the user must acknowledge.
+* "Finish" stays disabled until a goal is picked.
+* The surrounding sign-up follows the system's journey: splash, three photo-led slides, the disclaimer (its own plain screen, which must be acknowledged), "Create your account" (Sign in with Apple, Google, or email and a 6-digit code, with the health-data consent as a tick box), Connect Apple Health (optional), birth year, weight, and this goal page as the last step. Its button reads "Finish" ([07 §7.1](07-product-flows.md#71-onboarding)).
+
+### The sign-up page layout, used for every setup page
+
+<img src="../design/screens/signup-account.png" width="300" alt="Create your account: back chevron, large title, grey subtitle, Sign in with Apple, Continue with Google, email field, consent tick box, Send code button at the bottom">
+
+* Every sign-up step and every setup page has the same layout as "Create your account":
+  * a back chevron top left;
+  * a `title2` bold title that asks or names one thing ("What do you weigh?", "Health and safety");
+  * a `body` `inkMuted48` subtitle that says why it's asked;
+  * the fields;
+  * one primary pill at the bottom that names the outcome ("Save", "Save targets", "Allow notifications", "Finish").
+
+  A second, ghost button appears only where there's a real alternative ("Not now", "Import a Health export instead").
+* Setup pages hold their changes until the button is pressed, then save and go back with a "Saved" toast. Nothing autosaves half-way through.
+* Pages that only show what is already there (Today, Food, History, a study) keep the collapsing large-title header.
+* The *Finish setting up* card (Today; Training and Food show only their own items) lists what's left, with "N of 8 done". It disappears when everything is done.
+* The consent tick box is an iOS-style selection circle with the full consent text as its label. Tapping a sign-in button without it ticked shows "Tick this to continue." under it.
 
 ### Today (dashboard)
 

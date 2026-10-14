@@ -435,65 +435,292 @@
       "key": "recovery.sleep_loss_impairs_performance",
       "title": "Short sleep and next-day performance",
       "area": "recovery",
-      "status": "draft",
-      "statement": "Acute sleep loss (a night of restricted or no sleep) reduces next-day physical performance on average.",
-      "population": "",
-      "appUse": "Would explain how short sleep affects a session.",
-      "appliesTo": {},
-      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
-      "gaps": "",
-      "sources": [],
+      "status": "active",
+      "statement": "In healthy adults and athletes tested in the lab, one night of restricted or no sleep lowers physical performance the next day on average, including aerobic endurance. How much it drops varies widely between studies and tasks, so the average cannot predict the effect for any one person.",
+      "population": "Healthy adults and athletes, mostly young men, tested in laboratory randomised or crossover studies the day after one night (about 24 h) of no sleep or partly restricted sleep. It does not cover several nights of short sleep in a row, habitual short sleepers or sleep tracked in everyday life. Evidence on women and older adults is limited.",
+      "appUse": "Explains your readiness: short sleep can make a session feel harder. It never changes your plan by itself.",
+      "appliesTo": {
+        "useMode": "explanatory_only",
+        "adjustsPlan": false,
+        "exposure": "acute_sleep_loss_one_night",
+        "exposureTypes": [
+          "total_sleep_deprivation",
+          "partial_sleep_restriction"
+        ],
+        "outcome": "next_day_physical_performance",
+        "direction": "decrease",
+        "outcomesWithConsistentEffect": [
+          "overall_physical_performance",
+          "aerobic_endurance"
+        ],
+        "populations": [
+          "healthy_adults",
+          "athletes"
+        ],
+        "setting": "laboratory",
+        "showMagnitude": false,
+        "individualPrediction": false
+      },
+      "verdict": "Active, in a narrowed form. Three verified meta-analyses from different teams (Craven 2022, Gong 2024 and Kong 2025) all find that one night of sleep loss lowers next-day physical performance on average, and all three show it for aerobic endurance. Craven puts the average drop at about 7.6%, but heterogeneity is extreme (I² about 98%) and the other two report only standardised effect sizes, so no percentage is carried into the app. Several of the researcher's details are left out because they rest on one source or on subgroup figures nobody verified, and Kong's summary partly conflicts with some of them: the 6 h threshold, the \"feels harder\" (RPE) wording, strength falling \"only after total deprivation\", early-night restriction having no effect, and the time-of-day and late-restriction moderators, which only two counted sources back. Knowles 2018 and Easow 2025 show that strength effects are mixed but do not contradict the overall direction. Because the three meta-analyses share many primary trials, the app should use this only to explain, never to change the plan.",
+      "gaps": "1) Any hours threshold (for example \"6 h or less\") needs checking against the Craven full text or another counted source before the app ties the message to a number. 2) To add timing or protocol detail (worse in afternoon or evening, worse after waking early, weaker after going to bed late), a third counted source has to confirm it. Kong's subgroup results by type of sleep loss and Gong's per-protocol figures (including the reportedly small -0.23 for a full night without sleep) must be verified, and the conflict over early-night restriction resolved. 3) To mention strength or perceived effort, the Craven strength subgroup (about -3%, total deprivation only, lower body) and Kong's RPE result (SMD 0.47) need verification against the full text. 4) Showing users a percentage would need at least three sources reporting comparable percentage effects; only Craven does. 5) The three meta-analyses share many of the same small lab crossover trials. An overlap check, or large independent trials, would show how independent they really are; if they turn out to rest on the same handful of trials, the status should be reconsidered. 6) The population cannot be widened without evidence on women, older adults, habitual short sleepers, real-world sleep tracked by wearables, and whether caffeine or naps offset the effect. 7) Several sources are still unverified and were not used: the endurance-specific meta-analysis seen on ResearchGate, Bonnar 2018, the Heliyon 2024 trial in Sanda athletes (mixed results), and PMID 41900490 on sex differences. Knowles 2018's PMID is also unconfirmed. Large new trials or meta-analyses finding no effect after one night would also call for a review.",
+      "sources": [
+        "src-craven-2022",
+        "src-kong-2025",
+        "src-gong-2024"
+      ],
       "contradicting": [],
-      "context": [],
-      "reviewedAt": "2026-10-14"
+      "context": [
+        "src-knowles-2018",
+        "src-easow-2025",
+        "src-fullagar-2015"
+      ],
+      "reviewedAt": "2026-10-14",
+      "judgeAppliesTo": {
+        "useMode": "explanatory_only",
+        "adjustsPlan": false,
+        "exposure": "acute_sleep_loss_one_night",
+        "exposureTypes": [
+          "total_sleep_deprivation",
+          "partial_sleep_restriction"
+        ],
+        "outcome": "next_day_physical_performance",
+        "direction": "decrease",
+        "outcomesWithConsistentEffect": [
+          "overall_physical_performance",
+          "aerobic_endurance"
+        ],
+        "populations": [
+          "healthy_adults",
+          "athletes"
+        ],
+        "setting": "laboratory",
+        "showMagnitude": false,
+        "individualPrediction": false
+      }
     },
     {
       "key": "wearables.measurement_validity",
       "title": "How accurate wearables are",
       "area": "measurement",
-      "status": "draft",
-      "statement": "Consumer wearables estimate night-time heart rate and HRV with reasonable agreement against ECG, but sleep staging is less accurate; HRV metrics from different devices (RMSSD versus SDNN) are not interchangeable.",
-      "population": "",
-      "appUse": "Would explain how far to trust each device's numbers.",
-      "appliesTo": {},
-      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
-      "gaps": "",
-      "sources": [],
+      "status": "active",
+      "statement": "In healthy, mostly young adults at rest, heart rate variability (HRV) from consumer and portable devices is close to ECG-measured HRV but not the same. The error is small but real and varies with the device, the HRV metric and body position, so readings should not be treated as interchangeable with ECG values, with other devices or with other metrics. Against polysomnography, consumer sleep trackers detect sleep well but miss much of the time spent awake, and their sleep-stage and sleep-summary estimates (such as total sleep time and wake after sleep onset) differ meaningfully.",
+      "population": "Healthy, mostly young adults (roughly 18-40) using consumer wrist, ring, strap or app-based devices. The HRV evidence comes mainly from resting measurements; among the counted sources, only one single-night laboratory study (Miller 2022) has night-time data. The sleep evidence comes mainly from laboratory comparisons with polysomnography. The claim is not established for older adults, clinical populations (where agreement appears worse), exercise, or free-living daytime measurement.",
+      "appUse": "Explains why we compare each device only with its own baseline and keep each maker's score under its own name.",
+      "appliesTo": {
+        "mode": "explanatory_only",
+        "changesPlan": false,
+        "population": "healthy_adults",
+        "hrv": {
+          "baseline": "own_device_own_metric",
+          "allowCrossDeviceComparison": false,
+          "allowMetricMixing": false,
+          "metricsKeptSeparate": [
+            "rmssd",
+            "sdnn"
+          ],
+          "treatAsEquivalentToEcg": false
+        },
+        "labelling": {
+          "requireVendorName": true,
+          "requireMetricAndUnit": true,
+          "example": "Oura RMSSD, ms"
+        },
+        "showNumericAccuracyClaims": false,
+        "sleep": {
+          "contextOnly": [
+            "sleep_wake_timing",
+            "total_sleep_duration"
+          ],
+          "doNotActOn": [
+            "sleep_stages",
+            "wake_after_sleep_onset",
+            "sleep_efficiency",
+            "sleep_latency"
+          ]
+        }
+      },
+      "verdict": "Active, but only for a narrowed, explanatory statement. Four counted sources agree that wearable HRV is close to ECG HRV but not equivalent, with an error that varies: the Dobbs 2019 and Xu 2026 meta-analyses, Stone 2021 and Miller 2022. Four more agree that sleep-versus-wake detection is reasonable but that wake detection, sleep stages and sleep-summary metrics differ from polysomnography: Miller 2022, Chinoy 2021, Lee 2025 and Schyvens 2024. Some parts of the proposed statement were dropped because they rest mainly on Dial 2025 (not counted, rated mixed) and on unverified Miller figures: the night-time resting heart rate accuracy, the device rankings (Oura/WHOOP good, Polar/Garmin poor) and the numeric HR/HRV error ranges. The tensions in the evidence do not undermine the conservative within-device, labelled-value use. Dobbs found no device-type effect, and Dobbs and Xu disagree on which metric has the larger error. Kantrowitz 2025 found worse agreement in clinical patients, which fits the statement rather than contradicting it.",
+      "gaps": "The following evidence is needed before the claim can go further. (1) At least three counted, independent ECG-referenced studies of night-time resting heart rate in current consumer wearables; only Miller's WHOOP data is verified now, and Dial 2025 was not counted. These would be needed before stating heart rate accuracy or any '1-2 bpm' figure. (2) Larger night-time HRV validations: Xu 2026 warns against generalising resting results to sleep, and the 5-8% RMSSD error figure rests on Dial 2025 (n=13) alone. (3) A direct test of cross-device interchangeability, measuring the same people on the same nights with several devices and comparing the devices with one another; this is currently inferred from device-specific error against ECG. (4) Independent replication of device rankings (Oura/WHOOP good, Polar/Garmin poor) across current device generations, free of manufacturer involvement, and checks of Miller's unverified Oura and Polar figures. (5) A resolution of the inconsistencies: Dobbs found no device-type effect while Stone and Dial found large device differences, and Dobbs and Xu disagree on whether SDNN or RMSSD has the larger error. (6) Evidence in older adults, clinical populations, during exercise and in free-living use. (7) More verified sleep-stage accuracy data beyond Miller's 50-65% and Schyvens' qualitative review; for example, the uncaptured npj Digital Medicine 2024 staging paper and the 2025 six-device validation. (8) Formal retraction and expression-of-concern checks for every source, especially Xu 2026, and a check for overlapping studies between the reviews and the primary studies.",
+      "sources": [
+        "src-miller-2022",
+        "src-dobbs-2019",
+        "src-xu-2026",
+        "src-stone-2021",
+        "src-chinoy-2021",
+        "src-lee-2025",
+        "src-schyvens-2024"
+      ],
       "contradicting": [],
-      "context": [],
-      "reviewedAt": "2026-10-14"
+      "context": [
+        "src-dial-2025",
+        "src-kantrowitz-2025"
+      ],
+      "reviewedAt": "2026-10-14",
+      "judgeAppliesTo": {
+        "mode": "explanatory_only",
+        "changesPlan": false,
+        "population": "healthy_adults",
+        "hrv": {
+          "baseline": "own_device_own_metric",
+          "allowCrossDeviceComparison": false,
+          "allowMetricMixing": false,
+          "metricsKeptSeparate": [
+            "rmssd",
+            "sdnn"
+          ],
+          "treatAsEquivalentToEcg": false
+        },
+        "labelling": {
+          "requireVendorName": true,
+          "requireMetricAndUnit": true,
+          "example": "Oura RMSSD, ms"
+        },
+        "showNumericAccuracyClaims": false,
+        "sleep": {
+          "contextOnly": [
+            "sleep_wake_timing",
+            "total_sleep_duration"
+          ],
+          "doNotActOn": [
+            "sleep_stages",
+            "wake_after_sleep_onset",
+            "sleep_efficiency",
+            "sleep_latency"
+          ]
+        }
+      }
     },
     {
       "key": "nutrition.protein_intake_for_muscle_gain",
       "title": "Protein for muscle gain",
       "area": "nutrition",
       "status": "draft",
-      "statement": "For adults doing resistance training, a protein intake around 1.6 g per kg of body weight per day maximises gains in muscle mass on average; intakes up to about 2.2 g/kg are reasonable for those who want to be sure.",
-      "population": "",
+      "statement": "For healthy adults doing resistance training for at least 6 weeks, a total protein intake of about 1.6 g per kg of body weight per day appears, on average, to be enough to get the extra muscle-mass gain that protein can add, and intakes of 1.4 to 2.0 g/kg/day are generally sufficient. The extra gain from protein is small, around 0.3 kg of fat-free mass on average in pooled trials.",
+      "population": "Healthy, non-obese adults who do structured resistance training for at least 6 weeks to gain muscle, and who are not cutting calories. The benefit is smaller in older adults, and the evidence for them is less consistent. It does not cover people cutting calories (the ISSN suggests 2.3 to 3.1 g/kg/day to keep lean mass during a calorie deficit), pregnant people, or people with medical conditions such as kidney disease.",
       "appUse": "Would let us suggest a protein target for muscle gain. Until then, your targets are yours to set.",
-      "appliesTo": {},
-      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
-      "gaps": "",
-      "sources": [],
-      "contradicting": [],
-      "context": [],
-      "reviewedAt": "2026-10-14"
+      "appliesTo": {
+        "goals": [
+          "muscle_gain"
+        ],
+        "requiresResistanceTraining": true,
+        "minTrainingWeeks": 6,
+        "targetGPerKg": 1.6,
+        "maxGPerKg": 2,
+        "expectedEffect": "small",
+        "excludeIf": [
+          "medical_condition",
+          "pregnancy",
+          "calorie_deficit"
+        ]
+      },
+      "verdict": "This stays a draft because only two sources count: Morton 2018 (the main finding is a meta-regression breakpoint at about 1.6 g/kg/day, with an extra 0.30 kg of fat-free mass) and the 2017 ISSN position stand by Jäger (1.4 to 2.0 g/kg/day is sufficient). The rule needs three. Bagheri 2023 would back 1.6 g/kg/day as enough for trained young men, but it was not counted because the text seen never says participants were randomised. Nunes 2022 was not counted either: it is mixed, and its age-group results were not verified. The counted sources do not support the proposed 2.2 g/kg/day cap: the confidence interval behind it comes from a later review, and the ISSN upper bound is 2.0. They also do not support the claim that 3.2 g/kg/day adds nothing, which rests only on Bagheri. Tagawa 2021 points the other way: lean-mass gains slowed above about 1.3 g/kg/day but did not stop, so the evidence shows diminishing returns rather than a firm ceiling at 1.6.",
+      "gaps": "- A third counted source. The quickest route is to confirm in the Bagheri 2023 methods (PMC10388821) that participants were randomised. If they were, it would count, but only for trained young men, and only to show that 1.6 g/kg/day is enough compared with 3.2.\n- Verification of the Nunes 2022 subgroup results: the under-65 vs 65-and-over split, the benefit at 1.2 to 1.59 g/kg/day in older adults, and the effect sizes, plus a check that its strength CI is a reporting error.\n- Randomised trials in trained adults with muscle size as the outcome that compare 1.6 with 2.2 g/kg/day, and 1.2 with 1.6 g/kg/day. These are needed to support any upper cap above 2.0 or any statement that higher intakes add nothing.\n- Direct verification of the Morton 2018 breakpoint from the full text: the 1.62 figure, its 95% CI of about 1.03 to 2.20, the p-value and the number of study arms. Also confirmation of what the 2020 correction changed.\n- A reconciliation of Tagawa 2021's continuing slope above 1.3 g/kg/day with the plateau idea, for example a dose-response analysis limited to people doing resistance training.\n- Longer trials that measure muscle size directly rather than fat-free mass by DXA or BIA, and better evidence for older adults and untrained people.\n- Dedicated retraction checks (for example Retraction Watch) for Bagheri, Nunes and Tagawa.\n- Safety evidence for higher intakes in people with medical conditions or who are pregnant.",
+      "sources": [
+        "src-morton-2018",
+        "src-jager-2017"
+      ],
+      "contradicting": [
+        "src-tagawa-2021"
+      ],
+      "context": [
+        "src-bagheri-2023",
+        "src-nunes-2022",
+        "src-tagawa-2022",
+        "src-cermak-2012"
+      ],
+      "reviewedAt": "2026-10-14",
+      "judgeAppliesTo": {
+        "goals": [
+          "muscle_gain"
+        ],
+        "requiresResistanceTraining": true,
+        "minTrainingWeeks": 6,
+        "targetGPerKg": 1.6,
+        "maxGPerKg": 2,
+        "expectedEffect": "small",
+        "excludeIf": [
+          "medical_condition",
+          "pregnancy",
+          "calorie_deficit"
+        ]
+      }
     },
     {
       "key": "nutrition.fibre_intake_target",
       "title": "Daily fibre",
       "area": "nutrition",
-      "status": "draft",
-      "statement": "Eating at least 25 to 29 g of dietary fibre a day is linked to lower risk of death, heart disease, type 2 diabetes and colorectal cancer, with greater benefit at higher intakes.",
-      "population": "",
-      "appUse": "Would let us suggest a daily fibre target. Until then, your targets are yours to set.",
-      "appliesTo": {},
-      "verdict": "We have not finished checking the evidence for this claim, so the app treats it as unsupported and changes nothing.",
-      "gaps": "",
-      "sources": [],
+      "status": "active",
+      "statement": "In prospective studies of generally healthy adults, people who eat more dietary fibre from food have lower rates of cardiovascular disease (including coronary heart disease) and colorectal cancer. The risk is about 9% lower for cardiovascular and coronary disease for each extra 7 g a day, and about 10% lower for colorectal cancer for each extra 10 g a day, and the largest review found the biggest risk reductions at about 25 to 29 g a day. These are associations, not proven cause and effect, and any extra benefit above about 30 g a day is uncertain.",
+      "population": "Generally healthy adults in general-population prospective cohorts, mostly in high-income countries. This is not evidence for children (EFSA uses a separate value of 2 g/MJ for children aged 1 and over). It is also not evidence for preventing new polyps or bowel cancer in people who have already had colorectal adenomas, or for fibre supplements used in place of fibre from food.",
+      "appUse": "If your fibre target is under 25 g a day, we can suggest 25 to 30 g. It also explains the fibre line in food ratings.",
+      "appliesTo": {
+        "population": "adults",
+        "fibreSource": "food",
+        "applyIfCurrentTargetBelowGPerDay": 25,
+        "minTargetGPerDay": 25,
+        "suggestedRangeGPerDay": [
+          25,
+          30
+        ],
+        "noClaimedExtraBenefitAboveGPerDay": 30,
+        "preferredFibreSources": [
+          "cereal_fibre",
+          "whole_grains"
+        ],
+        "healthRatingEffects": {
+          "cvdAndChdRelativeRiskPer7GPerDay": 0.91,
+          "colorectalCancerRelativeRiskPer10GPerDay": 0.9
+        },
+        "framing": "association_not_causation",
+        "excludedGroups": [
+          "children",
+          "secondary_prevention_prior_colorectal_adenoma",
+          "fibre_supplements"
+        ]
+      },
+      "verdict": "The status is active, but the statement is narrower than the draft. Seven counted sources agree that eating more fibre is linked to lower risk. For cardiovascular and coronary disease the decisive sources are Threapleton 2013, Reynolds 2019 and Veronese 2025; for colorectal cancer they are Aune 2011, Reynolds 2019 and Veettil 2021. Hartley 2016 adds short trials showing modest falls in cholesterol and diastolic blood pressure. The 25 to 29 g/day sweet spot comes from Reynolds alone, so the app uses 25 g/day only as a modest minimum, which the per-gram dose-response results also support. Several parts of the draft were removed or softened: \"greater benefit at higher intakes\", the causal framing, and the links to all-cause death and type 2 diabetes. Each of those links has only two counted sources, and the diabetes link lost significance after adjusting for body weight in InterAct 2015. The Cochrane trials in people with prior polyps (Yao 2017) found no fall in adenoma recurrence and a low-quality signal of more cancer diagnoses with fibre. Those trials studied a different population, so they do not outweigh the cohort evidence in healthy adults.",
+      "gaps": "1. No randomised trial has tested fibre intake against hard outcomes (death, cardiovascular events, type 2 diabetes or colorectal cancer incidence). The links to disease and death are observational and open to confounding by overall diet quality, body weight and lifestyle, and to error in food-frequency measurement. A long-term trial with hard outcomes, or strong Mendelian randomisation evidence, would be needed before the app makes causal claims.\n2. The 25 to 29 g/day point of greatest risk reduction rests on one counted source (Reynolds 2019). A second and third verified dose-response analysis locating the lowest risk would firm up the specific target. EFSA's 25 g/day is based on bowel function and is not counted, and the WHO 2023 guideline was seen only in secondary reports.\n3. Lower all-cause mortality (Reynolds 2019, Veronese 2025) and lower type 2 diabetes risk (Reynolds 2019, InterAct 2015) each have only two counted sources. The diabetes link also weakens after adjusting for body weight. Adding these to the statement and health rating would need a third verified source each, for example a corrected Yao 2023 entry or a verified Ramezani 2024 (Clin Nutr 43(1):65-83), and the all-cause figure of 0.90 per 10 g/day would need a counted source (Yang 2015 was seen only in passing).\n4. Whether benefit continues above about 30 g/day is uncertain. Few participants eat that much, and Yao 2023 (not counted) reported a non-linear all-cause curve.\n5. The counted meta-analyses and umbrella reviews pool largely the same cohorts, so they are not independent replications.\n6. Colorectal evidence conflicts by population. Cohorts support a lower risk, but trials in people with prior polyps (Yao 2017 Cochrane) found no benefit and a low-quality signal of more cancer diagnoses. Larger, longer trials would clarify this.\n7. Still unverified: what the Reynolds 2019 Department of Error corrects; the PMID, full author list and type 2 diabetes and colorectal grades of Veronese 2025; the Veettil fibre effect size (RR 0.84); and some identifiers (PMID 33591366 for Veettil, PMC6465195 for Yao 2017).\n8. Most data come from adults in high-income countries, and fibre definitions differ between studies (AOAC methods vs non-starch polysaccharide), so gram amounts are not always comparable.",
+      "sources": [
+        "src-reynolds-2019",
+        "src-threapleton-2013",
+        "src-aune-2011",
+        "src-interact-consortium-2015",
+        "src-veronese-2025",
+        "src-veettil-2021",
+        "src-hartley-2016"
+      ],
       "contradicting": [],
-      "context": [],
-      "reviewedAt": "2026-10-14"
+      "context": [
+        "src-veronese-2018",
+        "src-yao-2017",
+        "src-efsa-panel-on-dietetic-products-2010"
+      ],
+      "reviewedAt": "2026-10-14",
+      "judgeAppliesTo": {
+        "population": "adults",
+        "fibreSource": "food",
+        "applyIfCurrentTargetBelowGPerDay": 25,
+        "minTargetGPerDay": 25,
+        "suggestedRangeGPerDay": [
+          25,
+          30
+        ],
+        "noClaimedExtraBenefitAboveGPerDay": 30,
+        "preferredFibreSources": [
+          "cereal_fibre",
+          "whole_grains"
+        ],
+        "healthRatingEffects": {
+          "cvdAndChdRelativeRiskPer7GPerDay": 0.91,
+          "colorectalCancerRelativeRiskPer10GPerDay": 0.9
+        },
+        "framing": "association_not_causation",
+        "excludedGroups": [
+          "children",
+          "secondary_prevention_prior_colorectal_adenoma",
+          "fibre_supplements"
+        ]
+      }
     },
     {
       "key": "nutrition.high_protein_kidney_function_healthy",
@@ -2602,6 +2829,1399 @@
         "notes": "Not verified. The web search budget, shared by all agents, was used up before this source could be searched. I checked none of the PMID 38499934, PMCID PMC10948666, DOI 10.1186/s40798-024-00691-y, the metadata or retraction status. All checks are unknown. | No search was attempted because the shared web search budget was already used up. Nothing was checked. If the stated design (a cross-sectional survey) is accurate, it is context only under the strong-design rules. It describes practice and does not measure whether deloads change strength or muscle gains.",
         "identityEvidence": [],
         "supportEvidence": []
+      }
+    },
+    {
+      "id": "src-craven-2022",
+      "short": "Craven et al., 2022",
+      "title": "Effects of Acute Sleep Loss on Physical Performance: A Systematic and Meta-Analytical Review",
+      "authors": "Craven J, McCartney D, Desbrow B, Sabapathy S, Bellinger P, Roberts L, Irwin C",
+      "year": 2022,
+      "journal": "Sports Medicine",
+      "citation": "Sports Med. 2022 Nov;52(11):2669-2690",
+      "pmid": "35708888",
+      "pmcid": "PMC9584849",
+      "doi": "10.1007/s40279-022-01706-y",
+      "url": null,
+      "design": "Systematic review with meta-analysis (multi-level) and meta-regression: 227 outcome measures from 69 publications comparing normal sleep with acute sleep loss (total deprivation, early or late sleep restriction). Sports Med 2022;52:2669-2690, PMID 35708888.",
+      "population": "Healthy adults/athletes in studies comparing normal sleep (>6 h per 24 h) with sleep loss (<=6 h per 24 h: total deprivation, early or late restriction). Searched Web of Science, Scopus, PsycINFO.",
+      "sampleSize": "69 publications, 227 outcome measures (participant total not seen)",
+      "found": "Pooling 227 results from 69 studies, a night of sleep loss lowered exercise performance by about 7.6% on average (95% CI 3.1% to 11.9%), and performance fell in every type of exercise tested. Losses were biggest after a full night without sleep or after waking early, grew by about 0.4% for each extra hour awake, and showed up consistently in afternoon or evening tests but much less in morning tests; the reported drop in strength was small (about 3%).",
+      "limitations": "The studies are mostly small lab trials in young men and their results differ enormously (I² about 98%), so the average cannot say how much any one person will be affected, and the strength and morning-session details were not checked against the full text.",
+      "quote": "Results indicated a negative impact of sleep loss on the percentage change (%Δ) in exercise performance",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "I did not reach the PubMed page for PMID 35708888 itself. A PubMed 'Cited by' listing (on PMID 12736846) and a second search both tie PMID 35708888 to the Sports Med 2022 paper with DOI 10.1007/s40279-022-01706-y, epub 16 Jun 2022. The first PMID search summary gave the wrong title because it confused the record with the citing page; the DOI and journal matched. The PMC9584849 and Springer pages confirm the title, Craven J as first author, Sports Medicine, 2022, 52(11):2669-2690, the 69 publications / 227 outcome measures, and the -7.56% pooled effect. A search for retraction, expression of concern, erratum or correction found no notice. | The core numbers match what I saw: -7.56%, the CI, I², about 0.4% per hour awake, TSD and late restriction worst, PM worse than AM. The very high I² supports 'results vary widely'. I could NOT verify the researcher's strength subgroup figure (-3.00%, 95% CI -4.52 to -1.48, significant only under TSD, lower-body but not upper-body). Search results gave only the overall strength estimate of -2.85% (p < 0.001), and that came from a secondary source (Stronger by Science) and a search summary, not the abstract. Results confirmed that a body-limb subgroup analysis exists but not its numbers. So the statement's 'only after total sleep deprivation' wording for strength is unconfirmed; the pooled strength effect across protocols was reported as significant. The researcher gave no quote. The verified quote is a fragment from a search snippet consistent with the abstract. I did not see the full PubMed page, so I could not check for retraction or erratum notices; none appeared in the results.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/12736846/?dopt=Abstract",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9584849/",
+          "https://link.springer.com/article/10.1007/s40279-022-01706-y",
+          "https://link.springer.com/10.1007/s40279-022-01706-y",
+          "https://lida.sport-iat.de/ta/Record/4078085"
+        ],
+        "supportEvidence": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC9584849/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9584849/",
+          "https://link.springer.com/article/10.1007/s40279-022-01706-y",
+          "https://link.springer.com/content/pdf/10.1007/s40279-022-01706-y.pdf",
+          "https://research-repository.griffith.edu.au/server/api/core/bitstreams/466dd770-afbf-4573-a530-0e8a7c87ee08/content",
+          "https://www.strongerbyscience.com/research-spotlight-sleep-loss/"
+        ]
+      }
+    },
+    {
+      "id": "src-kong-2025",
+      "short": "Kong et al., 2025",
+      "title": "Effects of sleep deprivation on sports performance and perceived exertion in athletes and non-athletes: a systematic review and meta-analysis",
+      "authors": "Kong Y, Yu B, Guan G, Wang Y, He H",
+      "year": 2025,
+      "journal": "Frontiers in Physiology",
+      "citation": "Front Physiol. 2025 Apr 1;16:1544286",
+      "pmid": "40236824",
+      "pmcid": "PMC11996801",
+      "doi": "10.3389/fphys.2025.1544286",
+      "url": null,
+      "design": "Systematic review and meta-analysis of randomized controlled and randomized crossover trials (PROSPERO CRD42023492792, Cochrane RoB 2, searched to September 2024), 45 studies. Front Physiol 2025;16:1544286, PMID 40236824, PMC11996801.",
+      "population": "Athletes and healthy non-athletes exposed to total, early or late sleep deprivation",
+      "sampleSize": "45 trials (16 aerobic endurance, 8 anaerobic endurance, 23 explosive power, 10 maximal force, 4 speed, 4 skill control, 12 RPE); participant total not seen",
+      "found": "Across 45 randomised and crossover trials, sleep deprivation lowered aerobic endurance, explosive power and maximal force in athletes (standardised effect sizes -0.66, -0.63 and -0.35). In non-athletes it lowered aerobic endurance (-1.02) but had no effect on explosive power (-0.02).",
+      "limitations": "It reports standardised effect sizes rather than percentages, and its results for perceived effort and for each type of sleep loss (early, late or total) were not verified.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 40236824 shows the title, Kong Y (Yan Kong, Beijing Sport University) as first author, Front Physiol 2025, and DOI 10.3389/fphys.2025.1544286. The PMC and Frontiers pages agree, give a publication date of 1 Apr 2025 and PROSPERO CRD42023492792, and list 45 studies. A search for retraction, expression of concern, erratum or corrigendum found no notice. | Design and the athlete AE/EP/MF effects match the researcher's summary. I did NOT see the RPE effect (SMD 0.47), the speed and skill-control results, the null anaerobic-endurance results, or the subgroup results by deprivation type (early, late, total). Those parts of the researcher's finding are unverified. Effects are SMDs, not percentages, so this paper backs the direction but not the '7-8%' size. Inconsistency to flag: the researcher's own summary says early-night deprivation mainly reduced explosive power and maximal force. That conflicts with the proposed statement's lines that strength is affected 'only after total sleep deprivation' and that a night of early-night restriction 'may have no meaningful effect'. If that subgroup result holds, the statement's strength and early-restriction wording needs revisiting. The null EP effect in non-athletes also shows the effect is not uniform. I saw only fragments of the abstract text, not whole sentences, so I set verifiedQuote to null. No retraction or erratum notices seen.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/40236824/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11996801/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11996801/",
+          "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2025.1544286/full"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/40236824/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11996801/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11996801/",
+          "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2025.1544286/full",
+          "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2025.1544286/xml"
+        ]
+      }
+    },
+    {
+      "id": "src-gong-2024",
+      "short": "Gong et al., 2024",
+      "title": "Effects of Acute Sleep Deprivation on Sporting Performance in Athletes: A Comprehensive Systematic Review and Meta-Analysis",
+      "authors": "Gong M, Sun M, Sun Y, Jin L, Li S",
+      "year": 2024,
+      "journal": "Nature and Science of Sleep",
+      "citation": "Nat Sci Sleep. 2024 Jul 9;16:935-948",
+      "pmid": "39006249",
+      "pmcid": "PMC11246080",
+      "doi": "10.2147/NSS.S467531",
+      "url": null,
+      "design": "Systematic review and meta-analysis of 27 studies (75 indicators per researcher; I saw the 27-study count) in athletes after acute sleep deprivation. Nat Sci Sleep 2024;16:935-948, DOI 10.2147/NSS.S467531.",
+      "population": "Athletes exposed to acute sleep deprivation (whole-night, or partial at the beginning or end of the night)",
+      "sampleSize": "27 studies, 75 indicators; participant total not seen",
+      "found": "Across 27 studies in athletes, acute sleep deprivation lowered overall performance by a medium amount (effect size -0.56). The biggest effects were on high-intensity intermittent exercise (-1.57) and skill (-1.06) and the smallest on explosive power (-0.39); afternoon performance was hit harder than morning performance (-1.11 vs -0.30), and losing sleep at the end of the night was worst.",
+      "limitations": "It covers athletes only, and its results for each type of sleep loss, including a reportedly small effect of a full night without sleep, were not verified.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "Searching the DOI 10.2147/NSS.S467531 returned the Dovepress (Nature and Science of Sleep vol 16) page and the DOAJ record. The title, authors (Gong M, Sun M, Sun Y, Jin L, Li S), Nat Sci Sleep 2024 Jul 9;16:935-948, 27 studies / 75 indicators and the overall effect of -0.56 all match. The proposer gave no PMID. A PubMed listing shows 'Gong M, et al. Nat Sci Sleep. 2024. PMID: 39006249 Free PMC article. Review.', so the paper is PubMed-indexed. The PMCID PMC11246080 came up as the full-text record in the search results. A search for retraction, expression of concern or erratum found no notice. | The abstract numbers I saw match the researcher's on overall effect, ability categories and time of day, and on late-night partial deprivation being worst. I did NOT see the per-protocol figures (-1.17 late, -0.23 whole-night, -0.25 early ns). If whole-night deprivation really is only -0.23, it is a weaker effect than the statement's 'skips sleep entirely' framing implies. I saw no PMID in results; the paper showed up in PubMed only as a 'cited by' entry with its bibliographic details. Population is athletes only. I saw the abstract only through search summaries, not verbatim sentences, so verifiedQuote is null. No retraction notice seen.",
+        "identityEvidence": [
+          "https://www.dovepress.com/effects-of-acute-sleep-deprivation-on-sporting-performance-in-athletes-peer-reviewed-fulltext-article-NSS",
+          "https://doaj.org/article/de201b75e6334a61bd347629655888c7",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11246080",
+          "https://pubmed.ncbi.nlm.nih.gov/35959341/"
+        ],
+        "supportEvidence": [
+          "https://www.dovepress.com/effects-of-acute-sleep-deprivation-on-sporting-performance-in-athletes-peer-reviewed-fulltext-article-NSS",
+          "https://www.tandfonline.com/doi/full/10.2147/NSS.S467531",
+          "https://www.researchgate.net/publication/382113379_Effects_of_Acute_Sleep_Deprivation_on_Sporting_Performance_in_Athletes_A_Comprehensive_Systematic_Review_and_Meta-Analysis"
+        ]
+      }
+    },
+    {
+      "id": "src-knowles-2018",
+      "short": "Knowles et al., 2018",
+      "title": "Inadequate sleep and muscle strength: Implications for resistance training",
+      "authors": "Knowles OE, Drinkwater EJ, Urwin CS, Lamon S, Aisbett B",
+      "year": 2018,
+      "journal": "Journal of Science and Medicine in Sport",
+      "citation": "J Sci Med Sport. 2018;21(9):959-968",
+      "pmid": "29422383",
+      "pmcid": null,
+      "doi": "10.1016/j.jsams.2018.01.012",
+      "url": null,
+      "design": "Systematic review (search of five electronic databases, no meta-analysis seen). J Sci Med Sport 2018;21(9):959-968, DOI 10.1016/j.jsams.2018.01.012. I did not see the number of included studies (17 per the researcher).",
+      "population": "Adults in studies of sleep deprivation or restriction with resistance exercise or muscle strength outcomes",
+      "sampleSize": "17 studies; participant total not seen",
+      "found": "This review of studies on sleep and resistance training found that several nights in a row of restricted sleep could reduce force in multi-joint lifts such as squats, but not in single-joint movements. Hormone responses to training were inconsistent.",
+      "limitations": "It is mainly about several nights of short sleep rather than one night, it did not pool results, and its PubMed record could not be confirmed (its DOI could).",
+      "quote": "Inadequate sleep impairs maximal muscle strength in compound movements when performed without specific interventions designed to increase motivation.",
+      "checks": {
+        "identifier_resolves": "unknown",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The DOI 10.1016/j.jsams.2018.01.012 resolves to this paper on ScienceDirect and JSAMS. Those pages show authors Knowles OE, Drinkwater EJ, Urwin CS, Lamon S, Aisbett B, J Sci Med Sport, published online 3 Feb 2018, and ResearchGate gives vol 21(9). The 17 included studies and the main findings match the proposer's summary. PMID 29422383 could not be confirmed: two PubMed searches (by PMID and by exact title) did not return the record, and no page I saw showed that PMID. identifierResolves is therefore unknown even though the DOI is confirmed. A search for retraction, expression of concern, erratum or corrigendum found no notice. | The PubMed page for PMID 29422383 did not come up in search; the abstract text came from an author PDF copy, Semantic Scholar and ResearchGate. The researcher's sentence 'Sleep deprivation had little effect on muscle strength during resistance exercise' was not in the fragments I saw, so it is unverified. The positive strength finding comes from consecutive nights of restriction, a different, chronic exposure, not the acute single night in the claim. So the paper only partly supports the statement's acute-strength caveat, and 'mixed' is right. The conclusion that inadequate sleep impairs compound-lift strength is somewhat stronger than the statement's 'small and inconsistent'. No retraction notice seen.",
+        "identityEvidence": [
+          "https://www.sciencedirect.com/science/article/abs/pii/S1440244018300306",
+          "https://www.jsams.org/article/S1440-2440(18)30030-6/abstract",
+          "https://www.researchgate.net/publication/322890939_Inadequate_sleep_and_muscle_strength_Implications_for_resistance_training",
+          "https://dro.deakin.edu.au/articles/journal_contribution/Inadequate_sleep_and_muscle_strength_implications_for_resistance_training/20813233",
+          "https://www.bisp-surf.de/Record/PU201810007708"
+        ],
+        "supportEvidence": [
+          "https://paulogentil.com/pdf/Inadequate%20sleep%20and%20muscle%20strength%20-%20Implications%20for%20resistance%20training.pdf",
+          "https://www.semanticscholar.org/paper/Inadequate-sleep-and-muscle-strength:-Implications-Knowles-Drinkwater/89a81003c2b5ef06f43f729b75c6de1b61e07aea",
+          "https://www.researchgate.net/publication/322890939_Inadequate_sleep_and_muscle_strength_Implications_for_resistance_training"
+        ]
+      }
+    },
+    {
+      "id": "src-easow-2025",
+      "short": "Easow et al., 2025",
+      "title": "Implications of sleep loss or sleep deprivation on muscle strength: a systematic review",
+      "authors": "Easow J, et al.",
+      "year": 2025,
+      "journal": "Sleep and Breathing",
+      "citation": "Sleep Breath. 2025 Jul 15;29(4):242",
+      "pmid": "40663194",
+      "pmcid": "PMC12263768",
+      "doi": "10.1007/s11325-025-03413-0",
+      "url": null,
+      "design": "Systematic review without meta-analysis: 13 included studies with counterbalanced or randomised designs in healthy adults (514 database records plus 563 from organization and citation searching). Sleep Breath, published July 2025, PMID 40663194, PMC12263768, DOI 10.1007/s11325-025-03413-0.",
+      "population": "Adults exposed to acute or chronic sleep deprivation or restriction with muscle strength, power or muscular endurance outcomes",
+      "sampleSize": "13 studies included (514 database records plus 563 from other sources screened); participant total not seen",
+      "found": "Across 13 studies in healthy adults, some found lower muscle strength after a night without sleep and others found no clear difference. Taken together, short- and longer-term sleep loss reduced some measures of strength, power and muscular endurance and increased fatigue.",
+      "limitations": "It is a review without pooled numbers that mixes one-night and longer-term sleep loss, so it cannot say how large the acute effect on strength is.",
+      "quote": "some studies reported a negative impact of sleep deprivation on strength performance, while others showed no significant differences following a night of sleep deprivation",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 40663194 shows the title, Judy Easow as first author with nine co-authors (mostly Manipal Academy of Higher Education), Sleep and Breathing, published 15 Jul 2025, vol 29(4), article 242, and DOI 10.1007/s11325-025-03413-0. The PMC12263768 and repository pages give the same title. 13 studies were included and the findings were mixed. A search for retraction, expression of concern, erratum or correction found no notice. | The researcher's summary matches the abstract content I saw. Different search summaries worded the quote as 'after a night' and as 'following a night'; I used the version shown in quotation marks. Its support for the statement is limited to the strength caveat, where acute effects are inconsistent, and it pools acute with chronic exposure. I did not see the full author list. No retraction notice seen.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/40663194/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12263768/",
+          "https://researchonline.ljmu.ac.uk/id/eprint/27054/",
+          "https://impressions.manipal.edu/open-access-archive/12883"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/40663194/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12263768/",
+          "https://link.springer.com/article/10.1007/s11325-025-03413-0"
+        ]
+      }
+    },
+    {
+      "id": "src-fullagar-2015",
+      "short": "Fullagar et al., 2015",
+      "title": "Sleep and athletic performance: the effects of sleep loss on exercise performance, and physiological and cognitive responses to exercise",
+      "authors": "Fullagar HH, Skorski S, Duffield R, Hammes D, Coutts AJ, Meyer T",
+      "year": 2015,
+      "journal": "Sports Medicine",
+      "citation": "Sports Med. 2015 Feb;45(2):161-86",
+      "pmid": "25315456",
+      "pmcid": null,
+      "doi": "10.1007/s40279-014-0260-0",
+      "url": null,
+      "design": "Narrative review, context only. Sports Med 2015;45(2):161-186, PMID 25315456 (the researcher listed none), DOI 10.1007/s40279-014-0260-0.",
+      "population": "Athletes and exercising adults",
+      "sampleSize": "Not applicable (narrative review)",
+      "found": "This earlier review describes how sleep restriction and deprivation affect exercise, the body and the mind. It reports slower and less accurate thinking after sleep loss, but concludes that the link between sleep loss and exercise performance was still unclear at the time.",
+      "limitations": "It is a narrative review that predates the meta-analyses and did not pool results, so it gives background only and cannot confirm the size or direction of the effect.",
+      "quote": "Based on this context, this review aims to evaluate the importance and prevalence of sleep in athletes and summarises the effects of sleep loss (restriction and deprivation) on exercise performance, and physiological and cognitive responses to exercise.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "fail",
+        "finding_supported": "fail"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The Springer page for DOI 10.1007/s40279-014-0260-0 shows this title in Sports Medicine 45(2):161-186 (2015), first published online Oct 2014, with authors Fullagar HHK, Skorski S, Duffield R, Hammes D, Coutts AJ, Meyer T. A search result points to PubMed record PMID 25315456 with Sports Med. 2015 Feb;45(2):161-86. The proposer gave no PMID and no issue number, so I added both. It is a narrative review in a peer-reviewed, PubMed-indexed journal. The abstract says exercise performance is negatively affected after sleep loss, but that the extent and mechanisms remain uncertain or equivocal. A search for retraction, expression of concern or erratum found no notice. | The researcher's finding (impaired submaximal strength, endurance, reaction time, accuracy and vigor) came from a citing paper (PMID 31288293, a sleep-hygiene review), not from this paper's abstract. The abstract I saw instead describes the evidence on exercise performance as equivocal, so the stated finding is secondhand and does not match the abstract's emphasis. As a narrative review it is context only. I saw only part of the abstract. PubMed does index it as PMID 25315456.",
+        "identityEvidence": [
+          "https://link.springer.com/article/10.1007/s40279-014-0260-0",
+          "https://pubmed.ncbi.nlm.nih.gov/25315456/",
+          "https://opus.lib.uts.edu.au/handle/10453/34275",
+          "https://pubmed.ncbi.nlm.nih.gov/31288293/"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/25315456/",
+          "https://pubmed.ncbi.nlm.nih.gov/31288293/"
+        ]
+      }
+    },
+    {
+      "id": "src-miller-2022",
+      "short": "Miller et al., 2022",
+      "title": "A Validation of Six Wearable Devices for Estimating Sleep, Heart Rate and Heart Rate Variability in Healthy Adults",
+      "authors": "Miller DJ, Sargent C, Roach GD",
+      "year": 2022,
+      "journal": "Sensors (Basel)",
+      "citation": "Sensors (Basel). 2022 Aug 22;22(16):6317",
+      "pmid": "36016077",
+      "pmcid": "PMC9412437",
+      "doi": "10.3390/s22166317",
+      "url": null,
+      "design": "Validation study against criterion references: polysomnography for sleep and ECG for heart rate/HRV. One laboratory night (9 h in bed, 23:00-08:00) with all six devices worn at once: Apple Watch S6, Garmin Forerunner 245 Music, Polar Vantage V, Oura Ring Gen 2, WHOOP 3.0, Somfit. n=53 (26 F, 27 M), age 25.4 +/- 5.9 y.",
+      "population": "Healthy adults (26 women, 27 men), mean age about 25 y. Devices: Apple Watch S6, Garmin Forerunner 245 Music, Polar Vantage V, Oura Ring Gen 2, WHOOP 3.0, Somfit.",
+      "sampleSize": "1 study; 53 participants; 1 night each",
+      "found": "Across one laboratory night in 53 healthy young adults, six wearables agreed with polysomnography on sleep versus wake for about 86-89% of epochs, but for only about 50-65% on sleep stages. Against ECG, WHOOP read heart rate 0.3 bpm low (ICC 0.99) and HRV 4.5 ms low.",
+      "limitations": "It covers a single night in young healthy adults using older device models (Oura Gen 2, WHOOP 3.0), and heart rate and HRV figures were confirmed only for WHOOP.",
+      "quote": "Compared with ECG-derived heart rate (HR), WHOOP underestimated HR by an average of 0.3 beats per min, absolute bias was 0.7 beats per min, intraclass correlation was 0.99, and WHOOP underestimated HRV by an average of 4.5 ms.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 36016077 is this paper: Miller DJ, Sargent C, Roach GD, Sensors (Basel) 2022 Aug 22;22(16):6317, DOI 10.3390/s22166317, PMCID PMC9412437. PMC, the doi.org/MDPI page and DOAJ give the same title and citation. MDPI has a peer-review report page. A targeted search for retraction, erratum or correction found no notice, and the PubMed record showed none. | Confirmed: PMID 36016077, Sensors 2022;22(16):6317, DOI 10.3390/s22166317, authors Miller, Sargent, Roach. Confirmed numbers: sleep/wake 86-89%, staging about 50-65%, n=53, and the WHOOP HR/HRV figures. The WHOOP sentence was shown as MDPI article text and may come from the abstract or the body. NOT verified: Oura HR bias (+0.1 bpm, absolute bias 1.80 bpm, ICC 0.85), WHOOP HRV absolute bias 4.7 ms, and Polar's proportional HRV bias (+28.8 to -124.2 ms). Search snippets did not show them, so treat them as unconfirmed. A secondary blog summary says all six devices underestimated HRV. The sleep-staging and sleep/wake numbers in the proposed statement are directly supported. Only WHOOP's HR/HRV agreement is confirmed here. Single lab night in young healthy adults. Older device generations (Oura Gen 2, WHOOP 3.0).",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/36016077/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9412437/",
+          "https://dx.doi.org/10.3390/s22166317",
+          "https://mdpi-res.com/d_attachment/sensors/sensors-22-06317/article_deploy/sensors-22-06317.pdf",
+          "https://www.mdpi.com/1424-8220/22/16/6317/review_report",
+          "https://doaj.org/article/8bdca05438bd47b6b2f929245cc89b75"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/36016077/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9412437/",
+          "https://www.mdpi.com/1424-8220/22/16/6317",
+          "https://mdpi-res.com/d_attachment/sensors/sensors-22-06317/article_deploy/sensors-22-06317.pdf"
+        ]
+      }
+    },
+    {
+      "id": "src-dial-2025",
+      "short": "Dial et al., 2025",
+      "title": "Validation of nocturnal resting heart rate and heart rate variability in consumer wearables",
+      "authors": "Dial MB, Hollander ME, Vatne EA, Emerson AM, Edwards NA, Hagen JA",
+      "year": 2025,
+      "journal": "Physiological Reports",
+      "citation": "Physiol Rep. 2025 Aug 20;13(16):e70527",
+      "pmid": null,
+      "pmcid": "PMC12367097",
+      "doi": "10.14814/phy2.70527",
+      "url": null,
+      "design": "Validation study against an ECG reference worn at the same time as multiple consumer wearables during sleep (Lin's CCC, MAPE). Devices: Garmin Fenix 6, Oura Gen 3, Oura Gen 4, Polar Grit X Pro, WHOOP 4.0. n=13 healthy adults (6 female), 536 nights in total (repeated measures).",
+      "population": "Healthy adults (6 female). Devices: Garmin Fenix 6, Oura Gen 3, Oura Gen 4, Polar Grit X Pro, WHOOP 4.0.",
+      "sampleSize": "1 study; 13 participants; 536 nights",
+      "found": "In 13 healthy adults over 536 nights, Oura Gen 3 and Gen 4 night-time resting heart rate (CCC 0.97-0.98) and HRV (CCC 0.97-0.99) agreed closely with ECG. WHOOP agreed moderately (CCC 0.91 for heart rate, 0.94 for HRV), while Polar (heart rate CCC 0.86, HRV 0.82) and Garmin HRV (0.87) agreed poorly.",
+      "limitations": "It has only 13 participants and one model per brand, results shifted with the analysis method, Oura promotes it and WHOOP disputes its methods; it was not counted because its direction was rated mixed.",
+      "quote": "Thirteen healthy adults (6 females) wore an ECG reference and multiple wearables simultaneously during sleep, totaling 536 nights.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "No PMID was given. DOI 10.14814/phy2.70527 resolves to the Wiley Physiological Reports page 'Validation of nocturnal resting heart rate and heart rate variability in consumer wearables - Dial - 2025'. PMC12367097 has the same title, first author (Dial), journal and year (published 2025-08-20; 13(16):e70527). One secondary summary listed issue 13(23), probably confusing it with the follow-up letters. I could not find a PubMed record or PMID for the paper itself, so no PMID is supplied. Only first author Dial was seen; the rest of the author list (Hollander, Vatne, Emerson, Edwards, Hagen) was not confirmed. Two of the proposer's 'seen at' PubMed links point to other papers, not this one: PMID 41388834 / PMC12701519 is a letter by Grosicki and Presby (WHOOP, Inc.), 'Accurate comparison of wearables requires contextual equivalence', and PMID 41399178 is the authors' reply, 'Contextual equivalence for accurate comparison of wearables requires transparency' (DOI 10.14814/phy2.70706). These are commentary, not corrections. No erratum, correction or retraction was found. | The researcher's numbers match. The researcher's quote (design sentence: 'Thirteen healthy adults (6 females) wore an ECG reference and multiple wearables simultaneously during sleep, totaling 536 nights.') appeared word for word in search output, but it describes the design, not a result. Problems with the proposed statement: (1) the paper calls WHOOP's agreement 'moderate' for both RHR and HRV, so 'Oura and WHOOP agreed well' overstates WHOOP for this study; (2) Polar's HRV agreement was also poor (CCC 0.82), not just its RHR, which the statement omits. One search summary also reported alternative CCCs for HRV (Oura Gen 4 0.91, Gen 3 0.84, WHOOP 0.76), possibly from another analysis or table. A supplementary z-score table reportedly ranks Polar (0.92) above WHOOP (0.88) for RHR. Results depend on the analysis method. A WHOOP-authored letter (Grosicki & Presby) disputes the comparison methods, and the authors replied (PMIDs 41388834, 41399178, PMC12701519, PMC12706116). Those letters are not the paper. One search summary gave the paper's PMID as 40834291, but I did not see this on a PubMed page. Small n=13. Single Garmin model (Fenix 6), which the authors say should not be generalised to other Garmins.",
+        "identityEvidence": [
+          "https://physoc.onlinelibrary.wiley.com/doi/10.14814/phy2.70527",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12367097/",
+          "https://www.citedrive.com/en/discovery/validation-of-nocturnal-resting-heart-rate-and-heart-rate-variability-in-consumer-wearables/",
+          "https://pubmed.ncbi.nlm.nih.gov/41388834/",
+          "https://pubmed.ncbi.nlm.nih.gov/41399178/",
+          "https://physoc.onlinelibrary.wiley.com/doi/10.14814/phy2.70706"
+        ],
+        "supportEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12367097/",
+          "https://physoc.onlinelibrary.wiley.com/doi/10.14814/phy2.70527",
+          "https://pubmed.ncbi.nlm.nih.gov/41399178/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12701519/"
+        ]
+      }
+    },
+    {
+      "id": "src-dobbs-2019",
+      "short": "Dobbs et al., 2019",
+      "title": "The Accuracy of Acquiring Heart Rate Variability from Portable Devices: A Systematic Review and Meta-Analysis",
+      "authors": "Dobbs WC, Fedewa MV, MacDonald HV, Holmes CJ, Cicone ZS, Plews DJ, Esco MR",
+      "year": 2019,
+      "journal": "Sports Medicine",
+      "citation": "Sports Med. 2019 Mar;49(3):417-435",
+      "pmid": "30706234",
+      "pmcid": null,
+      "doi": "10.1007/s40279-019-01061-5",
+      "url": null,
+      "design": "Systematic review and meta-analysis (PRISMA) of portable-device HRV compared with ECG; literature searched up to 29 July 2017. 23 studies, 301 effects.",
+      "population": "Studies comparing portable HRV devices (chest straps, smartphone apps, wrist devices, etc.) with ECG in humans.",
+      "sampleSize": "23 studies; 301 effect sizes (total participants not captured)",
+      "found": "Pooling 23 studies, HRV from portable devices differed from ECG by a small but significant amount (effect size 0.23, 95% CI 0.05-0.42), with large variation between studies (I² 78.6%). The size of the error depended on the HRV metric, body position and sex, but not on device type, and the authors judged it acceptable for field use.",
+      "limitations": "The literature runs only to 2017 and is mostly chest straps and apps rather than modern wrist or ring wearables during sleep, and the higher error for SDNN did not survive sensitivity analysis.",
+      "quote": "The aim was to quantify the accuracy of portable devices compared to electrocardiography (ECG) for measuring a multitude of HRV metrics and to identify potential moderators of this effect.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 30706234 is this paper: Dobbs WC et al., Sports Med 2019;49(3):417-435, DOI 10.1007/s40279-019-01061-5. The Altmetric record shows the same title, DOI, journal and first author (Ward C. Dobbs), dated January 2019, which is the online date; the print issue is March 2019. No PMCID was seen. A targeted search for retraction or erratum found none, and the PubMed record showed no notice. | Confirmed: PMID 30706234, Sports Med 2019;49(3):417-435, DOI 10.1007/s40279-019-01061-5, and the author list. The researcher's quote (the aims sentence) appeared word for word. The finding is stated accurately. Caveats: the included devices are mostly chest straps, apps and other portable devices, not specifically night-time consumer wrist or ring PPG. The SDNN effect on metric did not survive the sensitivity analysis, so the 'differs by metric' point is weaker for SDNN than for body position. The authors also conclude that the error is acceptable, which supports 'reasonable agreement' more than 'not interchangeable'. The literature runs only to 2017.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/30706234/",
+          "https://springeropen.altmetric.com/details/54752642",
+          "https://ir.ua.edu/handle/123456789/5336?show=full"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/30706234/",
+          "https://link.springer.com/article/10.1007/s40279-019-01061-5"
+        ]
+      }
+    },
+    {
+      "id": "src-xu-2026",
+      "short": "Xu et al., 2026",
+      "title": "Accuracy of Photoplethysmography-Derived Pulse Rate Variability Compared with Electrocardiography-Derived Heart Rate Variability: A Systematic Review and Meta-Analysis",
+      "authors": "Xu S, et al.",
+      "year": 2026,
+      "journal": "Sensors (Basel)",
+      "citation": "Sensors (Basel). 2026 Aug 17;26(16):5192",
+      "pmid": "42655500",
+      "pmcid": "PMC13517957",
+      "doi": "10.3390/s26165192",
+      "url": null,
+      "design": "Systematic review and meta-analysis of PPG-derived pulse rate variability compared with ECG-derived HRV (RMSSD, SDNN) in healthy or apparently healthy non-clinical populations. 43 studies in the qualitative synthesis (33 narrative); 10 unique studies pooled quantitatively (8 each for the RMSSD and SDNN meta-analyses).",
+      "population": "Healthy or apparently healthy non-clinical populations, mainly under resting or controlled conditions.",
+      "sampleSize": "43 studies in the qualitative synthesis; 10 unique studies pooled (8 each for the RMSSD and SDNN meta-analyses); total participants not captured",
+      "found": "Pooling 10 studies of healthy people at rest, pulse rate variability from optical (PPG) sensors differed from ECG HRV by a small standardised error: 0.19 for RMSSD and 0.13 for SDNN. The authors warn against reading this as showing that PPG and ECG are interchangeable, or applying it to sleep, exercise or daily life.",
+      "limitations": "Few studies were pooled, all under resting or controlled conditions, so it says little directly about night-time wearable readings; it is also very recent and has not had a dedicated retraction check.",
+      "quote": "The pooled absolute standardized error was 0.188 (95% CI: 0.066 to 0.309; I^2 = 11.69%) for RMSSD and 0.134 (95% CI: 0.014 to 0.255; I^2 = 0%) for SDNN.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 42655500 is this paper: Sensors (Basel) 2026 Aug 17;26(16):5192, PMCID PMC13517957. The proposer gave no DOI; the DOI 10.3390/s26165192 was seen on doi.org with the same title. A search that did not name the author gave the first author as Shiwen Xu (PubMed). The full author list was not seen. The review is registered in PROSPERO (CRD420261426165). The pooled RMSSD and SDNN numbers and the warning against generalising them were confirmed in search snippets. The paper is very recent (Aug 2026). The PubMed and PMC records showed no notices, but no dedicated retraction search was run because the search budget was spent. | Confirmed: PMID 42655500, PMC13517957, Sensors 2026;26(16):5192, DOI 10.3390/s26165192 (the researcher left the DOI blank), first author Shiwen Xu. The researcher's quote matches word for word (only 'I^2' versus 'I2' formatting differs). One caveat on the researcher's wording: 'differed by metric' is not shown by the abstract. The RMSSD and SDNN CIs overlap almost completely, and I saw no formal test between metrics. The direction is also opposite to Dobbs 2019 (SDNN error larger there; RMSSD larger here). So the statement's 'error differs by HRV metric' is weakly supported. This source does support 'not equivalent/not interchangeable' and the explicit warning against generalising to sleep.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/42655500/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC13517957/",
+          "https://doi.org/10.3390/s26165192"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/42655500/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC13517957/",
+          "https://doi.org/10.3390/s26165192"
+        ]
+      }
+    },
+    {
+      "id": "src-kantrowitz-2025",
+      "short": "Kantrowitz et al., 2025",
+      "title": "Pulse rate variability is not the same as heart rate variability: findings from a large, diverse clinical population study",
+      "authors": "Kantrowitz, Ben-David, et al.",
+      "year": 2025,
+      "journal": "Frontiers in Physiology",
+      "citation": "Front Physiol. 2025 (published 30 July 2025); article 1630032",
+      "pmid": null,
+      "pmcid": "PMC12343505",
+      "doi": "10.3389/fphys.2025.1630032",
+      "url": null,
+      "design": "Cross-sectional beat-to-beat agreement study comparing PPG pulse rate variability with ECG-derived HRV (criterion) using two Warfighter Monitor devices (chest and bicep). Time-domain indices SDNN, rMSSD and pNN50; Pearson correlation, Bland-Altman, and one-way ANOVA across chronic diseases. n=931 adults from a tertiary academic medical center in the southeastern US.",
+      "population": "Adults recruited from a tertiary academic medical center in the southeastern United States (diverse clinical population).",
+      "sampleSize": "1 study; 931 participants",
+      "found": "In 931 adults at a hospital, optical pulse rate variability disagreed significantly with ECG HRV (p<0.001 for all comparisons), and the size of the gap varied across chronic diseases.",
+      "limitations": "It studied clinical patients using research-grade chest and arm sensors, not healthy people wearing consumer devices at night, so it did not count towards this claim.",
+      "quote": "Significant disagreement and differences were observed between ECG-HRV and PPG-PRV (p < 0.001 for all).",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "fail"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "No PMID was given. DOI 10.3389/fphys.2025.1630032 resolves to the Frontiers in Physiology original research article (vol 16, article 1630032, published 30 July 2025). PMC12343505, USUHS and Univ. of Miami pages agree on title, first author (Kantrowitz, with Ben-David and Wittels among the authors), journal and year. I found no PubMed record or PMID for it; author initials were not seen. Caution: PubMed 42286401 is a different paper with a similar title, 'Pulse Rate Variability Is Not the Same as Heart Rate Variability: Implications for Sports Performance and Injury Prevention' (Sports Med Open 2026, DOI 10.1186/s40798-026-01027-8, 103 football athletes). Do not mix the two. A targeted search found no correction, erratum or retraction; the one retraction it returned was for an unrelated Frontiers article. | Confirmed: Front Physiol vol 16, published 2025-07-30, DOI 10.3389/fphys.2025.1630032, PMC12343505, first author Allen B. Kantrowitz. The researcher's summary of the finding is accurate. The researcher's quote is a background/introduction sentence, not a result, and I could not confirm it word for word: a targeted search for it did not return it, though one summary echoed the phrase 'PRV derived from PPG is not equivalent to HRV-derived from ECG'. Direction: the researcher's 'contradicts' is wrong relative to the PROPOSED statement. The paper supports its 'PRV is not equivalent to ECG HRV' clause and its caveat that clinical populations agree worse. findingSupported is fail only because the population (clinical, tertiary-care patients with chronic disease) and devices (research-grade Warfighter Monitor, not consumer wrist/ring wearables, not night-time) differ from the target population. Cite it as context for the clinical-population caveat, not as primary evidence for healthy adults. No PMID seen.",
+        "identityEvidence": [
+          "https://www.frontiersin.org/articles/10.3389/fphys.2025.1630032/full",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12343505/",
+          "https://scholar.usuhs.edu/en/publications/pulse-rate-variability-is-not-the-same-as-heart-rate-variability-/",
+          "https://scholarship.miami.edu/esploro/outputs/journalArticle/Pulse-rate-variability-is-not-the/991032759101802976",
+          "https://pubmed.ncbi.nlm.nih.gov/42286401/"
+        ],
+        "supportEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12343505/",
+          "https://www.frontiersin.org/articles/10.3389/fphys.2025.1630032/full",
+          "https://scholarship.miami.edu/esploro/outputs/journalArticle/Pulse-rate-variability-is-not-the/991032759101802976"
+        ]
+      }
+    },
+    {
+      "id": "src-stone-2021",
+      "short": "Stone et al., 2021",
+      "title": "Assessing the Accuracy of Popular Commercial Technologies That Measure Resting Heart Rate and Heart Rate Variability",
+      "authors": "Stone JD, ..., Hagen JA, et al.",
+      "year": 2021,
+      "journal": "Frontiers in Sports and Active Living",
+      "citation": "Front Sports Act Living. 2021 Mar 1;3:585870",
+      "pmid": null,
+      "pmcid": "PMC7956986",
+      "doi": "10.3389/fspor.2021.585870",
+      "url": null,
+      "design": "Validation study of seven commercial off-the-shelf devices/apps against a multi-lead ECG reference for resting-state HR and rMSSD (MAPE, Lin's CCC). n=5 healthy young adults, 148 total trials.",
+      "population": "Healthy young adults; devices included Oura, HRV4Training, CameraHRV and others.",
+      "sampleSize": "1 study; 5 participants; 148 trials",
+      "found": "In 5 healthy young adults (148 trials), most of seven commercial devices and apps measured resting heart rate accurately. RMSSD accuracy varied widely: about 4-7% error for the best (HRV4Training, Oura) versus 112% for a smartphone camera app.",
+      "limitations": "With only five participants and daytime resting measurements, it cannot show how devices perform overnight or across a wider population.",
+      "quote": "Five healthy young adults generated 148 total trials.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "No PMID was given, and none was found in PubMed or Europe PMC searches. DOI 10.3389/fspor.2021.585870 resolves to the Frontiers article ('ORIGINAL RESEARCH published: 01 March 2021'). PMC7956986, Frontiers and DOAJ agree on title, first author (Jason D. Stone), journal and year; the full author list was not captured. Accuracy note on the proposer's finding: the snippets say CameraHRV had the highest HR error (MAPE 17.26%) and 'the next highest was HRV4Training at 2.34%'. So 2.34% is the second-highest HR error, not the lowest, and 'MAPE from 2.34% (HRV4Training) to 17.26%' misstates the range. HRV4Training/ECG and Oura were the most accurate for rMSSD (under 7% error, CCC above 0.90), and CameraHRV's rMSSD MAPE was 112.36% with CCC 0.04. A targeted search found no retraction, erratum or correction. | Confirmed: Front Sports Act Living 2021;3:585870, DOI 10.3389/fspor.2021.585870, PMC7956986, first author Stone. Two searches described HRV4Training's 2.34% HR MAPE as the second-HIGHEST error after CameraHRV. The researcher's 'MAPE from 2.34% (HRV4Training) to 17.26%' therefore treats 2.34% as the lowest, which looks wrong; the rMSSD figures are correct. The researcher's quote ('An unfortunate consequence of their rapid commercialization...') was not seen in any search result. The design passes the criterion-validation definition, but n=5 is extremely small. Measurements were resting-state, not specifically nocturnal. No PMID seen. The paper supports 'accuracy depends on device' and acceptable Oura rMSSD agreement.",
+        "identityEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7956986/",
+          "https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2021.585870/full",
+          "https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2021.585870/pdf",
+          "https://doaj.org/article/d59b87300e35405bba856079ad2a665b",
+          "https://hpc.osu.edu/research/publications/assessing-accuracy-popular-commercial-technologies-measure-resting-heart-rate-and"
+        ],
+        "supportEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7956986/",
+          "https://hpc.osu.edu/research/publications/assessing-accuracy-popular-commercial-technologies-measure-resting-heart-rate-and",
+          "https://www.frontiersin.org/articles/10.3389/fspor.2021.585870/text",
+          "https://doaj.org/article/d59b87300e35405bba856079ad2a665b"
+        ]
+      }
+    },
+    {
+      "id": "src-chinoy-2021",
+      "short": "Chinoy et al., 2021",
+      "title": "Performance of seven consumer sleep-tracking devices compared with polysomnography",
+      "authors": "Chinoy ED, Cuellar JA, Huwa KE, Jameson JT, Watson CH, Bessman SC, et al.",
+      "year": 2021,
+      "journal": "Sleep",
+      "citation": "Sleep. 2021;44(5):zsaa291 (published online December 2020)",
+      "pmid": "33378539",
+      "pmcid": null,
+      "doi": "10.1093/sleep/zsaa291",
+      "url": null,
+      "design": "Laboratory validation study of seven consumer sleep trackers against polysomnography, with research actigraphy (Actiwatch) as a comparator, including nights with disrupted sleep. Sample size and number of nights not seen in the snippets.",
+      "population": "Healthy young adults. Devices: Fatigue Science Readiband, Fitbit Alta HR, Garmin Fenix 5S, Garmin Vivosmart 3, EarlySense Live, ResMed S+, SleepScore Max.",
+      "sampleSize": "1 study; 34 participants; 3 consecutive nights",
+      "found": "In a laboratory comparison of seven consumer sleep trackers against polysomnography, the devices detected sleep very well (sensitivity at least 0.93) but wake poorly (specificity 0.18-0.54, lowest for the two Garmin models). Performance was worse on nights with disrupted sleep.",
+      "limitations": "It used a small laboratory sample of healthy adults, and its sleep-stage findings and exact sample size were not verified.",
+      "quote": "Sensitivity for devices versus PSG was very high (all ≥0.93)",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "DOI 10.1093/sleep/zsaa291 resolves to the OUP Sleep article with the same title (Sleep 2021;44(5):zsaa291). PMID 33378539 is tied to this paper (and DOI) by PubMed's reference linking on PMID 34340251 (Svetnik et al.), but the PubMed record page for 33378539 itself never appeared in results. The OUP, Monash, ResearchGate and citing-paper reference lists agree on title, first author Chinoy, journal and year. No PMCID was seen. The proposer's 'seen at' PubMed links are not this paper: 34340251 is a suvorexant/Alzheimer's wearable pilot that cites it, and 33782687 is the accompanying commentary 'Sleep-tracking technology in scientific research: looking to the future' (zsab071). Design details were confirmed in secondary sources: 34 adults (22 women, 28.1 ± 3.9 y), 3 nights, sensitivity ≥0.93, specificity 0.18-0.54. A targeted search found no retraction, erratum, correction or expression of concern. | Confirmed: Chinoy ED, Cuellar JA, Huwa KE, Jameson JT, Watson CH, Bessman SC, et al., Sleep 2021;44(5):zsaa291, DOI 10.1093/sleep/zsaa291. The PubMed search did not return the record, so PMID 33378539 is NOT confirmed. The researcher's 'seen at' PubMed links 34340251 and 33782687 are other papers (33782687 is 'Sleep-tracking technology in scientific research: looking to the future'). Not verified: n=34, 3 consecutive nights, the details of the sleep-stage comparisons, and 'most devices matched or beat actigraphy'. The verified quote is a phrase from search output, not a confirmed full sentence. The numbers in the proposed statement (sensitivity >=0.93, specificity 0.18-0.54) are supported.",
+        "identityEvidence": [
+          "https://academic.oup.com/sleep/article/44/5/zsaa291/6055610",
+          "https://pubmed.ncbi.nlm.nih.gov/34340251",
+          "https://research.monash.edu/en/publications/performance-of-seven-consumer-sleep-tracking-devices-compared-wit",
+          "https://www.researchgate.net/publication/348088476_Performance_of_Seven_Consumer_Sleep-Tracking_Devices_Compared_with_Polysomnography",
+          "https://www.neurologylive.com/view/consumer-sleep-tracking-devices-perform-equally-or-better-than-actigraphy",
+          "https://academic.oup.com/sleep/article/44/5/zsab071/6200866"
+        ],
+        "supportEvidence": [
+          "https://academic.oup.com/sleep/article/44/5/zsaa291/6055610",
+          "https://research.monash.edu/en/publications/performance-of-seven-consumer-sleep-tracking-devices-compared-wit"
+        ]
+      }
+    },
+    {
+      "id": "src-lee-2025",
+      "short": "Lee et al., 2025",
+      "title": "Performance of consumer wrist-worn sleep tracking devices compared to polysomnography: a meta-analysis",
+      "authors": "Lee YJ, Lee JY, Cho JH, Kang YJ, Choi JH",
+      "year": 2025,
+      "journal": "Journal of Clinical Sleep Medicine",
+      "citation": "J Clin Sleep Med. 2025 Mar 1;21(3):573-582",
+      "pmid": "39484805",
+      "pmcid": "PMC11874098",
+      "doi": "10.5664/jcsm.11460",
+      "url": null,
+      "design": "Systematic review and meta-analysis of consumer wrist-worn sleep trackers against polysomnography; databases searched to March 2024. 24 studies, 798 participants (devices included Fitbit, Jawbone, WHOOP, Garmin, Apple Watch, Xiaomi Mi Band 5).",
+      "population": "Participants in validation studies of Fitbit, Jawbone, WHOOP, Garmin, Apple Watch, Xiaomi Mi Band 5 and other wrist devices.",
+      "sampleSize": "24 studies; 798 participants",
+      "found": "Pooling 24 studies (798 participants), wrist-worn trackers' total sleep time, sleep efficiency, sleep latency and wake after sleep onset all differed significantly from polysomnography; for example, total sleep time differed by about 17 minutes and wake after sleep onset by about 13 minutes. The authors judge the devices useful for general sleep patterns but not as reliable as polysomnography.",
+      "limitations": "It covers wrist devices only (no rings), may include the same studies as Miller and Chinoy, and the direction of some errors was unclear.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 39484805 is this paper: Lee YJ et al., J Clin Sleep Med 2025 Mar 1;21(3):573-582, DOI 10.5664/jcsm.11460, PMCID PMC11874098 (embargoed until 2026-03-01). The JCSM DOI page and themednet agree. Authors seen: Lee YJ, Lee JY, Cho JH, Kang YJ, Choi JH. A targeted search found no retraction, erratum or correction. The pooled mean-difference numbers in the proposer's finding were not checked against the abstract in these results. | Confirmed: PMID 39484805, PMC11874098, J Clin Sleep Med 2025;21(3):573-582, DOI 10.5664/jcsm.11460. The researcher's numbers match. Not verified: Begg's/Egger's no publication bias for TST and sleep efficiency. Two search summaries disagreed on the direction of the WASO error (one said devices underestimated WASO, the other that WASO was higher on devices). The positive pooled mean difference fits the second, but the sign convention was not seen. The statement's claim only that the metrics 'differ significantly' is supported. No sentence was confirmed word for word, so verifiedQuote is null.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/39484805/",
+          "https://jcsm.aasm.org/doi/10.5664/jcsm.11460",
+          "https://www.themednet.org/publications/performance-of-consumer-wrist-worn-sleep-tracking-devices-compared-to-polysomnography-a-meta-analysis"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/39484805/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11874098/",
+          "https://jcsm.aasm.org/doi/10.5664/jcsm.11460"
+        ]
+      }
+    },
+    {
+      "id": "src-schyvens-2024",
+      "short": "Schyvens et al., 2024",
+      "title": "Accuracy of Fitbit Charge 4, Garmin Vivosmart 4, and WHOOP Versus Polysomnography: Systematic Review",
+      "authors": "Schyvens et al.",
+      "year": 2024,
+      "journal": "JMIR mHealth and uHealth",
+      "citation": "JMIR Mhealth Uhealth. 2024;12:e52192",
+      "pmid": null,
+      "pmcid": "PMC11004611",
+      "doi": "10.2196/52192",
+      "url": null,
+      "design": "Systematic review (no meta-analysis seen) of validation studies of Fitbit Charge 4, Garmin Vivosmart 4 and WHOOP against PSG (or an ambulatory EEG monitor such as Sleep Profiler). 504 records screened; 8 articles included.",
+      "population": "Participants in PSG validation studies of Fitbit Charge 4, Garmin Vivosmart 4 and WHOOP.",
+      "sampleSize": "Number of studies and participants not captured",
+      "found": "A review of 8 validation studies found Fitbit Charge 4 and Garmin Vivosmart 4 moderately accurate against polysomnography. WHOOP was closest for total sleep time but furthest for REM sleep, and every device needed better sleep-stage classification.",
+      "limitations": "Only eight studies covering three devices were included, some used a home EEG headband instead of full polysomnography, and the review gives no pooled numbers.",
+      "quote": "the devices with higher relative agreement and sensitivities for multi-state sleep, Fitbit Charge 4 and WHOOP, seem appropriate to derive suitable estimates of sleep parameters",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "No PMID or DOI was given. PMC11004611 is this paper. The DOI 10.2196/52192 was seen for the JMIR mHealth and uHealth article e52192, published 2024-03-27; DOAJ and the Univ. Antwerp repository agree on title, journal and year. First author is Schyvens (Antwerp University Hospital and partners); the proposer listed no authors. No PubMed PMID was found. It is a PRISMA systematic review with 8 included articles (504 screened), which fills the proposer's missing 'n'. A preprint exists at preprints.jmir.org/preprint/52192; cite the peer-reviewed JMIR version. A targeted search found no retraction, erratum or correction. | Confirmed: JMIR mHealth uHealth 2024;12:e52192, DOI 10.2196/52192 (researcher had none), PMC11004611, first author An-Marie Schyvens, published 2024-03-27. No PMID seen. Only 8 included studies, and some used an ambulatory EEG reference rather than full PSG. The verified quote is a clause from the conclusion, not a full sentence. It supports staging being less accurate than sleep/wake detection but gives no pooled numbers.",
+        "identityEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11004611/",
+          "https://mhealth.jmir.org/2024/1/e52192",
+          "https://doaj.org/article/e789b4be175943e5838b3e10cd73b785",
+          "https://repository.uantwerpen.be/link/irua/205023"
+        ],
+        "supportEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11004611/",
+          "https://repository.uantwerpen.be/link/irua/205023",
+          "https://mhealth.jmir.org/2024/1/e52192"
+        ]
+      }
+    },
+    {
+      "id": "src-morton-2018",
+      "short": "Morton et al., 2018",
+      "title": "A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults",
+      "authors": "Morton RW, Murphy KT, McKellar SR, et al.",
+      "year": 2018,
+      "journal": "British Journal of Sports Medicine",
+      "citation": "Br J Sports Med. 2018 Mar;52(6):376-384. Correction: Br J Sports Med. 2020;54(19):e7 (doi:10.1136/bjsports-2017-097608corr1; PMID 32943392; PMC7513243)",
+      "pmid": "28698222",
+      "pmcid": "PMC5867436",
+      "doi": "10.1136/bjsports-2017-097608",
+      "url": null,
+      "design": "Systematic review, meta-analysis and meta-regression of RCTs (resistance exercise training of at least 6 weeks with dietary protein supplementation), 49 studies, 1,863 participants, with a two-phase breakpoint analysis of total protein intake vs change in fat-free mass. Br J Sports Med 2018; a 2020 correction is indexed (PMID 32943392, PMC7513243).",
+      "population": "Healthy adults doing resistance exercise training for at least 6 weeks, with dietary protein supplementation vs control; trained and untrained, young and older",
+      "sampleSize": "49 RCTs, 1,863 participants. Per a secondary summary (Stronger by Science), the breakpoint analysis used about 42 study arms and 723 subjects.",
+      "found": "Pooling 49 randomised trials (1,863 people), adding protein during at least 6 weeks of resistance training increased fat-free mass gains by about 0.3 kg on average (95% CI 0.09 to 0.52). Gains levelled off at a total intake of about 1.6 g/kg/day; the effect was smaller in older people and larger in trained people (about 0.75 kg).",
+      "limitations": "The 1.6 g/kg/day figure comes from one breakpoint analysis that pooled trained and untrained, younger and older adults, so it is an imprecise average for the group and not a personal threshold.",
+      "quote": "With protein supplementation, protein intakes at amounts greater than ~1.6 g/kg/day do not further contribute RET-induced gains in FFM.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed search for PMID 28698222 returned this paper: Morton RW ... Phillips SM, Br J Sports Med 2018;52(6):376-384, DOI 10.1136/bjsports-2017-097608, PMCID PMC5867436. The PubMed record links an erratum. The correction appears on PubMed as PMID 32943392 and in PMC as PMC7513243 (Br J Sports Med 2020;54(19):e7, doi ...097608corr1). I could not see what the correction changed. Searches found no retraction and no expression of concern. The abstract's figures of 49 studies and 1,863 participants match the claim. I did not verify the breakpoint CI or the Stronger by Science figures. | PubMed record confirms the title, journal, year, design (RCTs only, RET of 6 weeks or more, two-phase breakpoint analysis) and 49 studies / 1,863 participants. I saw the 0.30 kg FFM effect, the 0.75 kg trained-subgroup effect (p=0.03) and the conclusion sentence quoted above in abstract snippets. I did not see the researcher's exact 1.62 g/kg/day sentence printed. A search on that exact phrase did return the BJSM abstract and PMC pages, which suggests the sentence exists, but I was not shown it, so quoteVerbatim is false. The 95% CI of roughly 1.0 to 2.2 g/kg/day comes from a later review by the same group (PMC5852756), not from the Morton abstract. The p=0.079 for the breakpoint comes from Stronger by Science (secondary). I did not see the 1RM, fibre CSA or mid-femur CSA numbers. I did not see what the 2020 correction changed. The pooled population mixes trained and untrained, young and older adults, so the 0.3 kg is an all-population estimate.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/28698222/",
+          "https://pubmed.ncbi.nlm.nih.gov/32943392/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7513243/"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/28698222/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC5867436/",
+          "https://bjsm.bmj.com/content/52/6/376.abstract",
+          "https://pubmed.ncbi.nlm.nih.gov/32943392/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7513243/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC5852756/",
+          "https://www.strongerbyscience.com/?p=61316"
+        ]
+      }
+    },
+    {
+      "id": "src-jager-2017",
+      "short": "Jäger et al., 2017",
+      "title": "International Society of Sports Nutrition Position Stand: protein and exercise",
+      "authors": "Jäger R, Kerksick CM, Campbell BI, et al.",
+      "year": 2017,
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "citation": "J Int Soc Sports Nutr. 2017;14(1):20",
+      "pmid": "28642676",
+      "pmcid": "PMC5477153",
+      "doi": "10.1186/s12970-017-0177-8",
+      "url": null,
+      "design": "Position stand of the International Society of Sports Nutrition (an objective and critical review of protein intake for healthy, exercising individuals), published in the peer-reviewed Journal of the International Society of Sports Nutrition, 2017;14:20.",
+      "population": "Exercising individuals, including resistance-trained people",
+      "sampleSize": "Not applicable (position stand drawing on the literature)",
+      "found": "This expert position stand concludes that a total intake of 1.4 to 2.0 g/kg/day is enough for most people who exercise to build and maintain muscle. It suggests that trained people who are cutting calories may need 2.3 to 3.1 g/kg/day to keep lean mass.",
+      "limitations": "It is an expert review, not new trial data, and it does not name a single best intake or a point beyond which more protein adds no muscle.",
+      "quote": "Higher protein intakes (2.3–3.1 g/kg/d) may be needed to maximize the retention of lean body mass in resistance-trained subjects during hypocaloric periods.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMID 28642676 resolves on PubMed to this ISSN Position Stand (J Int Soc Sports Nutr, June 2017, DOI 10.1186/s12970-017-0177-8). The BMC/JISSN publisher page agrees on title, Jäger and Kerksick as first authors, vol 14, article 20, and 20 June 2017. The PMC page PMC5477153 also turned up. A targeted search for a retraction, erratum, correction or expression of concern found none for this paper. The only correction that surfaced belongs to the separate ISSN nutrient-timing position stand. The '1.4-2.0 g/kg/d' recommendation appeared in snippets. This is a position stand published in a peer-reviewed, PubMed-indexed journal. | The 1.4 to 2.0 g/kg/day sentence appeared only truncated in the PubMed snippet ('an overall daily protein intake in the range of 1.4-2.0 g protein/kg body weight/day (g/kg/d) is suffici...'). I never saw its opening clause ('For building muscle mass and for maintaining muscle mass through a positive muscle protein balance'), so the researcher's quote is not confirmed word for word. I did see the 2.3 to 3.1 g/kg/d hypocaloric sentence verbatim. I did not see the per-meal guidance (0.25 g/kg, 20 to 40 g, every 3 to 4 hours). The stand supports 1.6 g/kg/day as an adequate target, but its upper bound is 2.0, not 2.2, and it does not name 1.6 as a breakpoint. It also says (per news coverage of its points) that novel evidence suggests intakes above 3.0 g/kg/day may beneficially affect body composition in resistance-trained subjects, mainly through fat loss. That is a mild tension with the statement that intakes above 2.2 add no lean mass, so the wording should stay about lean mass specifically.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/28642676/",
+          "https://jissn.biomedcentral.com/articles/10.1186/s12970-017-0177-8",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153",
+          "https://www.tandfonline.com/doi/pdf/10.1186/s12970-017-0177-8"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/28642676/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5477153/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+          "https://jissn.biomedcentral.com/articles/10.1186/s12970-017-0177-8",
+          "https://www.tandfonline.com/doi/pdf/10.1186/s12970-017-0177-8",
+          "https://www.nutraingredients.com/Article/2017/06/21/ISSN-publishes-position-stand-on-protein-and-exercise/"
+        ]
+      }
+    },
+    {
+      "id": "src-bagheri-2023",
+      "short": "Bagheri et al., 2023",
+      "title": "Effects of 16 weeks of two different high-protein diets with either resistance or concurrent training on body composition, muscular strength and performance, and markers of liver and kidney function in resistance-trained males",
+      "authors": "Bagheri et al.",
+      "year": 2023,
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "citation": "J Int Soc Sports Nutr. 2023 Dec;20(1):2236053",
+      "pmid": "37516903",
+      "pmcid": "PMC10388821",
+      "doi": "10.1080/15502783.2023.2236053",
+      "url": null,
+      "design": "Four-arm parallel 2x2 trial (resistance vs concurrent training x 1.6 vs 3.2 g/kg/day protein), 16 weeks, four sessions per week, n=48 resistance-trained males (age 26 ± 6 yr, BMI 25.6 ± 2.9), n=12 per arm. I did not see the word 'randomised' in the text I saw.",
+      "population": "Resistance-trained young men (age 26 ± 6 years, BMI 25.6 ± 2.9)",
+      "sampleSize": "48 participants (n=12 per arm)",
+      "found": "In 48 resistance-trained young men over 16 weeks, 3.2 g/kg/day gave no more lean mass or strength than 1.6 g/kg/day. The one exception was a larger gain in peak power in one of the resistance-training groups. Kidney and liver markers did not change.",
+      "limitations": "With only 12 men per group, and randomisation not confirmed, it is too small to rule out modest differences, and it applies only to trained young men.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "unknown",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMID 37516903 resolves on PubMed to this 16-week trial in resistance-trained males (J Int Soc Sports Nutr 2023, PMCID PMC10388821, DOI 10.1080/15502783.2023.2236053). The Taylor & Francis full-text page and PMC agree on title, journal, year and article number 2236053. Snippets confirmed n=48 (12 per group), age 26 ± 6 yr, BMI 25.6 ± 2.9, the 1.6 vs 3.2 g/kg/d arms and the 'appears sufficient to maximize' conclusion. I did not see the first author's initials or the full author list. No retraction, expression of concern or erratum surfaced on the PubMed or publisher results, but I ran no dedicated retraction search for this paper. | The design sentence I saw verbatim is: 'Forty-eight resistance-trained males (age: 26 ± 6 yr, body mass index: 25.6 ± 2.9 kg.m−2) performed 16 weeks (four sessions·w−1) of CT or RT with either 1.6 g.kg−1.d−1 protein (CT1; n = 12; RT1; n = 12) or 3.2 g.kg−1.d−1 protein (CT2; n = 12; RT2; n = 12).' The abstract text I saw did not say participants were randomised, so designStrong is unknown. Check the PMC methods before treating this as an RCT. The search summaries said the abstract contains the researcher's conclusion sentence, but they gave it only paraphrased, so quoteVerbatim is false. This is one small trial (12 per arm) in young trained men. It is underpowered to detect small lean-mass differences between 1.6 and 3.2 g/kg/day, so 'no additional benefit' is weak evidence of absence. A companion paper on the same cohort (PMC11349518) found that lean-mass changes were not associated with strength, endurance or power changes.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/37516903/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC10388821/",
+          "https://www.tandfonline.com/doi/full/10.1080/15502783.2023.2236053"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/37516903/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10388821/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC10388821/",
+          "https://www.tandfonline.com/doi/full/10.1080/15502783.2023.2236053",
+          "https://doaj.org/article/f314c818335c448198c0939049c70e29",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11349518/"
+        ]
+      }
+    },
+    {
+      "id": "src-nunes-2022",
+      "short": "Nunes et al., 2022",
+      "title": "Systematic review and meta-analysis of protein intake to support muscle mass and function in healthy adults",
+      "authors": "Nunes EA, Colenso-Semple L, McKellar SR, et al.",
+      "year": 2022,
+      "journal": "Journal of Cachexia, Sarcopenia and Muscle",
+      "citation": "J Cachexia Sarcopenia Muscle. 2022 Apr;13(2):795-810",
+      "pmid": "35187864",
+      "pmcid": "PMC8978023",
+      "doi": "10.1002/jcsm.12922",
+      "url": null,
+      "design": "Systematic review with three-level random-effects meta-analyses and meta-regressions of 74 RCTs in healthy, non-obese adults who increased daily protein intake (PROSPERO CRD42020159001); J Cachexia Sarcopenia Muscle 2022;13(2):795-810.",
+      "population": "Healthy, non-obese adults who increased daily protein intake, most alongside resistance exercise; subgroups by age (<65 vs ≥65) and daily protein level",
+      "sampleSize": "74 RCTs (total participant count not seen)",
+      "found": "Pooling 74 randomised trials in healthy adults, eating more protein alongside resistance exercise gave small extra lean-mass gains (standardised mean difference 0.22, 95% CI 0.14 to 0.30). The gains were more noticeable in younger people eating 1.6 g/kg/day or more. Effects on strength and physical function were small or unclear.",
+      "limitations": "It does not test whether gains stop above 1.6 g/kg/day, its results by age group were not verified, and a 2025 published letter questions its methods.",
+      "quote": "SMD = 0.22, 95% CI 0.14:0.30, n = 62 studies with RE, moderate certainty of the evidence",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMID 35187864 resolves on PubMed to this paper: Nunes EA ... Phillips SM, J Cachexia Sarcopenia Muscle 2022 Apr;13(2):795-810, epub 20 Feb 2022, DOI 10.1002/jcsm.12922, PMCID PMC8978023. The Wiley page agrees. A search for a retraction or correction found none. Post-publication letters exist: a comment by Inca-Barriga, Alberti-Nuñez and López-Moreno (PMC12677926), and the authors' reply (PMID 41126611, DOI 10.1002/jcsm.70108, 2025). These are letters, not corrections. The quoted CI '0.09:0.35' does not contain the SMD of 0.40. That may be a typo in the paper or a transcription error, and I did not verify it. I did not verify the subgroup figures or the reply's SMDs. | Verified: 74 RCTs, three-level model, healthy non-obese adults, SMD 0.22 for LBM with resistance exercise, an effect more prominent in younger people at 1.6 g/kg/day or more, and the conclusion of 'small additional gains in LBM and lower body muscle strength'. The verifiedQuote is a fragment of an abstract sentence seen word for word, not a full sentence. NOT verified: the under-65 vs 65-and-over split, the claim of benefit at 1.2 to 1.59 g/kg/day in people 65 and over, the null result below 1.2 g/kg/day (4 trials), and the 2025 reply's SMDs (0.19 and 0.30). The proposed population text relies on the 65-and-over point, so findingSupported is unknown, not pass. The researcher's quote was given only paraphrased. Note that its reported CI (0.09 to 0.35) does not contain the point estimate of 0.40, which looks like a reporting error in the paper. Do not reproduce that CI in the app. Effects are SMDs, not kg. The paper supports a small effect and 1.6 g/kg/day as an adequate target in younger adults, but it does not test a plateau above 1.6. It has drawn a published 2025 methods critique (Inca-Barriga et al., on change-from-baseline effect sizes and multi-arm handling), and the authors replied.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/35187864/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8978023/",
+          "https://onlinelibrary.wiley.com/doi/abs/10.1002/jcsm.12922",
+          "https://pubmed.ncbi.nlm.nih.gov/41126611/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC12677926/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12547074/"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/35187864/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8978023/",
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/jcsm.12922",
+          "https://doaj.org/article/7109fcc11d7d49cdbcd3be7f793e1c2b",
+          "https://pubmed.ncbi.nlm.nih.gov/41126611/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12547074/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12677926/",
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/jcsm.70036"
+        ]
+      }
+    },
+    {
+      "id": "src-tagawa-2021",
+      "short": "Tagawa et al., 2021",
+      "title": "Dose-response relationship between protein intake and muscle mass increase: a systematic review and meta-analysis of randomized controlled trials",
+      "authors": "Tagawa R, Watanabe D, et al.",
+      "year": 2021,
+      "journal": "Nutrition Reviews",
+      "citation": "Nutr Rev. 2021 Jan;79(1):66-75",
+      "pmid": "33300582",
+      "pmcid": "PMC7727026",
+      "doi": "10.1093/nutrit/nuaa104",
+      "url": null,
+      "design": "Systematic review and dose-response meta-analysis of RCTs using a multivariate spline model; Nutrition Reviews 2021;79(1):66-75 (Tagawa R, Watanabe D, Ito K, Ueda K, Nakayama K, Sanbongi C, Miyachi M). Includes trials with and without resistance training.",
+      "population": "Adults in RCTs of at least 2 weeks with differing protein doses, with and without resistance training",
+      "sampleSize": "105 articles, 5,402 participants (counts reported by a later citing paper)",
+      "found": "Pooling randomised trials both with and without resistance training, each extra 0.1 g/kg/day of protein was linked to about 0.39 kg more lean mass below 1.3 g/kg/day, and about 0.12 kg above it. Gains slowed above 1.3 g/kg/day but did not stop, which points to diminishing returns up to about 3.5 g/kg/day rather than a ceiling at 1.6.",
+      "limitations": "It mixes people who did and did not do resistance training, so it cannot pinpoint the best intake for people training to build muscle.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "fail"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The DOI 10.1093/nutrit/nuaa104 resolves on Oxford Academic to this title (Nutr Rev vol 79, issue 1, Jan 2021, pp 66-75), and PMC7727026 carries the same title. The direct PubMed search by PMID did not show the 33300582 record page. The PMID is corroborated indirectly: a Google Scholar lookup URL pairs doi nuaa104 with pmid 33300582, and a PubMed 'Cited by' listing shows PMID 33300582 as a 2020 Nutr Rev free PMC article. The online publication date was 2020, which is why some sources cite it as 2020. Semantic Scholar lists Tagawa and Watanabe as the first two authors; I did not see the rest of the author list. A medRxiv preprint of the same title exists (10.1101/2020.02.21.20026252); the cited version is the peer-reviewed journal article. One search snippet gave 5,411 subjects in 105 articles, against the claim's 5,402, so the participant count is unverified. The 0.39/0.12 kg per 0.1 g/kg/d spline result was confirmed in snippets. No retraction, expression of concern or erratum surfaced, but I ran no dedicated retraction search and did not view the PubMed record page. | The 0.39 and 0.12 kg per 0.1 g/kg/day figures and the 1.3 g/kg/day inflection appeared in search snippets of the abstract, but only paraphrased, so the researcher's quote is not confirmed word for word. I did not see the claim that the slowdown above 1.3 was 'markedly suppressed' by resistance training, or the 105-article / 5,402-participant counts. The PMID-targeted PubMed search returned no record for 33300582, so I used the PMC and OUP pages. I mark findingSupported as fail even though the numbers the researcher gives match what I saw, for three reasons. First, the population mixes trials with and without resistance training. Second, the outcome is a pooled association, not the resistance-trained breakpoint in the claim. Third, the continuing positive slope above 1.3 g/kg/day up to about 3.5 cuts against the proposed wording that 1.6 captures nearly all the gain and that intakes above 2.2 have not produced more lean mass. The paper supports diminishing returns, not a plateau, so the app text should acknowledge it rather than cite it as support for the ceiling.",
+        "identityEvidence": [
+          "https://academic.oup.com/nutritionreviews/article/79/1/66/5936522",
+          "https://academic.oup.com/nutritionreviews/article-pdf/79/1/66/34838518/nuaa104.pdf",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7727026/",
+          "https://scholar.google.com/scholar_lookup?doi=10.1093%2Fnutrit%2Fnuaa104&amp=&pmid=33300582",
+          "https://pubmed.ncbi.nlm.nih.gov/15586006/?dopt=Abstract",
+          "https://www.semanticscholar.org/paper/Dose%E2%80%93response-relationship-between-protein-intake-a-Tagawa-Watanabe/c97c1cbd3690d6f9da8c043d24b3cde106f235f4",
+          "https://www.medrxiv.org/content/10.1101/2020.02.21.20026252.full.pdf"
+        ],
+        "supportEvidence": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7727026/",
+          "https://academic.oup.com/nutritionreviews/article/79/1/66/5936522",
+          "https://www.medrxiv.org/content/10.1101/2020.02.21.20026252.full.pdf"
+        ]
+      }
+    },
+    {
+      "id": "src-tagawa-2022",
+      "short": "Tagawa et al., 2022",
+      "title": "Synergistic Effect of Increased Total Protein Intake and Strength Training on Muscle Strength: A Dose-Response Meta-analysis of Randomized Controlled Trials",
+      "authors": "Tagawa R, Watanabe D, Ito, Otsuyama, Nakayama, Sanbongi, Miyachi",
+      "year": 2022,
+      "journal": "Sports Medicine - Open",
+      "citation": "Sports Med Open. 2022 Sep 4;8(1):110",
+      "pmid": "36057893",
+      "pmcid": "PMC9441410",
+      "doi": "10.1186/s40798-022-00508-w",
+      "url": null,
+      "design": "Systematic review and dose-response meta-analysis of RCTs (random-effects model and spline model): 82 articles in the meta-analyses, 69 used for spline curves; Sports Medicine - Open 2022.",
+      "population": "Adults in RCTs of protein intake, with and without resistance training",
+      "sampleSize": "82 articles in meta-analyses; 69 articles used for spline curves (participant total not seen)",
+      "found": "Extra protein increased strength only when combined with resistance training (about 2% more). With training, strength rose by about 0.72% per extra 0.1 g/kg/day up to 1.5 g/kg/day, with no further gain above that.",
+      "limitations": "It measures strength, not muscle mass, so it cannot confirm a muscle-mass target.",
+      "quote": "Muscle strength increase was significantly augmented only with resistance training (MD 2.01%, 95% CI 1.09-2.93) and was not augmented if resistance training was absent (MD 0.13%, 95% CI - 1.53 to 1.79).",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "fail"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMID 36057893 resolves on PubMed to this paper by Ryoichi Tagawa, Daiki Watanabe et al. (Sports Med Open, published 4 Sep 2022, 8(1):110, DOI 10.1186/s40798-022-00508-w, PMCID PMC9441410). The Springer and PMC pages agree. The seven author surnames were seen: Tagawa, Watanabe, Ito, Otsuyama, Nakayama, Sanbongi, Miyachi. The 82 and 69 article counts, 0.72% per 0.1 g/kg/d up to 1.5 g/kg/d, and the 1.5 g/kg/d suggestion were confirmed in snippets. No retraction, expression of concern or erratum surfaced, but I ran no dedicated retraction search. | The researcher's numbers match what I saw. I mark findingSupported as fail because the outcome is muscle strength, not muscle mass or lean mass, which is what the claim is about. The researcher's quote ('Concurrent use of resistance training is essential...') did not appear in any result. It is useful context: strength also plateaus near 1.5 g/kg/day with resistance training, and protein adds nothing to strength without training. It should not be cited as evidence for the 1.6 g/kg/day lean-mass breakpoint. I did not see the participant total.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/36057893/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC9441410/",
+          "https://link.springer.com/article/10.1186/s40798-022-00508-w",
+          "https://sportsmedicine-open.springeropen.com/articles/10.1186/s40798-022-00508-w/tables/2"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/36057893/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC9441410/",
+          "https://www.nutraingredients.com/Article/2022/12/14/meta-analysis-shows-dose-response-between-protein-intake-and-muscle-strength/"
+        ]
+      }
+    },
+    {
+      "id": "src-cermak-2012",
+      "short": "Cermak et al., 2012",
+      "title": "Protein supplementation augments the adaptive response of skeletal muscle to resistance-type exercise training: a meta-analysis",
+      "authors": "Cermak NM, Res PT, de Groot LC, Saris WH, van Loon LJ",
+      "year": 2012,
+      "journal": "American Journal of Clinical Nutrition",
+      "citation": "Am J Clin Nutr. 2012 Dec;96(6):1454-64",
+      "pmid": "23134885",
+      "pmcid": null,
+      "doi": "10.3945/ajcn.112.037556",
+      "url": null,
+      "design": "Systematic review with random-effects meta-analysis of protein supplementation during prolonged resistance-type exercise training in younger and older adults; AJCN 2012;96(6):1454-1464, DOI 10.3945/ajcn.112.037556 (Cermak NM, Res PT, de Groot LC, Saris WH, van Loon LJ). A news report gives 22 randomised controlled trials and 680 participants.",
+      "population": "Younger and older adults doing resistance-type exercise training for more than 6 weeks, with protein supplementation vs placebo",
+      "sampleSize": "22 RCTs, 680 participants (per news report); an earlier abstract version reported 24 RCTs, 746 subjects",
+      "found": "This meta-analysis of protein supplements taken during prolonged resistance training reported an average extra fat-free mass gain of about 0.7 kg, plus greater leg-press strength. These figures come from press reports and a conference abstract and were not checked against the paper.",
+      "limitations": "It does not test how much total daily protein is needed, and its results could not be checked directly; they suggest the average extra gain may be larger than 0.3 kg, depending on which trials are included.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "PMID 23134885 resolves on PubMed to this meta-analysis (Am J Clin Nutr 2012 Dec;96(6):1454-64). The PubMed result gave DOI 10.3945/ajcn.112.037556, which the source left out. Full author initials (Cermak NM, Res PT, de Groot LC, Saris WH, van Loon LJ) came from a ClinicalTrials.gov reference listing. The ACU research bank record agrees on title, journal, year and pages 1454-1464. No PMCID was seen. A targeted search for a retraction, erratum or expression of concern found none. I did not open the DOI on the AJCN publisher page itself. I did not verify the effect sizes (0.69 kg FFM, 13.5 kg leg press) or the participant counts from the news report. | The PubMed record confirms the citation, authors, DOI (the researcher left it blank) and the random-effects meta-analysis design. The snippets stopped before the results, so I could not verify the CI (0.47 to 0.91), the P value or the conclusion quote; findingSupported is unknown. It does not test a total-intake threshold, so 'context' is correct. Its pooled FFM effect (about 0.69 kg) is more than twice the 0.30 kg the proposed statement cites from Morton. If the app says the protein effect is 'around 0.3 kg', it should note that estimates range up to about 0.7 kg depending on the trials included.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/23134885/",
+          "https://acuresearchbank.acu.edu.au/item/865vv/protein-supplementation-augments-the-adaptive-response-of-skeletal-muscle-to-resistance-type-exercise-training-a-meta-analysis",
+          "https://clinicaltrials.gov/study/NCT02222415",
+          "https://www.sciencedirect.com/science/article/pii/S1525861016302493"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/23134885/",
+          "https://www.nutraingredients.com/Article/2012/11/26/Protein-supplements-effective-for-muscle-mass-boosts-in-young-and-old-Meta-analysis",
+          "https://lida.sport-iat.de/twm/Record/4026226",
+          "https://acuresearchbank.acu.edu.au/item/865vv/protein-supplementation-augments-the-adaptive-response-of-skeletal-muscle-to-resistance-type-exercise-training-a-meta-analysis"
+        ]
+      }
+    },
+    {
+      "id": "src-reynolds-2019",
+      "short": "Reynolds et al., 2019",
+      "title": "Carbohydrate quality and human health: a series of systematic reviews and meta-analyses",
+      "authors": "Reynolds A, Mann J, Cummings J, Winter N, Mete E, Te Morenga L",
+      "year": 2019,
+      "journal": "The Lancet",
+      "citation": "Lancet. 2019;393(10170):434-445. Erratum in: Lancet. 2019;393(10170):406 (doi:10.1016/S0140-6736(19)30119-9)",
+      "pmid": "30638909",
+      "pmcid": null,
+      "doi": "10.1016/S0140-6736(18)31809-9",
+      "url": null,
+      "design": "A series of systematic reviews and meta-analyses of prospective observational studies and clinical trials, with dose-response analyses. The counts (185 prospective studies, about 135 million person-years, 58 clinical trials, 4,635 adults) come from secondary news coverage shown in the search, not from abstract text I saw.",
+      "population": "Adults in prospective cohorts (general population) and adult participants in clinical trials",
+      "sampleSize": "185 prospective studies (just under 135 million person-years) and 58 clinical trials (4,635 adult participants)",
+      "found": "A series of reviews of prospective studies and clinical trials found that people who ate the most fibre had 15 to 30% lower all-cause and cardiovascular death, and lower rates of coronary heart disease, stroke, type 2 diabetes and colorectal cancer, than people who ate the least. The biggest risk reductions were at about 25 to 29 g a day, and trials showed lower body weight, systolic blood pressure and total cholesterol with more fibre.",
+      "limitations": "The findings on disease and death are observational, so they cannot prove fibre is the cause; a published correction exists but its content was not checked, and the dose-response curves above about 30 g a day are uncertain.",
+      "quote": "Observational data suggest a 15–30% decrease in all-cause and cardiovascular related mortality, and incidence of coronary heart disease, stroke incidence and mortality, type 2 diabetes, and colorectal cancer when comparing the highest dietary fibre consumers with the lowest consumers.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 30638909 matches: Reynolds A, Mann J, Cummings J, Winter N, Mete E, Te Morenga L. Lancet 2019 Feb 2;393(10170):434-445, doi 10.1016/S0140-6736(18)31809-9, Epub 10 Jan 2019. The Dundee repository copy agrees on the volume, pages and DOI. PubMed has a linked 'Department of Error' notice (PMID 30712898), so an erratum exists. I did not see what the erratum corrects, and I did not confirm the page (406) or DOI (10.1016/S0140-6736(19)30119-9) that the citation gives for it. A search on the title with retraction, expression of concern and erratum terms found no retraction or expression of concern. No PMCID was seen. | PMID, authors, journal and pages match. A Department of Error notice (PMID 30712898) is linked to the record. I did not see its content, and no retraction appeared. An exact-phrase search for the researcher's 25-29 g sentence returned the PubMed abstract and the Lancet full text as top hits, and HealthDay carried near-identical wording, but the sentence was never displayed to me word for word, so quoteVerbatim is false. I saw the 15-30% sentence and the dose-response sentence in the search output. I could not verify the claim that secondary coverage rates the certainty of evidence as 'moderate'.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/30638909/?dopt=Abstract",
+          "https://pubmed.ncbi.nlm.nih.gov/30712898/",
+          "https://discovery.dundee.ac.uk/ws/files/30375889/Final_Lancet_for_John.pdf",
+          "https://ourarchive.otago.ac.nz/esploro/outputs/journalArticle/Carbohydrate-quality-and-human-health-a/9926478638901891"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/30638909/?dopt=Abstract",
+          "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)31809-9/fulltext",
+          "https://pubmed.ncbi.nlm.nih.gov/30712898/",
+          "https://www.eurekalert.org/news-releases/720345"
+        ]
+      }
+    },
+    {
+      "id": "src-threapleton-2013",
+      "short": "Threapleton et al., 2013",
+      "title": "Dietary fibre intake and risk of cardiovascular disease: systematic review and meta-analysis",
+      "authors": "Threapleton DE, Greenwood DC, Evans CEL, Cleghorn CL, Nykjaer C, Woodhead C, et al.",
+      "year": 2013,
+      "journal": "BMJ",
+      "citation": "BMJ. 2013;347:f6879",
+      "pmid": "24355537",
+      "pmcid": "PMC3898422",
+      "doi": "10.1136/bmj.f6879",
+      "url": null,
+      "design": "Systematic review and random-effects dose-response meta-analysis of prospective cohort studies with at least 3 years of follow-up. 22 cohort study publications.",
+      "population": "Adults free of CVD at baseline in prospective cohorts (Europe, US, Japan, Australia)",
+      "sampleSize": "22 cohort study publications",
+      "found": "Across 22 cohort study publications, each extra 7 g of fibre a day was linked to about 9% lower risk of cardiovascular disease and of coronary heart disease (relative risk 0.91 for both). Insoluble fibre, cereal fibre and vegetable fibre were also linked to lower risk.",
+      "limitations": "These are observational data with moderate differences between studies, so other features of a high-fibre diet or lifestyle may explain part of the link.",
+      "quote": "Total dietary fibre intake was inversely associated with risk of cardiovascular disease (risk ratio 0.91 per 7 g/day (95% confidence intervals 0.88 to 0.94)) and coronary heart disease (0.91 (0.87 to 0.94)).",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 24355537 is Threapleton et al., BMJ 2013, doi 10.1136/bmj.f6879, PMCID PMC3898422. The White Rose eprint agrees: BMJ 347:f6879, published 19 Dec 2013. The abstract matches the quoted figures: RR 0.91 per 7 g/day for CVD (0.88 to 0.94) and 0.91 for CHD (0.87 to 0.94). Neither record showed a retraction or expression of concern. No dedicated retraction search was run, to save search budget. | The researcher's quote matched an exact-phrase search and was shown word for word. I did not see the claim that fruit fibre was associated with CVD only, so it is unverified. No correction or retraction notice was seen.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/24355537/?amp=&dopt=Abstract",
+          "https://eprints.whiterose.ac.uk/id/eprint/77470/",
+          "https://eprints.whiterose.ac.uk/id/eprint/77470/1/Threapleton%20et%20al%202013.pdf"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/24355537/?dopt=Abstract",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC3898422/"
+        ]
+      }
+    },
+    {
+      "id": "src-aune-2011",
+      "short": "Aune et al., 2011",
+      "title": "Dietary fibre, whole grains, and risk of colorectal cancer: systematic review and dose-response meta-analysis of prospective studies",
+      "authors": "Aune D, Chan DS, Lau R, Vieira R, Greenwood DC, Kampman E, Norat T",
+      "year": 2011,
+      "journal": "BMJ",
+      "citation": "BMJ. 2011;343:d6617",
+      "pmid": "22074852",
+      "pmcid": "PMC3213242",
+      "doi": "10.1136/bmj.d6617",
+      "url": null,
+      "design": "Systematic review and dose-response meta-analysis of prospective studies, searched to December 2010. 25 prospective studies.",
+      "population": "Adults in prospective cohorts",
+      "sampleSize": "25 prospective studies (16 in the total-fibre dose-response analysis)",
+      "found": "Across 25 prospective studies, each extra 10 g of total fibre a day was linked to about 10% lower colorectal cancer risk (relative risk 0.90), and cereal fibre and whole grains showed similar links. Fruit and vegetable fibre showed no clear link.",
+      "limitations": "It is observational, with searches only up to 2010, so it cannot rule out confounding, and later trials in people with prior polyps did not show a benefit.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 22074852 is Aune et al., BMJ 2011, doi 10.1136/bmj.d6617. The proposer left the PMCID out; the PMC record PMC3213242 is this paper (BMJ, published 10 Nov 2011). PMC confirms 25 prospective studies, RR 0.90 (0.86 to 0.94) per 10 g/day of total fibre from 16 studies, and RR 0.83 (0.78 to 0.89) per 3 servings/day of whole grains. Neither record showed a retraction or expression of concern. | The researcher gave no quote. The core numbers match. I did not see the I² = 0%, the figure of 16 studies in the total-fibre dose-response analysis, or the colon-but-not-rectal claim, so those are unverified. Only a summary of the abstract was shown, so no sentence is given as verbatim.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/22074852/?dopt=Abstract",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC3213242/"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/22074852/"
+        ]
+      }
+    },
+    {
+      "id": "src-interact-consortium-2015",
+      "short": "InterAct Consortium, 2015",
+      "title": "Dietary fibre and incidence of type 2 diabetes in eight European countries: the EPIC-InterAct Study and a meta-analysis of prospective studies",
+      "authors": "InterAct Consortium",
+      "year": 2015,
+      "journal": "Diabetologia",
+      "citation": "Diabetologia. 2015;58:1394-1408",
+      "pmid": "26021487",
+      "pmcid": "PMC4472947",
+      "doi": "10.1007/s00125-015-3585-9",
+      "url": null,
+      "design": "Two parts. First, the EPIC-InterAct case-cohort study: 11,559 incident type 2 diabetes cases and a subcohort of 15,258, with 10.8 years of follow-up. Second, a meta-analysis of prospective cohorts: 18 other cohorts plus EPIC-InterAct, 19 in total. The meta-analysis part is the strong design; the case-cohort is a single observational study.",
+      "population": "Adults in 8 European countries (EPIC-InterAct) and adults in 19 prospective cohorts",
+      "sampleSize": "EPIC-InterAct case-cohort (case count not seen) plus meta-analysis of 19 cohorts",
+      "found": "In a European study of 11,559 people who developed type 2 diabetes, those eating the most fibre had 18% lower risk, but the link was no longer significant after allowing for body weight. Pooled across 19 cohorts, each extra 10 g a day was linked to 9% lower risk, driven by cereal fibre; fruit and vegetable fibre showed no clear link.",
+      "limitations": "Body weight may explain much of the link, so the study gives only weak support for a direct effect of fibre on diabetes risk.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 26021487 matches the title, gives Diabetologia 2015, doi 10.1007/s00125-015-3585-9 and PMCID PMC4472947, and lists the InterAct Consortium as corporate author. The Springer page confirms Diabetologia 58:1394-1408. The study had 11,559 incident type 2 diabetes cases and a subcohort of 15,258, which fills in the case count the proposer did not see. The HR 0.82 (0.69 to 0.97), its loss of significance after BMI adjustment, and the per-10 g/day RRs from 19 cohorts all match. No retraction or expression of concern was seen. | An exact-phrase search for the opening of the researcher's quote ('the summary RRs per 10 g/day increase in intake were 0.91 (95% CI 0.87, 0.96) for total fibre') matched PubMed 26021487. The rest of the quote, including the fruit and vegetable CIs, was not displayed to me word for word, so quoteVerbatim is false. The case count the researcher had not seen is 11,559 cases with a subcohort of 15,258. I rate this 'supports' rather than the researcher's 'mixed', because the proposed statement already carries the BMI-attenuation caveat this paper is the source for.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/26021487/",
+          "https://link.springer.com/article/10.1007/s00125-015-3585-9"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/26021487/",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4472947/"
+        ]
+      }
+    },
+    {
+      "id": "src-veronese-2018",
+      "short": "Veronese et al., 2018",
+      "title": "Dietary fiber and health outcomes: an umbrella review of systematic reviews and meta-analyses",
+      "authors": "Veronese N, Solmi M, Caruso MG, Giannelli G, Osella AR, Evangelou E, et al.",
+      "year": 2018,
+      "journal": "The American Journal of Clinical Nutrition",
+      "citation": "Am J Clin Nutr. 2018;107(3):436-444",
+      "pmid": "29566200",
+      "pmcid": null,
+      "doi": "10.1093/ajcn/nqx082",
+      "url": null,
+      "design": "Umbrella review of systematic reviews with meta-analyses of observational studies, using random-effects summary effects, 95% prediction intervals, heterogeneity, small-study effects and excess significance bias. 21 eligible outcomes.",
+      "population": "Participants in prospective observational studies (general population)",
+      "sampleSize": "18 meta-analyses including 298 prospective observational studies, 21 outcomes",
+      "found": "An earlier umbrella review of 21 outcomes found convincing evidence only for lower cardiovascular death, lower all-cause death and lower pancreatic cancer risk with higher fibre. Other outcomes, including heart disease, stroke, type 2 diabetes and colorectal cancer, did not reach that grade.",
+      "limitations": "It re-grades overlapping observational meta-analyses, and its pancreatic cancer result rested on case-control rather than prospective studies.",
+      "quote": "Of 21 eligible outcomes, 3 (14%) presented convincing evidence (pancreatic cancer, CVD mortality, and all-cause mortality), but only CVD and all-cause mortality were based on prospective studies.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 29566200 matches: Veronese N, Solmi M et al., published 1 Mar 2018;107(3):436-444, doi 10.1093/ajcn/nqx082. The ScienceDirect (AJCN) and ResearchGate listings agree on the title. No retraction or expression of concern was seen in the PubMed record. | The researcher's finding omits that the pancreatic cancer evidence did not come from prospective studies; the text I saw says the cancer outcomes rested on case-control studies. That conflicts with the researcher's n field ('298 prospective observational studies'), which I could not verify. I also did not see the 'type 2 diabetes and colon cancer graded suggestive (class III)' claim. The conclusion sentence was seen only as 'results support dietary recommendations that promote higher fiber intake as part of a healthy diet', without the leading 'Our', so quoteVerbatim is false. The verifiedQuote sentence is as shown in the search output. 'Mixed' because only the mortality outcomes reached convincing evidence; CHD, stroke, T2D and colorectal cancer did not.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/29566200/",
+          "https://www.sciencedirect.com/science/article/pii/S0002916522028131",
+          "https://www.researchgate.net/publication/323967251_Dietary_fiber_and_health_outcomes_An_umbrella_review_of_systematic_reviews_and_meta-analyses"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/29566200/",
+          "https://sciencedirect.com/science/article/pii/S0002916522028131?via=ihub%3D",
+          "https://iris.unipa.it/handle/10447/458241"
+        ]
+      }
+    },
+    {
+      "id": "src-veronese-2025",
+      "short": "Veronese et al., 2025",
+      "title": "The impact of dietary fiber consumption on human health: An umbrella review of evidence from 17,155,277 individuals",
+      "authors": "Veronese N, et al.",
+      "year": 2025,
+      "journal": "Clinical Nutrition",
+      "citation": "Clin Nutr. 2025;51:325-333",
+      "pmid": "40651334",
+      "pmcid": null,
+      "doi": "10.1016/j.clnu.2025.06.021",
+      "url": null,
+      "design": "Umbrella review of meta-analyses of observational studies with credibility grading. 33 meta-analyses, 38 health outcomes, 17,155,277 individuals (per the title).",
+      "population": "Participants in observational studies (general population)",
+      "sampleSize": "33 meta-analyses, 38 health outcomes, 17,155,277 individuals",
+      "found": "An umbrella review covering more than 17 million people found that higher fibre intake was linked to lower risk for 29 of 38 health outcomes. Evidence was graded convincing for lower cardiovascular death, pancreatic cancer and diverticular disease, and highly suggestive for lower all-cause death, cardiovascular disease and coronary heart disease.",
+      "limitations": "It re-grades overlapping meta-analyses of observational studies that pool many of the same cohorts, so it is not independent confirmation, and its grades for type 2 diabetes and colorectal cancer were not seen.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "A direct PubMed search for PMID 40651334 returned nothing. The PMID is confirmed through the MEDLINE mirror at Unbound Medicine (PRIME PubMed), whose record 40651334 carries this exact title. The DOI search ties 10.1016/j.clnu.2025.06.021 to Veronese et al., Clinical Nutrition 2025;51:325-333 (Elsevier), and Scilit lists the same title. The abstract, as seen in search results, matches the claimed key findings: CVD mortality, pancreatic cancer and diverticular disease. The search did not surface the full author list, which the proposer gave only as 'Veronese N, et al.'. No retraction or expression of concern was seen. | A PubMed search by PMID 40651334 and title did not return this record, so the PMID is unconfirmed. I saw the title, journal, volume and pages (Clin Nutr 2025;51:325-333), the DOI and the key findings on institutional repository pages. I did not see the claims of 16 suggestive and 6 weak outcomes, the AMSTAR-2 rating, or the search dates. No quote was given. Only summaries were shown, so no verbatim sentence.",
+        "identityEvidence": [
+          "https://www.unboundmedicine.com/medline/citation/40651334/The_impact_of_dietary_fiber_consumption_on_human_health:_An_umbrella_review_of_evidence_from_17,155,277_individuals.",
+          "https://www.scilit.com/publications/0a059edf90fad11e8c8e9f5d43aff448",
+          "https://www.sciencedirect.com/science/article/abs/pii/S026156142500175X"
+        ],
+        "supportEvidence": [
+          "https://faculty.ksu.edu.sa/en/ssabico/publication/426945",
+          "https://iris.unipa.it/handle/10447/701164",
+          "https://arts.units.it/handle/11368/3136159"
+        ]
+      }
+    },
+    {
+      "id": "src-veettil-2021",
+      "short": "Veettil et al., 2021",
+      "title": "Role of Diet in Colorectal Cancer Incidence: Umbrella Review of Meta-analyses of Prospective Observational Studies",
+      "authors": "Veettil SK, Wong TY, Loo YS, Playdon MC, Lai NM, Giovannucci EL, et al.",
+      "year": 2021,
+      "journal": "JAMA Network Open",
+      "citation": "JAMA Netw Open. 2021;4(2):e2037341",
+      "pmid": "33591366",
+      "pmcid": "PMC7887658",
+      "doi": "10.1001/jamanetworkopen.2020.37341",
+      "url": null,
+      "design": "Umbrella review of meta-analyses of prospective observational studies with credibility grading. 45 meta-analyses describing 109 diet-colorectal cancer associations.",
+      "population": "Participants in prospective observational studies of colorectal cancer incidence",
+      "sampleSize": "45 meta-analyses describing 109 diet-CRC associations",
+      "found": "An umbrella review of 45 meta-analyses of prospective studies found convincing evidence that higher fibre intake is linked to lower colorectal cancer risk, as are higher calcium and yogurt intakes.",
+      "limitations": "It summarises observational meta-analyses that overlap with other reviews, so it shows a consistent link rather than cause and effect, and the size of the fibre effect was not confirmed from the original paper.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The DOI 10.1001/jamanetworkopen.2020.37341 resolves to the JAMA Network Open article (fullarticle/2776517), and PMC7887658 is the same paper: Veettil SK, Wong TY, Loo YS et al., JAMA Netw Open 2021;4(2):e2037341, published online 16 Feb 2021. The proposer left the PMID out. PMID 33591366 appeared in a search restricted to jamanetwork.com, PubMed and Europe PMC, and PubMed 'similar articles' listings show 33591366 next to this DOI. A direct search for PMID 33591366 did not return the record itself, so treat the PMID as likely but not seen on its own record. Both pages confirm 45 meta-analyses, 109 associations, and convincing evidence for fibre, calcium and yogurt. No retraction was seen. | The citation (JAMA Netw Open 2021;4(2):e2037341), DOI and authors (Veettil, Giovannucci and others) are confirmed. I did not see the secondary RR of 0.84 (0.78-0.89) for high vs low fibre. No quote was given. Only a summary of the abstract was shown.",
+        "identityEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7887658/",
+          "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2776517"
+        ],
+        "supportEvidence": [
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7887658/"
+        ]
+      }
+    },
+    {
+      "id": "src-yao-2017",
+      "short": "Yao et al., 2017",
+      "title": "Dietary fibre for the prevention of recurrent colorectal adenomas and carcinomas",
+      "authors": "Yao Y, Suo T, Andersson R, Cao Y, Wang C, Lu J, et al.",
+      "year": 2017,
+      "journal": "Cochrane Database of Systematic Reviews",
+      "citation": "Cochrane Database Syst Rev. 2017;1(1):CD003430",
+      "pmid": "28064440",
+      "pmcid": "PMC6465195",
+      "doi": "10.1002/14651858.CD003430.pub2",
+      "url": null,
+      "design": "Cochrane systematic review and meta-analysis of RCTs and quasi-RCTs (search to 4 April 2016; update of the 2002 review). 7 studies were eligible and 5 provided data (4,798 participants). Primary outcome, at least one adenoma: 5 RCTs, n=3,641. Colorectal cancer: 2 RCTs, n=2,794.",
+      "population": "Adults with a history of adenomatous polyps (secondary prevention)",
+      "sampleSize": "Primary outcome (at least one adenoma): 5 RCTs, n=3,641. Colorectal cancer incidence: 2 RCTs, n=2,794",
+      "found": "In 5 randomised trials of 3,641 people who had already had bowel polyps, eating more fibre did not reduce the number who developed new polyps (relative risk 1.04). In 2 trials, colorectal cancer diagnoses were more common in the fibre groups (about 12 vs 4 per 1,000; low-quality evidence).",
+      "limitations": "It covers only people with prior polyps followed for a few years, with high drop-out, so it says little about lifelong diets in healthy adults.",
+      "quote": "There is a lack of evidence from existing RCTs to suggest that increased dietary fibre intake will reduce the recurrence of adenomatous polyps within a two to eight year period.",
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 28064440 matches: Yao Y et al., Cochrane Database Syst Rev, Jan 2017, doi 10.1002/14651858.CD003430.pub2. It is an update of the 2002 review, PMID 12076480. The Cochrane Library page ('Yao, Y - 2017') agrees. The proposer left the PMCID out; search results reported PMC6465195 for this review, but I did not see the PMC page URL directly. The primary outcome matches: 5 RCTs, n=3641, RR 1.04 (0.95 to 1.13). No retraction or expression of concern was seen. | I saw all the numbers and the phrase 'favoured the control group over the dietary fibre group', but never the researcher's full sentence word for word, so quoteVerbatim is false. I rate the direction 'context', not 'contradicts'. This is a different population (secondary prevention after polyps), and the proposed statement already scopes it out and accurately says fibre trials did not reduce adenoma recurrence. The statement does not mention the low-quality signal of more colorectal cancer in the fibre arms (RR 2.70); consider adding it to the caveat. High attrition (over 16%) limits the review.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/28064440/?dopt=Abstract",
+          "https://cochranelibrary.com/cdsr/doi/10.1002/14651858.CD003430.pub2/abstract?cookiesEnabled="
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/28064440/?dopt=Abstract",
+          "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD003430.pub2/information",
+          "https://www.cochrane.org/evidence/CD003430_does-dietary-fibre-prevent-recurrence-colorectal-adenomas-and-carcinomas",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC6465195"
+        ]
+      }
+    },
+    {
+      "id": "src-hartley-2016",
+      "short": "Hartley et al., 2016",
+      "title": "Dietary fibre for the primary prevention of cardiovascular disease",
+      "authors": "Hartley L, May MD, Loveman E, Colquitt JL, Rees K",
+      "year": 2016,
+      "journal": "Cochrane Database of Systematic Reviews",
+      "citation": "Cochrane Database Syst Rev. 2016;2016(1):CD011472",
+      "pmid": "26758499",
+      "pmcid": "PMC7032538",
+      "doi": "10.1002/14651858.CD011472.pub2",
+      "url": null,
+      "design": "Cochrane systematic review and meta-analysis of RCTs: dietary fibre vs no or minimal intervention in adults from the general population or at risk of CVD. 23 RCTs, 1,513 participants randomised. Most trials were short (few ran beyond 12 weeks).",
+      "population": "Adults from the general population or at risk of CVD",
+      "sampleSize": "23 RCTs, 1,513 participants randomised",
+      "found": "Across 23 randomised trials with 1,513 participants, more fibre modestly lowered total cholesterol (by 0.20 mmol/L), LDL cholesterol (by 0.14 mmol/L) and diastolic blood pressure (by 1.77 mmHg). The fall in systolic blood pressure was not significant.",
+      "limitations": "The trials were short, most had an unclear risk of bias, and none measured heart attacks, strokes or deaths.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "pass",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "pass"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The PubMed record for PMID 26758499 matches: Hartley L et al., Cochrane Database Syst Rev 2016 Jan 7;2016(1):CD011472, doi 10.1002/14651858.CD011472.pub2, PMCID PMC7032538. The Cochrane Library page agrees: Hartley, May, Loveman, Colquitt, Rees; Cochrane Heart Group; 23 trials. The abstract matches the claimed lipid effects: total cholesterol MD -0.20 mmol/L and LDL MD -0.14 mmol/L. No retraction or expression of concern was seen. | All key numbers were confirmed, including '23 RCTs (1513 participants randomised)'. I did not see the 'no effect on triglycerides' claim. I rate this 'supports' rather than the researcher's 'mixed', because it backs the statement's trial sentence: modest falls in total and LDL cholesterol and BP, and no trial of hard outcomes. Note that systolic BP was not significant here. No quote was given.",
+        "identityEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/26758499/?amp=&amp=&from_filter=ds1.y_5&from_pos=1&from_term=fibre+cardiovascular",
+          "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD011472.pub2/references",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7032538/",
+          "https://www.cochrane.org/evidence/CD011472_dietary-fibre-prevent-cardiovascular-disease"
+        ],
+        "supportEvidence": [
+          "https://pubmed.ncbi.nlm.nih.gov/26758499/",
+          "https://cochranelibrary.com/cdsr/doi/10.1002/14651858.CD011472.pub2/pdf/CDSR/CD011472/CD011472_abstract.pdf",
+          "https://www.cochrane.org/CD011472/VASC_dietary-fibre-prevention-cardiovascular-disease",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7032538"
+        ]
+      }
+    },
+    {
+      "id": "src-efsa-panel-on-dietetic-products-2010",
+      "short": "EFSA Panel on Dietetic Products et al., 2010",
+      "title": "Scientific Opinion on Dietary Reference Values for carbohydrates and dietary fibre",
+      "authors": "EFSA Panel on Dietetic Products, Nutrition, and Allergies",
+      "year": 2010,
+      "journal": "EFSA Journal",
+      "citation": "EFSA Journal. 2010;8(3):1462",
+      "pmid": null,
+      "pmcid": null,
+      "doi": "10.2903/j.efsa.2010.1462",
+      "url": null,
+      "design": "EFSA NDA Panel scientific opinion setting dietary reference values, published in EFSA Journal 2010;8(3):1462. This is an expert regulatory opinion, not a systematic review of disease outcomes.",
+      "population": "Adults and children aged 1 year and over in the EU",
+      "sampleSize": "Not applicable (expert review)",
+      "found": "The European Food Safety Authority set 25 g of fibre a day as adequate for normal bowel function in adults, and 2 g per megajoule of energy for children aged 1 and over.",
+      "limitations": "The value rests on bowel function, not on heart disease, cancer or death, and it is an expert-panel opinion rather than a conventionally peer-reviewed study.",
+      "quote": null,
+      "checks": {
+        "identifier_resolves": "pass",
+        "metadata_matches": "pass",
+        "peer_reviewed_indexed": "unknown",
+        "not_retracted": "pass",
+        "study_design_strong": "pass",
+        "finding_supported": "unknown"
+      },
+      "verifiedAt": "2026-10-14",
+      "verification": {
+        "method": "web_search_cross_check",
+        "notes": "The DOI 10.2903/j.efsa.2010.1462 is tied to the EFSA NDA Panel's 'Scientific Opinion on Dietary Reference Values for carbohydrates and dietary fibre', EFSA Journal 2010;8(3):1462. The institutional repository records (unimi) and EFSA's own press release and summary report agree. The abstract confirms 25 g/day of fibre as adequate for normal laxation in adults and 2 g/MJ for children from age 1. Peer review is marked unknown: this is a regulatory expert-panel scientific opinion, not a research article. It has a Crossref DOI in EFSA Journal, but I did not confirm external peer review or PubMed indexing, and it has no PMID. No retraction or withdrawal was seen. | Rated strong as an evidence-based reference-value opinion in EFSA's journal, though EFSA Journal publishes agency outputs adopted by an expert panel rather than conventionally peer-reviewed papers; treat it as authoritative context. Its 25 g/day value rests on bowel function (laxation), not disease risk, so it does not support the mortality or disease claims. It does support the population note on 2 g/MJ for children. I did not see the secondary claim that the opinion notes heart disease, type 2 diabetes or weight benefits at higher intakes. No quote was given.",
+        "identityEvidence": [
+          "https://air.unimi.it/handle/2434/156024",
+          "https://expertise.unimi.it/resource/item/137544",
+          "https://www.efsa.europa.eu/en/press/news/nda100326",
+          "https://efsa.europa.eu/en/supporting/pub/e15121"
+        ],
+        "supportEvidence": [
+          "https://www.efsa.europa.eu/en/press/news/nda090805",
+          "https://air.unimi.it/handle/2434/156024",
+          "https://www.supplysidesj.com/supplement-regulations/efsa-adopts-drvs-for-nutrient-intake"
+        ]
       }
     },
     {

@@ -252,6 +252,7 @@
 
     return html`<${Screen} title="Food" subtitle=${M.fmt.weekdayLong(Date.now())} right=${right}>
       <${Sections}>
+        <${C.setup.SetupCard} keys=${['targets']} title="Set your daily targets" />
         <div className="stack">
           <button type="button" className="ads-field__box ads-field__box--pill" aria-label="Search foods"
             onClick=${() => A.push('food-search', {})}
