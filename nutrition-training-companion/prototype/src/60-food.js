@@ -108,18 +108,21 @@
   /* Shown digits: a 14-digit GTIN padded from EAN-13 loses its leading zero. */
   const showGtin = (g) => String(g || '').replace(/^0(?=\d{13}$)/, '');
 
+  /* A typed number, a linear barcode, or a pack QR code (GS1 Digital Link). */
   function lookup(input, customFoods) {
-    const norm = M.normalizeGtin(input);
-    if (!norm.ok) return { status: 'invalid', error: norm.error };
-    return { ...M.lookupBarcode(norm.gtin14, customFoods), gtin14: norm.gtin14 };
+    const scan = M.parseScan(input);
+    if (!scan.ok) return { status: 'invalid', error: scan.error };
+    return { ...M.lookupBarcode(scan.gtin14, customFoods), gtin14: scan.gtin14, kind: scan.kind };
   }
+  const isQr = (kind) => kind === 'gs1_digital_link' || kind === 'gs1_element_string';
   function openLookupResult(res, meal) {
-    if (res.status === 'found') A.push('food-detail', { foodId: res.food.id, via: 'barcode', meal });
-    else A.push('barcode-not-found', { gtin: res.gtin14, meal });
+    if (res.status === 'found') A.push('food-detail', { foodId: res.food.id, via: isQr(res.kind) ? 'qr' : 'barcode', meal });
+    else A.push('barcode-not-found', { gtin: res.gtin14, meal, qr: isQr(res.kind) || undefined });
   }
   const viaFallback = (path) => path.some((p) => /no nutrition data/.test(p));
   /* Where a lookup would land, in a few words (for the sample list). */
   function lookupNote(res) {
+    if (isQr(res.kind)) return res.status === 'found' ? 'QR code on the pack, read as a barcode' : 'QR code, in neither database';
     if (res.status !== 'found') return 'In neither database';
     if (res.path[0] === 'your foods') return 'In your scanned foods';
     if (viaFallback(res.path)) return 'Falls back to FoodData Central';
@@ -131,18 +134,22 @@
       { key: 'oat', label: p('p-oat-bar').name, gtin: p('p-oat-bar').gtin },
       { key: 'drink', label: p('p-orange-drink').name, gtin: p('p-orange-drink').gtin },
       { key: 'peanuts', label: p('p-peanuts').name, gtin: p('p-peanuts').gtin },
+      { key: 'qr', label: `${p('p-yogurt').name}, QR code`, gtin: QR_SAMPLE(p('p-yogurt').gtin), shown: `id.gs1.org/01/${p('p-yogurt').gtin.padStart(14, '0')}` },
       { key: 'unknown', label: 'An unknown product', gtin: D.UNKNOWN_GTIN }
     ].map((b) => ({ ...b, note: lookupNote(lookup(b.gtin, customFoods)) }));
   }
+  /* What a pack's QR code holds under GS1 Digital Link: the GTIN, plus batch and expiry. */
+  const QR_SAMPLE = (gtin) => `https://id.gs1.org/01/${gtin.padStart(14, '0')}/10/L2604?17=270131`;
 
   /* Where the numbers on a food come from, in one sentence. */
   function sourceSentence(food, params, s) {
-    if (params.via === 'barcode' && food.gtin) {
+    if ((params.via === 'barcode' || params.via === 'qr') && food.gtin) {
       const res = lookup(food.gtin, s.customFoods);
+      const qr = params.via === 'qr' ? "We read the barcode number from the pack's QR code. " : '';
       if (res.status === 'found') {
-        if (res.path[0] === 'your foods') return 'Found in your scanned foods.';
-        if (viaFallback(res.path)) return 'Open Food Facts had no nutrition data for this product, so these values come from USDA FoodData Central.';
-        return 'Found in Open Food Facts.';
+        if (res.path[0] === 'your foods') return `${qr}Found in your scanned foods.`;
+        if (viaFallback(res.path)) return `${qr}Open Food Facts had no nutrition data for this product, so these values come from USDA FoodData Central.`;
+        return `${qr}Found in Open Food Facts.`;
       }
     }
     if (food.source === 'ingredient_scan') return `${food.attribution || 'Estimated from your label photo'}.`;
@@ -465,7 +472,7 @@
 
       <div className="gutter stack" style=${{ flex: 1, minHeight: 0, overflowY: 'auto', paddingTop: 'var(--spacing-xl)', paddingBottom: 'var(--spacing-lg)' }}>
         <div className="viewfinder" aria-hidden="true"><span className="tl"></span><span className="tr"></span><span className="bl"></span><span className="br"></span></div>
-        <${T} size="callout" color="bodyMuted" align="center" as="p">Hold the barcode inside the frame. We'll find it automatically.<//>
+        <${T} size="callout" color="bodyMuted" align="center" as="p">Hold the barcode or the pack's QR code inside the frame. We'll find it automatically.<//>
         <section className="stack-sm" aria-label="Sample barcodes">
           <div className="stack-xxs">
             <${T} size="headline" font="semiBold" color="onDark" as="h2">Sample barcodes<//>
@@ -474,7 +481,7 @@
           ${samples.map((b) => html`<button key=${b.key} type="button" style=${DARK_TILE} onClick=${() => scan(b.gtin)}>
             <div className="grow stack-xxs">
               <${T} size="body" color="bodyOnDark">${b.label}<//>
-              <${T} size="caption" color="bodyMuted" className="tabular">${showGtin(b.gtin)} · ${b.note}<//>
+              <${T} size="caption" color="bodyMuted" className="tabular">${b.shown || showGtin(b.gtin)} · ${b.note}<//>
             </div>
             <${Glyph} name="chevron.right" size=${18} color="bodyMuted" />
           </button>`)}
@@ -497,9 +504,9 @@
     const [tried, setTried] = useState(!!params.value);
     const box = useAutofocus();
     const meal = isMeal(params.meal) ? params.meal : undefined;
-    const norm = M.normalizeGtin(value);
+    const norm = M.parseScan(value);
     let error = null;
-    if (tried) error = !value.trim() ? 'Enter the digits under the bars.' : norm.ok ? null : norm.error;
+    if (tried) error = norm.ok ? null : norm.error;
     const samples = sampleBarcodes(s.customFoods);
 
     function submit() {
@@ -519,8 +526,8 @@
       <div className="stack-xs">
         <${T} size="callout" font="semiBold" as="h2">Sample barcodes<//>
         <ul className="stack-xxs">
-          ${samples.map((b) => html`<li key=${b.key}>
-            <${T} size="caption" color="inkMuted80" className="tabular">${showGtin(b.gtin)}<//>
+          ${samples.filter((b) => b.key !== 'qr').map((b) => html`<li key=${b.key}>
+            <${T} size="caption" color="inkMuted80" className="tabular">${b.shown || showGtin(b.gtin)}<//>
             <${T} size="caption" color="inkMuted48"> · ${b.label}<//>
           </li>`)}
         </ul>
@@ -548,7 +555,7 @@
         body="We checked Open Food Facts and USDA FoodData Central. Photograph the ingredient list and we'll estimate it.">
         <${Button} fullWidth=${true} label="Photograph the label" onPress=${photograph} />
         <${Button} fullWidth=${true} variant="outline" label="Search instead" onPress=${() => A.openIn('food', 'food-search', { meal })} />
-        <${T} size="caption" color="inkMuted48" align="center" as="p" className="tabular">Barcode ${showGtin(gtin)}<//>
+        <${T} size="caption" color="inkMuted48" align="center" as="p" className="tabular">${params.qr ? `Barcode ${showGtin(gtin)}, read from the QR code` : `Barcode ${showGtin(gtin)}`}<//>
       <//>
     <//>`;
   }

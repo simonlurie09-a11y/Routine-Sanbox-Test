@@ -178,6 +178,41 @@
     return { ok: true, gtin14: digits.padStart(14, '0') };
   }
 
+  /* What a scan or a typed code contains. Linear barcodes (EAN-13, UPC-A,
+     EAN-8, GTIN-14) carry the digits; QR codes and Data Matrix on packs carry
+     a GS1 Digital Link URI (https://<domain>/01/<GTIN>/10/<batch>?17=<expiry>)
+     or a GS1 element string ("(01)<GTIN>(17)…", or unbracketed after a
+     symbology prefix such as ]Q3 or ]d2). Batch, serial and expiry are kept
+     but never used for lookup. */
+  const GS1_EXTRAS = { 10: 'batch', 21: 'serial', 17: 'expiry', 15: 'bestBefore' };
+  function parseScan(raw) {
+    const text = String(raw || '').trim();
+    if (!text) return { ok: false, error: 'Enter the digits under the bars.' };
+    if (/^https?:\/\//i.test(text)) {
+      let url;
+      try { url = new URL(text); } catch (e) { return { ok: false, error: "We couldn't read that link." }; }
+      const parts = url.pathname.split('/').filter(Boolean).map((p) => decodeURIComponent(p));
+      const at = parts.findIndex((p, i) => (p === '01' || p.toLowerCase() === 'gtin') && /^\d{8,14}$/.test(parts[i + 1] || ''));
+      if (at < 0) return { ok: false, error: "This QR code is a web link, not a product code. Scan the barcode instead." };
+      const norm = normalizeGtin(parts[at + 1]);
+      if (!norm.ok) return norm;
+      const extras = {};
+      for (let i = at + 2; i + 1 < parts.length; i += 2) if (GS1_EXTRAS[parts[i]]) extras[GS1_EXTRAS[parts[i]]] = parts[i + 1];
+      url.searchParams.forEach((v, k) => { if (GS1_EXTRAS[k]) extras[GS1_EXTRAS[k]] = v; });
+      return { ...norm, kind: 'gs1_digital_link', host: url.hostname, extras };
+    }
+    const element = text.replace(/^\](Q3|d2|C1|e0)/, '');
+    const bracketed = element.match(/^\(01\)(\d{14})/);
+    /* Unbracketed: "01" + 14 digits, then more data (16+ characters, so never a bare GTIN). */
+    const plain = !bracketed && element.length >= 16 ? element.match(/^01(\d{14})/) : null;
+    if (bracketed || plain) {
+      const norm = normalizeGtin((bracketed || plain)[1]);
+      return norm.ok ? { ...norm, kind: 'gs1_element_string', extras: {} } : norm;
+    }
+    const norm = normalizeGtin(text);
+    return norm.ok ? { ...norm, kind: 'barcode', extras: {} } : norm;
+  }
+
   /* Mirror first, then the source chain: Open Food Facts, then FoodData Central. */
   function lookupBarcode(gtin14, customFoods) {
     const custom = (customFoods || []).find((f) => f.gtin && f.gtin.padStart(14, '0') === gtin14);
@@ -753,7 +788,7 @@
     fmt, round, capitalise, listJoin,
     NUTRIENT_KEYS, saltFromSodium, nutrientsFor, sumNutrients,
     healthRating,
-    normalizeGtin, lookupBarcode, allFoods, findFood, searchFoods,
+    normalizeGtin, parseScan, lookupBarcode, allFoods, findFood, searchFoods,
     parseIngredients, parsePanel, validateNutrients, estimateFromIngredients, assessLabel,
     exerciseById, muscleById, weeklyVolume, groupVolume, dayMinutes, dayLabelWithWeekday, reviewSplit,
     diffDefinitions, volumeDeltas, summarizeOps,
