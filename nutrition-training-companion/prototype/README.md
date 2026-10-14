@@ -13,21 +13,27 @@ The app design from `docs/`, running in a browser with sample data. It uses the 
 | Recovery | Readiness against each device's own 28-night baseline, last 7 nights, how readiness works, and why readiness never changes the plan while its claim lacks 3 verified studies |
 | History | Split timeline, nutrition target changes, and what was not changed and why |
 | Settings | Profile and safety flags, targets, connected devices (connect, pause, reconnect, disconnect), privacy choices, export and deletion, about and disclaimer |
+| Evidence library | Every claim the app could act on, its status, the studies that count and the evidence against, the datasets the app would use, and downloads (CSV, JSON, Markdown) |
 
-The evidence gate is the one in `src/10-domain.js`, and it runs for real: a change is proposed only when its claim is active and at least 3 of its sources pass every check, and accepting re-checks the gate. The three cited studies are real publications. Products, numbers, devices and people are sample data. Claude's request parsing is replaced by a keyword matcher. Sign-in, cameras, device connections and downloads are simulated, and state is kept in this browser's `localStorage` only.
+The evidence gate is the one in `src/10-domain.js`, and it runs for real: a change is proposed only when its claim is active and at least 3 of its sources pass every check, and accepting re-checks the gate. The claims and studies come from `../data/evidence/library.json`; every cited study is a real publication. The scanner also reads pack QR codes (GS1 Digital Link and GS1 element strings) as barcodes. Products, numbers, devices and people are sample data. Claude's request parsing is replaced by a keyword matcher. Sign-in, cameras, device connections and the account export are simulated; the evidence and dataset downloads are real files. State is kept in this browser's `localStorage` only.
 
 ## Run it
 
-Open `dist/index.html` in a browser. It is one self-contained page. React 18.3.1 and htm 3.1.1 load from public CDNs.
+The published prototype: <https://claude.ai/artifact/GDGfHTP6UzXPAv3v8YoSzm> (private to its owner until shared). On a desktop, the side panel shows a QR code for opening it on a phone, and buttons for downloading the evidence library and the dataset catalogue. On a phone, the same downloads are under Settings → Evidence library.
+
+Or open `dist/index.html` in a browser. It is one self-contained page. React 18.3.1 and htm 3.1.1 load from public CDNs.
 
 To work on the source, serve the `nutrition-training-companion/` folder (for example `python3 -m http.server` in that folder) and open `/prototype/`. That page links the files in `src/` in place.
 
 After any change:
 
 ```sh
-node prototype/build.mjs                  # regenerates src/05-palettes.generated.js, index.html and dist/index.html
+node data/build.mjs                       # CSV, RIS, BibTeX and Markdown copies of data/*.json
+node prototype/build.mjs                  # generated modules, index.html and dist/index.html
 node prototype/scripts/smoke.mjs --dist   # opens every screen and variant, fails on any page error
 ```
+
+If the page is published somewhere new, put its address in `published-url.txt` and run `node prototype/scripts/make-qr.mjs` (it needs the `qrcode` npm package) before building.
 
 The smoke test needs Playwright and Chromium. `scripts/harness.mjs` answers the CDN requests from local `react`, `react-dom` and `htm` packages, so it runs offline.
 

@@ -22,7 +22,8 @@ This folder contains design documents, a tested reference database schema, UI mo
 | + | Evidence gate specification, with a worked example | [docs/06-evidence-gate.md](docs/06-evidence-gate.md) |
 | + | Onboarding, dashboard, history view, health-rating rules, split-review rules, safety rules | [docs/07-product-flows.md](docs/07-product-flows.md) |
 | + | UI design using the Apple Design System: theme, status palettes, 13 screen mockups, icons, copy, React Native notes | [docs/08-ui-design.md](docs/08-ui-design.md), [design/](design/) |
-| + | Clickable prototype of every flow, with the real evidence gate, on sample data | [prototype/](prototype/) (open `prototype/dist/index.html`) |
+| + | Clickable prototype of every flow, with the real evidence gate, on sample data | [prototype/](prototype/), published at <https://claude.ai/artifact/GDGfHTP6UzXPAv3v8YoSzm> |
+| + | Evidence library (claims, studies, verification) and a catalogue of datasets to download, as JSON, CSV, RIS, BibTeX and Markdown | [data/](data/) |
 
 ## The decisions that shape everything else
 

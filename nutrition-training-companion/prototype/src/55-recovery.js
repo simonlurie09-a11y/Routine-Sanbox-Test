@@ -225,7 +225,7 @@
         <${T} size="callout" as="p">${claim.statement}<//>
         <div className="row hairline-top">
           <${Glyph} name="checkmark.seal.fill" size=${18} color=${enough ? 'primary' : 'inkMuted48'} />
-          <${T} size="caption" color="inkMuted80">${verified} of ${M.REQUIRED_SOURCES} studies verified<//>
+          <${T} size="caption" color="inkMuted80">${enough ? `${verified} verified studies` : `${verified} of ${M.REQUIRED_SOURCES} studies verified`}<//>
         </div>
       <//>
       ${enough ? null : html`<${Callout}>Until 3 studies are verified, readiness never changes your plan. We show it so you can decide for yourself.<//>`}

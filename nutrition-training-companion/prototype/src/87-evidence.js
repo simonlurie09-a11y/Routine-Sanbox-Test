@@ -113,7 +113,7 @@
       <${Sections}>
         <div className="stack-sm">
           <div className="row">${statusBadge(claim)}</div>
-          <${ClaimCard} claim=${claim} verifiedCount=${counted.length} required=${M.REQUIRED_SOURCES} />
+          <${ClaimCard} claim=${claim} verifiedCount=${counted.length} required=${M.REQUIRED_SOURCES} label=${claim.status === 'active' ? 'The claim' : 'The claim being tested'} />
         </div>
         <${Section} title=${claim.status === 'active' ? 'What we do with it' : 'What we would do with it'}>
           <${Callout}>${claim.appUse}<//>

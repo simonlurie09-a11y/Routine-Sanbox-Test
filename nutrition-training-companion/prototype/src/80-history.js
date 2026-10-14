@@ -80,7 +80,10 @@
   }
   function studiesLine(rec) {
     if (typeof rec.verifiedCount !== 'number') return '';
-    return `, ${rec.verifiedCount} of ${rec.required || M.REQUIRED_SOURCES} studies verified`;
+    const required = rec.required || M.REQUIRED_SOURCES;
+    return rec.verifiedCount >= required
+      ? `, ${plural(rec.verifiedCount, 'verified study', 'verified studies')}`
+      : `, ${rec.verifiedCount} of ${required} studies verified`;
   }
 
   /* ---------------------------------------------------------------- cards */

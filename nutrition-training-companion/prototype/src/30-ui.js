@@ -286,7 +286,7 @@
           ${role === 'supports'
             ? html`<${Badge} palette="sourceVerification" status=${M.isVerified(source) ? 'verified' : 'needs_human'} />`
             : html`<${Caption} color="inkMuted80">${ROLE_WORDS[role] || ROLE_WORDS.context}<//>`}
-          <${Caption}>Checked ${isoDate(source.verifiedAt)}<//>
+          <${Caption}>${M.isVerified(source) ? `Checked ${isoDate(source.verifiedAt)}` : 'Not yet verified'}<//>
         <//>
         <a className="link row" href=${link.href} target="_blank" rel="noopener noreferrer">
           <${Glyph} name="link" size=${16} color="primary" /><${T} size="caption" color="primary">${link.text}<//>
@@ -294,9 +294,9 @@
       </div>
     <//>`;
   }
-  function ClaimCard({ claim, verifiedCount, required = 3 }) {
+  function ClaimCard({ claim, verifiedCount, required = 3, label = 'The claim' }) {
     return html`<${Card}>
-      <${Caption}>The claim<//>
+      <${Caption}>${label}<//>
       <${T} size="callout" as="p">${claim.statement}<//>
       ${claim.population ? html`<${Caption} color="inkMuted80">Who the studies covered: ${claim.population}<//>` : null}
       <div className="row hairline-top">

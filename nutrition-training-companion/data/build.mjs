@@ -159,8 +159,8 @@ write('evidence/sources.bib', bib);
 function sourceMd(s) {
   const ids = [s.pmid && `PMID [${s.pmid}](https://pubmed.ncbi.nlm.nih.gov/${s.pmid}/)`, s.pmcid && `PMCID ${s.pmcid}`, s.doi && `DOI [${s.doi}](https://doi.org/${s.doi})`].filter(Boolean).join(' · ');
   return [
-    `- **${s.short}.** ${s.title}. *${s.journal}* ${s.citation || s.year}. ${ids}`,
-    `  - Design: ${s.design}${s.sampleSize ? ` (${s.sampleSize})` : ''}.`,
+    `- **${s.short}.** ${s.title}. *${s.journal}* ${String(s.citation || s.year).replace(/[.\s]+$/, '')}. ${ids}`,
+    `  - Design: ${String(s.design).replace(/[.\s]+$/, '')}${s.sampleSize && !/^not\b/i.test(s.sampleSize) ? ` (${s.sampleSize})` : ''}.`,
     `  - What it found: ${s.found}`,
     `  - Limitations: ${s.limitations}`,
     `  - Checks: ${isVerified(s) ? `all six passed, ${s.verifiedAt}` : CHECKS.filter((c) => !s.checks || s.checks[c] !== 'pass').map((c) => `${CHECK_WORDS[c].toLowerCase()}: ${s.checks ? s.checks[c] : 'unknown'}`).join('; ')}.`
@@ -185,10 +185,9 @@ const md = [
     '',
     `\`${c.key}\` · **${STATUS_WORDS[c.status]}**`,
     '',
-    `**Claim.** ${c.statement}`,
+    `**${c.status === 'active' ? 'Claim' : 'Claim being tested'}.** ${c.statement}`,
     '',
-    `**Who it applies to.** ${c.population}`,
-    '',
+    ...(c.population ? [`**Who it applies to.** ${c.population}`, ''] : []),
     `**What the app does with it.** ${c.appUse}`,
     '',
     `**Why this status.** ${c.verdict}`,

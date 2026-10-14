@@ -10,7 +10,7 @@ EP  - 9
 DO  - 10.1519/JSC.0b013e3181d4d436
 AN  - PMID:20300012
 UR  - https://pubmed.ncbi.nlm.nih.gov/20300012/
-N2  - Pooling 8 studies, doing multiple sets per exercise gave slightly more muscle growth than doing a single set (effect size difference 0.10, 95% CI 0.02 to 0.19, p = 0.016). Doing 2-3 and 4-6 sets both did better than 1 set but did not differ from each other.
+N2  - Pooling 8 studies, multiple sets per exercise produced somewhat more muscle growth than single sets (effect size difference 0.10, 95% CI 0.02 to 0.19). 2 to 3 sets and 4 to 6 sets did not differ significantly.
 N1  - Meta-analysis using multilevel meta-regression: 55 effect sizes nested within 19 treatment groups and 8 studies, comparing single vs multiple sets per exercise (J Strength Cond Res 2010, Krieger). Verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
 ER  - 
 
@@ -28,7 +28,7 @@ EP  - 1082
 DO  - 10.1080/02640414.2016.1210197
 AN  - PMID:27433992
 UR  - https://pubmed.ncbi.nlm.nih.gov/27433992/
-N2  - Across 15 studies (34 training groups), each extra weekly set per muscle was linked to about 0.37% more muscle growth (P = 0.002). Higher-volume groups grew about 3.9 percentage points more than lower-volume groups in the same studies.
+N2  - Across 15 studies (34 training groups), each extra weekly set per muscle was linked to about 0.37% more muscle growth (P = 0.002). Grouping studies into under 5, 5 to 9 and 10 or more weekly sets showed only a non-significant trend favouring 10 or more (P = 0.074).
 N1  - Systematic review and meta-analysis (meta-regression) of 15 studies, 34 treatment groups (J Sports Sci 2017; Schoenfeld, Ogborn, Krieger). Verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
 ER  - 
 
@@ -43,7 +43,7 @@ EP  - 210
 DO  - 10.2478/hukin-2022-0017
 AN  - PMID:35291645
 UR  - https://pubmed.ncbi.nlm.nih.gov/35291645/
-N2  - In 6 studies of trained men, moderate (12-20) and high (more than 20) weekly volumes gave similar growth in the quadriceps (p = 0.19) and biceps (p = 0.59), but high volume did better for the triceps (p = 0.01). The authors suggested 12-20 weekly sets as a standard recommendation for trained men.
+N2  - In 6 studies of trained men, moderate (12 to 20) and high (over 20) weekly sets gave similar growth in the quadriceps and biceps, but high volume grew the triceps more (p = 0.01). The authors suggested 12 to 20 weekly sets as a standard recommendation.
 N1  - Systematic review with quantitative synthesis: 7 studies in the qualitative synthesis, 6 in the quantitative. Low-volume groups (<12 weekly sets) were excluded from the quantitative analysis, which compared moderate (12-20) with high (>20) weekly sets in trained men (J Hum Kinet 2022;81:199-210; Baz-Valle, Balsalobre-Fernandez, Alix-Fages, Santos-Concejero). Not verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: context
 ER  - 
 
@@ -63,7 +63,7 @@ EP  - 505
 DO  - 10.1007/s40279-025-02344-w
 AN  - PMID:41343037
 UR  - https://pubmed.ncbi.nlm.nih.gov/41343037/
-N2  - Pooling 67 studies and 2,058 participants, the authors found a 100% posterior probability that more weekly sets lead to more muscle growth, with each extra set adding less than the one before. Counting indirect sets from compound exercises as a fraction of a set fitted the data best.
+N2  - Pooling 67 studies with 2,058 participants, the estimated chance that more weekly sets give more muscle growth was 100%, but each extra set added less than the one before. Counting indirect sets from compound exercises as partial sets fitted the data best.
 N1  - Systematic review with multilevel Bayesian meta-regressions of 67 studies, 2,058 participants, adjusted for intervention duration and training status (Sports Medicine; Pelland, Remmert, Robinson, Hinson, Zourdos; DOI 10.1007/s40279-025-02344-w). Verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
 ER  - 
 
@@ -79,7 +79,7 @@ VL  - 4
 SP  - 949021
 DO  - 10.3389/fspor.2022.949021
 UR  - https://doi.org/10.3389/fspor.2022.949021
-N2  - This review of 14 meta-analyses (178 primary studies, 4,784 participants) concluded that at least 10 sets per muscle group per week is optimal for muscle growth. Light or heavy loads both work when sets are taken to or near failure.
+N2  - This review of 14 meta-analyses (178 studies, 4,784 participants) concluded that at least 10 sets per muscle group per week is optimal for growth. It found that light or heavy loads both work when sets are taken to or near failure.
 N1  - Umbrella review of meta-analyses (PRISMA; PubMed/MEDLINE, SPORTDiscus, Web of Science): 14 of 52 meta-analyses included, covering 178 primary studies and 4,784 participants (Front Sports Act Living 2022; DOI 10.3389/fspor.2022.949021; PMC9302196; published as a Mini Review). Verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
 ER  - 
 
@@ -101,7 +101,7 @@ EP  - 103
 DO  - 10.1249/MSS.0000000000001764
 AN  - PMID:30153194
 UR  - https://pubmed.ncbi.nlm.nih.gov/30153194/
-N2  - In 34 trained men training 3 times a week for 8 weeks, doing 3 or 5 sets per exercise grew the elbow flexors, mid-thigh and lateral thigh more than doing 1 set. Gains in strength and endurance did not differ between the groups.
+N2  - In 34 trained men over 8 weeks, doing 3 or 5 sets per exercise three times a week grew the upper arm and thigh muscles more than doing 1 set. The 5-set group (roughly 30 or more weekly sets per muscle) did best at several sites. Strength gains did not differ between groups.
 N1  - Randomised controlled trial: 34 healthy resistance-trained men randomised to 1 set (n=11), 3 sets (n=12) or 5 sets (n=11) per exercise per session, 3 sessions a week for 8 weeks (Med Sci Sports Exerc 2019;51(1):94-103; PMC6303131). Verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
 ER  - 
 
@@ -123,7 +123,7 @@ EP  - 1358
 DO  - 10.1519/JSC.0000000000000758
 AN  - PMID:25546444
 UR  - https://pubmed.ncbi.nlm.nih.gov/25546444/
-N2  - In 48 untrained men training 3 times a week for about 6 months, elbow flexor thickness rose in the 3-set and 5-set groups, most at 5 sets. Only the 5-set group increased elbow extensor thickness.
+N2  - In 48 untrained men training three times a week for about 6 months, the 5-set group gained the most upper-arm muscle thickness. 3 sets also grew the elbow flexors, while the 1-set group showed no reported increase.
 N1  - Randomised trial: 48 men with no weight-training experience randomised to 1-SET, 3-SET or 5-SET training groups, 3 sessions a week for about 6 months (J Strength Cond Res 2015;29(5):1349-58; Radaelli et al.). Verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: supports
 ER  - 
 
@@ -143,7 +143,7 @@ EP  - 368
 DO  - 10.1123/ijspp.2018-0427
 AN  - PMID:30160627
 UR  - https://pubmed.ncbi.nlm.nih.gov/30160627/
-N2  - In 49 trained men over 6 weeks, 9 weekly biceps sets increased muscle thickness about as much as 18 or 27 sets, with no statistically significant difference between groups. The higher-volume groups may have gained more strength.
+N2  - In 49 trained men over 6 weeks, 9 weekly biceps sets increased muscle thickness about as much as 18 or 27 sets. The higher volumes may have produced more strength.
 N1  - Randomised controlled trial (PubMed publication type RCT): 49 resistance-trained men randomised to LOW (n=17; 9 weekly biceps sets, 1 session a week), MOD (n=15; 18 sets, 2 sessions) or HIGH (n=17; 27 sets, 2 sessions) for 6 weeks (Int J Sports Physiol Perform 2019;14(3):360-368). Not verified 2026-10-14. Used for: hypertrophy.volume.raise_low_weekly_sets: contradicts
 ER  - 
 
@@ -350,7 +350,7 @@ DO  - 10.1139/apnm-2021-0515
 AN  - PMID:35015560
 UR  - https://pubmed.ncbi.nlm.nih.gov/35015560/
 N2  - Compared different loads with total training volume matched and reported no difference in muscle growth between them.
-N1  - Not verified: web search budget exhausted.. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
+N1  - Systematic review with meta-analysis. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
 ER  - 
 
 TY  - JOUR
@@ -364,7 +364,7 @@ DO  - 10.1113/JP289684
 AN  - PMID:41474371
 UR  - https://pubmed.ncbi.nlm.nih.gov/41474371/
 N2  - In 20 healthy young men training three times a week for 10 weeks, this trial compared lighter (about 30-40% 1RM) and heavier (about 70-80% 1RM) loads within the same people. It reportedly found that load did not determine muscle growth in either the arms or the legs.
-N1  - Not verified: web search budget exhausted.. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
+N1  - Randomised within-subject (contralateral limb) trial. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
 ER  - 
 
 TY  - JOUR
@@ -382,7 +382,7 @@ DO  - 10.1152/japplphysiol.00307.2012
 AN  - PMID:22518835
 UR  - https://pubmed.ncbi.nlm.nih.gov/22518835/
 N2  - A randomised trial in untrained young men that reported similar muscle growth from light and heavy loads when sets were taken to failure.
-N1  - Not verified: web search budget exhausted.. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
+N1  - Randomised within-subject (unilateral leg) trial. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
 ER  - 
 
 TY  - JOUR
@@ -397,7 +397,7 @@ DO  - 10.2478/hukin-2020-0013
 AN  - PMID:33312275
 UR  - https://pubmed.ncbi.nlm.nih.gov/33312275/
 N2  - Pooled studies of single muscle fibres and found a non-significant trend towards greater growth of fast-twitch (type II) fibres with heavy loads (SMD 0.30, p = 0.089), with very wide uncertainty.
-N1  - Not verified: web search budget exhausted.. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
+N1  - Systematic review with meta-analysis. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
 ER  - 
 
 TY  - JOUR
@@ -420,7 +420,7 @@ DO  - 10.1080/17461391.2018.1450898
 AN  - PMID:29564973
 UR  - https://pubmed.ncbi.nlm.nih.gov/29564973/
 N2  - 30 men trained twice a week for 12 weeks, with each limb assigned to 20%, 40%, 60% or 80% of 1RM and volume load matched. The 20% load reportedly gave about half the muscle growth of 80%, while 40-80% were broadly similar.
-N1  - Not verified: web search budget exhausted.. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
+N1  - Randomised within-subject trial. Not verified 2026-10-14. Used for: hypertrophy.load_range_similar_growth: context
 ER  - 
 
 TY  - JOUR
@@ -438,7 +438,7 @@ EP  - 211
 DO  - 10.1016/j.jshs.2021.01.007
 AN  - PMID:33497853
 UR  - https://pubmed.ncbi.nlm.nih.gov/33497853/
-N2  - This pooled analysis of 15 studies in young adults found no significant difference between training to failure and stopping short, for either strength (ES -0.09) or muscle growth (ES 0.22, 95% CI -0.11 to 0.55). Stopping short was better for strength when training volume was not matched. Failure gave a small growth advantage in people already used to resistance training (ES 0.15, 95% CI 0.03 to 0.26).
+N2  - Pooling 15 studies in young adults, training to failure and stopping short showed no significant difference in strength (effect size -0.09) or muscle growth (0.22, 95% CI -0.11 to 0.55). Stopping short was better for strength when total volume was not matched, and in resistance-trained people failure gave a small growth advantage (0.15, 95% CI 0.03 to 0.26).
 N1  - Systematic review and meta-analysis of 15 studies, all in young adults (J Sport Health Sci 2022, Grgic, Schoenfeld, Orazem, Sabol). Verified 2026-10-14. Used for: training.proximity_to_failure: supports
 ER  - 
 
@@ -458,7 +458,7 @@ EP  - 665
 DO  - 10.1007/s40279-022-01784-y
 AN  - PMID:36334240
 UR  - https://pubmed.ncbi.nlm.nih.gov/36334240/
-N2  - Across 15 studies, training to failure gave a trivial and statistically fragile advantage for muscle growth over stopping short (ES 0.19, 95% CI 0.00 to 0.37, p = 0.045). Neither training volume nor load explained this, and subgroups split by how failure was defined showed no clear advantage. The authors suggest the link between closeness to failure and growth may not be a straight line.
+N2  - Across 15 studies, training to failure gave a trivial muscle-growth advantage over stopping short (effect size 0.19, 95% CI 0.00 to 0.37), and training volume or load did not change this. Splitting studies by how failure was defined showed no advantage, and the authors suggest the relationship may not be a straight line.
 N1  - Systematic review with meta-analysis of 15 studies in healthy adults (Sports Med 2023;53:649-665, Epub Nov 2022; Refalo et al.). Verified 2026-10-14. Used for: training.proximity_to_failure: supports
 ER  - 
 
@@ -480,7 +480,7 @@ EP  - 2231
 DO  - 10.1007/s40279-024-02069-2
 AN  - PMID:38970765
 UR  - https://pubmed.ncbi.nlm.nih.gov/38970765/
-N2  - This analysis treated closeness to failure as estimated reps in reserve. In every best-fitting model, muscle growth rose as sets ended closer to failure, while closeness to failure made a negligible difference to strength gains.
+N2  - Treating reps in reserve as a sliding scale, this series of meta-regressions found that muscle growth rose as sets ended closer to failure. Strength gains were barely affected by how close to failure sets ended.
 N1  - Systematic review with a series of meta-regressions, modelling proximity to failure as continuous estimated RIR and adjusting for load, volume-equating method, intervention duration and training status (Sports Med 2024;54:2209-2231). Verified 2026-10-14. Used for: training.proximity_to_failure: supports
 ER  - 
 
@@ -501,8 +501,8 @@ SP  - 1165
 EP  - 1175
 DO  - 10.1519/JSC.0000000000003936
 UR  - https://doi.org/10.1519/JSC.0000000000003936
-N2  - Across 13 studies, strength gains did not differ overall, and stopping short of failure did better when training volume was not matched (SMD -0.34). Training to failure gave more muscle growth overall (SMD 0.75), but there was no difference when training volume was matched.
-N1  - Systematic review with meta-analysis of 13 studies (J Strength Cond Res 2021;35(4):1165-1175; Vieira, Umpierre, Teodoro, Lisboa, Baroni, Izquierdo, Cadore). Not verified 2026-10-14. Used for: training.proximity_to_failure: context
+N2  - Across 13 studies, strength and power gains were similar overall and greater when stopping short if volumes were not matched. Muscle growth was moderately greater with failure overall (SMD 0.75), but there was no difference when training volumes were matched.
+N1  - Systematic review with meta-analysis of 13 studies (J Strength Cond Res 2021;35(4):1165-1175; Vieira, Umpierre, Teodoro, Lisboa, Baroni, Izquierdo, Cadore). Not verified 2026-10-14. Used for: training.proximity_to_failure: contradicts
 ER  - 
 
 TY  - JOUR
@@ -520,7 +520,7 @@ EP  - 502
 DO  - 10.1007/s40279-015-0451-3
 AN  - PMID:26666744
 UR  - https://pubmed.ncbi.nlm.nih.gov/26666744/
-N2  - Pooling 8 studies, stopping short of failure gave slightly larger strength gains than training to failure (ES 0.34, p = 0.02), roughly 0.6 to 1.3% more. The same small advantage appeared for compound exercises and in trained participants.
+N2  - Across 8 strength-only studies, stopping short of failure gave a small but significant strength advantage over training to failure (effect size 0.34, roughly 0.6 to 1.3% more strength gain), including for compound lifts and in trained participants.
 N1  - Systematic review and meta-analysis of 8 studies on strength only, 4 volume-controlled and 4 volume-uncontrolled (Sports Med 2016;46(4):487-502; erratum 46(4):605-610). Verified 2026-10-14. Used for: training.proximity_to_failure: supports
 ER  - 
 
@@ -540,7 +540,7 @@ EP  - 101
 DO  - 10.1080/02640414.2024.2321021
 AN  - PMID:38393985
 UR  - https://pubmed.ncbi.nlm.nih.gov/38393985/
-N2  - In 18 resistance-trained adults, each trained one leg to failure and the other stopping 1 to 2 reps short for 8 weeks. Thigh muscle thickness rose by almost exactly the same amount in both legs (about 0.18 cm each). Training to failure caused more short-term fatigue.
+N2  - In 18 resistance-trained adults, one leg trained to momentary failure and the other stopped 1 to 2 reps short for 8 weeks. Quadriceps thickness grew almost identically in both legs (about 0.18 cm), but training to failure caused more short-term fatigue.
 N1  - 8-week within-participant (one leg per condition) training trial in resistance-trained adults, n = 18 (12 men, 6 women): failure vs 2 RIR (leg press) / 1 RIR (leg extension); J Sports Sci 2024;42(1):85-101, doi 10.1080/02640414.2024.2321021. Randomisation of limbs not verified.. Not verified 2026-10-14. Used for: training.proximity_to_failure: context
 ER  - 
 
@@ -563,7 +563,7 @@ EP  - 1472
 DO  - 10.1007/s40279-022-01667-2
 AN  - PMID:35247203
 UR  - https://pubmed.ncbi.nlm.nih.gov/35247203/
-N2  - This methods review found no consistent way of measuring how close to failure a set ends, and definitions of failure vary between studies. This makes precise per-set recommendations for muscle growth and strength hard to give.
+N2  - This methods review shows there is no consistent way to measure how close to failure a set ends, and that studies define failure differently. This makes precise reps-in-reserve recommendations for growth and strength hard to give.
 N1  - Narrative/methodological review (Sports Med 2022;52(7):1461-1472; Pelland, Robinson, Helms, Zourdos and colleagues). Not verified 2026-10-14. Used for: training.proximity_to_failure: context
 ER  - 
 
@@ -751,7 +751,7 @@ DO  - 10.7717/peerj.16777
 AN  - PMID:38274324
 UR  - https://pubmed.ncbi.nlm.nih.gov/38274324/
 N2  - In 39 resistance-trained adults, stopping all training for one week midway through a 9-week programme gave similar gains in thigh muscle size, muscular endurance and power to training straight through. Lower-body strength gains were somewhat larger with continuous training.
-N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+N1  - Randomized controlled trial, two parallel groups. Not verified 2026-10-14. Used for: training.deload_periods: context
 ER  - 
 
 TY  - JOUR
@@ -767,7 +767,7 @@ SP  - 10299
 DO  - 10.1038/s41598-026-40612-5
 UR  - https://doi.org/10.1038/s41598-026-40612-5
 N2  - In 19 untrained young men who trained one limb each way, cutting to 2 sets per exercise once a week in weeks 4 and 8 of an 8-week programme gave the same gains in muscle thickness and 10-rep max as continuous training (leg 10-rep max +17.6 kg vs +16.8 kg).
-N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+N1  - Randomized within-subject controlled trial (limbs randomly allocated to continuous or deload condition). Not verified 2026-10-14. Used for: training.deload_periods: context
 ER  - 
 
 TY  - JOUR
@@ -786,7 +786,7 @@ DO  - 10.1111/sms.14739
 AN  - PMID:39364857
 UR  - https://pubmed.ncbi.nlm.nih.gov/39364857/
 N2  - In 55 untrained adults, a 10-week break between two 10-week training blocks caused losses in strength and muscle size that were quickly regained, and overall gains ended up similar to continuous training.
-N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+N1  - Randomized controlled trial. Not verified 2026-10-14. Used for: training.deload_periods: context
 ER  - 
 
 TY  - JOUR
@@ -805,7 +805,7 @@ DO  - 10.1007/s00421-012-2511-9
 AN  - PMID:23053130
 UR  - https://pubmed.ncbi.nlm.nih.gov/23053130/
 N2  - In 14 untrained men over 24 weeks, three 3-week breaks gave similar overall gains in muscle size and strength to continuous training. Gains slowed in the continuous group over time, while the break group picked up again after each break.
-N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+N1  - Randomized controlled trial. Not verified 2026-10-14. Used for: training.deload_periods: context
 ER  - 
 
 TY  - JOUR
@@ -825,7 +825,7 @@ DO  - 10.1111/j.1475-097X.2011.01031.x
 AN  - PMID:21771261
 UR  - https://pubmed.ncbi.nlm.nih.gov/21771261/
 N2  - In 15 untrained men, a 3-week break after 6 weeks of training caused no significant loss of muscle size or one-rep max strength, and gains at 15 weeks were similar to continuous training.
-N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+N1  - Controlled trial with two parallel groups (abstract text seen says participants were 'divided into' groups; randomization not confirmed). Not verified 2026-10-14. Used for: training.deload_periods: context
 ER  - 
 
 TY  - JOUR
@@ -843,7 +843,7 @@ DO  - 10.2466/29.30.PMS.121c23x3
 AN  - PMID:26595206
 UR  - https://pubmed.ncbi.nlm.nih.gov/26595206/
 N2  - In 60 detrained women, each given 20 sessions, a 2-week break midway through 10 weeks of training gave similar knee and elbow strength gains to training without a break.
-N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+N1  - Randomized controlled trial. Not verified 2026-10-14. Used for: training.deload_periods: context
 ER  - 
 
 TY  - JOUR
@@ -865,7 +865,7 @@ DO  - 10.1111/sms.12047
 AN  - PMID:23347054
 UR  - https://pubmed.ncbi.nlm.nih.gov/23347054/
 N2  - A meta-analysis of 103 studies found that stopping resistance training reduces strength and power (maximal force SMD -0.46), with larger losses the longer the stop.
-N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+N1  - Systematic review with meta-analysis. Not verified 2026-10-14. Used for: training.deload_periods: context
 ER  - 
 
 TY  - JOUR
@@ -883,7 +883,7 @@ DO  - 10.1186/s40798-023-00633-0
 AN  - PMID:37730925
 UR  - https://pubmed.ncbi.nlm.nih.gov/37730925/
 N2  - An international expert panel agreed that deloading is widely used but under-researched. It defined a deload as a period of reduced training stress to manage fatigue and aid recovery.
-N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+N1  - Delphi expert consensus (3 rounds). Not verified 2026-10-14. Used for: training.deload_periods: context
 ER  - 
 
 TY  - JOUR
@@ -902,5 +902,5 @@ DO  - 10.1186/s40798-024-00691-y
 AN  - PMID:38499934
 UR  - https://pubmed.ncbi.nlm.nih.gov/38499934/
 N2  - In a survey of 246 strength and physique athletes, all reported deloading, typically for about 6 days every 5 to 6 weeks, mainly by cutting training volume and load.
-N1  - Not verified: web search budget exhausted before any abstract could be seen. Not verified 2026-10-14. Used for: training.deload_periods: context
+N1  - Cross-sectional survey (55-item web survey). Not verified 2026-10-14. Used for: training.deload_periods: context
 ER  - 
