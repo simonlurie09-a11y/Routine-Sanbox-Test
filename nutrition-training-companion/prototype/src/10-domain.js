@@ -741,6 +741,10 @@
         reason: 'Before we suggest any change, we need your answers to the health and safety questions. They decide which suggestions are safe for you.' };
     }
     if (intent.type === 'nutrition_target') return evaluateTarget(intent, state, base, requestText);
+    if (!def || !def.days.length) {
+      return { ...base, kind: 'split_change', status: 'blocked_constraints', needs: 'split',
+        reason: 'Set up your split first, so we have a plan to check this request against.' };
+    }
 
     const notEnough = 'Our evidence library doesn\'t yet have 3 verified studies behind this kind of change, so we haven\'t changed your plan.';
     if (intent.type === 'switch_style' && intent.style === 'strength') {
@@ -840,12 +844,14 @@
   }
 
   function currentDefinition(state) {
+    if (!state.split) return null;
     const v = state.split.versions.find((x) => x.number === state.split.current);
-    return v.definition;
+    return v ? v.definition : null;
   }
 
   /* ------------------------------------------------------------ readiness */
   const READINESS_ORDER = ['oura', 'whoop', 'google_health', 'apple_health'];
+  const MIN_BASELINE_NIGHTS = 14;
   function stats(points) {
     const vals = points.map((p) => p.value);
     const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
@@ -859,10 +865,17 @@
       if (!dev || dev.status !== 'active') return false;
       return Object.entries(D.DATA_TYPE_METRICS).some(([type, metrics]) => metrics.includes(metric) && dev.dataTypes[type]);
     };
+    /* The app passes real series (from HealthKit) as state.wearableSeries; the prototype uses the samples. */
+    const allSeries = state.wearableSeries || D.WEARABLE_SERIES;
     for (const provider of READINESS_ORDER) {
-      const seriesSet = D.WEARABLE_SERIES[provider];
+      const seriesSet = allSeries[provider];
       if (!seriesSet) continue;
-      const usable = ['hrv_rmssd_ms', 'hrv_sdnn_ms', 'resting_hr_bpm', 'sleep_total_min'].filter((m) => seriesSet[m] && enabledMetric(provider, m));
+      /* A metric counts only with last night's value and at least 14 nights of baseline. */
+      const fresh = (m) => {
+        const pts = seriesSet[m].points || [];
+        return pts.length >= MIN_BASELINE_NIGHTS + 1 && pts[pts.length - 1].daysAgo <= 1;
+      };
+      const usable = ['hrv_rmssd_ms', 'hrv_sdnn_ms', 'resting_hr_bpm', 'sleep_total_min'].filter((m) => seriesSet[m] && enabledMetric(provider, m) && fresh(m));
       if (!usable.length) continue;
       const drivers = usable.map((metric) => {
         const s = seriesSet[metric];
@@ -950,7 +963,7 @@
     exerciseWords,
     parseIntent, TARGET_RULES, MAIN_LIFTS, REQUIRED_SOURCES, sourceById, isVerified, claimByKey, verifiedSourcesFor,
     safetyCheck, buildVolumeProposal, evaluateChange, currentDefinition,
-    readiness, evaluateRecoveryAdjustment, notifications,
+    readiness, evaluateRecoveryAdjustment, notifications, MIN_BASELINE_NIGHTS,
     GOALS, goalLabel
   };
 })();
