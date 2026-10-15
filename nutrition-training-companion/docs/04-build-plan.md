@@ -15,6 +15,31 @@ The order follows the brief: MVP (food logging and barcode scanning), then worko
 
 Durations are indicative and assume that team.
 
+## 4.0 Version 1 for the App Store (built)
+
+A first, on-device version is built in [`apps/mobile`](../apps/mobile), ready to submit ([`app-store/`](../app-store/README.md)). It ships the parts of Phases 1 to 4 that need no server:
+
+| Ships in v1 | How |
+|---|---|
+| Food logging, barcode and pack-QR scanning, search, your own foods, quick add | Camera decoding on the phone; Open Food Facts' live API for lookups and search; the bundled generic foods. |
+| The health-rating explainer | The shared domain logic (`prototype/src/10-domain.js`). |
+| The training split, review, your edits, versions, workouts | On the phone, as in the prototype. |
+| The research gate | The verified evidence library is bundled. The gate runs on the phone, and accepting re-checks it. |
+| HealthKit readiness | Read-only, on the phone; nothing read is stored. |
+| Export and delete | Share-sheet export; "Delete everything". |
+
+It defers everything that needs the backend in §4.2 onwards:
+
+* accounts and sync (Cognito, the API, Postgres with the gate triggers);
+* the nightly food-database mirrors;
+* label-photo OCR and its server fallback;
+* Claude-backed parsing;
+* Oura, WHOOP and the Google Health API;
+* push notifications;
+* the server-side evidence pipeline.
+
+Its data stays on the device, so App Store privacy is "Data Not Collected". Adding any of these changes that (see [`app-store/app-privacy-answers.md`](../app-store/app-privacy-answers.md)).
+
 ## 4.1 Timeline
 
 ```mermaid
