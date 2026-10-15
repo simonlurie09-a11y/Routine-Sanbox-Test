@@ -54,14 +54,5 @@
     "test": "jest",
     "lint": "expo lint"
   },
-  "private": true,
-  "jest": {
-    "preset": "jest-expo",
-    "testMatch": [
-      "**/__tests__/**/*.test.ts?(x)"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!((jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@kingstinct/.*|react-native-nitro-modules|@react-native-healthkit/.*|react-native-svg|zustand))"
-    ]
-  }
+  "private": true
 }

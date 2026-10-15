@@ -1,4 +1,4 @@
-# Nutrition & Training Companion: design package
+# Nutrition & Training Companion
 
 This is the design for a mobile app that:
 
@@ -8,7 +8,15 @@ This is the design for a mobile app that:
 * refuses to propose any change to a split or nutrition target unless it is backed by **at least 3 verified, peer-reviewed sources**;
 * uses WHOOP, Oura, Fitbit (through the Google Health API) and Apple Watch (through HealthKit) data to inform its suggestions.
 
-This folder contains design documents, a tested reference database schema, UI mockups built with the Apple Design System, and a clickable browser prototype that runs on sample data. It is not a production implementation, and it is unrelated to the AI Passport code at the repository root.
+This folder contains:
+
+* design documents;
+* a tested reference database schema;
+* UI mockups built with the Apple Design System;
+* a clickable browser prototype that runs on sample data;
+* **the iPhone app for the App Store** (version 1: on-device, no account), with everything App Store Connect asks for.
+
+It is unrelated to the AI Passport code at the repository root.
 
 ## Deliverables
 
@@ -24,6 +32,8 @@ This folder contains design documents, a tested reference database schema, UI mo
 | + | UI design using the Apple Design System: theme, status palettes, 13 screen mockups, icons, copy, React Native notes | [docs/08-ui-design.md](docs/08-ui-design.md), [design/](design/) |
 | + | Clickable prototype of every flow, with the real evidence gate, on sample data | [prototype/](prototype/), published at <https://claude.ai/artifact/GDGfHTP6UzXPAv3v8YoSzm> |
 | + | Evidence library (claims, studies, verification) and a catalogue of datasets to download, as JSON, CSV, RIS, BibTeX and Markdown | [data/](data/) |
+| + | **iPhone app** (Expo SDK 57, React Native): sign-up, food with barcode and QR scanning (Open Food Facts), training with the evidence gate, readiness from Apple Health, history, evidence library | [apps/mobile/](apps/mobile/) |
+| + | **App Store package**: listing text, privacy policy, privacy and age-rating answers, review notes, screenshots, and the release steps | [app-store/](app-store/) |
 
 ## The decisions that shape everything else
 

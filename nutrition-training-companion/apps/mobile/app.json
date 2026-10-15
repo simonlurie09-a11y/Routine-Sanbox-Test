@@ -10,7 +10,6 @@
     "backgroundColor": "#ffffff",
     "ios": {
       "bundleIdentifier": "com.example.companion",
-      "buildNumber": "1",
       "supportsTablet": false,
       "icon": "./assets/images/icon.png",
       "infoPlist": {
