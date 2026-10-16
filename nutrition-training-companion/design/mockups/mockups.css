@@ -1,0 +1,269 @@
+/* Layout for the mockup page only. Every value is a design-system token; the
+   phone frame itself (390 × 844, 47/34 px safe areas) is presentation, not UI. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  background: var(--canvasParchment);
+  font-family: var(--font-sans);
+  color: var(--ink);
+}
+p,
+h1,
+h2,
+h3,
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+
+.sheet-page {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--spacing-xxl);
+  padding: var(--spacing-xxl);
+}
+.frame {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* The phone ------------------------------------------------------------- */
+.phone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 390px;
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  overflow: hidden;
+}
+.phone--fixed {
+  height: 844px;
+}
+.phone--dark {
+  background: var(--surfaceBlack);
+}
+.safe-top {
+  height: 47px;
+  flex: none;
+}
+.safe-bottom {
+  height: 34px;
+  flex: none;
+}
+/* Mockups are full-length: let the collapsing header grow instead of scrolling. */
+.phone .ads-header {
+  height: auto;
+  overflow: visible;
+}
+.phone .ads-header__scroll {
+  height: auto;
+  overflow: visible;
+}
+.phone .ads-sheet-wrap {
+  padding-bottom: calc(34px + var(--spacing-sm));
+}
+/* Overlays sit above the pinned header bar (z-index 2 in the bundle). */
+.phone > .ads-scrim,
+.phone > .ads-sheet-wrap {
+  z-index: 3;
+}
+
+/* Layout helpers on the spacing scale ----------------------------------- */
+.gutter {
+  padding-left: var(--spacing-xl);
+  padding-right: var(--spacing-xl);
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+.stack-sm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+.stack-xs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxl);
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+.row--between {
+  justify-content: space-between;
+}
+.row--top {
+  align-items: flex-start;
+}
+.row--wrap {
+  flex-wrap: wrap;
+}
+.grow {
+  flex: 1;
+  min-width: 0;
+}
+.spacer {
+  flex: 1;
+  min-height: var(--spacing-xl);
+}
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+.hairline-top {
+  border-top: 1px solid var(--hairline);
+  padding-top: var(--spacing-md);
+}
+.surface-parchment {
+  background: var(--canvasParchment);
+  padding: var(--spacing-xl);
+}
+
+/* Dashboard hero (fixed, does not collapse) ----------------------------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-base);
+}
+.icon-btn {
+  display: inline-flex;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+}
+.link {
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  text-decoration: none;
+  font: inherit;
+}
+
+/* Rows of label + value, separated by hairlines ------------------------- */
+.facts > li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+  border-top: 1px solid var(--dividerSoft);
+}
+.facts > li:first-child {
+  border-top: none;
+}
+
+/* Grouped rows with a second line (built on the bundle's .ads-group) ---- */
+.ads-group__row.row--stacked {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--spacing-xs);
+}
+
+/* Imagery placeholder ---------------------------------------------------- */
+.photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  background: var(--canvasParchment);
+  border-radius: var(--radius-xl);
+  -webkit-corner-smoothing: 60%;
+  corner-shape: squircle;
+}
+
+/* Camera screen (true void: surfaceBlack) ------------------------------- */
+.round-ctrl {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--chipTranslucent) 64%, transparent);
+  color: var(--onDark);
+}
+.viewfinder {
+  position: relative;
+  width: 280px;
+  height: 168px;
+  margin: 0 auto;
+}
+.viewfinder span {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-color: var(--onDark);
+  border-style: solid;
+  border-width: 0;
+}
+.viewfinder .tl { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; border-top-left-radius: var(--radius-md); }
+.viewfinder .tr { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; border-top-right-radius: var(--radius-md); }
+.viewfinder .bl { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; border-bottom-left-radius: var(--radius-md); }
+.viewfinder .br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: var(--radius-md); }
+
+/* Switch: the platform control, tinted primary --------------------------- */
+.switch {
+  position: relative;
+  flex: none;
+  width: 51px;
+  height: 31px;
+  padding: 0;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill);
+  background: var(--hairline);
+}
+.switch::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 27px;
+  height: 27px;
+  border-radius: var(--radius-pill);
+  background: var(--canvas);
+}
+.switch[aria-checked='true'] {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.switch[aria-checked='true']::after {
+  left: 21px;
+}
+
+/* Selectable option card leading icon goes ink -> primary ---------------- */
+.option {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--spacing-base);
+}
