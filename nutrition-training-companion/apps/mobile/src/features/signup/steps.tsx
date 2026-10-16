@@ -182,7 +182,7 @@ export function Consent({ ans, set, go, back }: StepProps) {
       onBack={back} footer={<Primary label="Continue" onPress={next} />}>
       <Check checked={ans.agreed} onChange={(on) => { set({ agreed: on }); if (on) setNudge(false); }}
         label="I agree to Companion storing my food, training and health data on this iPhone to run the app"
-        detail="That's the food you log, your training and workouts, your answers about your health and body, and your targets. It stays on this iPhone, encrypted by iOS, and nobody else sees it, not even us. Required. To withdraw, delete your data in Settings, or delete the app."
+        detail="That's the food you log, your training and workouts, your answers about your health and body, and your targets. It stays on this iPhone (and in your own iPhone backups), encrypted by iOS, and nobody else sees it, not even us. Required. To withdraw, delete your data in Settings, or delete the app."
         error={nudge && !ans.agreed ? 'Tick this to continue.' : null} />
       <Caption>Companion never uploads your data and has no ads or analytics. You can export a copy any time in Settings.</Caption>
     </FormPage>
