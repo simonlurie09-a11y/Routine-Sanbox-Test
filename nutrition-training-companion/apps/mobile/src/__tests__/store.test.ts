@@ -46,6 +46,18 @@ describe('store and evidence gate', () => {
     A.saveSplitEdit(getState().split!.versions[0].definition, 'my edit');
     expect(A.acceptRecommendation(id)).toEqual({ ok: false, reason: 'superseded' });
   });
+  it('saves why a suggestion was withdrawn at Apply', () => {
+    A.completeSetup('health');
+    A.updateProfile({ goal: 'muscle_gain' });
+    A.chooseSplit('sample');
+    const draft = M.evaluateChange(intent('I want a bigger back'), getState(), {});
+    const id = A.createRecommendation(draft, {});
+    useApp.setState((s) => ({ setup: { ...s.setup, health: false } }));
+    expect(A.acceptRecommendation(id)).toEqual({ ok: false, reason: 'needs_health' });
+    const rec = getState().recommendations.find((r) => r.id === id)!;
+    expect(rec.status).toBe('withdrawn');
+    expect(rec.withdrawnReason).toBe('needs_health');
+  });
   it('pregnancy pauses training suggestions', () => {
     A.completeSetup('health');
     A.updateProfile({ goal: 'muscle_gain', safetyFlags: ['pregnancy'] });

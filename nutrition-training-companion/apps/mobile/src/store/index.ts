@@ -196,11 +196,11 @@ export const A = {
       set((s) => ({ recommendations: s.recommendations.map((r) => (r.id === id ? { ...r, status, decidedAt: Date.now(), ...(extra || {}) } : r)) }));
     const claim = M.claimByKey(rec.claimKey);
     if (!claim || claim.status !== 'active' || M.verifiedSourcesFor(claim).length < M.REQUIRED_SOURCES) {
-      mark('withdrawn');
+      mark('withdrawn', { withdrawnReason: 'gate_failed' });
       return { ok: false, reason: 'gate_failed' };
     }
     if (state.setup.health === false) {
-      mark('withdrawn');
+      mark('withdrawn', { withdrawnReason: 'needs_health' });
       return { ok: false, reason: 'needs_health' };
     }
     if (rec.kind === 'target_change') {

@@ -69,6 +69,7 @@ export function reasonLine(rec: Recommendation): string | null {
   if (rec.status === 'superseded') {
     return target ? 'Your targets changed before you applied it, so we left it.' : 'Your split changed before you applied it, so we left it.';
   }
+  if (rec.status === 'withdrawn' && rec.withdrawnReason === 'needs_health') return 'We needed your health and safety answers first, so we withdrew it.';
   if (rec.status === 'withdrawn') return 'Its studies no longer passed our checks, so we withdrew it.';
   if (rec.status === 'expired') return 'It expired before you decided.';
   return rec.reason || null;

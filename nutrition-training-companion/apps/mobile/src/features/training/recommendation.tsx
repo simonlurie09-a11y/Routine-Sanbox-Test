@@ -311,8 +311,9 @@ export function ClosedView({ s, rec }: { s: AppState; rec: Recommendation }) {
       ? 'Your target changed after we made this suggestion, so we didn’t apply it. Ask again and we’ll check your current target.'
       : 'Your split changed after we made this suggestion, so we didn’t apply it. Nothing changed. Ask again and we’ll check your current split.';
     primary = <Button label="Ask again" onPress={() => askAgain(rec)} />;
-  } else if (rec.status === 'withdrawn' && evidenceStillHolds(rec)) {
-    /* Withdrawn at Apply for another reason: the health answers were missing (the store re-checks them too). */
+  } else if (rec.status === 'withdrawn' && (rec.withdrawnReason ? rec.withdrawnReason === 'needs_health' : evidenceStillHolds(rec))) {
+    /* Withdrawn at Apply because the health answers were missing. The store saves why; suggestions saved before
+       it did fall back to checking whether the evidence still holds. */
     line = !isDone(s, 'health')
       ? `We need your health and safety answers before we change anything, so we withdrew it. Nothing in ${what} changed.`
       : `We withdrew it when you tried to apply it, so nothing in ${what} changed. Ask again and we’ll check it against your current details.`;

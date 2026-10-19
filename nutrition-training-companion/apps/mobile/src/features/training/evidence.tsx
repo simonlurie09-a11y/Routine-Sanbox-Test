@@ -32,7 +32,7 @@ function SourceLink({ href, text }: { href: string; text: string }) {
     <Pressable accessibilityRole="link" accessibilityLabel={`Open ${text}`} accessibilityHint="Opens the study in your browser"
       onPress={() => openLink(href)} hitSlop={8}
       style={({ pressed }) => ({ flexDirection: 'row', alignItems: 'center', gap: spacing.xs, minHeight: 44, alignSelf: 'flex-start', maxWidth: '100%', opacity: pressed ? 0.6 : 1 })}>
-      <Icon name="link" size={16} color="primary" />
+      <View style={{ flexShrink: 0 }}><Icon name="link" size={16} color="primary" /></View>
       <T size="caption" color="primary" style={{ flexShrink: 1 }}>{text}</T>
     </Pressable>
   );
@@ -51,7 +51,8 @@ export function CitationCard({ source, role = 'supports' }: { source: Source; ro
         {source.design ? <Caption>{source.design}</Caption> : null}
       </Stack>
       <T size="callout">{`${source.title.replace(/\.$/, '')}.`}</T>
-      <Caption>{`${source.authors}. ${source.journal} ${source.citation}.`}</Caption>
+      {/* Some author lists and citations in the library already end with a full stop. */}
+      <Caption>{`${source.authors.replace(/\.$/, '')}. ${source.journal} ${source.citation.replace(/\.$/, '')}.`}</Caption>
       {source.found ? (
         <Stack gap="xs">
           <T size="callout" weight="semiBold">What it found</T>
@@ -79,6 +80,8 @@ export function CitationCard({ source, role = 'supports' }: { source: Source; ro
 
 export function ClaimCard({ claim, verifiedCount, required = 3, label = 'The claim' }: { claim: Claim; verifiedCount: number; required?: number; label?: string }) {
   const enough = verifiedCount >= required;
+  /* A draft claim can have enough verified studies and still be under review: it isn't used until it's active. */
+  const usable = enough && claim.status === 'active';
   return (
     <Card>
       <Caption>{label}</Caption>
@@ -86,11 +89,13 @@ export function ClaimCard({ claim, verifiedCount, required = 3, label = 'The cla
       {claim.population ? <Caption color="inkMuted80">{`Who the studies covered: ${claim.population}`}</Caption> : null}
       <HairlineTop>
         <Row>
-          <Icon name="checkmark.seal.fill" size={18} color={enough ? 'primary' : 'inkMuted48'} />
+          <Icon name="checkmark.seal.fill" size={18} color={usable ? 'primary' : 'inkMuted48'} />
           <T size="caption" color="inkMuted80" style={{ flex: 1 }}>
-            {enough
+            {usable
               ? `${verifiedCount} verified ${verifiedCount === 1 ? 'study' : 'studies'}. We need at least ${required}.`
-              : `${verifiedCount} of the ${required} verified studies we need`}
+              : enough
+                ? `${verifiedCount} verified ${verifiedCount === 1 ? 'study' : 'studies'}, but the claim is still under review, so the app doesn’t use it yet.`
+                : `${verifiedCount} of the ${required} verified studies we need`}
           </T>
         </Row>
       </HairlineTop>
