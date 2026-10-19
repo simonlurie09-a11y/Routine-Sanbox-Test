@@ -26,7 +26,9 @@ export default function SplitDayScreen() {
   }
   const minutes = dayMinutes(day);
   const totalSets = day.items.reduce((acc, it) => acc + it.sets, 0);
-  const subtitle = day.weekday != null ? `${weekdayName(day.weekday)}, about ${minutes} min` : `About ${minutes} min`;
+  /* An empty day has only the warm-up, so no time is shown for it. */
+  const subtitle = !day.items.length ? (day.weekday != null ? weekdayName(day.weekday) : null)
+    : day.weekday != null ? `${weekdayName(day.weekday)}, about ${minutes} min` : `About ${minutes} min`;
   const edit = () => router.push({ pathname: '/training/edit', params: { dayKey: day.key } });
   return (
     <Screen title={day.label} subtitle={subtitle}>

@@ -25,7 +25,7 @@ export default function Settings() {
   const dev = s.devices.apple_health;
   const health = dev.status === 'active'
     ? (dev.lastSync ? `Connected. Last synced ${whenText(dev.lastSync)}.` : 'Connected.')
-    : dev.status === 'pending' ? 'Connecting…' : 'Not connected. Sleep, HRV and resting heart rate, for readiness.';
+    : 'Not connected. Sleep, HRV and resting heart rate, for readiness.';
   const activeClaims = (D.CLAIMS as { status: string }[]).filter((c) => c.status === 'active').length;
   return (
     <Screen title="Settings">

@@ -13,5 +13,5 @@ export default function RecommendationScreen() {
   if (rec.status === 'proposed') return <ProposedView s={s} rec={rec} />;
   if (rec.status === 'accepted') return <AcceptedView s={s} rec={rec} />;
   if (/^blocked_/.test(rec.status)) return <BlockedView s={s} rec={rec} />;
-  return <ClosedView rec={rec} />;
+  return <ClosedView s={s} rec={rec} />;
 }

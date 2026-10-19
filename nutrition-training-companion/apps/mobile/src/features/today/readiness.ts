@@ -90,8 +90,12 @@ export function sourceLine(r: Readiness): string | null {
   return r.syncedAt ? `From ${r.providerName}. Last synced ${whenText(r.syncedAt)}.` : `From ${r.providerName}.`;
 }
 
-/* Keep a unit on the same line as its number ("51 ± 4 ms"). */
-export const keepUnits = (str: string) => String(str).replace(/ (ms|bpm|min|kcal|g)\b/g, ' $1').replace(/ ± /g, ' ± ');
+/* Keep a unit on the same line as its number ("51 ± 4 ms"), and a duration
+   in one piece ("7 h 17 min"), with no-break spaces. */
+export const keepUnits = (str: string) => String(str)
+  .replace(/ (ms|bpm|min|kcal|g)\b/g, '\u00a0$1')
+  .replace(/ ± /g, '\u00a0±\u00a0')
+  .replace(/(\d) h (\d)/g, '$1\u00a0h\u00a0$2');
 
 export const LEVEL_TEXT: Record<Effect, string> = {
   normal: "Last night's numbers are within your usual range.",

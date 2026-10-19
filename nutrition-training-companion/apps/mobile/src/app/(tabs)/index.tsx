@@ -8,7 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { SetupCard } from '@/features/setup';
 import { isTargetRec, verifiedCount } from '@/features/shared';
-import { HealthSourceRows, openAddFood, ReadinessHeader, UnknownReadinessCard, useNow } from '@/features/today/components';
+import { HealthSourceRows, openAddFood, ReadinessHeader, UnknownReadinessCard, useNow, WrapGauge } from '@/features/today/components';
 import { keepUnits, readinessOf, sourceLine } from '@/features/today/readiness';
 import { domain as M } from '@/shared';
 import { S, useApp, type AppState, type Recommendation, type TargetKey } from '@/store';
@@ -30,12 +30,13 @@ const kcalText = (v: number) => M.fmt.kcal(v) as string;
 const gramText = (v: number) => `${M.fmt.int(v)} g`;
 
 /* Over target, the value says how much over; the gauge stays primary and full.
-   No target yet: the total, the name, and an empty gauge. */
+   No targets at all yet: the total, the name and an empty gauge (the "Set your
+   targets" link sits under the grid). One target missing: "…, no target set". */
 function nutrientGauge(key: TargetKey, name: string, totals: Record<string, number>, targets: AppState['targets'], unit: 'kcal' | 'g'): Gauge {
   const total = totals[key] || 0;
   const target = targets[key];
   const fmtV = unit === 'kcal' ? kcalText : gramText;
-  if (!target) return { key, value: fmtV(total), label: name, pct: 0 };
+  if (!target) return { key, value: fmtV(total), label: targets.energyKcal == null ? name : `${name}, no target set`, pct: 0 };
   const over = Math.round(total) - Math.round(target);
   return {
     key,
@@ -63,13 +64,14 @@ function NutritionSection({ s }: { s: AppState }) {
     nutrientGauge('carbohydrateG', 'Carbs', totals, s.targets, 'g'),
     nutrientGauge('fatG', 'Fat', totals, s.targets, 'g'),
     nutrientGauge('fiberG', 'Fibre', totals, s.targets, 'g'),
-    def
-      ? { key: 'workouts', value: `${sessions} of ${planned}`, label: 'Workouts, last 7 days', pct: planned ? Math.min(1, sessions / planned) : 0 }
+    /* No split, or one with no days yet: just the count. */
+    planned
+      ? { key: 'workouts', value: `${sessions} of ${planned}`, label: 'Workouts, last 7 days', pct: Math.min(1, sessions / planned) }
       : { key: 'workouts', value: String(sessions), label: 'Workouts, last 7 days', pct: 0 }
   ];
   return (
     <Stack gap="sm">
-      <Grid2>{gauges.map((g) => <StatGauge key={g.key} value={g.value} label={g.label} pct={g.pct} />)}</Grid2>
+      <Grid2>{gauges.map((g) => <WrapGauge key={g.key} value={g.value} label={g.label} pct={g.pct} />)}</Grid2>
       {!S.hasTargets(s) ? (
         <Row wrap gap="xs">
           <Caption>No daily targets yet.</Caption>
@@ -130,7 +132,7 @@ function TrainingSection({ s }: { s: AppState }) {
   const done = M.groupVolume(S.weekDoneVolume(s)) as Record<string, number>;
   const groups = GROUPS.filter((g) => Math.round(planned[g] || 0) > 0 || Math.round(done[g] || 0) > 0);
   return (
-    <Section title="Training this week" caption="Sets done in the last 7 days, of the sets in your plan.">
+    <Section title="Training this week" caption={groups.length ? 'Sets done in the last 7 days, of the sets in your plan.' : null}>
       {groups.length ? (
         <Grid2>{groups.map((g) => {
           const p = Math.round(planned[g] || 0);

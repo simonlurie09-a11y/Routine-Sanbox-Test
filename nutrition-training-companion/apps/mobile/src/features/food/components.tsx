@@ -109,7 +109,7 @@ export function AmountStepper({ value, onChange, unit, step = 10, max = 2000, la
       <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: spacing.xxs, minWidth: 76, justifyContent: 'center' }}>
         <TextInput value={text} onChangeText={typed} onBlur={() => setText(num(value))} keyboardType="decimal-pad" selectTextOnFocus
           accessibilityLabel={`${label} in ${unit === 'ml' ? 'millilitres' : 'grams'}`} maxLength={6}
-          style={[textStyle('body', 'semiBold'), { color: colors.ink, textAlign: 'right', minWidth: 36, paddingVertical: spacing.xs, fontVariant: ['tabular-nums'],
+          style={[textStyle('body', 'semiBold'), { color: colors.ink, textAlign: 'right', width: 64, paddingVertical: spacing.xs, fontVariant: ['tabular-nums'],
             borderBottomWidth: 1, borderBottomColor: colors.hairline }]} />
         <T size="body" weight="semiBold">{unit}</T>
       </View>

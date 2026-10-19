@@ -238,7 +238,9 @@ function Editor({ base, baseNumber, dayKeyParam, removeId }: { base: SplitDefini
         {unnamed || duplicate ? <T size="caption" color="danger">Give every day its own name before you save.</T> : null}
       </Section>
 
-      <Input label="Note (optional)" value={note} placeholder={ops.length ? summary : 'What changed and why'} onChangeText={setNote} />
+      {/* The prototype shows the summary as the placeholder; a long one would be cut off in the field, so it's the hint. */}
+      <Input label="Note (optional)" value={note} placeholder="What changed and why" onChangeText={setNote}
+        hint={ops.length && !note.trim() ? `If you leave it empty, the note says: ${summary}` : null} />
     </FormPage>
   );
 }

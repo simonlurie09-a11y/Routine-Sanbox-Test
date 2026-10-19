@@ -16,8 +16,14 @@ import {
   targetChange, verifiedStudies, longDate, type Claim, type Proposal
 } from './helpers';
 import { isTargetRec } from '@/features/shared';
+import { isDone } from '@/features/setup';
 
 const REQUIRED = M.REQUIRED_SOURCES as number;
+/* The claim still passes the gate, so a withdrawal wasn't about the evidence. */
+const evidenceStillHolds = (rec: Recommendation) => {
+  const claim = rec.claimKey ? (M.claimByKey(rec.claimKey) as Claim | null) : null;
+  return !!claim && claim.status === 'active' && (M.verifiedSourcesFor(claim) as unknown[]).length >= REQUIRED;
+};
 
 /* "You asked" card with the status word and date (mockup: Not enough evidence). */
 function YouAsked({ rec }: { rec: Recommendation }) {
@@ -248,7 +254,7 @@ export function BlockedView({ s, rec }: { s: AppState; rec: Recommendation }) {
     actions = <><Button label="Answer the health questions" onPress={() => router.push('/setup/health')} />{keep}</>;
     caption = `They take about a minute. Until then, ${target ? 'your targets stay as they are' : 'your split stays as it is'}. ${own}`;
   } else if (rec.status === 'blocked_constraints' && rec.needs === 'split') {
-    answer = <EmptyAnswer icon="list.bullet" title="Set up your split first" body={rec.reason} />;
+    answer = <EmptyAnswer icon="list.bullet" title="We need your split first" body={rec.reason} />;
     actions = noSplit
       ? <><Button label="Choose a split" onPress={() => router.push('/setup/split')} />{keep}</>
       : <><Button label="Add days to your split" onPress={editMyself} />{keep}</>;
@@ -287,7 +293,7 @@ export function BlockedView({ s, rec }: { s: AppState; rec: Recommendation }) {
 
 /* --------------------------------------------------------------- closed */
 /* Declined, replaced and withdrawn suggestions: what happened and what next. */
-export function ClosedView({ rec }: { rec: Recommendation }) {
+export function ClosedView({ s, rec }: { s: AppState; rec: Recommendation }) {
   const when = rec.decidedAt ? longDate(rec.decidedAt) : null;
   const target = isTargetRec(rec);
   const what = target ? 'your targets' : 'your split';
@@ -305,6 +311,14 @@ export function ClosedView({ rec }: { rec: Recommendation }) {
       ? 'Your target changed after we made this suggestion, so we didn’t apply it. Ask again and we’ll check your current target.'
       : 'Your split changed after we made this suggestion, so we didn’t apply it. Nothing changed. Ask again and we’ll check your current split.';
     primary = <Button label="Ask again" onPress={() => askAgain(rec)} />;
+  } else if (rec.status === 'withdrawn' && evidenceStillHolds(rec)) {
+    /* Withdrawn at Apply for another reason: the health answers were missing (the store re-checks them too). */
+    line = !isDone(s, 'health')
+      ? `We need your health and safety answers before we change anything, so we withdrew it. Nothing in ${what} changed.`
+      : `We withdrew it when you tried to apply it, so nothing in ${what} changed. Ask again and we’ll check it against your current details.`;
+    primary = !isDone(s, 'health')
+      ? <Button label="Answer the health questions" onPress={() => router.push('/setup/health')} />
+      : <Button label="Ask again" onPress={() => askAgain(rec)} />;
   } else if (rec.status === 'withdrawn') {
     line = `It no longer had ${verifiedStudies(REQUIRED)} behind it, so we withdrew it. Nothing in ${what} changed.`;
     primary = target

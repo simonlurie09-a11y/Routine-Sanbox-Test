@@ -3,7 +3,8 @@
    (a change would go through the evidence gate, and its claim is a draft, so
    nothing changes), the last 7 nights, and where the data comes from. */
 import { router } from 'expo-router';
-import { View } from 'react-native';
+import { useState } from 'react';
+import { View, type LayoutChangeEvent } from 'react-native';
 
 import {
   HealthLink, HealthSourceRows, ReadinessHeader, RelatedEvidence, UnknownReadinessCard
@@ -61,8 +62,8 @@ function NoReadiness({ s }: { s: AppState }) {
   }
   return (
     <EmptyAnswer icon="bed.double" title="No nights yet" body={missingReadinessText(s)}>
-      <Caption>{healthSettingsHint}</Caption>
-      <HealthLink dev={dev} />
+      <T size="caption" color="inkMuted48" align="center">{healthSettingsHint}</T>
+      <HealthLink dev={dev} align="center" />
     </EmptyAnswer>
   );
 }
@@ -102,8 +103,15 @@ function TodaysTrainingCard({ s, r }: { s: AppState; r: Readiness }) {
 
 /* Last 7 nights from Apple Health: the metrics readiness used (or, while the
    baseline is still building, the ones it has sent), and the person's usual.
-   Laid out column by column so the numbers line up; read as one row per night. */
+   One row per night; each number column takes the width of its widest cell
+   (measured), so the numbers line up, and a night label may wrap ("Your
+   usual" on two lines). When even one word of a label wouldn't fit beside the
+   columns (a narrow phone, or larger text), each night is stacked instead:
+   its name, then its numbers. */
 function LastNights({ s, r }: { s: AppState; r: Readiness }) {
+  const [colWidth, setColWidth] = useState<Record<string, number>>({});
+  const [labelWidth, setLabelWidth] = useState(0);
+  const [tableWidth, setTableWidth] = useState(0);
   const series = healthSeries(s);
   const dev = s.devices.apple_health;
   const known = r.level !== 'unknown';
@@ -127,28 +135,62 @@ function LastNights({ s, r }: { s: AppState; r: Readiness }) {
   const spoken = nights.map((n) => `${nightLabel(n)}: ${metrics.map((m) => `${SPOKEN_LABEL[m]} ${at(m, n) === '—' ? 'no reading' : at(m, n)}`).join(', ')}.`)
     .concat(known ? [`Your usual: ${metrics.map((m) => `${SPOKEN_LABEL[m]} ${usual(m)}`).join(', ')}.`] : []).join(' ');
 
-  const cell = (key: string, text: string, o: { first?: boolean; header?: boolean; bold?: boolean; right?: boolean }) => (
-    <View key={key} style={{ paddingVertical: spacing.sm, paddingLeft: o.right ? spacing.md : 0, borderTopWidth: o.first ? 0 : 1, borderTopColor: colors.dividerSoft }}>
-      <T size={o.header ? 'caption' : 'callout'} color={o.header ? 'inkMuted48' : !o.right && !o.bold ? 'inkMuted80' : 'ink'}
-        weight={o.bold ? 'semiBold' : undefined} align={o.right ? 'right' : 'left'} tabular={o.right} numberOfLines={1}>{text}</T>
+  const fit = (m: string) => (e: LayoutChangeEvent) => {
+    const w = Math.ceil(e.nativeEvent.layout.width);
+    setColWidth((prev) => ((prev[m] || 0) >= w ? prev : { ...prev, [m]: w }));
+  };
+  const measured = tableWidth > 0 && labelWidth > 0 && metrics.every((m) => colWidth[m]);
+  const stacked = measured && labelWidth + metrics.reduce((sum, m) => sum + colWidth[m], 0) > tableWidth;
+
+  const line = (key: string, label: string, values: string[], o: { first?: boolean; header?: boolean; bold?: boolean }) => (
+    <View key={key} style={{ flexDirection: 'row', alignItems: 'flex-start', paddingVertical: spacing.sm, borderTopWidth: o.first ? 0 : 1, borderTopColor: colors.dividerSoft }}>
+      <View style={{ flex: 1, minWidth: 0 }}>
+        <T size={o.header ? 'caption' : 'callout'} color={o.header ? 'inkMuted48' : o.bold ? 'ink' : 'inkMuted80'} weight={o.bold ? 'semiBold' : undefined}>{label}</T>
+      </View>
+      {metrics.map((m, i) => (
+        <View key={m} onLayout={fit(m)} style={{ minWidth: colWidth[m], paddingLeft: spacing.md }}>
+          <T size={o.header ? 'caption' : 'callout'} color={o.header ? 'inkMuted48' : 'ink'} weight={o.bold ? 'semiBold' : undefined}
+            align="right" tabular={!o.header} numberOfLines={1}>{values[i]}</T>
+        </View>
+      ))}
+    </View>
+  );
+  /* The stacked form: "Last night", then "HRV 55 ms   Resting HR 54 bpm   Sleep 6 h 10 min". */
+  const block = (key: string, label: string, values: string[], o: { first?: boolean; bold?: boolean }) => (
+    <View key={key} style={{ gap: spacing.xxs, paddingVertical: spacing.sm, borderTopWidth: o.first ? 0 : 1, borderTopColor: colors.dividerSoft }}>
+      <T size="callout" color={o.bold ? 'ink' : 'inkMuted80'} weight={o.bold ? 'semiBold' : undefined}>{label}</T>
+      <Row wrap gap="md" style={{ rowGap: 0 }}>
+        {metrics.map((m, i) => (
+          <T key={m} size="callout" weight={o.bold ? 'semiBold' : undefined} tabular>
+            <T size="caption" color="inkMuted48">{`${COLUMN_LABEL[m]} `}</T>{values[i]}
+          </T>
+        ))}
+      </Row>
     </View>
   );
   return (
     <Section title="Last 7 nights" caption={caption}>
       <Card>
-        <View accessible accessibilityLabel={`Last 7 nights. ${spoken}`} style={{ flexDirection: 'row' }}>
-          <View style={{ flex: 1, minWidth: 0 }}>
-            {cell('h', 'Night', { first: true, header: true })}
-            {nights.map((n) => cell(`n${n}`, nightLabel(n), {}))}
-            {known ? cell('u', 'Your usual', { bold: true }) : null}
-          </View>
-          {metrics.map((m) => (
-            <View key={m}>
-              {cell('h', COLUMN_LABEL[m], { first: true, header: true, right: true })}
-              {nights.map((n) => cell(`n${n}`, at(m, n), { right: true }))}
-              {known ? cell('u', usual(m), { bold: true, right: true }) : null}
-            </View>
-          ))}
+        {/* The widest word of the night labels, at its natural width, to choose the layout. */}
+        <View pointerEvents="none" accessibilityElementsHidden importantForAccessibility="no-hide-descendants"
+          onLayout={(e) => setLabelWidth(Math.ceil(e.nativeEvent.layout.width))}
+          style={{ position: 'absolute', opacity: 0, alignItems: 'flex-start' }}>
+          {['Night', 'Last', 'night', 'Wed'].map((w) => <T key={w} size="callout">{w}</T>)}
+          {['Your', 'usual'].map((w) => <T key={w} size="callout" weight="semiBold">{w}</T>)}
+        </View>
+        <View accessible accessibilityLabel={`Last 7 nights. ${spoken}`} onLayout={(e) => setTableWidth(Math.floor(e.nativeEvent.layout.width))}>
+          {stacked ? (
+            <>
+              {nights.map((n) => block(`n${n}`, nightLabel(n), metrics.map((m) => at(m, n)), { first: n === 0 }))}
+              {known ? block('u', 'Your usual', metrics.map((m) => usual(m)), { bold: true }) : null}
+            </>
+          ) : (
+            <>
+              {line('h', 'Night', metrics.map((m) => COLUMN_LABEL[m]), { first: true, header: true })}
+              {nights.map((n) => line(`n${n}`, nightLabel(n), metrics.map((m) => at(m, n)), {}))}
+              {known ? line('u', 'Your usual', metrics.map((m) => usual(m)), { bold: true }) : null}
+            </>
+          )}
         </View>
       </Card>
     </Section>

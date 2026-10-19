@@ -1,11 +1,12 @@
 /* Pieces Today, Recovery and How readiness works share (builder B). */
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { AppState as RNAppState } from 'react-native';
+import { AppState as RNAppState, View } from 'react-native';
 
 import { data as D, domain as M } from '@/shared';
 import type { AppState, Device } from '@/store';
-import { Badge, Callout, Card, CardTitle, LinkButton, overlay, Row, Rows, Section } from '@/ui';
+import { colors, curve, radius, spacing } from '@/theme';
+import { Badge, Callout, Card, CardTitle, LinkButton, overlay, Row, Rows, Section, T } from '@/ui';
 import { isConnected, missingReadinessText, syncLine, type Readiness } from './readiness';
 
 /* The time now, refreshed whenever the screen comes into view or the app
@@ -31,10 +32,10 @@ export function ReadinessHeader({ level }: { level: Readiness['level'] }) {
 }
 
 /* The link under an unknown readiness: connect, or see what Health shares. */
-export function HealthLink({ dev }: { dev: Device | undefined }) {
+export function HealthLink({ dev, align }: { dev: Device | undefined; align?: 'center' }) {
   return isConnected(dev)
-    ? <LinkButton label="See what Apple Health shares" onPress={() => router.push('/apple-health')} />
-    : <LinkButton label="Connect Apple Health" onPress={() => router.push('/apple-health')} />;
+    ? <LinkButton label="See what Apple Health shares" align={align} onPress={() => router.push('/apple-health')} />
+    : <LinkButton label="Connect Apple Health" align={align} onPress={() => router.push('/apple-health')} />;
 }
 
 /* Readiness is unknown: the badge, the missing data in one sentence, and the fix. */
@@ -93,9 +94,28 @@ export function openAddFood() {
     title: 'Add food',
     options: [
       { label: 'Scan a barcode', onPress: () => router.push('/scanner') },
-      { label: 'Search foods', onPress: () => router.push('/food/search') },
       { label: 'Add a food from its label', onPress: () => router.push('/food/new') },
+      { label: 'Search foods', onPress: () => router.push('/food/search') },
       { label: 'Quick add calories', onPress: () => router.push('/food/quick-add') }
     ]
   });
+}
+
+/* The design system's StatGauge, with a value that may wrap to a second line
+   ("412 g, 152 over" doesn't fit half a phone's width on one line). It fills
+   its Grid2 cell, so the two gauges in a row stay the same height with their
+   bars on one line. Used for today's food, where over-target values get long. */
+export function WrapGauge({ value, label, pct }: { value: string; label: string; pct: number }) {
+  const p = Math.max(0, Math.min(1, pct || 0));
+  return (
+    <View accessible accessibilityLabel={`${value}. ${label}`} style={{ flex: 1, minWidth: 0, gap: spacing.sm, padding: spacing.base, backgroundColor: colors.canvasParchment, borderRadius: radius.lg, ...curve }}>
+      <View style={{ flex: 1, gap: spacing.sm }}>
+        <T size="headline" weight="semiBold" tabular numberOfLines={2}>{value}</T>
+        <T size="caption" color="inkMuted80" numberOfLines={2}>{label}</T>
+      </View>
+      <View style={{ height: 6, borderRadius: 3, backgroundColor: colors.hairline, overflow: 'hidden' }}>
+        <View style={{ width: `${Math.round(p * 100)}%`, height: '100%', borderRadius: 3, backgroundColor: colors.primary }} />
+      </View>
+    </View>
+  );
 }

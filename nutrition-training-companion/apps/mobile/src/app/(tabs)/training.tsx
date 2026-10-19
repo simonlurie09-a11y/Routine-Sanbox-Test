@@ -4,9 +4,9 @@
 import { router } from 'expo-router';
 
 import { SetupCard } from '@/features/setup';
-import { RecBadge, isTargetRec, plural } from '@/features/shared';
+import { RecBadge, isTargetRec, plural, verifiedCount } from '@/features/shared';
 import {
-  MUSCLES, WEEK_ORDER, dayMinutes, dayTitle, hasExercises, isFromReview, nextVersionNumber, shownSources, sortedDays,
+  MUSCLES, WEEK_ORDER, dayMinutes, dayTitle, isFromReview, nextVersionNumber, sortedDays,
   uniq, verifiedStudies, weekdayName
 } from '@/features/training/helpers';
 import { domain as M } from '@/shared';
@@ -16,7 +16,7 @@ import {
 } from '@/ui';
 
 function SuggestionCard({ s, rec }: { s: AppState; rec: Recommendation }) {
-  const n = shownSources(rec).length;
+  const n = verifiedCount(rec);
   const split = s.split;
   const stale = !!split && rec.fromVersion != null && rec.fromVersion !== split.current;
   const footer = isTargetRec(rec) ? 'Your daily targets'

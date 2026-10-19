@@ -2,7 +2,7 @@
    the meal, or delete it (with a confirm). A quick add has no weight, so its
    calories are edited instead. */
 import { router, useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { AmountStepper, MealPicker } from '@/features/food/components';
 import { foodHref, isQuickFood, mealLabel, num, parseNumber, str } from '@/features/food/helpers';
@@ -20,6 +20,15 @@ export default function LogEntryRoute() {
   const [grams, setGrams] = useState(entry ? entry.grams : 100);
   const [meal, setMeal] = useState<Meal>(entry ? entry.meal : 'snack');
   const [kcalText, setKcalText] = useState(entry && entry.nutrients.energyKcal != null ? String(Math.round(entry.nutrients.energyKcal)) : '');
+  /* The entry can change under this screen (saved from its food's page): start again from what's stored. */
+  const storedMeal = entry ? entry.meal : null;
+  const storedGrams = entry ? entry.grams : null;
+  const storedKcal = entry ? entry.nutrients.energyKcal : null;
+  useEffect(() => {
+    if (storedMeal) setMeal(storedMeal);
+    if (storedGrams != null) setGrams(storedGrams);
+    setKcalText(storedKcal != null ? String(Math.round(storedKcal)) : '');
+  }, [storedMeal, storedGrams, storedKcal]);
 
   if (!entry) {
     return (

@@ -31,7 +31,7 @@ export default function YourData() {
     message: "Everything you've logged and set up in Companion is deleted from this iPhone, and you'll start again from sign-up. This can't be undone. Your data in Apple Health isn't touched.",
     buttons: [
       { label: 'Cancel', style: 'cancel' },
-      { label: 'Delete everything', style: 'destructive', onPress: erase }
+      { label: 'Delete', style: 'destructive', onPress: erase }
     ]
   });
   return (
@@ -39,7 +39,7 @@ export default function YourData() {
       <Section title="Export your data">
         <Callout>We put everything Companion holds in one JSON file: your profile, food log, your own foods, training, targets and every suggestion with its studies. It includes the disclaimer you agreed to.</Callout>
         <Button label="Export your data" icon="square.and.arrow.up" loading={exporting} onPress={doExport} />
-        <Caption>You choose where it goes: Files, AirDrop or Mail. Data read from Apple Health isn't in it, because Companion doesn't keep it; it stays in the Health app.</Caption>
+        <Caption>You choose where it goes: Files, AirDrop or Mail. Your sleep, HRV and resting heart rate from Apple Health aren't in it: Companion doesn't keep them, and they stay in the Health app.</Caption>
       </Section>
       <Section title="Delete everything">
         <Callout>Companion has no account and no server, so your data is only on this iPhone. Deleting it removes everything at once and takes you back to sign-up. Deleting the app does the same.</Callout>
