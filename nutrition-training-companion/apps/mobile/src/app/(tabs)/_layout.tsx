@@ -21,7 +21,13 @@ export default function TabsLayout() {
   if (!onboarded) return <Redirect href="/sign-up" />;
   if (Platform.OS !== 'ios') {
     return (
-      <Tabs screenOptions={{ headerShown: false, tabBarActiveTintColor: colors.primary, tabBarInactiveTintColor: colors.inkMuted48, tabBarStyle: { backgroundColor: colors.canvas, borderTopColor: colors.hairline } }}>
+      /* Sized like the iPhone's tab bar (49 pt plus the home-indicator area), so previews and store shots match it.
+         Each item pads 5 pt and gives its icon 28 pt; the label gets what's left, so the bar has no top padding. */
+      <Tabs screenOptions={{
+        headerShown: false, tabBarActiveTintColor: colors.primary, tabBarInactiveTintColor: colors.inkMuted48,
+        tabBarStyle: { backgroundColor: colors.canvas, borderTopColor: colors.hairline, height: 83, paddingTop: 0, paddingBottom: 28 },
+        tabBarLabelStyle: { fontSize: 10, lineHeight: 14, height: 14, fontWeight: '500' }
+      }}>
         {TABS.map((t) => (
           <Tabs.Screen key={t.name} name={t.name} options={{ title: t.label, tabBarIcon: ({ focused }) => <Icon name={t.sf} size={22} color={focused ? 'primary' : 'inkMuted48'} /> }} />
         ))}

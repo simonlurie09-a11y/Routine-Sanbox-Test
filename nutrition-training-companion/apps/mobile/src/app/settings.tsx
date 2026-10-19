@@ -18,6 +18,9 @@ export default function Settings() {
   const t = s.targets;
   const done = (key: keyof typeof s.setup) => s.setup[key] !== false;
   const left = remaining(s);
+  /* "health and safety, your training and more" (the titles have their own "and"). */
+  const leftNames = left.slice(0, 2).map((i) => lowerTitle(i.title));
+  const leftText = left.length > 2 ? `${leftNames.join(', ')} and more` : M.listJoin(leftNames);
   const flags = p.safetyFlags.filter((f) => f !== 'clinician_supervised');
   const age = profileAge(p);
   const sexWord = p.sexForEquations !== 'unspecified' ? `, ${p.sexForEquations}` : '';
@@ -31,8 +34,8 @@ export default function Settings() {
     <Screen title="Settings">
       {left.length ? (
         <Rows rows={[{
-          key: 'setup', icon: 'checkmark', iconColor: 'primary', label: 'Finish setting up',
-          detail: `${plural(left.length, 'thing')} left: ${M.listJoin(left.slice(0, 2).map((i) => lowerTitle(i.title)))}${left.length > 2 ? ' and more' : ''}.`,
+          key: 'setup', icon: 'checklist', iconColor: 'primary', label: 'Finish setting up',
+          detail: `${plural(left.length, 'thing')} left: ${leftText}.`,
           onPress: () => router.push('/setup')
         }]} />
       ) : null}

@@ -112,13 +112,19 @@ export default function ScannerRoute() {
     );
   }
   if (result && result.status === 'offline') {
+    /* Open Food Facts answered with an error status: say so. Anything else
+       (no connection, a timeout) gets the plain connection message, never
+       the system's own wording ("Network request failed"). */
+    const serverError = /^Open Food Facts answered \d+/.test(result.message);
     return (
       <Screen left={close}>
-        <EmptyAnswer icon="exclamationmark.triangle" title="We couldn't look this up" body={OFFLINE}>
+        <EmptyAnswer icon="exclamationmark.triangle" title="We couldn't look this up"
+          body={serverError ? "Open Food Facts isn't answering properly right now. Try again in a minute." : OFFLINE}>
           <Button label="Try again" loading={busy} onPress={() => lookUp(result.gtin14, result.qr, result.from)} />
           <Button variant="outline" label={result.from === 'camera' ? 'Scan again' : 'Type another barcode'} onPress={() => again(result.from)} />
-          <T size="caption" color="inkMuted48" align="center" tabular>{barcodeLine(result)}</T>
-          {result.message !== OFFLINE ? <Caption>{result.message}</Caption> : null}
+          <T size="caption" color="inkMuted48" align="center" tabular>
+            {serverError ? `${barcodeLine(result)}. ${result.message}.` : barcodeLine(result)}
+          </T>
         </EmptyAnswer>
       </Screen>
     );

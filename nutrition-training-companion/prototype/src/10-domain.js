@@ -88,6 +88,8 @@
     const serving = food.serving;
     const perServing = (v) => (serving ? (v * serving.grams) / 100 : null);
     const servingNoun = serving ? serving.label.replace(/\s*\(.*\)$/, '').replace(/^1 /, 'one ') : null;
+    /* "2 eggs have", but "one pot has" and "30 g has". */
+    const servingVerb = servingNoun && /^(?!1\s)\d+(\.\d+)?\s+(?!(g|ml|kg|l|oz)\b)\S/i.test(servingNoun) ? 'have' : 'has';
     const dims = [];
     const gaps = [];
 
@@ -106,7 +108,7 @@
       else if (status === 'low') explanation = `${fmt.num(v)} g per ${unit100}, at or below the UK 'low' level of ${low} g.`;
       else explanation = `${fmt.num(v)} g per ${unit100}, between the UK 'low' (${low} g) and 'high' (${high} g) levels.`;
       const ps = perServing(v);
-      if (ps != null && status !== 'low') explanation += ` ${capitalise(servingNoun)} has ${fmt.num(ps)} g.`;
+      if (ps != null && status !== 'low') explanation += ` ${capitalise(servingNoun)} ${servingVerb} ${fmt.num(ps)} g.`;
       dims.push({ key, label: rule.label, palette: 'nutrientToLimit', status, value: v, explanation, ref: rule.ref });
     });
 

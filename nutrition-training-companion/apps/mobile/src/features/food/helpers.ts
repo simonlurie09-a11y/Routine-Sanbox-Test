@@ -113,10 +113,13 @@ export function shortServing(food: Food) {
   return info.qty;
 }
 
-/* "165 kcal per bar" */
+/* Spaces that never break, so "150 g" or "2 eggs" never splits across lines. */
+export const keepTogether = (text: string) => text.replace(/ /g, ' ');
+
+/* "165 kcal per bar" (the serving kept on one line with "per") */
 export function perServingText(food: Food) {
   const per = M.nutrientsFor(food, food.serving ? food.serving.grams : 100);
-  return `${kcalText(per.energyKcal)} per ${shortServing(food)}`;
+  return `${keepTogether(kcalText(per.energyKcal))} ${keepTogether(`per ${shortServing(food)}`)}`;
 }
 
 export const entryAmount = (e: LogEntry) => `${num(e.grams)} ${e.isBeverage ? 'ml' : 'g'}`;

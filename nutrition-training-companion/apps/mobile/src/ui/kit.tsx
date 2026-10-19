@@ -208,7 +208,8 @@ export function Field({ label, hint, children }: { label: string; hint?: string 
 export function Switch({ on, onChange, label, disabled }: { on: boolean; onChange?: (on: boolean) => void; label: string; disabled?: boolean }) {
   return (
     <RNSwitch value={on} onValueChange={onChange} disabled={disabled} accessibilityLabel={label}
-      trackColor={{ true: colors.primary, false: colors.hairline }} thumbColor={colors.canvas} ios_backgroundColor={colors.hairline} />
+      trackColor={{ true: colors.primary, false: colors.hairline }} thumbColor={colors.canvas} ios_backgroundColor={colors.hairline}
+      {...(Platform.OS === 'web' ? ({ activeThumbColor: colors.canvas } as object) : {})} />
   );
 }
 

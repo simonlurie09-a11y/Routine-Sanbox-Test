@@ -106,7 +106,7 @@ export function AmountStepper({ value, onChange, unit, step = 10, max = 2000, la
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.sm }}>
       {btn('minus', 'Decrease', down, down < 1)}
-      <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: spacing.xxs, minWidth: 76, justifyContent: 'center' }}>
+      <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: spacing.xs, minWidth: 76, justifyContent: 'center' }}>
         <TextInput value={text} onChangeText={typed} onBlur={() => setText(num(value))} keyboardType="decimal-pad" selectTextOnFocus
           accessibilityLabel={`${label} in ${unit === 'ml' ? 'millilitres' : 'grams'}`} maxLength={6}
           style={[textStyle('body', 'semiBold'), { color: colors.ink, textAlign: 'right', width: 64, paddingVertical: spacing.xs, fontVariant: ['tabular-nums'],
